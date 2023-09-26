@@ -1,2 +1,12 @@
 TODO:
-- style and move exampleTwo to here...
+- [ ] style and move exampleTwo to here...
+- [ ] msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
+- [ ] choose license (https://www.infoworld.com/article/3703768/the-open-source-licensing-war-is-over.html?utm_source=changelog-news)
+- [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
+- [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)**
+- [ ] security and text & room link encryption 
+- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js
+- [ ] search/crawl
+- [ ] dns (link board) / dns crdt
+- [ ] id, room administrators (nostr)
+- [ ] organization (DOA?)
