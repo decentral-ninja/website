@@ -86,6 +86,7 @@ export default class Logo extends Shadow() {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
+        align-items: center;
         justify-items: center;
       }
       :host > svg {
