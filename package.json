@@ -1,0 +1,21 @@
+{
+  "name": "decentral ninja",
+  "version": "0.0.1",
+  "description": "The future of WEB3.0 comes with CRDTs. The decentral ninja helps the peasant to navigate around the pitfalls of central services. The hidden aspect of our ninja is to navigate anonymously. The weapons are CRDTs, Websocket, WebRTC, IPFS, etc. Always, 100% open source!",
+  "main": "./index.html",
+  "scripts": {
+    "fix": "standard --fix",
+    "serve": "live-server --port=4200 --host=localhost",
+  },
+  "author": "weedshaker@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "*",
+    "standard": "*",
+  },
+  "standard": {
+    "ignore": [
+      "docs/es/prism.*"
+    ]
+  }
+}
