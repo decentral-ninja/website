@@ -123,25 +123,31 @@ export default class Logo extends Shadow() {
       :host([animation]) > svg g[inkscape-label=star] {
         transform-origin: center;
         animation: rotate 300s linear infinite;
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=ninjaStar] {
         transform-origin: center;
         animation: rotate 1800s linear infinite reverse;
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=starInner] {
         transform-origin: center;
         animation: rotate 30s linear infinite reverse;
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=starInner] path {
         transform-origin: center;
         animation: scaleAndOpacity 10050ms ease-in-out infinite;
+        will-change: transform, opacity, stroke-width;
       }
       :host([animation]) > svg g[inkscape-label=ajna] {
         transform-origin: center;
         animation: rotate 30s linear infinite reverse;
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=ajnaGlow] {
         animation: opacity 30s ease-in-out infinite;
+        will-change: opacity;
       }
       @keyframes rotate {
         from {
