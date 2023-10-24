@@ -25,6 +25,7 @@ export default class Logo extends Shadow() {
     this.transitionDuration = 3000
     this.clickEventListener = event => self.open(this.getAttribute('href'), '_self')
     this.animationiterationListener = event => {
+      // workaround for nice css transition between the two logos
       if (this.hasAttribute('favicon')) {
         this.removeAttribute('animation')
       } else {
@@ -89,6 +90,9 @@ export default class Logo extends Shadow() {
         align-items: center;
         justify-items: center;
       }
+      :host([href]) {
+        cursor: pointer;
+      }
       :host > svg {
         grid-column: 1;
         grid-row: 1;
@@ -96,17 +100,10 @@ export default class Logo extends Shadow() {
         width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
       }
-      :host > svg g[inkscape-label=bg] > * {
-        display: none;
-      }
-      :host > svg g[inkscape-label=ninjaStar] circle {
-        display: none;
-      }
       :host > svg:first-of-type {
         opacity: 1;
       }
       :host > svg:last-of-type {
-        /* TODO: Transition of opacity has been jumpy */
         opacity: 0;
         display: none;
       }
@@ -184,6 +181,13 @@ export default class Logo extends Shadow() {
         100% {
           opacity: 0.9;
         }
+      }
+      /* two elements which could not be removed in inkscape */
+      :host > svg g[inkscape-label=bg] > * {
+        display: none;
+      }
+      :host > svg g[inkscape-label=ninjaStar] circle {
+        display: none;
       }
     `
     return this.fetchTemplate()
