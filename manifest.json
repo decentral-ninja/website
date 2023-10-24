@@ -1,41 +1,52 @@
 {
- "name": "decentral.ninja",
- "icons": [
-  {
-   "src": "./src/img/icons/android-icon-36x36.png",
-   "sizes": "36x36",
-   "type": "image/png",
-   "density": "0.75"
-  },
-  {
-   "src": "./src/img/icons/android-icon-48x48.png",
-   "sizes": "48x48",
-   "type": "image/png",
-   "density": "1.0"
-  },
-  {
-   "src": "./src/img/icons/android-icon-72x72.png",
-   "sizes": "72x72",
-   "type": "image/png",
-   "density": "1.5"
-  },
-  {
-   "src": "./src/img/icons/android-icon-96x96.png",
-   "sizes": "96x96",
-   "type": "image/png",
-   "density": "2.0"
-  },
-  {
-   "src": "./src/img/icons/android-icon-144x144.png",
-   "sizes": "144x144",
-   "type": "image/png",
-   "density": "3.0"
-  },
-  {
-   "src": "./src/img/icons/android-icon-192x192.png",
-   "sizes": "192x192",
-   "type": "image/png",
-   "density": "4.0"
-  }
- ]
+    "name": "decentral-ninja",
+    "short_name": "DCN",
+    "start_url": "./",
+    "display": "fullscreen",
+    "background_color": "#000f33",
+    "description": "The future of WEB3.0 comes with CRDTs. The decentral ninja helps the peasant to navigate around the pitfalls of central services. The hidden aspect of our ninja is to navigate anonymously. The weapons are CRDTs, Websocket, WebRTC, IPFS, etc. Always, 100% open source!",
+    "dir": "ltr",
+    "categories": "communication",
+    "lang": "en",
+    "orientation": "portrait",
+    "scope": "./",
+    "theme_color": "#fff8e0",
+    "icons": [
+        {
+            "src": "./src/img/icons/android-icon-36x36.png",
+            "sizes": "36x36",
+            "type": "image/png",
+            "density": "0.75"
+        },
+        {
+            "src": "./src/img/icons/android-icon-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png",
+            "density": "1.0"
+        },
+        {
+            "src": "./src/img/icons/android-icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "density": "1.5"
+        },
+        {
+            "src": "./src/img/icons/android-icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "density": "2.0"
+        },
+        {
+            "src": "./src/img/icons/android-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "density": "3.0"
+        },
+        {
+            "src": "./src/img/icons/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "density": "4.0"
+        }
+    ]
 }

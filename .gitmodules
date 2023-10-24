@@ -10,3 +10,6 @@
 [submodule "src/es/chat"]
 	path = src/es/chat
 	url = https://github.com/decentral-ninja/chat.git
+[submodule "src/es/event-driven-web-components-yjs"]
+	path = src/es/event-driven-web-components-yjs
+	url = https://github.com/Weedshaker/event-driven-web-components-yjs.git

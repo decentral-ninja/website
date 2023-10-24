@@ -190,6 +190,13 @@ export default class Logo extends Shadow() {
         display: none;
       }
     `
+    if (this.hasAttribute('favicon')) {
+      this.css = /* css */`
+      :host([favicon]) > svg:first-of-type {
+        display: none;
+      }
+    `
+    }
     return this.fetchTemplate()
   }
 
