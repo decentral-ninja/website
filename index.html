@@ -33,16 +33,19 @@
    <title>Decentral Ninja</title>
 </head>
 <body>
-   <p-index></p-index>
+   <c-router routes="[
+      {
+        'name': 'p-index',
+        'path': '../../components/pages/index.js',
+        'regExp': ['/[#=]{1}\/$/', '/^\/$/']
+      }
+   ]"></c-router>
    <script rel=preload type=module>
-      /**
-       * TODO: Load Router here
-       */
       Promise.all([
-      import('./src/es/components/pages/index.js').then(module => ['p-index', module.default])
+         import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
       ]).then(elements => elements.forEach(element => {
-      // don't define already existing customElements
-      if (element && !customElements.get(element[0])) customElements.define(...element)
+         // don't define already existing customElements
+         if (element && !customElements.get(element[0])) customElements.define(...element)
       }))
    </script>
 </body>
