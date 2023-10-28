@@ -25,7 +25,7 @@ export default class Logo extends Shadow(WebWorker()) {
 
     this.setAttribute('aria-label', 'show navigation menu')
     this.setAttribute('aria-expanded', 'true')
-    this.transitionDuration = 3000
+    this.transitionDuration = this.getAttribute('transition-duration') || 600
     this.clickEventListener = event => {
       if (this.getAttribute('href')) {
         self.open(this.getAttribute('href'), this.getAttribute('target') || '_self')
@@ -44,10 +44,21 @@ export default class Logo extends Shadow(WebWorker()) {
     this.animationiterationListener = event => {
       // workaround for nice css transition between the two logos
       if (this.hasAttribute('favicon')) {
+        // TODO: smoothen the transition ether reverse animation to initial position or change opacity before removing the animation attribute
         this.removeAttribute('animation')
       } else {
         this.setAttribute('animation', 'true')
       }
+      this.dispatchEvent(new CustomEvent(this.getAttribute('animationiteration-event-name') || this.tagName.toLowerCase() + '-animationiteration', {
+        detail: {
+          open: () => this.setAttribute('favicon', 'true'),
+          close: () => this.removeAttribute('favicon'),
+          origEvent: event
+        },
+        bubbles: true,
+        cancelable: true,
+        composed: true
+      }))
     }
     this.animationiterationListener()
   }
@@ -108,6 +119,8 @@ export default class Logo extends Shadow(WebWorker()) {
         grid-template-rows: 1fr;
         align-items: center;
         justify-items: center;
+        tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: transparent;
       }
       :host > svg {
         grid-column: 1;
@@ -115,11 +128,13 @@ export default class Logo extends Shadow(WebWorker()) {
         height: var(--svg-height, var(--svg-size, auto));
         width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
         opacity: 0;
-        will-change: opacity, width;
-        transition: var(--transition, opacity ${this.transitionDuration}ms ease-out, width ${this.transitionDuration}ms ease-out);
+        will-change: opacity;
+        transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
       }
-      :host([favicon]) > svg {
-        width: var(--favicon-svg-width, var(--favicon-svg-size, var(--svg-width, var(--svg-size, 4em))));
+      :host([favicon][auto-width]) > svg {
+        will-change: width;
+        transition: var(--transition, width ${this.transitionDuration}ms ease-out);
+        width: var(--favicon-svg-width, var(--favicon-svg-size, var(--svg-width, var(--svg-size, 3em))));
       }
       :host > svg.first {
         opacity: 1;

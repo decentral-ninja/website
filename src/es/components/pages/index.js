@@ -11,6 +11,8 @@ import { Shadow } from '../../event-driven-web-components-prototypes/src/Shadow.
 export default class Index extends Shadow() {
   constructor (options = {}, ...args) {
     super({ importMetaUrl: import.meta.url, ...options }, ...args)
+
+    this.transitionDuration = this.getAttribute('transition-duration') || 600
   }
 
   connectedCallback () {
@@ -55,13 +57,20 @@ export default class Index extends Shadow() {
                              "body"
                              "footer";
         grid-template-columns: 100%;
-        grid-template-rows: minmax(var(--header-min-height , 50px), auto) 1fr minmax(var(--footer-min-height, 50px), auto);
+        grid-template-rows: minmax(var(--header-min-height , 0.5em), auto) 1fr minmax(var(--footer-min-height, 0.5em), auto);
         min-height: var(--min-height, 100dvh);
         max-height: 100vh;
       }
+      :host > section > o-body {
+        transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
+        will-change: opacity;
+      }
+      :host > section:has(o-header[open]) > o-body {
+        opacity: 0;
+      }
       @media only screen and (max-width: _max-width_) {
         :host {
-          grid-template-rows: auto minmax(var(--header-height-mobile, var(--header-height, 50px)), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, 50px)), auto);
+          grid-template-rows: auto minmax(var(--header-height-mobile, var(--header-height, 0.5em)), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, 0.5em)), auto);
         }
       }
     `
@@ -130,8 +139,8 @@ export default class Index extends Shadow() {
       this.html = /* html */`
         <section>
           <o-header open></o-header>
-          <o-body><h1>under construction... to chat click the logo 👈</h1></o-body>
-          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">©decentral.ninja</a></o-footer>
+          <o-body><a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><h1>under construction... click to chat 👈</h1></a></o-body>
+          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja</a></o-footer>
         </section>
       `
     })

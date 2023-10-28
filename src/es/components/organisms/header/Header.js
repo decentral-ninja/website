@@ -18,6 +18,7 @@ export default class Header extends Shadow() {
     super({ importMetaUrl: import.meta.url, ...options }, ...args)
 
     this.setAttribute('aria-label', 'Header')
+    this.transitionDuration = this.getAttribute('transition-duration') || 600
   }
 
   connectedCallback () {
@@ -25,10 +26,32 @@ export default class Header extends Shadow() {
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => (this.hidden = false))
+    showPromises.push(new Promise(resolve => this.addEventListener('a-logo-load', event => resolve(event), { once: true })))
+    Promise.all(showPromises).then(() => {
+      this.open()
+      if (this.hasAttribute('toggle-once')) {
+        this.addEventListener('a-logo-animationiteration', event => {
+          this.close()
+          this.removeEventListener('a-logo-click', this.toggle)
+        }, { once: true })
+        this.addEventListener('a-logo-click', this.toggle, { once: true })
+        this.addEventListener('click', this.clickEventListener)
+      } else {
+        this.addEventListener('a-logo-animationiteration', this.close, { once: true })
+        this.addEventListener('a-logo-click', this.toggle)
+      }
+      this.addEventListener('a-logo-click', event => this.removeEventListener('a-logo-animationiteration', this.close), { once: true })
+      this.hidden = false
+    })
   }
 
-  disconnectedCallback () {}
+  disconnectedCallback () {
+    if (this.hasAttribute('toggle-once')) {
+      this.removeEventListener('click', this.clickEventListener)
+    } else {
+      this.removeEventListener('a-logo-click', this.toggle)
+    }
+  }
 
   /**
    * evaluates if a render is necessary
@@ -56,22 +79,34 @@ export default class Header extends Shadow() {
   renderCSS () {
     this.css = /* css */`
       :host {
-        /*--logo-default-svg-width: auto;*/
+        --show: show 1s ease-out;
+        --padding: 0.5em;
+        --height: 3em;
         grid-area: header;
-        padding: 1em;
+        padding: var(--padding);
+        min-height: var(--height);
+        z-index: 1;
+      }
+      :host > header {
+        display: flex;
+        justify-content: flex-end;
       }
       :host > header > a-logo {
-        width: 4em;
+        position: absolute;
+        width: var(--height);
+        transform: translate(0, 0);
+        transition: var(--transition, transform ${this.transitionDuration}ms ease-out, width ${this.transitionDuration}ms ease-out);
+        will-change: transform, width;
+      }
+      :host([toggle-once]) > header > a-logo:active {
+        transform: scale(0.7);
+      }
+      :host([close]) > header > a-logo {
+        position: static;
       }
       :host([open]) > header > a-logo {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        margin: auto;
-        width: 100%;
-        height: min(100dvw, 100dvh);
+        transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+        width: 100dvw;
       }
     `
     return this.fetchTemplate()
@@ -108,13 +143,59 @@ export default class Header extends Shadow() {
     ]).then((children) => {
       this.html = /* html */`
         <header>
-          <a-logo namespace="logo-default-" href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html"></a-logo>
+          <a-logo namespace="logo-default-"></a-logo>
         </header>
       `
     })
   }
 
+  open = () => {
+    clearTimeout(this.closeTimeout)
+    clearTimeout(this.faviconTimeout)
+    this.setAttribute('open', 'true')
+    this.removeAttribute('close')
+    this.logo.removeAttribute('favicon')
+    this.dispatchEvent(new CustomEvent(this.getAttribute('open-event-name') || this.tagName.toLowerCase() + '-open', {
+      bubbles: true,
+      cancelable: true,
+      composed: true
+    }))
+  }
+
+  close = () => {
+    this.removeAttribute('open')
+    clearTimeout(this.closeTimeout)
+    this.closeTimeout = setTimeout(() => this.setAttribute('close', 'true'), this.transitionDuration * 1.2);
+    clearTimeout(this.faviconTimeout)
+    this.faviconTimeout = setTimeout(() => this.logo.setAttribute('favicon', 'true'), this.transitionDuration / 2);
+    this.dispatchEvent(new CustomEvent(this.getAttribute('close-event-name') || this.tagName.toLowerCase() + '-close', {
+      bubbles: true,
+      cancelable: true,
+      composed: true
+    }))
+  }
+
+  toggle = () => {
+    if (this.hasAttribute('open')) {
+      this.close()
+    } else {
+      this.open()
+    }
+  }
+
+  clickEventListener = () => {
+    this.dispatchEvent(new CustomEvent(this.getAttribute('click-event-name') || this.tagName.toLowerCase() + '-click', {
+      bubbles: true,
+      cancelable: true,
+      composed: true
+    }))
+  }
+
   get header () {
     return this.root.querySelector('header')
+  }
+
+  get logo () {
+    return this.root.querySelector('a-logo')
   }
 }

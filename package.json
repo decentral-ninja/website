@@ -16,7 +16,8 @@
   },
   "standard": {
     "ignore": [
-      "prism.*"
+      "prism.*",
+      "src/es/event-driven-web-components-yjs"
     ]
   }
 }

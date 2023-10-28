@@ -11,6 +11,7 @@
   --color-error: red;
   --color-hover: #ff0005;
   --color: #fff8e0;
+  --color-rgba-50: rgba(255, 248, 224, 0.5);
   --content-spacing-mobile: 1rem;
   --content-spacing: 1.143rem;
   --font-family: Arial, sans-serif;
