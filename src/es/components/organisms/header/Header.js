@@ -165,9 +165,9 @@ export default class Header extends Shadow() {
   close = () => {
     this.removeAttribute('open')
     clearTimeout(this.closeTimeout)
-    this.closeTimeout = setTimeout(() => this.setAttribute('close', 'true'), this.transitionDuration * 1.2);
+    this.closeTimeout = setTimeout(() => this.setAttribute('close', 'true'), this.transitionDuration * 1.2)
     clearTimeout(this.faviconTimeout)
-    this.faviconTimeout = setTimeout(() => this.logo.setAttribute('favicon', 'true'), this.transitionDuration / 2);
+    this.faviconTimeout = setTimeout(() => this.logo.setAttribute('favicon', 'true'), this.transitionDuration / 2)
     this.dispatchEvent(new CustomEvent(this.getAttribute('close-event-name') || this.tagName.toLowerCase() + '-close', {
       bubbles: true,
       cancelable: true,
