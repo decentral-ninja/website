@@ -17,6 +17,7 @@
   --font-size-mobile: min(14px, 5vw);
   --font-size: max(16px, 0.8vw);
   --font-weight: 400;
+  --h-text-align: center;
   --line-height: 1.5;
   --outline-color: var(--color-hover);
 }

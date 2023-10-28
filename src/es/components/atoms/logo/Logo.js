@@ -1,5 +1,6 @@
 // @ts-check
 import { Shadow } from '../../../event-driven-web-components-prototypes/src/Shadow.js'
+import { WebWorker } from '../../../event-driven-web-components-prototypes/src/WebWorker.js'
 
 /* global self */
 
@@ -14,7 +15,7 @@ import { Shadow } from '../../../event-driven-web-components-prototypes/src/Shad
  *  {string} href used for the link reference
  * }
  */
-export default class Logo extends Shadow() {
+export default class Logo extends Shadow(WebWorker()) {
   static get observedAttributes () {
     return ['favicon']
   }
@@ -22,8 +23,24 @@ export default class Logo extends Shadow() {
   constructor (options = {}, ...args) {
     super({ importMetaUrl: import.meta.url, ...options }, ...args)
 
+    this.setAttribute('aria-label', 'show navigation menu')
+    this.setAttribute('aria-expanded', 'true')
     this.transitionDuration = 3000
-    this.clickEventListener = event => self.open(this.getAttribute('href'), '_self')
+    this.clickEventListener = event => {
+      if (this.getAttribute('href')) {
+        self.open(this.getAttribute('href'), this.getAttribute('target') || '_self')
+      } else {
+        this.dispatchEvent(new CustomEvent(this.getAttribute('click-event-name') || this.tagName.toLowerCase() + '-click', {
+          detail: {
+            open: () => this.setAttribute('favicon', 'true'),
+            close: () => this.removeAttribute('favicon')
+          },
+          bubbles: true,
+          cancelable: true,
+          composed: true
+        }))
+      }
+    }
     this.animationiterationListener = event => {
       // workaround for nice css transition between the two logos
       if (this.hasAttribute('favicon')) {
@@ -41,19 +58,20 @@ export default class Logo extends Shadow() {
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
     Promise.all(showPromises).then(() => {
-      if (this.getAttribute('href')) this.addEventListener('click', this.clickEventListener)
+      this.addEventListener('click', this.clickEventListener)
       this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener))
       this.hidden = false
     })
   }
 
   disconnectedCallback () {
-    if (this.getAttribute('href')) this.removeEventListener('click', this.clickEventListener)
+    this.removeEventListener('click', this.clickEventListener)
     this.svgs.forEach(svg => svg.removeEventListener('animationiteration', this.animationiterationListener))
   }
 
   attributeChangedCallback (name, oldValue, newValue) {
     if (!this.hasAttribute('favicon')) this.animationiterationListener()
+    this.setAttribute('aria-expanded', this.hasAttribute('favicon') ? 'false' : 'true')
   }
 
   /**
@@ -82,37 +100,38 @@ export default class Logo extends Shadow() {
   renderCSS () {
     this.css = /* css */`
       :host {
-        --show: show 3s ease-out;
+        --show: none;
         color: var(--color);
+        cursor: pointer;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         align-items: center;
         justify-items: center;
       }
-      :host([href]) {
-        cursor: pointer;
-      }
       :host > svg {
         grid-column: 1;
         grid-row: 1;
         height: var(--svg-height, var(--svg-size, auto));
         width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
-        transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
+        opacity: 0;
+        will-change: opacity, width;
+        transition: var(--transition, opacity ${this.transitionDuration}ms ease-out, width ${this.transitionDuration}ms ease-out);
       }
-      :host > svg:first-of-type {
+      :host([favicon]) > svg {
+        width: var(--favicon-svg-width, var(--favicon-svg-size, var(--svg-width, var(--svg-size, 4em))));
+      }
+      :host > svg.first {
         opacity: 1;
       }
-      :host > svg:last-of-type {
-        opacity: 0;
-        display: none;
-      }
-      :host([favicon]) > svg:first-of-type {
+      :host > svg:not(.first) {
         opacity: 0;
       }
-      :host([favicon]) > svg:last-of-type {
+      :host([favicon]) > svg.first {
+        opacity: 0;
+      }
+      :host([favicon]) > svg:not(.first) {
         opacity: 1;
-        display: block;
       }
       :host(:not([favicon])) > svg g[inkscape-label=star] {
         opacity: 0.8;
@@ -190,13 +209,6 @@ export default class Logo extends Shadow() {
         display: none;
       }
     `
-    if (this.hasAttribute('favicon')) {
-      this.css = /* css */`
-      :host([favicon]) > svg:first-of-type {
-        display: none;
-      }
-    `
-    }
     return this.fetchTemplate()
   }
 
@@ -235,18 +247,68 @@ export default class Logo extends Shadow() {
     return this.fetchHTML([
       `${this.getAttribute('base-url') || this.importMetaUrl}${this.getAttribute('url') || '../../../../img/logo.svg'}`,
       `${this.getAttribute('base-url') || this.importMetaUrl}${this.getAttribute('url') || '../../../../img/logoIcon.svg'}`
-    ], false).then(svgs => {
-      svgs = svgs.map(svg => svg
-        .replace(/inkscape:label/g, 'inkscape-label') // fix svg exported from inkscape
-        .replace(/#fff8e0/g, 'currentColor') // make whitish caller accessible
-        .replace(/#000f33/g, `var(--${this.getAttribute('namespace') || ''}background-color)`) // make blueish caller accessible
-        .replace(/#ff0005/g, `var(--${this.getAttribute('namespace') || ''}color-shadow)`) // make red-ish caller accessible
-        .replace(/#fccf00/g, `var(--${this.getAttribute('namespace') || ''}color-star)`) // make gold-ish caller accessible
-        .replace(/#000000/g, 'currentColor')) // make shadow caller accessible
+    ], false).then(async svgs => {
+      const replaces = [
+        // fix svg exported from inkscape
+        {
+          pattern: 'inkscape:label',
+          flags: 'g',
+          replacement: 'inkscape-label'
+        },
+        // make whitish caller accessible
+        {
+          pattern: '#fff8e0',
+          flags: 'g',
+          replacement: 'currentColor'
+        },
+        // make blueish caller accessible
+        {
+          pattern: '#000f33',
+          flags: 'g',
+          replacement: `var(--${this.getAttribute('namespace') || ''}background-color)`
+        },
+        // make red-ish caller accessible
+        {
+          pattern: '#ff0005',
+          flags: 'g',
+          replacement: `var(--${this.getAttribute('namespace') || ''}color-shadow)`
+        },
+        // make gold-ish caller accessible
+        {
+          pattern: '#fccf00',
+          flags: 'g',
+          replacement: `var(--${this.getAttribute('namespace') || ''}color-star)`
+        },
+        // make shadow caller accessible
+        {
+          pattern: '#000000',
+          flags: 'g',
+          replacement: 'currentColor'
+        }
+      ]
       this.html = ''
-      this.html = svgs[0]
-      this.html = svgs[1]
+      this.html = await replaces.reduce(async (svg, replace) => this.webWorker(Logo.replace, await svg, replace.pattern, replace.flags, replace.replacement), svgs[0])
+      this.svg.classList.add('first')
+      this.html = await replaces.reduce(async (svg, replace) => this.webWorker(Logo.replace, await svg, replace.pattern, replace.flags, replace.replacement), svgs[1])
+      this.dispatchEvent(new CustomEvent(this.getAttribute('load-event-name') || this.tagName.toLowerCase() + '-load', {
+        bubbles: true,
+        cancelable: true,
+        composed: true
+      }))
     })
+  }
+
+  /**
+   * casual string replace function which can be used as a webworker
+   *
+   * @param {string} text
+   * @param {string} pattern
+   * @param {string} flags
+   * @param {string} replacement
+   * @return {string}
+   */
+  static replace (text, pattern, flags, replacement) {
+    return text.replace(new RegExp(pattern, flags), replacement)
   }
 
   get svg () {

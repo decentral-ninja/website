@@ -33,20 +33,29 @@
    <title>Decentral Ninja</title>
 </head>
 <body>
-   <c-router routes="[
-      {
-        'name': 'p-index',
-        'path': '../../components/pages/index.js',
-        'regExp': ['/[#=]{1}\/$/', '/^\/$/']
-      }
-   ]"></c-router>
-   <script rel=preload type=module>
-      Promise.all([
-         import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
-      ]).then(elements => elements.forEach(element => {
-         // don't define already existing customElements
-         if (element && !customElements.get(element[0])) customElements.define(...element)
-      }))
-   </script>
+  <c-fetch-html>
+    <c-fetch-css>
+      <c-fetch-modules>
+        <c-router routes="[
+          {
+            'name': 'p-index',
+            'path': '../../components/pages/index.js',
+            'regExp': ['/[#=]{1}\/$/', '/^\/$/']
+          }
+        ]"></c-router>
+      </c-fetch-modules>
+    </c-fetch-css>
+  </c-fetch-html>
+  <script rel=preload type=module>
+    Promise.all([
+      import('./src/es/event-driven-web-components-prototypes/src/FetchHtml.js').then(module => ['c-fetch-html', module.default]),
+        import('./src/es/event-driven-web-components-prototypes/src/FetchCss.js').then(module => ['c-fetch-css', module.default]),
+        import('./src/es/event-driven-web-components-prototypes/src/FetchModules.js').then(module => ['c-fetch-modules', module.default]),
+        import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
+    ]).then(elements => elements.forEach(element => {
+        // don't define already existing customElements
+        if (element && !customElements.get(element[0])) customElements.define(...element)
+    }))
+  </script>
 </body>
 </html>
