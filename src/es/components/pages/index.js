@@ -16,7 +16,7 @@ export default class Index extends Mutation() {
       ...options
     }, ...args)
 
-    this.transitionDuration = this.getAttribute('transition-duration') || 600
+    this.transitionDuration = this.getAttribute('transition-duration') || 400
   }
 
   connectedCallback () {

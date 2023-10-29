@@ -25,7 +25,7 @@ export default class Logo extends Shadow(WebWorker()) {
 
     this.setAttribute('aria-label', 'show navigation menu')
     this.setAttribute('aria-expanded', 'true')
-    this.transitionDuration = this.getAttribute('transition-duration') || 600
+    this.transitionDuration = this.getAttribute('transition-duration') || 400
     this.clickEventListener = event => {
       if (this.getAttribute('href')) {
         self.open(this.getAttribute('href'), this.getAttribute('target') || '_self')

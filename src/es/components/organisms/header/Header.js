@@ -18,7 +18,7 @@ export default class Header extends Shadow() {
     super({ importMetaUrl: import.meta.url, ...options }, ...args)
 
     this.setAttribute('aria-label', 'Header')
-    this.transitionDuration = this.getAttribute('transition-duration') || 600
+    this.transitionDuration = this.getAttribute('transition-duration') || 400
   }
 
   connectedCallback () {
@@ -89,13 +89,13 @@ export default class Header extends Shadow() {
       }
       :host > header {
         display: flex;
-        justify-content: flex-start;
+        justify-content: flex-end;
       }
       :host > header > a-logo {
         position: absolute;
         width: var(--height);
         transform: translate(0, 0);
-        transition: var(--transition, transform ${this.transitionDuration}ms ease-out, width ${this.transitionDuration}ms ease-out);
+        animation: transition-reverse ${this.transitionDuration}ms ease-out;
         will-change: transform, width;
       }
       :host([toggle-once]) > header > a-logo:active {
@@ -105,8 +105,35 @@ export default class Header extends Shadow() {
         position: static;
       }
       :host([open]) > header > a-logo {
-        transform: translate(calc(50dvw - 50% - var(--padding)), calc(50dvh - 50% - var(--padding)));
         width: 100dvw;
+        transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+        animation: transition ${this.transitionDuration}ms ease-out;
+      }
+      @keyframes transition {
+        0% {
+          transform: translate(0, 0);
+          width: var(--height);
+        }
+        30% {
+          transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+        }
+        100% {
+          transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+          width: 100dvw;
+        }
+      }
+      @keyframes transition-reverse {
+        0% {
+          transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+          width: 100dvw;
+        }
+        70% {
+          width: var(--height);
+        }
+        100% {
+          transform: translate(0, 0);
+          width: var(--height);
+        }
       }
     `
     return this.fetchTemplate()
@@ -165,7 +192,7 @@ export default class Header extends Shadow() {
   close = () => {
     this.removeAttribute('open')
     clearTimeout(this.closeTimeout)
-    this.closeTimeout = setTimeout(() => this.setAttribute('close', 'true'), this.transitionDuration * 1.2)
+    this.closeTimeout = setTimeout(() => this.setAttribute('close', 'true'), this.transitionDuration * 2)
     clearTimeout(this.faviconTimeout)
     this.faviconTimeout = setTimeout(() => this.logo.setAttribute('favicon', 'true'), this.transitionDuration / 2)
     this.dispatchEvent(new CustomEvent(this.getAttribute('close-event-name') || this.tagName.toLowerCase() + '-close', {
