@@ -79,7 +79,7 @@ export default class Header extends Shadow() {
   renderCSS () {
     this.css = /* css */`
       :host {
-        --show: show 1s ease-out;
+        --show: show 3s ease-in;
         --padding: 0.5em;
         --height: 3em;
         grid-area: header;
@@ -107,6 +107,7 @@ export default class Header extends Shadow() {
       :host([open]) > header > a-logo {
         width: 100dvw;
         transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+        animation: transition ${this.transitionDuration}ms ease-out;
       }
       @keyframes transition {
         from {
@@ -129,12 +130,6 @@ export default class Header extends Shadow() {
         }
       }
     `
-    // wait for the initial logo fade in animation 
-    setTimeout(() => this.css = /* css */`
-      :host([open]) > header > a-logo {
-        animation: transition ${this.transitionDuration}ms ease-out;
-      }
-    `, this.transitionDuration);
     return this.fetchTemplate()
   }
 
