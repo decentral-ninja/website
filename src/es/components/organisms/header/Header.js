@@ -89,7 +89,7 @@ export default class Header extends Shadow() {
       }
       :host > header {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
       }
       :host > header > a-logo {
         position: absolute;
@@ -105,7 +105,7 @@ export default class Header extends Shadow() {
         position: static;
       }
       :host([open]) > header > a-logo {
-        transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+        transform: translate(calc(50dvw - 50% - var(--padding)), calc(50dvh - 50% - var(--padding)));
         width: 100dvw;
       }
     `

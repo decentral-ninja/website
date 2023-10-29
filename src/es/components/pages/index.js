@@ -1,5 +1,5 @@
 // @ts-check
-import { Shadow } from '../../event-driven-web-components-prototypes/src/Shadow.js'
+import { Mutation } from '../../event-driven-web-components-prototypes/src/Mutation.js'
 
 /**
 * Decentral Ninja Main/Start Page
@@ -8,9 +8,13 @@ import { Shadow } from '../../event-driven-web-components-prototypes/src/Shadow.
 * @class Index
 * @type {CustomElementConstructor}
 */
-export default class Index extends Shadow() {
+export default class Index extends Mutation() {
   constructor (options = {}, ...args) {
-    super({ importMetaUrl: import.meta.url, ...options }, ...args)
+    super({
+      importMetaUrl: import.meta.url,
+      mutationObserverInit: { attributes: true, attributeFilter: ['open'] },
+      ...options
+    }, ...args)
 
     this.transitionDuration = this.getAttribute('transition-duration') || 600
   }
@@ -20,10 +24,22 @@ export default class Index extends Shadow() {
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => (this.hidden = false))
+    Promise.all(showPromises).then(() => {
+      this.mutationObserver.observe(this.header, this.mutationObserverInit)
+      this.hidden = false
+    })
   }
 
-  disconnectedCallback () {}
+  disconnectedCallback () {
+    super.disconnectedCallback()
+  }
+
+  mutationCallback (mutationList, observer) {
+    if (mutationList[0] && mutationList[0].type === 'attributes') this.classList[this.header.hasAttribute('open')
+      ? 'add'
+      : 'remove'
+    ]('header-open')
+  }
 
   /**
   * evaluates if a render is necessary
@@ -65,7 +81,8 @@ export default class Index extends Shadow() {
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
         will-change: opacity;
       }
-      :host > section:has(o-header[open]) > o-body {
+      /* :host > section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
+      :host(.header-open) > section > o-body {
         opacity: 0;
       }
       @media only screen and (max-width: _max-width_) {
@@ -135,7 +152,8 @@ export default class Index extends Shadow() {
         name: 'o-footer'
       }
     ]).then((children) => {
-      // const icon = new children[0].constructorClass({ namespace: this.getAttribute('namespace') || '', namespaceFallback: this.hasAttribute('namespace-fallback'), mobileBreakpoint: this.mobileBreakpoint }) // eslint-disable-line
+      // Header is expected to be initially open, below <o-header open></o-header>
+      this.classList.add('header-open')
       this.html = /* html */`
         <section>
           <o-header open></o-header>
@@ -148,6 +166,10 @@ export default class Index extends Shadow() {
 
   get section () {
     return this.root.querySelector('section')
+  }
+
+  get header () {
+    return this.root.querySelector('o-header')
   }
 
   get style () {
