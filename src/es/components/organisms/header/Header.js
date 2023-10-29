@@ -110,27 +110,21 @@ export default class Header extends Shadow() {
         animation: transition ${this.transitionDuration}ms ease-out;
       }
       @keyframes transition {
-        0% {
+        from {
           transform: translate(0, 0);
           width: var(--height);
         }
-        30% {
-          transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
-        }
-        100% {
+        to {
           transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
           width: 100dvw;
         }
       }
       @keyframes transition-reverse {
-        0% {
+        from {
           transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
           width: 100dvw;
         }
-        70% {
-          width: var(--height);
-        }
-        100% {
+        to {
           transform: translate(0, 0);
           width: var(--height);
         }

@@ -158,7 +158,7 @@ export default class Index extends Mutation() {
         <section>
           <o-header open></o-header>
           <o-body><a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><h1>under construction... click to chat 👈</h1></a></o-body>
-          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja</a></o-footer>
+          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.1</a></o-footer>
         </section>
       `
     })
