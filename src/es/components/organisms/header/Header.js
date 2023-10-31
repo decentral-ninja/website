@@ -96,7 +96,7 @@ export default class Header extends Shadow() {
         width: var(--height);
         transform: translate(0, 0);
         animation: transition-reverse ${this.transitionDuration}ms ease-out;
-        will-change: transform, width;
+        will-change: width;/* will-change transform blured the svg */
       }
       :host([toggle-once]) > header > a-logo:active {
         transform: scale(0.7);

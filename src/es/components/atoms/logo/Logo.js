@@ -168,8 +168,8 @@ export default class Logo extends Shadow(WebWorker()) {
       }
       :host([animation]) > svg g[inkscape-label=starInner] path {
         transform-origin: center;
-        animation: scaleAndOpacity 10050ms ease-in-out infinite;
-        will-change: transform, opacity, stroke-width;
+        animation: scaleAndStroke 10050ms ease-in-out infinite;
+        will-change: transform, stroke-width;
       }
       :host([animation]) > svg g[inkscape-label=ajna] {
         transform-origin: center;
@@ -188,20 +188,17 @@ export default class Logo extends Shadow(WebWorker()) {
           transform: rotate(360deg);
         }
       }
-      @keyframes scaleAndOpacity {
+      @keyframes scaleAndStroke {
         0% {
           transform: scale(0);
-          opacity: 1;
           stroke-width: 0.1;
         }
         50% {
           transform: scale(1.2);
-          opacity: 0.5;
-          stroke-width: 0.03;
+          stroke-width: 0.02;
         }
         100% {
           transform: scale(0);
-          opacity: 1;
           stroke-width: 0.1;
         }
       }

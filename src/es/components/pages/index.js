@@ -86,8 +86,8 @@ export default class Index extends Mutation() {
         opacity: 0;
       }
       @media only screen and (max-width: _max-width_) {
-        :host {
-          grid-template-rows: auto minmax(var(--header-height-mobile, var(--header-height, 0.5em)), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, 0.5em)), auto);
+        :host > section {
+          grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, 0.5em)), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, 0.5em)), auto);
         }
       }
     `
@@ -157,8 +157,19 @@ export default class Index extends Mutation() {
       this.html = /* html */`
         <section>
           <o-header open></o-header>
-          <o-body><a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><h1>under construction... click to chat 👈</h1></a></o-body>
-          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.4</a></o-footer>
+          <o-body>
+            <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self">
+              <h1>under construction... click to chat 👈</h1>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
+            </a>
+          </o-body>
+          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.5</a></o-footer>
         </section>
       `
     })
