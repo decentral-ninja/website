@@ -84,6 +84,7 @@ export default class Index extends Mutation() {
       /* :host > section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
       :host(.header-open) > section > o-body {
         opacity: 0;
+        pointer-events: none;
       }
       @media only screen and (max-width: _max-width_) {
         :host > section {
