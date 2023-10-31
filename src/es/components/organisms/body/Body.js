@@ -93,7 +93,6 @@ export default class Body extends Shadow() {
         padding: 1em;
         min-height: 100%;
         position: relative;
-        overscroll-behavior: none;
       }
       :host > main > div:before {
         padding: 0;
