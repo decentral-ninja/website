@@ -170,7 +170,7 @@ export default class Index extends Mutation() {
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
             </a>
           </o-body>
-          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.6</a></o-footer>
+          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.7</a></o-footer>
         </section>
       `
     })
