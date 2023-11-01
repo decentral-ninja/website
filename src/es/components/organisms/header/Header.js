@@ -89,19 +89,36 @@ export default class Header extends Shadow() {
       }
       :host > header {
         display: flex;
-        justify-content: flex-end;
+        gap: 1em;
+        justify-content: space-between;
+        position: relative;
       }
       :host > header > a-logo {
         position: absolute;
+        right: 0;
         width: var(--height);
         transform: translate(0, 0);
         animation: transition-reverse ${this.transitionDuration}ms ease-out;
         will-change: width;/* will-change transform blured the svg */
       }
+      :host > header > a {
+        display: flex;
+        align-items: center;
+        color: var(--a-color);
+        font-family: var(--font-family-secondary);
+        transition: color .3s ease-out;
+      }
+      :host > header > a:hover {
+        color: var(--color-hover);
+      }
+      :host > header > a > a-icon-chat {
+        width: var(--height);
+      }
       :host([toggle-once]) > header > a-logo:active {
         transform: scale(0.7);
       }
       :host([close]) > header > a-logo {
+        order: 2;
         position: static;
       }
       :host([open]) > header > a-logo {
@@ -167,6 +184,10 @@ export default class Header extends Shadow() {
           <a-logo namespace="logo-default-"></a-logo>
         </header>
       `
+      Array.from(this.root.children).forEach(node => {
+        if (node === this.header || node === this.main || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
+        this.header.appendChild(node)
+      })
     })
   }
 

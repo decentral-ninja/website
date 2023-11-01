@@ -151,26 +151,46 @@ export default class Index extends Mutation() {
       {
         path: `${this.importMetaUrl}../organisms/footer/Footer.js`,
         name: 'o-footer'
+      },
+      {
+        path: `${this.importMetaUrl}../atoms/iconChat/IconChat.js`,
+        name: 'a-icon-chat'
       }
     ]).then((children) => {
       // Header is expected to be initially open, below <o-header open></o-header>
       this.classList.add('header-open')
       this.html = /* html */`
         <section>
-          <o-header open></o-header>
+          <o-header open>
+            <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+          </o-header>
           <o-body>
-            <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self">
-              <h1>under construction... click to chat 👈</h1>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione sequi non dolor id illum expedita officia, corporis impedit recusandae enim ea veniam rem iure. Quia, veritatis. Reiciendis fugiat temporibus recusandae.</p>
-            </a>
+              <!-- https://funtranslations.com/yoda -->
+              <h1>Oh, welcome!</h1>
+              <h3>ああ、まいどまいど。</h3>
+              <hr>
+              <h2>Dear Ninja,</h2>
+              <p>Very pleased that you found the way to my dojo, I am!<br>In these challenging times of censorship, surveillance and big data. New skills and weaponary required there are.</p>
+              <hr>
+              <h4>Our chat, our first set of weapon 武器 at hand is which uses:</h4>
+              <ul>
+                <li>Local first CRDT (conflict free replicated data sets)</li>
+                <li>WebRTC</li>
+                <li>Flux WebSocket (coming soon)</li>
+                <li>IPFS (coming soon)</li>
+                <li>WebTorrent (coming soon)</li>
+                <li>end to end encryption (coming soon)</li>
+              </ul>
+              <p>As you see, very very busy building it all, we are. In the meantime, use our proof of concept, please: <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+              <hr>
+              <h4>To further train with new tools, there is... Web 3.0...</h4>
+              <ul>
+                <li>Crypto Currencies... anonymous ones, best are, like monero or the pirate chain.</li>
+                <li>The Torproject</li>
+                <li>and many many more there are...</li>
+              </ul>
           </o-body>
-          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.7</a></o-footer>
+          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.8</a></o-footer>
         </section>
       `
     })
