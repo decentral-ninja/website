@@ -112,7 +112,7 @@ export default class Header extends Shadow() {
         color: var(--color-hover);
       }
       :host > header > a > a-icon-chat {
-        width: var(--height);
+        width: calc(var(--height) - 0.5em);
       }
       :host([toggle-once]) > header > a-logo:active {
         transform: scale(0.7);
