@@ -44,4 +44,10 @@
   --line-height: 1.5;
   --outline-color: var(--color-hover);
   --p-text-align: center;
+  --spacing: 0.75em;
+}
+@media only screen and (max-width: _max-width_) {
+  :root {
+    --spacing: 0.5em;
+  }
 }

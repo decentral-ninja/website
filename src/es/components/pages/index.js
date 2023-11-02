@@ -73,7 +73,7 @@ export default class Index extends Mutation() {
                              "body"
                              "footer";
         grid-template-columns: 100%;
-        grid-template-rows: minmax(var(--header-min-height , 0.5em), auto) 1fr minmax(var(--footer-min-height, 0.5em), auto);
+        grid-template-rows: minmax(var(--header-min-height , var(--spacing)), auto) 1fr minmax(var(--footer-min-height, var(--spacing)), auto);
         min-height: var(--min-height, 100dvh);
         max-height: 100vh;
       }
@@ -88,7 +88,7 @@ export default class Index extends Mutation() {
       }
       @media only screen and (max-width: _max-width_) {
         :host > section {
-          grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, 0.5em)), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, 0.5em)), auto);
+          grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, var(--spacing))), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, var(--spacing))), auto);
         }
       }
     `

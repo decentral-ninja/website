@@ -57,7 +57,7 @@ export default class Footer extends Shadow() {
     this.css = /* css */`
       :host {
         grid-area: footer;
-        padding: 0.5em;
+        padding: var(--spacing);
         font-size: 0.75em;
       }
     `

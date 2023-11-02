@@ -41,7 +41,7 @@ export default class Logo extends Shadow(WebWorker()) {
         }))
       }
     }
-    this.animationiterationListener = event => {
+    this.animationiterationListener = (event, dispatch = true) => {
       // workaround for nice css transition between the two logos
       if (this.hasAttribute('favicon')) {
         // TODO: smoothen the transition ether reverse animation to initial position or change opacity before removing the animation attribute
@@ -49,7 +49,7 @@ export default class Logo extends Shadow(WebWorker()) {
       } else {
         this.setAttribute('animation', 'true')
       }
-      this.dispatchEvent(new CustomEvent(this.getAttribute('animationiteration-event-name') || this.tagName.toLowerCase() + '-animationiteration', {
+      if (dispatch) this.dispatchEvent(new CustomEvent(this.getAttribute('animationiteration-event-name') || this.tagName.toLowerCase() + '-animationiteration', {
         detail: {
           open: () => this.setAttribute('favicon', 'true'),
           close: () => this.removeAttribute('favicon'),
@@ -60,7 +60,7 @@ export default class Logo extends Shadow(WebWorker()) {
         composed: true
       }))
     }
-    this.animationiterationListener()
+    this.animationiterationListener(null, false)
   }
 
   connectedCallback () {
@@ -81,7 +81,7 @@ export default class Logo extends Shadow(WebWorker()) {
   }
 
   attributeChangedCallback (name, oldValue, newValue) {
-    if (!this.hasAttribute('favicon')) this.animationiterationListener()
+    this.animationiterationListener(null, false)
     this.setAttribute('aria-expanded', this.hasAttribute('favicon') ? 'false' : 'true')
   }
 

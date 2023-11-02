@@ -57,7 +57,7 @@ export default class Body extends Shadow() {
     this.css = /* css */`
       :host {
         --show: none;
-        --margin: 0.5em;
+        --margin: var(--spacing);
         --border-radius: 0.5em;
         grid-area: body;
         background-color: var(--color-rgba-50);

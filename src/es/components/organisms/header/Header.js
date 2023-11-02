@@ -80,7 +80,7 @@ export default class Header extends Shadow() {
     this.css = /* css */`
       :host {
         --show: show 1.5s ease-in;
-        --padding: 0.5em;
+        --padding: var(--spacing);
         --height: 3em;
         grid-area: header;
         padding: var(--padding);
