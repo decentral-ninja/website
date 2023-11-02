@@ -134,7 +134,7 @@ export default class Logo extends Shadow(WebWorker()) {
         transition: var(--transition, width ${this.transitionDuration}ms ease-out);
         width: var(--favicon-svg-width, var(--favicon-svg-size, var(--svg-width, var(--svg-size, 3em))));
       }
-      :host > svg.first {
+      :host([loaded]) > svg.first {
         opacity: 1;
       }
       :host > svg:not(.first) {
@@ -143,7 +143,7 @@ export default class Logo extends Shadow(WebWorker()) {
       :host([favicon]) > svg.first {
         opacity: 0;
       }
-      :host([favicon]) > svg:not(.first) {
+      :host([favicon][loaded]) > svg:not(.first) {
         opacity: 1;
       }
       :host(:not([favicon])) > svg g[inkscape-label=star] {
@@ -328,6 +328,7 @@ export default class Logo extends Shadow(WebWorker()) {
       this.html = await replaces.reduce(async (svg, replace) => this.webWorker(Logo.replace, await svg, replace.pattern, replace.flags, replace.replacement), svgs[0])
       this.svg.classList.add('first')
       this.html = await replaces.reduce(async (svg, replace) => this.webWorker(Logo.replace, await svg, replace.pattern, replace.flags, replace.replacement), svgs[1])
+      this.setAttribute('loaded', 'true')
       this.dispatchEvent(new CustomEvent(this.getAttribute('load-event-name') || this.tagName.toLowerCase() + '-load', {
         bubbles: true,
         cancelable: true,
