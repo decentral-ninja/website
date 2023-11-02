@@ -75,7 +75,7 @@ export default class Index extends Mutation() {
         grid-template-columns: 100%;
         grid-template-rows: minmax(var(--header-min-height , var(--spacing)), auto) 1fr minmax(var(--footer-min-height, var(--spacing)), auto);
         min-height: var(--min-height, 100dvh);
-        max-height: 100vh;
+        max-height: 100dvh;
       }
       :host > section > o-body {
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
@@ -190,7 +190,7 @@ export default class Index extends Mutation() {
                 <li>and many many more there are...</li>
               </ul>
           </o-body>
-          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.8</a></o-footer>
+          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.9</a></o-footer>
         </section>
       `
     })

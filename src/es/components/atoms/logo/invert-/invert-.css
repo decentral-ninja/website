@@ -3,4 +3,5 @@
     --logo-invert-color-shadow: var(--color-hover);
     --logo-invert-color-star: var(--color-active);
     --logo-invert-background-color: var(--color);
+    --logo-invert-color-rgba-50: var(--background-color-rgba-50);
 }

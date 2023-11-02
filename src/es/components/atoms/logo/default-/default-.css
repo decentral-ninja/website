@@ -3,4 +3,5 @@
     --logo-default-color-star: var(--color-active);
     --logo-default-color-shadow: var(--color-hover);
     --logo-default-color: var(--color);
+    --logo-default-color-rgba-50: var(--color-rgba-50);
 }

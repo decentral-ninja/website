@@ -26,7 +26,8 @@ export default class Header extends Shadow() {
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    showPromises.push(new Promise(resolve => this.addEventListener('a-logo-load', event => resolve(event), { once: true })))
+    // Logo has loader
+    //showPromises.push(new Promise(resolve => this.addEventListener('a-logo-load', event => resolve(event), { once: true })))
     Promise.all(showPromises).then(() => {
       this.open()
       if (this.hasAttribute('toggle-once')) {

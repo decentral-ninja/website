@@ -64,14 +64,12 @@ export default class Logo extends Shadow(WebWorker()) {
   }
 
   connectedCallback () {
-    this.hidden = true
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
     Promise.all(showPromises).then(() => {
       this.addEventListener('click', this.clickEventListener)
       this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener))
-      this.hidden = false
     })
   }
 
@@ -220,6 +218,35 @@ export default class Logo extends Shadow(WebWorker()) {
       :host > svg g[inkscape-label=ninjaStar] circle {
         display: none;
       }
+      /* LOADER: https://www.cssportal.com/css-loader-generator/ */
+      :host .custom-loader {
+        margin: auto;
+        width: 3.5em;
+        height: 3.5em;
+        border-radius: 50%;
+        border: 0.5em solid #0000;
+        border-right-color: var(--color-rgba-50);
+        position: relative;
+        animation: s4 1s infinite linear;
+        opacity: 1 !important;
+        z-index: 100;
+      }
+      :host .custom-loader:before,
+      :host .custom-loader:after {
+        content: "";
+        position: absolute;
+        inset:-0.5em;
+        border-radius: 50%;
+        border:inherit;
+        animation:inherit;
+        animation-duration: 2s;
+      }
+      :host .custom-loader:after {
+        animation-duration: 4s;
+      }
+      @keyframes s4 {
+        100% {transform: rotate(1turn)}
+      }
     `
     return this.fetchTemplate()
   }
@@ -254,8 +281,7 @@ export default class Logo extends Shadow(WebWorker()) {
    * @return {Promise<void>}
    */
   renderHTML () {
-    this.html = ''
-    this.html = '<svg></svg>' // placeholder for keeping the size
+    this.html = '<svg class="custom-loader"></svg>' // placeholder for keeping the size
     return this.fetchHTML([
       `${this.getAttribute('base-url') || this.importMetaUrl}${this.getAttribute('url') || '../../../../img/logo.svg'}`,
       `${this.getAttribute('base-url') || this.importMetaUrl}${this.getAttribute('url') || '../../../../img/logoIcon.svg'}`

@@ -16,6 +16,7 @@
  :root {
   --a-color: var(--color-active);
   --a-text-decoration: none;
+  --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color: #000f33;
   --color-active: #fccf00;
   --color-disabled: gray;
