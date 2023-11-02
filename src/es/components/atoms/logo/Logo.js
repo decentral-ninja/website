@@ -219,7 +219,10 @@ export default class Logo extends Shadow(WebWorker()) {
         display: none;
       }
       /* LOADER: https://www.cssportal.com/css-loader-generator/ */
-      :host .custom-loader {
+      :host > div.custom-loader {
+        width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
+      }
+      :host > div.custom-loader > div {
         margin: auto;
         width: 3.5em;
         height: 3.5em;
@@ -229,10 +232,10 @@ export default class Logo extends Shadow(WebWorker()) {
         position: relative;
         animation: s4 1s infinite linear;
         opacity: 1 !important;
-        z-index: 100;
+        transition: none;
       }
-      :host .custom-loader:before,
-      :host .custom-loader:after {
+      :host > div.custom-loader > div:before,
+      :host > div.custom-loader > div:after {
         content: "";
         position: absolute;
         inset:-0.5em;
@@ -241,7 +244,7 @@ export default class Logo extends Shadow(WebWorker()) {
         animation:inherit;
         animation-duration: 2s;
       }
-      :host .custom-loader:after {
+      :host > div.custom-loader > div:after {
         animation-duration: 4s;
       }
       @keyframes s4 {
@@ -281,7 +284,7 @@ export default class Logo extends Shadow(WebWorker()) {
    * @return {Promise<void>}
    */
   renderHTML () {
-    this.html = '<svg class="custom-loader"></svg>' // placeholder for keeping the size
+    this.html = '<div class="custom-loader"><div></div></div>' // placeholder for keeping the size
     return this.fetchHTML([
       `${this.getAttribute('base-url') || this.importMetaUrl}${this.getAttribute('url') || '../../../../img/logo.svg'}`,
       `${this.getAttribute('base-url') || this.importMetaUrl}${this.getAttribute('url') || '../../../../img/logoIcon.svg'}`
