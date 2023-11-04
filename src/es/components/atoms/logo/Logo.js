@@ -121,13 +121,17 @@ export default class Logo extends Shadow(WebWorker()) {
         -webkit-tap-highlight-color: transparent;
       }
       :host > svg {
+        filter: grayscale(1);
         grid-column: 1;
         grid-row: 1;
         height: var(--svg-height, var(--svg-size, auto));
-        width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
         opacity: 0;
-        will-change: opacity;
-        transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
+        transition: var(--transition, opacity ${this.transitionDuration}ms ease-out, filter 5000ms ease-in);
+        width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
+        will-change: opacity, filter;
+      }
+      :host([loaded]) > svg {
+        filter: grayscale(0);
       }
       :host([favicon][auto-width]) > svg {
         will-change: width;
