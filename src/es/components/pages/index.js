@@ -185,6 +185,7 @@ export default class Index extends Mutation() {
               <hr>
               <h4>To further train with new tools, there is... Web 3.0...</h4>
               <ul>
+                <li>Presearch, a decentral search engine</li>
                 <li>Crypto Currencies... anonymous ones, best are, like monero or the pirate chain.</li>
                 <li>The Torproject</li>
                 <li>and many many more there are...</li>

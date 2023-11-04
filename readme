@@ -9,12 +9,15 @@
 ### TODO:
 - [ ] style and move exampleTwo to here...
 - [ ] chat msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
+- [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers)
 - [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
 - [x] choose license (https://www.infoworld.com/article/3703768/the-open-source-licensing-war-is-over.html?utm_source=changelog-news)
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] video (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing
 - [ ] https://www.runonflux.io/
+--- Beta ---
+- [ ] QR code scanner: https://github.com/nimiq/qr-scanner
 - [ ] security and text & room link encryption 
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js
 - [ ] search/crawl
