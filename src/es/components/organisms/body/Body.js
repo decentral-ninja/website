@@ -111,7 +111,7 @@ export default class Body extends Shadow() {
         max-width: min(75%, 1200px);
       }
       :host > main > div.pattern > div.content > * {
-        text-shadow: 2px 2px black;
+        text-shadow: 2px 2px var(--background-color);
       }
       @media only screen and (max-width: _max-width_) {
         :host > main > div.pattern > div.content {

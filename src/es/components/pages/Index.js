@@ -21,6 +21,7 @@ export default class Index extends Mutation() {
 
   connectedCallback () {
     this.hidden = true
+    document.documentElement.removeAttribute('invert')
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
@@ -67,6 +68,12 @@ export default class Index extends Mutation() {
   */
   renderCSS () {
     this.css = /* css */ `
+      :host {
+        font-size: var(--font-size, 10px);
+        font-weight: var(--font-weight, normal);
+        line-height: var(--line-height, normal);
+        word-break: var(--word-break, normal);
+      }
       :host > section {
         display: grid;
         grid-template-areas: "header"
@@ -87,49 +94,18 @@ export default class Index extends Mutation() {
         pointer-events: none;
       }
       @media only screen and (max-width: _max-width_) {
-        :host > section {
-          grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, var(--spacing))), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, var(--spacing))), auto);
-        }
-      }
-    `
-    return this.renderGlobalCSS()
-  }
-
-  /**
-  * renders the css
-  *
-  * @return {Promise<void>}
-  */
-  renderGlobalCSS () {
-    // set global styles in the light dom
-    this.style.textContent = ''
-    this.setCss(/* css */`
-      :root {
-        background-color: var(--root-background-color, var(--background-color, transparent));
-        color: var(--color, white);
-        font-family: var(--font-family, sans-serif);
-        font-size: var(--font-size, 10px);
-        font-weight: var(--font-weight, normal);
-        letter-spacing: var(--letter-spacing, normal);
-        line-height: var(--line-height, normal);
-        word-break: var(--word-break, normal);
-      }
-      body {
-        margin: 0;
-        min-height: var(--body-min-height, var(--min-height, 100dvh));
-        overflow: hidden;
-        padding: 0;
-      }
-      @media only screen and (max-width: _max-width_) {
-        :root {
+        :host {
+          --spacing: 0.5em;
           font-size: var(--font-size-mobile, var(--font-size, 10px));
           font-weight: var(--font-weight-mobile, var(--font-weight, normal));
           line-height: var(--line-height-mobile, var(--line-height, normal));
           word-break: var(--word-break-mobile, var(--word-break, normal));
         }
+        :host > section {
+          grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, var(--spacing))), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, var(--spacing))), auto);
+        }
       }
-    `, undefined, false, false, this.style, false)
-    document.head.appendChild(this.style)
+    `
     return Promise.resolve()
   }
 
@@ -143,6 +119,10 @@ export default class Index extends Mutation() {
       {
         path: `${this.importMetaUrl}../organisms/header/Header.js`,
         name: 'o-header'
+      },
+      {
+        path: `${this.importMetaUrl}../atoms/logo/Logo.js`,
+        name: 'a-logo'
       },
       {
         path: `${this.importMetaUrl}../organisms/body/Body.js`,
@@ -162,7 +142,8 @@ export default class Index extends Mutation() {
       this.html = /* html */`
         <section>
           <o-header open>
-            <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+            <!--<a href="?page=/chat" route target="_self">--><a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+            <a-logo namespace="logo-default-"></a-logo>
           </o-header>
           <o-body>
               <!-- https://funtranslations.com/yoda -->
@@ -181,7 +162,7 @@ export default class Index extends Mutation() {
                 <li>WebTorrent (coming soon)</li>
                 <li>end to end encryption (coming soon)</li>
               </ul>
-              <p>As you see, very very busy building it all, we are. In the meantime, use our proof of concept, please: <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+              <p>As you see, very very busy building it all, we are. In the meantime, use our proof of concept, please: <!--<a href="?page=/chat" route target="_self">--><a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
               <hr>
               <h4>To further train with new tools, there is... Web 3.0...</h4>
               <ul>
@@ -191,7 +172,7 @@ export default class Index extends Mutation() {
                 <li>and many many more there are...</li>
               </ul>
           </o-body>
-          <o-footer><a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.9</a></o-footer>
+          <o-footer></o-footer>
         </section>
       `
     })

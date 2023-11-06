@@ -98,7 +98,7 @@ export default class Logo extends Shadow(WebWorker()) {
    * @return {boolean}
    */
   shouldRenderHTML () {
-    return !this.svg
+    return !this.svg && !this.loader
   }
 
   /**
@@ -110,15 +110,22 @@ export default class Logo extends Shadow(WebWorker()) {
     this.css = /* css */`
       :host {
         --show: none;
+        -webkit-tap-highlight-color: transparent;
+        align-items: center;
         color: var(--color);
         cursor: pointer;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-        align-items: center;
         justify-items: center;
         tap-highlight-color: transparent;
-        -webkit-tap-highlight-color: transparent;
+        transition: filter 0.3s ease-out, transform 0.07s ease-out;
+      }
+      :host([favicon]:hover) {
+        filter: brightness(1.5);
+      }
+      :host([favicon]:active) {
+        transform: scale(0.7) !important;
       }
       :host > svg {
         filter: grayscale(1);
@@ -237,6 +244,10 @@ export default class Logo extends Shadow(WebWorker()) {
         animation: s4 1s infinite linear;
         opacity: 1 !important;
         transition: none;
+      }
+      :host([favicon]) > div.custom-loader > div {
+        width: 2em;
+        height: 2em;
       }
       :host > div.custom-loader > div:before,
       :host > div.custom-loader > div:after {
@@ -363,5 +374,9 @@ export default class Logo extends Shadow(WebWorker()) {
 
   get svgs () {
     return this.root.querySelectorAll('svg')
+  }
+
+  get loader () {
+    return this.root.querySelector('div.custom-loader')
   }
 }

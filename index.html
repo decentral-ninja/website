@@ -22,46 +22,6 @@
    <meta name="msapplication-TileColor" content="#000f33">
    <meta name="msapplication-TileImage" content="./src/img/icons/ms-icon-144x144.png">
    <meta name="theme-color" content="#fff8e0ff">
-   <style page-style="true" protected="true">
-      body {
-        background-color: var(--background-color);
-        margin: 0;
-        overflow: hidden;
-        padding: 0;
-      }
-      c-router {
-        display: flex;
-        height: 100dvh;
-      }
-      /* LOADER: https://www.cssportal.com/css-loader-generator/ */
-      .custom-loader {
-        margin: auto;
-        width: 3.5em;
-        height: 3.5em;
-        border-radius: 50%;
-        border: 0.5em solid #0000;
-        border-right-color: var(--color-rgba-50);
-        position: relative;
-        animation: s4 1s infinite linear;
-        opacity: 1 !important;
-      }
-      .custom-loader:before,
-      .custom-loader:after {
-        content: "";
-        position: absolute;
-        inset:-0.5em;
-        border-radius: 50%;
-        border:inherit;
-        animation:inherit;
-        animation-duration: 2s;
-      }
-      .custom-loader:after {
-        animation-duration: 4s;
-      }
-      @keyframes s4 {
-        100% {transform: rotate(1turn)}
-      }
-    </style>
    <title>Decentral Ninja</title>
 </head>
 <body>
@@ -71,8 +31,13 @@
         <c-router routes="[
           {
             'name': 'p-index',
-            'path': '../../components/pages/index.js',
+            'path': '../../components/pages/Index.js',
             'regExp': ['/[#=]{1}\/$/', '/^\/$/']
+          },
+          {
+            'name': 'p-chat',
+            'path': '../../components/pages/Chat.js',
+            'regExp': ['/[#=]{1}\/chat/']
           }
         ]">
           <div class="custom-loader"></div>

@@ -29,27 +29,33 @@ export default class Header extends Shadow() {
     // Logo has loader
     //showPromises.push(new Promise(resolve => this.addEventListener('a-logo-load', event => resolve(event), { once: true })))
     Promise.all(showPromises).then(() => {
-      this.open()
       if (this.hasAttribute('toggle-once')) {
+        if (this.hasAttribute('open')) this.addEventListener('a-logo-click', this.toggle, { once: true })
         this.addEventListener('a-logo-animationiteration', event => {
           this.close()
           this.removeEventListener('a-logo-click', this.toggle)
         }, { once: true })
-        this.addEventListener('a-logo-click', this.toggle, { once: true })
-        this.addEventListener('click', this.clickEventListener)
       } else {
         this.addEventListener('a-logo-animationiteration', this.close, { once: true })
         this.addEventListener('a-logo-click', this.toggle)
       }
       this.addEventListener('a-logo-click', event => this.removeEventListener('a-logo-animationiteration', this.close), { once: true })
+      this.connectedCallbackOnce()
       this.hidden = false
     })
   }
 
-  disconnectedCallback () {
-    if (this.hasAttribute('toggle-once')) {
-      this.removeEventListener('click', this.clickEventListener)
+  connectedCallbackOnce () {
+    if (this.hasAttribute('open')) {
+      this.open()
     } else {
+      this.close()
+    }
+    this.connectedCallbackOnce = () => {}
+  }
+
+  disconnectedCallback () {
+    if (!this.hasAttribute('toggle-once')) {
       this.removeEventListener('a-logo-click', this.toggle)
     }
   }
@@ -115,9 +121,6 @@ export default class Header extends Shadow() {
       :host > header > a > a-icon-chat {
         width: calc(var(--height) - 0.5em);
       }
-      :host([toggle-once]) > header > a-logo:active {
-        transform: scale(0.7);
-      }
       :host([close]) > header > a-logo {
         order: 2;
         position: static;
@@ -174,22 +177,14 @@ export default class Header extends Shadow() {
    * @return {Promise<void>}
    */
   renderHTML () {
-    return this.fetchModules([
-      {
-        path: `${this.importMetaUrl}../../atoms/logo/Logo.js`,
-        name: 'a-logo'
-      }
-    ]).then((children) => {
-      this.html = /* html */`
-        <header>
-          <a-logo namespace="logo-default-"></a-logo>
-        </header>
-      `
-      Array.from(this.root.children).forEach(node => {
-        if (node === this.header || node === this.main || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
-        this.header.appendChild(node)
-      })
+    this.html = /* html */`
+      <header></header>
+    `
+    Array.from(this.root.children).forEach(node => {
+      if (node === this.header || node === this.main || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
+      this.header.appendChild(node)
     })
+    return Promise.resolve()
   }
 
   open = () => {
@@ -224,14 +219,6 @@ export default class Header extends Shadow() {
     } else {
       this.open()
     }
-  }
-
-  clickEventListener = () => {
-    this.dispatchEvent(new CustomEvent(this.getAttribute('click-event-name') || this.tagName.toLowerCase() + '-click', {
-      bubbles: true,
-      cancelable: true,
-      composed: true
-    }))
   }
 
   get header () {

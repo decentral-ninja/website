@@ -17,15 +17,16 @@
   --a-color: var(--color-active);
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
-  --background-color: #000f33;
+  --background-color: var(--dark);
   --color-active: #fccf00;
   --color-disabled: gray;
   --color-error: red;
   --color-hover: #a80d10;
   --color-rgba-50: rgba(255, 248, 224, 0.3);
-  --color: #fff8e0;
+  --color: var(--light);
   --content-spacing-mobile: 1rem;
   --content-spacing: 1.143rem;
+  --dark: #000f33;
   --font-family-secondary: Kashima, Arial, sans-serif;
   --font-family: Arial, sans-serif;
   --font-size-mobile: min(14px, 5vw);
@@ -41,14 +42,59 @@
   --h2-font-size: 3.5em;
   --h3-color: var(--color);
   --h3-font-size: 1.25em;
+  --h4-color: var(--color);
   --h4-font-family: var(--font-family);
+  --light: #fff8e0;
   --line-height: 1.5;
   --outline-color: var(--color-hover);
   --p-text-align: center;
   --spacing: 0.75em;
+  background-color: var(--background-color, transparent);
+  color: var(--color, white);
+  font-family: var(--font-family, sans-serif);
+  letter-spacing: var(--letter-spacing, normal);
+  transition: var(--transition, color 0.3s ease-out, background-color 0.3s ease-out);
+  will-change: color, background-color;
 }
-@media only screen and (max-width: _max-width_) {
-  :root {
-    --spacing: 0.5em;
-  }
+:root[invert] {
+  --background-color: var(--light);
+  --color: var(--dark);
+}
+body {
+  margin: 0;
+  min-height: var(--body-min-height, var(--min-height, 100dvh));
+  overflow: hidden;
+  padding: 0;
+}
+c-router {
+  display: flex;
+  height: 100dvh;
+}
+/* LOADER: https://www.cssportal.com/css-loader-generator/ */
+.custom-loader {
+  margin: auto;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50%;
+  border: 0.5em solid #0000;
+  border-right-color: var(--color-rgba-50);
+  position: relative;
+  animation: s4 1s infinite linear;
+  opacity: 1 !important;
+}
+.custom-loader:before,
+.custom-loader:after {
+  content: "";
+  position: absolute;
+  inset:-0.5em;
+  border-radius: 50%;
+  border:inherit;
+  animation:inherit;
+  animation-duration: 2s;
+}
+.custom-loader:after {
+  animation-duration: 4s;
+}
+@keyframes s4 {
+  100% {transform: rotate(1turn)}
 }
