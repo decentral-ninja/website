@@ -20,8 +20,9 @@
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner
 - [ ] security and text & room link encryption 
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js
+- [ ] check security requirements from https://www.securemessagingapps.com
+- [ ] Mail Notifications or voluntary authentication by mail (https://github.com/nodemailer/nodemailer)
 - [ ] search/crawl
 - [ ] dns (link board) / dns crdt
 - [ ] id, room administrators (nostr)
 - [ ] organization (DOA?)
-- [ ] check security issues from https://www.securemessagingapps.com
