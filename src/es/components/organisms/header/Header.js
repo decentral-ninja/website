@@ -100,7 +100,13 @@ export default class Header extends Shadow() {
         justify-content: space-between;
         position: relative;
       }
-      :host > header > a-logo {
+      :host > header > *:first-child {
+        z-index: 1;
+      }
+      :host([count-header-children="1"]) > header {
+        justify-content: flex-end;
+      }
+      :host > header > a-logo, :host > header > a > a-logo {
         position: absolute;
         right: 0;
         width: var(--height);
@@ -121,11 +127,11 @@ export default class Header extends Shadow() {
       :host > header > a > a-icon-chat {
         width: calc(var(--height) - 0.5em);
       }
-      :host([close]) > header > a-logo {
+      :host([close]) > header > a-logo, :host([close]) > header > a > a-logo {
         order: 2;
         position: static;
       }
-      :host([open]) > header > a-logo {
+      :host([open]) > header > a-logo, :host([open]) > header > a > a-logo {
         width: 100dvw;
         transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
         animation: transition ${this.transitionDuration}ms ease-out;
@@ -184,6 +190,7 @@ export default class Header extends Shadow() {
       if (node === this.header || node === this.main || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
       this.header.appendChild(node)
     })
+    this.setAttribute('count-header-children', this.header.children.length)
     return Promise.resolve()
   }
 

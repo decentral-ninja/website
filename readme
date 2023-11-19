@@ -7,7 +7,8 @@
 - npm run serve
 
 ### TODO:
-- [ ] style and move exampleTwo to here...
+- [x] move exampleTwo to here...
+- [ ] style and reorganize exampleTwo
 - [ ] chat msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers)
 - [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
