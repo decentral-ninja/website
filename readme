@@ -24,6 +24,7 @@
 - [ ] check security requirements from https://www.securemessagingapps.com
 - [ ] Mail Notifications or voluntary authentication by mail (https://github.com/nodemailer/nodemailer)
 - [ ] search/crawl
+- [ ] draw https://github.com/tldraw/tldraw
 - [ ] dns (link board) / dns crdt
 - [ ] id, room administrators (nostr)
 - [ ] organization (DOA?)

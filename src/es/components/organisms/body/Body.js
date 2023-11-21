@@ -166,4 +166,17 @@ export default class Body extends Shadow() {
     this.html = this.main
     return Promise.resolve()
   }
+
+  /**
+   * to avoid connect and disconnect callbacks within children when moving them into div.content
+   *
+   * @param {string} html
+   * @return {boolean}
+   */
+  setContent (html) {
+    const contentDiv = this.root.querySelector('.content')
+    if (!contentDiv) return false
+    contentDiv.innerHTML = html
+    return true
+  }
 }
