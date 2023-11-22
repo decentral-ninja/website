@@ -9,6 +9,7 @@
 ### TODO:
 - [x] move exampleTwo to here...
 - [x] textarea instead of input field
+- [ ] add scroll down button 
 - [ ] reorganize exampleTwo (remove github star counter), hidden appear effect
 - [ ] style exampleTwo
 - [ ] pimp Router to open new components on certain query parameters (as key)
