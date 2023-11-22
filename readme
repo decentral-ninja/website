@@ -7,7 +7,11 @@
 - npm run serve
 
 ### TODO:
-- [ ] style and move exampleTwo to here...
+- [x] move exampleTwo to here...
+- [x] textarea instead of input field
+- [ ] reorganize exampleTwo (remove github star counter), hidden appear effect
+- [ ] style exampleTwo
+- [ ] pimp Router to open new components on certain query parameters (as key)
 - [ ] chat msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers)
 - [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
@@ -23,6 +27,7 @@
 - [ ] check security requirements from https://www.securemessagingapps.com
 - [ ] Mail Notifications or voluntary authentication by mail (https://github.com/nodemailer/nodemailer)
 - [ ] search/crawl
+- [ ] draw https://github.com/tldraw/tldraw
 - [ ] dns (link board) / dns crdt
 - [ ] id, room administrators (nostr)
 - [ ] organization (DOA?)

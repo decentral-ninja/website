@@ -51,43 +51,90 @@ export default class Chat extends Index {
       {
         path: `${this.importMetaUrl}../atoms/iconChat/IconChat.js`,
         name: 'a-icon-chat'
+      },
+      {
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/EventDrivenYjs.js`,
+        name: 'c-event-driven-yjs'
+      },
+      {
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Providers.js`,
+        name: 'c-providers'
+      },
+      {
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Users.js`,
+        name: 'c-users'
+      },
+      {
+        // TODO: Example artifact, properly garbage
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleOne/IndexeddbSynced.js`,
+        name: 'yjs-indexeddb-synced'
+      },
+      {
+        // TODO: Example artifact, properly redo with https://github.com/feross/p2p-graph event-driven-web-components-yjs/readme.md
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleOne/AwarenessChange.js`,
+        name: 'yjs-awareness-change'
+      },
+      {
+        // TODO: Example artifact, properly redo and move to chat sub-repo
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/controllers/YjsChat.js`,
+        name: 'c-yjs-chat'
+      },
+      {
+        // TODO: Example artifact, properly redo with https://github.com/feross/p2p-graph event-driven-web-components-yjs/readme.md
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/DetailsAwarenessChange.js`,
+        name: 'yjs-details-awareness-change'
+      },
+      {
+        // TODO: Example artifact, properly redo
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/Room.js`,
+        name: 'yjs-room'
+      },
+      {
+        // TODO: Example artifact, properly redo and move to chat sub-repo
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/YjsChatUpdate.js`,
+        name: 'yjs-chat-update'
+      },
+      {
+        // TODO: Example artifact, properly redo
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/ShareApi.js`,
+        name: 'yjs-share-api'
+      },
+      {
+        // TODO NEXT: Example artifact, properly redo
+        path: `${this.importMetaUrl}../../chat/es/components/views/Input.js`,
+        name: 'yjs-input'
       }
     ]).then((children) => {
       this.html = /* html */`
-        <section>
-          <o-header toggle-once>
-            <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
-            <a-logo namespace="logo-invert-" invert></a-logo>
-          </o-header>
-          <o-body>
-              <!-- https://funtranslations.com/yoda -->
-              <h1>Oh, welcome!</h1>
-              <h3>ああ、まいどまいど。</h3>
-              <hr>
-              <h2>Dear Ninja,</h2>
-              <p>Very pleased that you found the way to my dojo, I am!<br>In these challenging times of censorship, surveillance and big data. New skills and weaponary required there are.</p>
-              <hr>
-              <h4>Our chat, our first set of weapon 武器 at hand is which uses:</h4>
-              <ul>
-                <li>Local first CRDT (conflict free replicated data sets)</li>
-                <li>WebRTC</li>
-                <li>Flux WebSocket (coming soon)</li>
-                <li>IPFS (coming soon)</li>
-                <li>WebTorrent (coming soon)</li>
-                <li>end to end encryption (coming soon)</li>
-              </ul>
-              <p>As you see, very very busy building it all, we are. In the meantime, use our proof of concept, please: <a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
-              <hr>
-              <h4>To further train with new tools, there is... Web 3.0...</h4>
-              <ul>
-                <li>Presearch, a decentral search engine</li>
-                <li>Crypto Currencies... anonymous ones, best are, like monero or the pirate chain.</li>
-                <li>The Torproject</li>
-                <li>and many many more there are...</li>
-              </ul>
-          </o-body>
-          <o-footer></o-footer>
-        </section>
+        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
+          <c-providers>
+            <c-users>
+              <c-yjs-chat>
+                <section>
+                  <o-header toggle-once>
+                    <yjs-share-api style="height: fit-content;">share this room:</yjs-share-api>
+                    <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert></a-logo></a>
+                  </o-header>
+                  <o-body>
+                    <yjs-chat-update></yjs-chat-update>
+                  </o-body>
+                  <o-footer>
+                    <yjs-input style="order: -1; width: 100%;"></yjs-input>
+                    <details open>
+                      <summary><code>connection data</code></summary>
+                      <details>
+                        <summary>IndexedDB Sync Status</summary>
+                        <yjs-indexeddb-synced></yjs-indexeddb-synced>
+                      </details>
+                      <yjs-details-awareness-change></yjs-details-awareness-change>
+                      <yjs-room></yjs-room>
+                    </details>
+                  </o-footer>
+                </section>
+              </c-yjs-chat>
+            </c-users>
+          </c-providers>
+        </c-event-driven-yjs>
       `
     })
   }

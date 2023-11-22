@@ -1,4 +1,5 @@
 {
+    "id": "decentral-ninja",
     "name": "decentral-ninja",
     "short_name": "DCN",
     "start_url": "./",
@@ -6,12 +7,23 @@
     "background_color": "#000f33",
     "description": "The future of WEB3.0 comes with CRDTs. The decentral ninja helps the peasant to navigate around the pitfalls of central services. The hidden aspect of our ninja is to navigate anonymously. The weapons are CRDTs, Websocket, WebRTC, IPFS, etc. Always, 100% open source!",
     "dir": "ltr",
-    "categories": "communication",
+    "categories": "communication, decentralized, chat, platform",
     "lang": "en",
     "orientation": "portrait",
     "scope": "./",
     "theme_color": "#fff8e0",
+    "serviceworker": {
+      "scope": "./",
+      "src": "./MasterServiceWorker.js",
+      "use_cache": "true"
+    },
     "icons": [
+        {
+            "src": "./src/img/icons/logo.png",
+            "sizes": "1200x1200",
+            "type": "image/png",
+            "density": "0.75"
+        },
         {
             "src": "./src/img/icons/android-icon-36x36.png",
             "sizes": "36x36",

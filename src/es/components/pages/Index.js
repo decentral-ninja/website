@@ -74,7 +74,7 @@ export default class Index extends Mutation() {
         line-height: var(--line-height, normal);
         word-break: var(--word-break, normal);
       }
-      :host > section {
+      :host section {
         display: grid;
         grid-template-areas: "header"
                              "body"
@@ -84,12 +84,12 @@ export default class Index extends Mutation() {
         min-height: var(--min-height, 100dvh);
         max-height: 100dvh;
       }
-      :host > section > o-body {
+      :host section > o-body {
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
         will-change: opacity;
       }
-      /* :host > section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
-      :host(.header-open) > section > o-body {
+      /* :host section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
+      :host(.header-open) section > o-body {
         opacity: 0;
         pointer-events: none;
       }
@@ -101,7 +101,7 @@ export default class Index extends Mutation() {
           line-height: var(--line-height-mobile, var(--line-height, normal));
           word-break: var(--word-break-mobile, var(--word-break, normal));
         }
-        :host > section {
+        :host section {
           grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, var(--spacing))), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, var(--spacing))), auto);
         }
       }
@@ -142,35 +142,35 @@ export default class Index extends Mutation() {
       this.html = /* html */`
         <section>
           <o-header open>
-            <!--<a href="?page=/chat" route target="_self">--><a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+            <a href="?page=/chat" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
             <a-logo namespace="logo-default-"></a-logo>
           </o-header>
           <o-body>
-              <!-- https://funtranslations.com/yoda -->
-              <h1>Oh, welcome!</h1>
-              <h3>ああ、まいどまいど。</h3>
-              <hr>
-              <h2>Dear Ninja,</h2>
-              <p>Very pleased that you found the way to my dojo, I am!<br>In these challenging times of censorship, surveillance and big data. New skills and weaponary required there are.</p>
-              <hr>
-              <h4>Our chat, our first set of weapon 武器 at hand is which uses:</h4>
-              <ul>
-                <li>Local first CRDT (conflict free replicated data sets)</li>
-                <li>WebRTC</li>
-                <li>Flux WebSocket (coming soon)</li>
-                <li>IPFS (coming soon)</li>
-                <li>WebTorrent (coming soon)</li>
-                <li>end to end encryption (coming soon)</li>
-              </ul>
-              <p>As you see, very very busy building it all, we are. In the meantime, use our proof of concept, please: <!--<a href="?page=/chat" route target="_self">--><a href="https://weedshaker.github.io/event-driven-web-components-yjs/tests/exampleTwo.html" target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
-              <hr>
-              <h4>To further train with new tools, there is... Web 3.0...</h4>
-              <ul>
-                <li>Presearch, a decentral search engine</li>
-                <li>Crypto Currencies... anonymous ones, best are, like monero or the pirate chain.</li>
-                <li>The Torproject</li>
-                <li>and many many more there are...</li>
-              </ul>
+            <!-- https://funtranslations.com/yoda -->
+            <h1>Oh, welcome!</h1>
+            <h3>ああ、まいどまいど。</h3>
+            <hr>
+            <h2>Dear Ninja,</h2>
+            <p>Very pleased that you found the way to my dojo, I am!<br>In these challenging times of censorship, surveillance and big data. New skills and weaponary required there are.</p>
+            <hr>
+            <h4>Our chat, our first set of weapon 武器 at hand is which uses:</h4>
+            <ul>
+              <li>Local first CRDT (conflict free replicated data sets)</li>
+              <li>WebRTC</li>
+              <li>Flux WebSocket (coming soon)</li>
+              <li>IPFS (coming soon)</li>
+              <li>WebTorrent (coming soon)</li>
+              <li>end to end encryption (coming soon)</li>
+            </ul>
+            <p>As you see, very very busy building it all, we are. In the meantime, use our proof of concept, please: <a href="?page=/chat" route target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+            <hr>
+            <h4>To further train with new tools, there is... Web 3.0...</h4>
+            <ul>
+              <li>Presearch, a decentral search engine</li>
+              <li>Crypto Currencies... anonymous ones, best are, like monero or the pirate chain.</li>
+              <li>The Torproject</li>
+              <li>and many many more there are...</li>
+            </ul>
           </o-body>
           <o-footer></o-footer>
         </section>
