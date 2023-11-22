@@ -60,6 +60,11 @@ export default class Footer extends Shadow() {
         padding: var(--spacing);
         font-size: 0.75em;
       }
+      :host > footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
     `
     return this.fetchTemplate()
   }
@@ -88,12 +93,25 @@ export default class Footer extends Shadow() {
    */
   renderHTML () {
     this.footer = this.root.querySelector(this.cssSelector + ' > footer') || document.createElement('footer')
-    this.footer.innerHTML = '<a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 0.10</a>'
+    this.footer.innerHTML = '<a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / alpha 1.0</a>'
     Array.from(this.root.children).forEach(node => {
       if (node === this.footer || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
       this.footer.appendChild(node)
     })
     this.html = this.footer
     return Promise.resolve()
+  }
+
+  /**
+   * to avoid connect and disconnect callbacks within children when moving them into footer
+   *
+   * @param {string} html
+   * @return {boolean}
+   */
+  setContent (html) {
+    const contentEl = this.footer
+    if (!contentEl) return false
+    contentEl.innerHTML = html
+    return true
   }
 }

@@ -100,35 +100,28 @@ export default class Chat extends Index {
         name: 'yjs-share-api'
       },
       {
-        // TODO NEXT: Example artifact, properly redo (replace input with textarea)
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/Input.js`,
+        // TODO NEXT: Example artifact, properly redo
+        path: `${this.importMetaUrl}../../chat/es/components/views/Input.js`,
         name: 'yjs-input'
       }
     ]).then((children) => {
       this.html = /* html */`
-        <section>
-          <o-header toggle-once>
-            <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert></a-logo></a>
-          </o-header>
-          <o-body></o-body>
-          <o-footer></o-footer>
-        </section>
-      `
-      this.root.querySelector('o-body').setContent(/* html */`
-        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur>
+        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
           <c-providers>
             <c-users>
               <c-yjs-chat>
-                <div class="flex">
-                  <header>
-                    <yjs-share-api>share this room:</yjs-share-api>
-                    <hr>
-                  </header>
-                  <yjs-chat-update></yjs-chat-update>
-                  <footer>
-                    <yjs-input></yjs-input>
+                <section>
+                  <o-header toggle-once>
+                    <yjs-share-api style="height: fit-content;">share this room:</yjs-share-api>
+                    <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert></a-logo></a>
+                  </o-header>
+                  <o-body>
+                    <yjs-chat-update></yjs-chat-update>
+                  </o-body>
+                  <o-footer>
+                    <yjs-input style="order: -1; width: 100%;"></yjs-input>
                     <details open>
-                      <summary><code>v.0.0.0</code></summary>
+                      <summary><code>connection data</code></summary>
                       <details>
                         <summary>IndexedDB Sync Status</summary>
                         <yjs-indexeddb-synced></yjs-indexeddb-synced>
@@ -136,43 +129,13 @@ export default class Chat extends Index {
                       <yjs-details-awareness-change></yjs-details-awareness-change>
                       <yjs-room></yjs-room>
                     </details>
-                  </footer>
-                </div>
+                  </o-footer>
+                </section>
               </c-yjs-chat>
             </c-users>
           </c-providers>
         </c-event-driven-yjs>
-        <style>
-          body {
-            margin: 0;
-          }
-          .flex {
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            max-height: min(100vh, 100dvh);
-            max-width: 100vw;
-            min-height: min(100vh, 100dvh);
-            overflow: hidden;
-            padding: 0.25em;
-          }
-          .flex > header {
-            text-align: center;
-          }
-          .flex > footer > details {
-            font-size: 0.7em;
-            overflow-y: scroll;
-            max-height: 50dvh;
-          }
-          .flex > yjs-chat-update {
-            overflow-y: scroll;
-          }
-          .flex > footer {
-            padding-top: 0.25em;
-          }
-        </style>
-      `)
+      `
     })
   }
 }

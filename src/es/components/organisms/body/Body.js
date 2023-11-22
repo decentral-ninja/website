@@ -18,6 +18,13 @@ export default class Body extends Shadow() {
     super({ importMetaUrl: import.meta.url, ...options }, ...args)
 
     this.setAttribute('aria-label', 'Body')
+    this.mainScrollEventListener = event => {
+      const options = {}
+      if (event.detail?.x) options.left = event.detail?.x
+      options.top = event.detail?.y || this.main.scrollHeight
+      options.behavior = event.detail?.behavior || 'smooth'
+      this.main.scroll(options)
+    }
   }
 
   connectedCallback () {
@@ -26,9 +33,12 @@ export default class Body extends Shadow() {
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
     Promise.all(showPromises).then(() => (this.hidden = false))
+    document.body.addEventListener('main-scroll', this.mainScrollEventListener)
   }
 
-  disconnectedCallback () {}
+  disconnectedCallback () {
+    document.body.addEventListener('main-scroll', this.mainScrollEventListener)
+  }
 
   /**
    * evaluates if a render is necessary
@@ -107,16 +117,14 @@ export default class Body extends Shadow() {
         top: -100%;
       }
       :host > main > div.pattern > div.content {
+        display: flex;
+        flex-direction: column;
         margin: auto;
-        max-width: min(75%, 1200px);
+        max-width: min(100%, 1400px);
+        position: relative;
       }
       :host > main > div.pattern > div.content > * {
         text-shadow: 2px 2px var(--background-color);
-      }
-      @media only screen and (max-width: _max-width_) {
-        :host > main > div.pattern > div.content {
-          max-width: 100%;
-        }
       }
     `
     return this.fetchTemplate()
@@ -174,9 +182,9 @@ export default class Body extends Shadow() {
    * @return {boolean}
    */
   setContent (html) {
-    const contentDiv = this.root.querySelector('.content')
-    if (!contentDiv) return false
-    contentDiv.innerHTML = html
+    const contentEl = this.root.querySelector('.content')
+    if (!contentEl) return false
+    contentEl.innerHTML = html
     return true
   }
 }

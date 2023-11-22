@@ -74,7 +74,7 @@ export default class Index extends Mutation() {
         line-height: var(--line-height, normal);
         word-break: var(--word-break, normal);
       }
-      :host > section {
+      :host section {
         display: grid;
         grid-template-areas: "header"
                              "body"
@@ -84,12 +84,12 @@ export default class Index extends Mutation() {
         min-height: var(--min-height, 100dvh);
         max-height: 100dvh;
       }
-      :host > section > o-body {
+      :host section > o-body {
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
         will-change: opacity;
       }
-      /* :host > section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
-      :host(.header-open) > section > o-body {
+      /* :host section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
+      :host(.header-open) section > o-body {
         opacity: 0;
         pointer-events: none;
       }
@@ -101,7 +101,7 @@ export default class Index extends Mutation() {
           line-height: var(--line-height-mobile, var(--line-height, normal));
           word-break: var(--word-break-mobile, var(--word-break, normal));
         }
-        :host > section {
+        :host section {
           grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, var(--spacing))), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, var(--spacing))), auto);
         }
       }
