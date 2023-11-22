@@ -72,6 +72,7 @@ export default class Index extends Mutation() {
         font-size: var(--font-size, 10px);
         font-weight: var(--font-weight, normal);
         line-height: var(--line-height, normal);
+        width: 100%;
         word-break: var(--word-break, normal);
       }
       :host section {
