@@ -123,9 +123,9 @@ export default class Body extends Shadow() {
         max-width: min(100%, 1400px);
         position: relative;
       }
-      :host > main > div.pattern > div.content > * {
+      /*:host > main > div.pattern > div.content > * {
         text-shadow: 2px 2px var(--background-color);
-      }
+      }*/
     `
     return this.fetchTemplate()
   }
