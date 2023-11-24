@@ -3,7 +3,7 @@
     "name": "decentral-ninja",
     "short_name": "DCN",
     "start_url": "./",
-    "display": "fullscreen",
+    "display": "minimal-ui",
     "background_color": "#000f33",
     "description": "The future of WEB3.0 comes with CRDTs. The decentral ninja helps the peasant to navigate around the pitfalls of central services. The hidden aspect of our ninja is to navigate anonymously. The weapons are CRDTs, Websocket, WebRTC, IPFS, etc. Always, 100% open source!",
     "dir": "ltr",
