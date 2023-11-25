@@ -124,7 +124,7 @@ export default class Body extends Shadow() {
         position: relative;
       }
       :host > main > div.pattern > div.content > * {
-        text-shadow: 2px 2px var(--background-color);
+        text-shadow: 1px 1px var(--background-color);
       }
     `
     return this.fetchTemplate()
