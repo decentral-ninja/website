@@ -154,23 +154,32 @@ export default class Index extends Mutation() {
             <h3>ああ、まいどまいど。</h3>
             <hr>
             <h2>Dear Ninja,</h2>
-            <p>Very pleased that you found the way to my dojo, I am!<br>In these challenging times of censorship, surveillance and big data. New skills and weaponary required there are.</p>
+            <p>Very pleased that you found the way to my dojo, I am!<br>
+            In these challenging times of censorship, surveillance, and big data. New skills and weaponry required there are.</p>
+ <hr>
+            <strong>Empower your conversations, empower your privacy</strong>
+            Unleash your conversations with the speed and precision of a ninja, ensuring your messages remain as agile and elusive as you are.
+
+            Join the revolution in communication with Decentral.Ninja - the cutting-edge decentralized chat platform that puts privacy and control back in your hands, ensuring your conversations stay truly confidential.
+           
+              
+            
             <hr>
-            <h4>Our chat, our first set of weapon 武器 at hand is which uses:</h4>
+            <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>
             <ul>
-              <li>Local first CRDT (conflict free replicated data sets)</li>
+              <li>Local first CRDT (conflict-free replicated data sets)</li>
               <li>WebRTC</li>
               <li>Flux WebSocket (coming soon)</li>
               <li>IPFS (coming soon)</li>
               <li>WebTorrent (coming soon)</li>
               <li>end to end encryption (coming soon)</li>
             </ul>
-            <p>As you see, very very busy building it all, we are. In the meantime, use our proof of concept, please: <a href="?page=/chat" route target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+            <p>As you see, we are very busy building it all. In the meantime, use our proof of concept, please: <a href="?page=/chat" route target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
             <hr>
             <h4>To further train with new tools, there is... Web 3.0...</h4>
             <ul>
               <li>Presearch, a decentral search engine</li>
-              <li>Crypto Currencies... anonymous ones, best are, like monero or the pirate chain.</li>
+              <li>Crypto Currencies... anonymous ones, best are, like Monero or the pirate chain.</li>
               <li>The Torproject</li>
               <li>and many many more there are...</li>
             </ul>
