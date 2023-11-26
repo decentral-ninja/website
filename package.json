@@ -28,6 +28,8 @@
       "./src/es/event-driven-web-components-yjs/src/y-websocket/*",
       "./src/es/event-driven-web-components-yjs/src/yjs/*",
       "./src/es/event-driven-web-components-yjs/src/es/dependencies/*",
+      "y-*",
+      "yjs.*",
       "web-components-toolbox"
     ]
   }

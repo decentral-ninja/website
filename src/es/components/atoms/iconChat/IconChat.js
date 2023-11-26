@@ -1,8 +1,6 @@
 // @ts-check
 import { Hover } from '../../../event-driven-web-components-prototypes/src/Hover.js'
 
-/* global self */
-
 /**
  * IconChat of decentral ninja
  *
