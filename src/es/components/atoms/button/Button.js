@@ -1,5 +1,5 @@
 // @ts-check
-import { Hover } from '../../prototypes/Hover.js'
+import { Hover } from '../../../event-driven-web-components-prototypes/src/Hover.js'
 
 /* global CustomEvent */
 
