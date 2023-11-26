@@ -65,19 +65,10 @@ export default class Chat extends Index {
         name: 'c-users'
       },
       {
-        // TODO: Example artifact, properly garbage
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleOne/IndexeddbSynced.js`,
-        name: 'yjs-indexeddb-synced'
-      },
-      {
+        // TODO: yjs-awareness-change is inside yjs-details-awareness-change, this has nickname and room name functionality, which has to be split to one: user class and two: room class
         // TODO: Example artifact, properly redo with https://github.com/feross/p2p-graph event-driven-web-components-yjs/readme.md
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleOne/AwarenessChange.js`,
         name: 'yjs-awareness-change'
-      },
-      {
-        // TODO: Example artifact, properly redo and move to chat sub-repo
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/controllers/YjsChat.js`,
-        name: 'c-yjs-chat'
       },
       {
         // TODO: Example artifact, properly redo with https://github.com/feross/p2p-graph event-driven-web-components-yjs/readme.md
@@ -85,14 +76,20 @@ export default class Chat extends Index {
         name: 'yjs-details-awareness-change'
       },
       {
-        // TODO: Example artifact, properly redo
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/Room.js`,
-        name: 'yjs-room'
+        // TODO: chat and chat update are typically view and model/controller in the chat repo, properly split to mvc
+        // TODO: Example artifact, properly redo and move to chat sub-repo
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/controllers/YjsChat.js`,
+        name: 'c-yjs-chat'
       },
       {
         // TODO: Example artifact, properly redo and move to chat sub-repo
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/YjsChatUpdate.js`,
         name: 'yjs-chat-update'
+      },
+      {
+        // TODO: Example artifact, properly redo
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/Room.js`,
+        name: 'yjs-room'
       },
       {
         // TODO: Example artifact, properly redo
@@ -122,10 +119,6 @@ export default class Chat extends Index {
                     <yjs-input style="order: -1; width: 100%;"></yjs-input>
                     <details open>
                       <summary><code>connection data</code></summary>
-                      <details>
-                        <summary>IndexedDB Sync Status</summary>
-                        <yjs-indexeddb-synced></yjs-indexeddb-synced>
-                      </details>
                       <yjs-details-awareness-change></yjs-details-awareness-change>
                       <yjs-room></yjs-room>
                     </details>
