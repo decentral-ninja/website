@@ -10,6 +10,7 @@
 - [x] move exampleTwo to here...
 - [x] textarea instead of input field
 - [ ] style and overhaul src/es/chat/es/components/views/Input.js
+- [ ] icon on Chat page glitch fix
 - [ ] add scroll down button 
 - [ ] reorganize exampleTwo (remove github star counter), hidden appear effect
 - [ ] style exampleTwo
