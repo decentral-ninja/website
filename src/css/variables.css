@@ -18,6 +18,7 @@
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color: var(--dark);
+  --color-secondary: #a80d10;
   --color-active: #fccf00;
   --color-disabled: gray;
   --color-error: red;
@@ -48,6 +49,11 @@
   --line-height: 1.5;
   --outline-color: var(--color-hover);
   --p-text-align: center;
+
+  --button-category-background-color-custom:var(--color-secondary);
+  --button-category-background-color-hover-mobile-custom: var(--color-secondary);
+  
+
   --spacing: 0.75em;
   background-color: var(--background-color, transparent);
   color: var(--color, white);

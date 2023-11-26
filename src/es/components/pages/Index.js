@@ -138,7 +138,12 @@ export default class Index extends Mutation() {
       {
         path: `${this.importMetaUrl}../atoms/iconChat/IconChat.js`,
         name: 'a-icon-chat'
+      },
+      {
+        path: `${this.importMetaUrl}../atoms/button/Button.js`,
+        name: 'a-button'
       }
+
     ]).then((children) => {
       // Header is expected to be initially open, below <o-header open></o-header>
       this.classList.add('header-open')
@@ -157,13 +162,18 @@ export default class Index extends Mutation() {
             <p>Very pleased that you found the way to my dojo, I am!<br>
             In these challenging times of censorship, surveillance, and big data. New skills and weaponry required there are.</p>
  <hr>
-            <strong>Empower your conversations, empower your privacy</strong>
-            Unleash your conversations with the speed and precision of a ninja, ensuring your messages remain as agile and elusive as you are.
+            <h4>Empower your conversations, empower your privacy</h4>
+            <p> Unleash your conversations with the speed and precision of a ninja, ensuring your messages remain as agile and elusive as you are.
 
             Join the revolution in communication with Decentral.Ninja - the cutting-edge decentralized chat platform that puts privacy and control back in your hands, ensuring your conversations stay truly confidential.
-           
+            </p>
               
             
+            <a-button namespace="primary-" href="/?page=%2Fchat">Start Chat</a-button>
+            </div>
+           
+            <a-button namespace="secondary-" href="/?page=%2Fchat&room=chat-Questions%26Feedback">Chat With Us</a-button>
+           
             <hr>
             <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>
             <ul>
