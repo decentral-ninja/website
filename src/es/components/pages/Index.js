@@ -36,10 +36,12 @@ export default class Index extends Mutation() {
   }
 
   mutationCallback (mutationList, observer) {
-    if (mutationList[0] && mutationList[0].type === 'attributes') this.classList[this.header.hasAttribute('open')
-      ? 'add'
-      : 'remove'
-    ]('header-open')
+    if (mutationList[0] && mutationList[0].type === 'attributes') {
+      this.classList[this.header.hasAttribute('open')
+        ? 'add'
+        : 'remove'
+      ]('header-open')
+    }
   }
 
   /**

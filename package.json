@@ -17,7 +17,18 @@
   "standard": {
     "ignore": [
       "prism.*",
-      "src/es/event-driven-web-components-yjs"
+      "vosk.*",
+      "recognizer-processor.*",
+      "rollup.*",
+      "./src/es/event-driven-web-components-yjs/servers/*",
+      "./src/es/event-driven-web-components-yjs/src/fingerprint/*",
+      "./src/es/event-driven-web-components-yjs/src/y-indexeddb/*",
+      "./src/es/event-driven-web-components-yjs/src/y-p2pt/*",
+      "./src/es/event-driven-web-components-yjs/src/y-webrtc/*",
+      "./src/es/event-driven-web-components-yjs/src/y-websocket/*",
+      "./src/es/event-driven-web-components-yjs/src/yjs/*",
+      "./src/es/event-driven-web-components-yjs/src/es/dependencies/*",
+      "web-components-toolbox"
     ]
   }
 }

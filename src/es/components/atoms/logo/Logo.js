@@ -49,16 +49,18 @@ export default class Logo extends Shadow(WebWorker()) {
       } else {
         this.setAttribute('animation', 'true')
       }
-      if (dispatch) this.dispatchEvent(new CustomEvent(this.getAttribute('animationiteration-event-name') || this.tagName.toLowerCase() + '-animationiteration', {
-        detail: {
-          open: () => this.setAttribute('favicon', 'true'),
-          close: () => this.removeAttribute('favicon'),
-          origEvent: event
-        },
-        bubbles: true,
-        cancelable: true,
-        composed: true
-      }))
+      if (dispatch) {
+        this.dispatchEvent(new CustomEvent(this.getAttribute('animationiteration-event-name') || this.tagName.toLowerCase() + '-animationiteration', {
+          detail: {
+            open: () => this.setAttribute('favicon', 'true'),
+            close: () => this.removeAttribute('favicon'),
+            origEvent: event
+          },
+          bubbles: true,
+          cancelable: true,
+          composed: true
+        }))
+      }
     }
     this.animationiterationListener(null, false)
   }
