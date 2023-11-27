@@ -91,11 +91,16 @@ export default class Index extends Mutation() {
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
         will-change: opacity;
       }
+
+
       /* :host section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
       :host(.header-open) section > o-body {
         opacity: 0;
         pointer-events: none;
       }
+    
+
+
       @media only screen and (max-width: _max-width_) {
         :host {
           --spacing: 0.5em;
@@ -122,6 +127,10 @@ export default class Index extends Mutation() {
       {
         path: `${this.importMetaUrl}../organisms/header/Header.js`,
         name: 'o-header'
+      },
+      {
+        path: `${this.importMetaUrl}../organisms/grid/Grid.js`,
+        name: 'o-grid'
       },
       {
         path: `${this.importMetaUrl}../atoms/logo/Logo.js`,
@@ -168,12 +177,16 @@ export default class Index extends Mutation() {
             Join the revolution in communication with Decentral.Ninja - the cutting-edge decentralized chat platform that puts privacy and control back in your hands, ensuring your conversations stay truly confidential.
             </p>
               
-            
+            <o-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" tabindex="0"
+             count-section-children="2" style="text-align:center">
+    <div> 
             <a-button namespace="primary-" href="/?page=%2Fchat">Start Chat</a-button>
             </div>
-           
+            <div>       
             <a-button namespace="secondary-" href="/?page=%2Fchat&room=chat-Questions%26Feedback">Chat With Us</a-button>
-           
+            </div>
+
+            </o-grid>
             <hr>
             <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>
             <ul>

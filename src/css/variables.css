@@ -50,6 +50,14 @@
   --outline-color: var(--color-hover);
   --p-text-align: center;
 
+  /*BUTTONS*/
+  --primary-background-color: var(--color-secondary);
+
+  --secondary-border-color: #000000;
+  --secondary-border-width: 2px;
+  --secondary-background-color-hover: var(--color-secondary);
+  --secondary-border-color-hover: var(--color-secondary);
+
   --button-category-background-color-custom:var(--color-secondary);
   --button-category-background-color-hover-mobile-custom: var(--color-secondary);
   
