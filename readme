@@ -10,11 +10,12 @@
 - [x] move exampleTwo to here...
 - [x] textarea instead of input field
 - [ ] style and overhaul src/es/chat/es/components/views/Input.js (BTN: https://weedshaker.github.io/webnesday2023_event-driven/)
-- [ ] header controls in dialog (nav modal), also fix icon on Chat page glitch
+- [ ] header controls in dialog (nav modal)
 - [ ] add scroll down/not read messages button 
 - [ ] reorganize exampleTwo, hidden appear effect, chat-, room-, user-, provider- controller
 - [ ] chat msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
 - [ ] finish completely style/transform exampleTwo
+- [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
 - [ ] pimp Router to open new components on certain query parameters (as key) and make room view to choose room or create room / manifest to fullscreen
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers)

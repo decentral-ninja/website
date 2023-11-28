@@ -110,7 +110,7 @@ export default class Chat extends Index {
                 <section>
                   <o-header toggle-once>
                     <yjs-share-api style="height: fit-content;">share this room:</yjs-share-api>
-                    <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert></a-logo></a>
+                    <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
                   </o-header>
                   <o-body>
                     <yjs-chat-update></yjs-chat-update>
