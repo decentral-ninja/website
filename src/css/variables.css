@@ -18,11 +18,16 @@
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color: var(--dark);
+  --button-secondary-background-color-hover-custom: var(--color-secondary);
+  --button-secondary-border-color-hover-custom: var(--color-secondary);
+  --button-secondary-border-color-custom: black;
+  --button-secondary-border-width-custom: 2px;
   --color-active: #fccf00;
   --color-disabled: gray;
   --color-error: red;
-  --color-hover: #a80d10;
+  --color-hover: #d11417;
   --color-rgba-50: rgba(255, 248, 224, 0.3);
+  --color-secondary: #a80d10;
   --color: var(--light);
   --content-spacing-mobile: 1rem;
   --content-spacing: 1.143rem;
@@ -38,7 +43,7 @@
   --h-text-align: center;
   --h1-color: var(--color);
   --h1-font-size: 4.5em;
-  --h2-color: var(--color-hover);
+  --h2-color: var(--color-secondary);
   --h2-font-size: 3.5em;
   --h3-color: var(--color);
   --h3-font-size: 1.25em;
@@ -46,7 +51,7 @@
   --h4-font-family: var(--font-family);
   --light: #fff8e0;
   --line-height: 1.5;
-  --outline-color: var(--color-hover);
+  --outline-color: var(--color-secondary);
   --p-text-align: center;
   --spacing: 0.75em;
   background-color: var(--background-color, transparent);
