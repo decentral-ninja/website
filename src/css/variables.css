@@ -18,6 +18,11 @@
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color: var(--dark);
+
+
+  --background-color-smallListContainer: rgba(255,255,255,0.7);
+  --box-shadow-default: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
   --color-active: #fccf00;
   --color-disabled: gray;
   --color-error: red;
@@ -70,6 +75,10 @@ c-router {
   display: flex;
   height: 100dvh;
 }
+li{
+  list-style-type: none;
+}
+
 /* LOADER: https://www.cssportal.com/css-loader-generator/ */
 .custom-loader {
   margin: auto;
