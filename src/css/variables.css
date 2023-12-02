@@ -76,10 +76,7 @@ c-router {
   height: 100dvh;
 }
 
-li,ul ul li{
-  list-style-type: none !important;
-  /*todo: not working why tho?*/
-}
+
 
 /* LOADER: https://www.cssportal.com/css-loader-generator/ */
 .custom-loader {
