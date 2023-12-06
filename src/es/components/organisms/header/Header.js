@@ -187,7 +187,7 @@ export default class Header extends Shadow() {
       <header></header>
     `
     Array.from(this.root.children).forEach(node => {
-      if (node === this.header || node === this.main || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
+      if (node === this.header || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
       this.header.appendChild(node)
     })
     this.setAttribute('count-header-children', this.header.children.length)
