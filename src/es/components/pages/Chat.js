@@ -98,8 +98,8 @@ export default class Chat extends Index {
       },
       {
         // TODO NEXT: Example artifact, properly redo
-        path: `${this.importMetaUrl}../../chat/es/components/views/Input.js`,
-        name: 'yjs-input'
+        path: `${this.importMetaUrl}../../chat/es/components/atoms/Input.js`,
+        name: 'chat-input'
       }
     ]).then((children) => {
       this.html = /* html */`
@@ -116,7 +116,7 @@ export default class Chat extends Index {
                     <yjs-chat-update></yjs-chat-update>
                   </o-body>
                   <o-footer>
-                    <yjs-input style="order: -1; width: 100%;"></yjs-input>
+                    <chat-input style="order: -1; width: 100%;"></chat-input>
                     <details open>
                       <summary><code>connection data</code></summary>
                       <yjs-details-awareness-change></yjs-details-awareness-change>
