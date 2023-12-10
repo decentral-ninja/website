@@ -1,4 +1,6 @@
-# Decentral Ninja
+# Decentral Ninja 
+The easiest way to connect with others without the need for phone numbers or email exchanges!
+
 
 ## Install & Run
 - git submodule init
@@ -41,3 +43,32 @@
 - [ ] dns (link board) / dns crdt
 - [ ] id, room administrators (nostr)
 - [ ] organization (DAO?)
+- [ ] Add Spaces that act as buckets for rooms and Users
+- [ ] Add Contact Book Functionality --> Users "list"
+- [ ] Preserve nickname, color, and recently used emojis on the "device" and enable synchronization with other devices through a QR code and link
+- [ ] Add Chat Options:
+        - [ ] Response To Messages
+        - [ ] Delete Messages
+              	Recipients See "This message was deleted":
+	              Instead of the deleted message, recipients see a notice saying "This message was deleted." This is visible in place of the original message.
+
+                Time Limit for Deletion:
+                1 hour, 8 minutes, and 16 seconds after sending.
+
+	              Offline Deletion:
+	              If the recipient is offline or the message hasn't been delivered, the sender can delete the message, and won't be sent.
+        - [ ] Change the Color for a User in a Room or set UserName Colors automatically as WhatsApp does
+
+--- UI / UX ---
+- [ ] create UI similar to element.io
+- [ ] Add Days or/and Date of the message section
+
+--- Emoji Todos ---
+- [ ] Output larger if only emoji is sent
+- [ ] Make EmojiPicker Responsive
+- [ ] create top global used emojis list
+- [ ] search emojis
+- [ ] display recent used emojis
+- [ ] add emojis where cursor is in text
+- [ ] dont hide emoji picker when clicked in textarea
+- [ ] use "own" emoji style --> symbl.cc
