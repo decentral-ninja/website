@@ -65,9 +65,9 @@ The easiest way to connect with others without the need for phone numbers or ema
 
 --- Emoji Todos ---
 - [ ] Output larger if only emoji is sent
-- [ ] Make EmojiPicker Responsive
-- [ ] create top global used emojis list
-- [ ] search emojis
+- [x] Make EmojiPicker Responsive
+- [x] create top global used emojis list
+- [ ] search function for emojis
 - [ ] display recent used emojis
 - [ ] add emojis where cursor is in text
 - [ ] dont hide emoji picker when clicked in textarea
