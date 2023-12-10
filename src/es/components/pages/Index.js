@@ -180,10 +180,8 @@ export default class Index extends Mutation() {
             </div>
             </o-grid>
             <hr>
-            <h4>Our chat, our first set of weapon 武器 at hand is which uses:</h4>
             <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>
             <ul>
-              <li>Local first CRDT (conflict free replicated data sets)</li>
               <li>Local first CRDT (conflict-free replicated data sets)</li>
               <li>WebRTC</li>
               <li>Flux WebSocket (coming soon)</li>
