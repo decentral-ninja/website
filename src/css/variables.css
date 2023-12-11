@@ -18,11 +18,27 @@
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color: var(--dark);
+  --background-color-smallListContainer: rgba(255,255,255,0.7);
+  --box-shadow-default: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  --button-primary-border-color-hover: transparent;
+  --button-primary-border-color: var(--color-secondary);
+  --button-primary-border-radius: 0.7em;
+  --button-primary-border-width: 7px;
+  --button-primary-color-custom: var(--color);
+  --button-primary-color-hover-custom: var(--background-color);
+  --button-primary-transform-hover: scale(1.05);
+  --button-primary-transition-custom: border-color .5s ease, background-color .3s ease, color .3s ease, transform .2s ease;
+  --button-secondary-border-radius: 0.7em;
+  --button-secondary-border-width-custom: 2px;
+  --button-secondary-transform-hover: scale(1.05);
+  --button-secondary-transition-custom: border-color .3s ease-out, color .3s ease-out, transform .2s ease;
   --color-active: #fccf00;
   --color-disabled: gray;
   --color-error: red;
-  --color-hover: #a80d10;
+  --color-hover: var(--color-active);
   --color-rgba-50: rgba(255, 248, 224, 0.3);
+  --color-secondary-rgba-50: rgba(166, 12, 15, 0.5);
+  --color-secondary: #a80d10;
   --color: var(--light);
   --content-spacing-mobile: 1rem;
   --content-spacing: 1.143rem;
@@ -38,7 +54,7 @@
   --h-text-align: center;
   --h1-color: var(--color);
   --h1-font-size: 4.5em;
-  --h2-color: var(--color-hover);
+  --h2-color: var(--color-secondary);
   --h2-font-size: 3.5em;
   --h3-color: var(--color);
   --h3-font-size: 1.25em;
@@ -46,7 +62,7 @@
   --h4-font-family: var(--font-family);
   --light: #fff8e0;
   --line-height: 1.5;
-  --outline-color: var(--color-hover);
+  --outline-color: var(--color-secondary);
   --p-text-align: center;
   --spacing: 0.75em;
   background-color: var(--background-color, transparent);
@@ -70,6 +86,9 @@ c-router {
   display: flex;
   height: 100dvh;
 }
+
+
+
 /* LOADER: https://www.cssportal.com/css-loader-generator/ */
 .custom-loader {
   margin: auto;
