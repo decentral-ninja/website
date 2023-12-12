@@ -1,6 +1,8 @@
 // @ts-check
 import { Mutation } from '../../event-driven-web-components-prototypes/src/Mutation.js'
 
+/* global Environment */
+
 /**
 * Decentral Ninja Main/Start Page
 *

@@ -1,6 +1,8 @@
 // @ts-check
 import Index from './Index.js'
 
+/* global Environment */
+
 /**
 * Decentral Ninja Main/Start Page
 *
