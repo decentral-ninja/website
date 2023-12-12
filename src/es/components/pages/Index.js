@@ -120,31 +120,38 @@ export default class Index extends Mutation() {
   renderHTML () {
     return this.fetchModules([
       {
-        path: `${this.importMetaUrl}../organisms/header/Header.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../organisms/header/Header.js?${Environment?.version || ''}`,
         name: 'o-header'
       },
       {
-        path: `${this.importMetaUrl}../atoms/logo/Logo.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../atoms/logo/Logo.js?${Environment?.version || ''}`,
         name: 'a-logo'
       },
       {
-        path: `${this.importMetaUrl}../organisms/body/Body.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../organisms/body/Body.js?${Environment?.version || ''}`,
         name: 'o-body'
       },
       {
-        path: `${this.importMetaUrl}../organisms/footer/Footer.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../organisms/footer/Footer.js?${Environment?.version || ''}`,
         name: 'o-footer'
       },
       {
-        path: `${this.importMetaUrl}../atoms/iconChat/IconChat.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../atoms/iconChat/IconChat.js?${Environment?.version || ''}`,
         name: 'a-icon-chat'
       },
       {
-        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/organisms/grid/Grid.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/organisms/grid/Grid.js?${Environment?.version || ''}`,
         name: 'o-grid'
       },
       {
-        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/button/Button.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/button/Button.js?${Environment?.version || ''}`,
         name: 'a-button'
       }
     ]).then((children) => {
