@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.2.5', // https://semver.org/
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.0.0', // https://semver.org/
   /**
    * Get custom mobile breakpoint
    * @param {{constructor?: string, tagName?: string, namespace?: string}} organism

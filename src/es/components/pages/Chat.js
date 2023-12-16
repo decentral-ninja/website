@@ -70,79 +70,87 @@ export default class Chat extends Index {
         name: 'c-providers'
       },
       {
+        // TODO: see todos at molecules/Providers.js Class
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/Providers.js?${Environment?.version || ''}`,
+        name: 'm-providers'
+      },
+      {
+        // TODO: see todos at controllers/Rooms.js Class
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Rooms.js?${Environment?.version || ''}`,
+        name: 'c-rooms'
+      },
+      {
+        // TODO: see todos at molecules/Rooms.js Class
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/Rooms.js?${Environment?.version || ''}`,
+        name: 'm-rooms'
+      },
+      {
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Users.js?${Environment?.version || ''}`,
         name: 'c-users'
       },
       {
-        // TODO: yjs-awareness-change is inside yjs-details-awareness-change, this has nickname and room name functionality, which has to be split to one: user class and two: room class
-        // TODO: Example artifact, properly redo with https://github.com/feross/p2p-graph event-driven-web-components-yjs/readme.md
+        // TODO: see todos at molecules/Users.js Class
         // @ts-ignore
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleOne/AwarenessChange.js?${Environment?.version || ''}`,
-        name: 'yjs-awareness-change'
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/Users.js?${Environment?.version || ''}`,
+        name: 'm-users'
       },
       {
-        // TODO: Example artifact, properly redo with https://github.com/feross/p2p-graph event-driven-web-components-yjs/readme.md
+        // TODO: see todos at controllers/Chat.js Class
         // @ts-ignore
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/DetailsAwarenessChange.js?${Environment?.version || ''}`,
-        name: 'yjs-details-awareness-change'
+        path: `${this.importMetaUrl}../../chat/es/components/controllers/Chat.js?${Environment?.version || ''}`,
+        name: 'c-chat'
       },
       {
-        // TODO: chat and chat update are typically view and model/controller in the chat repo, properly split to mvc
-        // TODO: Example artifact, properly redo and move to chat sub-repo
+        // TODO: see todos at molecules/Chat.js Class
         // @ts-ignore
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/controllers/YjsChat.js?${Environment?.version || ''}`,
-        name: 'c-yjs-chat'
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/Chat.js?${Environment?.version || ''}`,
+        name: 'm-chat'
       },
       {
-        // TODO: Example artifact, properly redo and move to chat sub-repo
         // @ts-ignore
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/YjsChatUpdate.js?${Environment?.version || ''}`,
-        name: 'yjs-chat-update'
+        path: `${this.importMetaUrl}../../chat/es/components/atoms/Input.js?${Environment?.version || ''}`,
+        name: 'a-input'
       },
       {
-        // TODO: Example artifact, properly redo
-        // @ts-ignore
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/Room.js?${Environment?.version || ''}`,
-        name: 'yjs-room'
-      },
-      {
-        // TODO: Example artifact, properly redo
+        // TODO: Example artifact
+        // TODO: Replace with Navigation
+        // ... properly spread functionality to ../../chat/es/components/molecules/... Rooms, Providers, Users and move the triggers (buttons) to a simple navigation view component including room, provider, user, video, share and qr code
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/ShareApi.js?${Environment?.version || ''}`,
         name: 'yjs-share-api'
-      },
-      {
-        // TODO NEXT: Example artifact, properly redo
-        // @ts-ignore
-        path: `${this.importMetaUrl}../../chat/es/components/atoms/Input.js?${Environment?.version || ''}`,
-        name: 'chat-input'
       }
     ]).then((children) => {
       this.html = /* html */`
         <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
           <c-providers>
-            <c-users>
-              <c-yjs-chat>
-                <section>
-                  <o-header toggle-once>
-                    <yjs-share-api style="height: fit-content;">share this room:</yjs-share-api>
-                    <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
-                  </o-header>
-                  <o-body>
-                    <yjs-chat-update></yjs-chat-update>
-                  </o-body>
-                  <o-footer>
-                    <chat-input style="order: -1; width: 100%;"></chat-input>
-                    <details open>
-                      <summary><code>connection data</code></summary>
-                      <yjs-details-awareness-change></yjs-details-awareness-change>
-                      <yjs-room></yjs-room>
-                    </details>
-                  </o-footer>
-                </section>
-              </c-yjs-chat>
-            </c-users>
+            <c-rooms>
+              <c-users>
+                <c-chat>
+                  <section>
+                    <o-header toggle-once>
+                      <yjs-share-api style="height: fit-content;">share this room:</yjs-share-api>
+                      <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
+                    </o-header>
+                    <o-body>
+                      <m-chat></m-chat>
+                    </o-body>
+                    <o-footer>
+                      <a-input style="order: -1; width: 100%;"></a-input>
+                      <details open>
+                        <summary><code>connection data</code></summary>
+                        <m-providers></m-providers>
+                        <m-rooms></m-rooms>
+                        <m-users></m-users>
+                      </details>
+                    </o-footer>
+                  </section>
+                </c-chat>
+              </c-users>
+            </c-rooms>
           </c-providers>
         </c-event-driven-yjs>
       `

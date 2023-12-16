@@ -6,7 +6,8 @@
   "repository": "https://github.com/decentral-ninja/website.git",
   "scripts": {
     "fix": "standard --fix",
-    "serve": "live-server --port=4200 --host=localhost"
+    "serve": "live-server --port=4200 --host=localhost",
+    "websocket": "PORT=1234 node ./src/es/event-driven-web-components-yjs/servers/y-websocket/bin/server.js"
   },
   "author": "weedshaker@gmail.com",
   "license": "GPLv3",
