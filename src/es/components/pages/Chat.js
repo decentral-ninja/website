@@ -116,12 +116,10 @@ export default class Chat extends Index {
         name: 'a-input'
       },
       {
-        // TODO: Example artifact
-        // TODO: Replace with Navigation
-        // ... properly spread functionality to ../../chat/es/components/molecules/... Rooms, Providers, Users and move the triggers (buttons) to a simple navigation view component including room, provider, user, video, share and qr code
+        // TODO: see todos at molecules/Chat.js Class
         // @ts-ignore
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/tests/exampleTwo/ShareApi.js?${Environment?.version || ''}`,
-        name: 'yjs-share-api'
+        path: `${this.importMetaUrl}../../chat/es/components/organisms/Header.js?${Environment?.version || ''}`,
+        name: 'chat-o-header'
       }
     ]).then((children) => {
       this.html = /* html */`
@@ -132,7 +130,7 @@ export default class Chat extends Index {
                 <c-chat>
                   <section>
                     <o-header toggle-once>
-                      <yjs-share-api style="height: fit-content;">share this room:</yjs-share-api>
+                      <chat-o-header style="height: fit-content;">share this room:</chat-o-header>
                       <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
                     </o-header>
                     <o-body>

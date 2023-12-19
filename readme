@@ -14,6 +14,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] textarea instead of input field
 - [x] reorganize exampleTwo, hidden appear effect, chat-, room-, user-, provider- controller
 - [x] finish completely style/transform exampleTwo
+- [ ] listen to "yjs-users" event dispatched from controller/Users.js with func. detail.getData() and not awareness-change event!!!
 - [ ] style and overhaul src/es/chat/es/components/views/Input.js (BTN: https://weedshaker.github.io/webnesday2023_event-driven/)
 - [ ] header controls in dialog (nav modal)
 - [ ] pimp Router to open new components on certain query parameters (as key) and make room view to choose room or create room / manifest to fullscreen
