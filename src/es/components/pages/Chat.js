@@ -144,13 +144,12 @@ export default class Chat extends Index {
                     </o-body>
                     <o-footer>
                       <a-input style="order: -1; width: 100%;"></a-input>
-                      <details open>
-                        <summary><code>connection data</code></summary>
+                      <div>
                         <m-providers></m-providers>
                         <m-rooms></m-rooms>
                         <m-users></m-users>
                         <m-notifications></m-notifications>
-                      </details>
+                      </div>
                     </o-footer>
                   </section>
                 </c-chat>
