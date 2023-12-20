@@ -99,6 +99,12 @@ export default class Chat extends Index {
         name: 'm-users'
       },
       {
+        // TODO: see todos at molecules/Notifications.js Class
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/Notifications.js?${Environment?.version || ''}`,
+        name: 'm-notifications'
+      },
+      {
         // TODO: see todos at controllers/Chat.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/controllers/Chat.js?${Environment?.version || ''}`,
@@ -143,6 +149,7 @@ export default class Chat extends Index {
                         <m-providers></m-providers>
                         <m-rooms></m-rooms>
                         <m-users></m-users>
+                        <m-notifications></m-notifications>
                       </details>
                     </o-footer>
                   </section>
