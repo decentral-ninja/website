@@ -15,11 +15,11 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] reorganize exampleTwo, hidden appear effect, chat-, room-, user-, provider- controller
 - [x] finish completely style/transform exampleTwo
 - [x] src/es/chat/es/components/molecules/Users.js listen to "yjs-users" event dispatched from controller/Users.js with func. detail.getData() and not awareness-change event!!!
+- [ ] Answer to a certain or multiple messages
 - [ ] style and overhaul src/es/chat/es/components/views/Input.js (BTN: https://weedshaker.github.io/webnesday2023_event-driven/)
 - [ ] header controls in dialog (nav modal)
 - [ ] pimp Router to open new components on certain query parameters (as key) and make room view to choose room or create room / manifest to fullscreen
 - [ ] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view
-- [ ] Answer to a certain or multiple messages
 - [ ] add scroll down/not read messages button 
 - [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
