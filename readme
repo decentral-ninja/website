@@ -41,6 +41,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] controllers/Providers.js when on automatic connect look for the most favorable connections and avoid orphans else allow manual choice at Providers view (User controller if not connected offer to connect to other urls max. 2 per socket / connecting to other servers according user crdt data [provider has mutually connected users with some connected to other providers with mutually connected users and vice versa]) + handle on error ws connection at provider
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 --- Version One ---
+- [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/
 - [ ] yjs in webworker (https://github.com/y-js/y-webworker)
 - [ ] check security requirements from https://www.securemessagingapps.com
 - [ ] Mail Notifications or voluntary authentication by mail (https://github.com/nodemailer/nodemailer)
@@ -51,24 +52,23 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] Add Spaces that act as buckets for rooms and Users
 - [ ] Add Contact Book Functionality --> Users "list"
 - [ ] Preserve nickname, color, and recently used emojis on the "device" and enable synchronization with other devices through a QR code and link
-- [ ] Add Chat Options:
-        - [ ] Response To Messages
-        - [ ] Delete Messages
-              	Recipients See "This message was deleted":
-	              Instead of the deleted message, recipients see a notice saying "This message was deleted." This is visible in place of the original message.
+Add Chat Options:
+- [ ] Delete Messages
+        Recipients See "This message was deleted":
+        Instead of the deleted message, recipients see a notice saying "This message was deleted." This is visible in place of the original message.
 
-                Time Limit for Deletion:
-                1 hour, 8 minutes, and 16 seconds after sending.
+        Time Limit for Deletion:
+        1 hour, 8 minutes, and 16 seconds after sending.
 
-	              Offline Deletion:
-	              If the recipient is offline or the message hasn't been delivered, the sender can delete the message, and won't be sent.
-        - [ ] Change the Color for a User in a Room or set UserName Colors automatically as WhatsApp does
+        Offline Deletion:
+        If the recipient is offline or the message hasn't been delivered, the sender can delete the message, and won't be sent.
+- [ ] Change the Color for a User in a Room or set UserName Colors automatically as WhatsApp does
 
 --- UI / UX ---
 - [ ] create UI similar to element.io
 - [ ] Add Days or/and Date of the message section
 
---- Emoji Todos ---
+--- Emoji TODO ---
 - [ ] Output larger if only emoji is sent
 - [x] Make EmojiPicker Responsive
 - [x] create top global used emojis list
