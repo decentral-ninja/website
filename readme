@@ -31,6 +31,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] Update yjs rollup stuff
 - [ ] chat msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
 - [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
+- [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old
 --- Beta ---
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner
