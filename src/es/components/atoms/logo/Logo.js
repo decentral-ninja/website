@@ -136,7 +136,7 @@ export default class Logo extends Shadow(WebWorker()) {
         height: var(--svg-height, var(--svg-size, auto));
         opacity: 0;
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out, filter 5000ms ease-in);
-        width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
+        width: var(--svg-width, var(--svg-size, min(100svw, 100svh, 100%)));
         will-change: opacity, filter;
       }
       :host([loaded]) > svg {
@@ -233,7 +233,7 @@ export default class Logo extends Shadow(WebWorker()) {
       }
       /* LOADER: https://www.cssportal.com/css-loader-generator/ */
       :host > div.custom-loader {
-        width: var(--svg-width, var(--svg-size, min(100dvw, 100dvh, 100%)));
+        width: var(--svg-width, var(--svg-size, min(100svw, 100svh, 100%)));
       }
       :host > div.custom-loader > div {
         margin: auto;

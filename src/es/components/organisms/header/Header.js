@@ -132,8 +132,8 @@ export default class Header extends Shadow() {
         position: static;
       }
       :host([open]) > header > a-logo, :host([open]) > header > a > a-logo {
-        width: 100dvw;
-        transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
+        width: 100svw;
+        transform: translate(calc(50svw - 50% + var(--padding)), calc(50svh - 50% - var(--padding)));
         animation: transition ${this.transitionDuration}ms ease-out;
       }
       @keyframes transition {
@@ -142,14 +142,14 @@ export default class Header extends Shadow() {
           width: var(--height);
         }
         to {
-          transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
-          width: 100dvw;
+          transform: translate(calc(50svw - 50% + var(--padding)), calc(50svh - 50% - var(--padding)));
+          width: 100svw;
         }
       }
       @keyframes transition-reverse {
         from {
-          transform: translate(calc(50dvw - 50% + var(--padding)), calc(50dvh - 50% - var(--padding)));
-          width: 100dvw;
+          transform: translate(calc(50svw - 50% + var(--padding)), calc(50svh - 50% - var(--padding)));
+          width: 100svw;
         }
         to {
           transform: translate(0, 0);

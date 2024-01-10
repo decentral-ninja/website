@@ -86,8 +86,8 @@ export default class Index extends Mutation() {
                              "footer";
         grid-template-columns: 100%;
         grid-template-rows: minmax(var(--header-min-height , var(--spacing)), auto) 1fr minmax(var(--footer-min-height, var(--spacing)), auto);
-        min-height: var(--min-height, 100dvh);
-        max-height: 100dvh;
+        min-height: var(--min-height, 100svh);
+        max-height: 100svh;
       }
       :host section > o-body {
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
