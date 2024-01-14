@@ -33,15 +33,18 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] chat msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
 - [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
 - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old
+- [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
 --- Beta ---
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner
 - [ ] security and text & room link encryption 
-- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js
+- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key])
+- [ ] key pair share encrypt with jwt
 - [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation)
 - [ ] IndexedDB delete Option per room
 - [ ] controllers/Providers.js when on automatic connect look for the most favorable connections and avoid orphans else allow manual choice at Providers view (User controller if not connected offer to connect to other urls max. 2 per socket / connecting to other servers according user crdt data [provider has mutually connected users with some connected to other providers with mutually connected users and vice versa]) + handle on error ws connection at provider
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
+- [ ] CRDT Corrupted undo option with Room change
 --- Version One ---
 - [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/
 - [ ] yjs in webworker (https://github.com/y-js/y-webworker)
