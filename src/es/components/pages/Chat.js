@@ -120,7 +120,7 @@ export default class Chat extends Index {
       }
     ]).then((children) => {
       this.html = /* html */`
-        <c-event-driven-yjs websocket-url="wss://decentralninjawebsocket.app.runonflux.io/?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
+        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com/?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
           <c-providers>
             <c-users>
               <c-yjs-chat>
