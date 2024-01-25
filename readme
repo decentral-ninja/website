@@ -21,6 +21,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
 - [ ] MasterServiceWorker add a Notification Queue which can be read through events
+- [ ] BugFix, persistence clears document before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 - [ ] Answer to a certain or multiple messages
 - [ ] style and overhaul src/es/chat/es/components/views/Input.js (BTN: https://weedshaker.github.io/webnesday2023_event-driven/)
 - [ ] add scroll down/not read messages button 
