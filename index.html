@@ -50,12 +50,12 @@
   <script rel=preload type=module>
     Promise.all([
       import('./src/es/event-driven-web-components-prototypes/src/FetchHtml.js').then(module => ['c-fetch-html', module.default]),
-        import('./src/es/event-driven-web-components-prototypes/src/FetchCss.js').then(module => ['c-fetch-css', module.default]),
-        import('./src/es/event-driven-web-components-prototypes/src/FetchModules.js').then(module => ['c-fetch-modules', module.default]),
-        import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
+      import('./src/es/event-driven-web-components-prototypes/src/FetchCss.js').then(module => ['c-fetch-css', module.default]),
+      import('./src/es/event-driven-web-components-prototypes/src/FetchModules.js').then(module => ['c-fetch-modules', module.default]),
+      import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
     ]).then(elements => elements.forEach(element => {
-        // don't define already existing customElements
-        if (element && !customElements.get(element[0])) customElements.define(...element)
+      // don't define already existing customElements
+      if (element && !customElements.get(element[0])) customElements.define(...element)
     }))
   </script>
 </body>
