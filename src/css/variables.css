@@ -45,6 +45,7 @@
   --dark: #000f33;
   --dialog-left-slide-in-background-color: var(--background-color, canvas);
   --dialog-left-slide-in-gap-custom: var(--spacing);
+  --dialog-left-slide-in-outline-style: none;
   --dialog-left-slide-in-padding-custom: var(--spacing);
   --font-family-secondary: Kashima, Arial, sans-serif;
   --font-family: Arial, sans-serif;
