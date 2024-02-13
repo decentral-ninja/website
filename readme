@@ -26,7 +26,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] style and overhaul src/es/chat/es/components/views/Input.js (BTN: https://weedshaker.github.io/webnesday2023_event-driven/)
 - [ ] add scroll down/not read messages button 
 - [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
-- [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers)
+- [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing
 - [ ] video call in iframe from flux (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
 - [ ] https://www.runonflux.io/

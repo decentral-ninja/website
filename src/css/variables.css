@@ -17,8 +17,8 @@
   --a-color: var(--color-active);
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
-  --background-color: var(--dark);
   --background-color-smallListContainer: rgba(255,255,255,0.7);
+  --background-color: var(--dark);
   --box-shadow-default: 0px 4px 8px rgba(0, 0, 0, 0.2);
   --button-primary-border-color-hover: transparent;
   --button-primary-border-color: var(--color-secondary);
@@ -43,6 +43,9 @@
   --content-spacing-mobile: 1rem;
   --content-spacing: 1.143rem;
   --dark: #000f33;
+  --dialog-left-slide-in-background-color: var(--background-color, canvas);
+  --dialog-left-slide-in-gap-custom: var(--spacing);
+  --dialog-left-slide-in-padding-custom: var(--spacing);
   --font-family-secondary: Kashima, Arial, sans-serif;
   --font-family: Arial, sans-serif;
   --font-size-mobile: min(14px, 5vw);
@@ -62,9 +65,14 @@
   --h4-font-family: var(--font-family);
   --light: #fff8e0;
   --line-height: 1.5;
+  --menu-icon-close-background-color: var(--menu-icon-open-background-color);
+  --menu-icon-close-margin: 0 0 0 calc(-2 * var(--spacing));
+  --menu-icon-close-padding: var(--menu-icon-open-padding);
+  --menu-icon-open-background-color: var(--dark);
+  --menu-icon-open-padding: 0;
   --outline-color: var(--color-secondary);
   --p-text-align: center;
-  --spacing: 0.75em;
+  --spacing: 0.75rem;
   background-color: var(--background-color, transparent);
   color: var(--color, white);
   font-family: var(--font-family, sans-serif);

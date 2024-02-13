@@ -100,7 +100,6 @@ export default class Index extends Mutation() {
       }
       @media only screen and (max-width: _max-width_) {
         :host {
-          --spacing: 0.5em;
           font-size: var(--font-size-mobile, var(--font-size, 10px));
           font-weight: var(--font-weight-mobile, var(--font-weight, normal));
           line-height: var(--line-height-mobile, var(--line-height, normal));
