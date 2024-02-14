@@ -64,10 +64,11 @@
   --h3-font-size: 1.25em;
   --h4-color: var(--color);
   --h4-font-family: var(--font-family);
+  --header-height: 3em;
   --light: #fff8e0;
   --line-height: 1.5;
   --menu-icon-close-background-color: var(--menu-icon-open-background-color);
-  --menu-icon-close-margin: 0 0 0 calc(-2 * var(--spacing));
+  --menu-icon-close-margin: calc(var(--header-height) / 4) 0 0 calc(-1.5 * var(--spacing));
   --menu-icon-close-padding: var(--menu-icon-open-padding);
   --menu-icon-open-background-color: var(--dark);
   --menu-icon-open-padding: 0;

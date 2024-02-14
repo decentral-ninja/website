@@ -135,15 +135,15 @@ export default class Chat extends Index {
               <c-users>
                 <c-chat>
                   <section>
-                    <o-header toggle-once>
-                      <chat-o-header style="height: fit-content;">share this room:</chat-o-header>
+                    <o-header toggle-once style="--header-align-items: center;">
+                      <chat-o-header></chat-o-header>
                       <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
                     </o-header>
                     <o-body>
                       <m-chat></m-chat>
                     </o-body>
                     <o-footer>
-                      <a-input style="order: -1; width: 100%;"></a-input>
+                      <a-input style="order: -1;"></a-input>
                       <div>
                         <m-providers></m-providers>
                         <m-rooms></m-rooms>

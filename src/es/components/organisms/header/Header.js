@@ -88,7 +88,7 @@ export default class Header extends Shadow() {
       :host {
         --show: show 1.5s ease-in;
         --padding: var(--spacing);
-        --height: 3em;
+        --height: var(--header-height, 3em);
         grid-area: header;
         padding: var(--padding);
         min-height: var(--height);
@@ -96,8 +96,9 @@ export default class Header extends Shadow() {
       }
       :host > header {
         display: flex;
-        gap: 1em;
-        justify-content: space-between;
+        gap: var(--spacing);
+        justify-content: var(--header-justify-content, space-between);
+        align-items: var(--header-align-items, top);
         position: relative;
       }
       :host > header > *:first-child {
