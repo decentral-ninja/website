@@ -91,7 +91,7 @@ export default class Index extends Mutation() {
       }
       :host section > o-body {
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out);
-        will-change: opacity;
+        /*will-change: opacity; TODO: side effect on z-index?*/
       }
       /* :host section:has(o-header[open]) > o-body {  did was ignored by the render cycle on iphone, workaround with mutation observer */
       :host(.header-open) section > o-body {

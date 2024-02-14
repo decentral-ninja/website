@@ -113,7 +113,7 @@ export default class Header extends Shadow() {
         width: var(--height);
         transform: translate(0, 0);
         animation: transition-reverse ${this.transitionDuration}ms ease-out;
-        will-change: width;/* will-change transform blured the svg */
+        /*will-change: width; TODO: side effect on z-index?*//* will-change transform blured the svg */
       }
       :host > header > a {
         display: flex;
