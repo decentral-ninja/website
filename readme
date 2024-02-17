@@ -19,6 +19,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] <a href="?page=/chat" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a> with a component which asks the room name parameter to attach to link, avoiding the router to make a double route on room parameter set
 - [ ] header controls in dialog (nav modal)
 - [ ] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen
+- [ ] fix lost username by storing it to local storage
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
 - [ ] MasterServiceWorker add a Notification Queue which can be read through events
 - [ ] BugFix, persistence clears document before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
