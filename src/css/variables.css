@@ -68,19 +68,25 @@
   --light: #fff8e0;
   --line-height: 1.5;
   --menu-icon-close-background-color: var(--menu-icon-open-background-color);
+  --menu-icon-close-border-radius: 25%;
+  --menu-icon-close-height: 3px;
   --menu-icon-close-margin: calc(var(--header-height) / 4) 0 0 calc(-1.5 * var(--spacing));
   --menu-icon-close-padding: var(--menu-icon-open-padding);
+  --menu-icon-close-width: 28px;
   --menu-icon-open-background-color: var(--dark);
+  --menu-icon-open-border-radius: 25%;
+  --menu-icon-open-height: 3px;
   --menu-icon-open-padding: 0;
+  --menu-icon-open-width: 28px;
   --outline-color: var(--color-secondary);
   --p-text-align: center;
   --spacing: 0.75rem;
+  /*will-change: color, background-color;*/
   background-color: var(--background-color, transparent);
   color: var(--color, white);
   font-family: var(--font-family, sans-serif);
   letter-spacing: var(--letter-spacing, normal);
   transition: var(--transition, color 0.3s ease-out, background-color 0.3s ease-out);
-  will-change: color, background-color;
 }
 :root[invert] {
   --background-color: var(--light);
