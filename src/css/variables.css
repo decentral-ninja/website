@@ -47,6 +47,7 @@
   --dialog-left-slide-in-gap-custom: var(--spacing);
   --dialog-left-slide-in-outline-style: none;
   --dialog-left-slide-in-padding-custom: var(--spacing);
+  --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
   --font-family-secondary: Kashima, Arial, sans-serif;
   --font-family: Arial, sans-serif;
   --font-size-mobile: min(14px, 5vw);
@@ -70,7 +71,7 @@
   --menu-icon-close-background-color: var(--menu-icon-open-background-color);
   --menu-icon-close-border-radius: 25%;
   --menu-icon-close-height: 3px;
-  --menu-icon-close-margin: calc(var(--header-height) / 4) 0 0 calc(-1.5 * var(--spacing));
+  --menu-icon-close-margin: calc(var(--header-height) / 2) 0 0 calc(-1 * var(--spacing));
   --menu-icon-close-padding: var(--menu-icon-open-padding);
   --menu-icon-close-width: 28px;
   --menu-icon-open-background-color: var(--dark);
