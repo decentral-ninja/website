@@ -59,7 +59,7 @@ export default class Footer extends Shadow() {
     this.css = /* css */`
       :host {
         grid-area: footer;
-        padding: var(--spacing);
+        padding: var(--spacing) var(--spacing) 0;
         font-size: 0.65em;
       }
       :host > footer {
@@ -95,13 +95,15 @@ export default class Footer extends Shadow() {
    */
   renderHTML () {
     this.footer = this.root.querySelector(this.cssSelector + ' > footer') || document.createElement('footer')
+    const div = document.createElement('div')
     // @ts-ignore
-    this.footer.innerHTML = `<a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / ${Environment.stage} ${Environment.version}</a>`
+    div.innerHTML = `<a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / ${Environment.stage} ${Environment.version}</a>`
+    this.footer.prepend(div.children[0])
     Array.from(this.root.children).forEach(node => {
       if (node === this.footer || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
       this.footer.appendChild(node)
     })
-    this.html = this.footer
+    if (!this.root.contains(this.footer)) this.html = this.footer
     return Promise.resolve()
   }
 

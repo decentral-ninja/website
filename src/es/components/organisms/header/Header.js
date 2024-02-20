@@ -86,7 +86,6 @@ export default class Header extends Shadow() {
   renderCSS () {
     this.css = /* css */`
       :host {
-        --show: show 1.5s ease-in;
         --padding: var(--spacing);
         --height: var(--header-height, 3em);
         grid-area: header;
@@ -184,14 +183,13 @@ export default class Header extends Shadow() {
    * @return {Promise<void>}
    */
   renderHTML () {
-    this.html = /* html */`
-      <header></header>
-    `
+    this.header = this.root.querySelector(this.cssSelector + ' > header') || document.createElement('header')
     Array.from(this.root.children).forEach(node => {
       if (node === this.header || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
       this.header.appendChild(node)
     })
     this.setAttribute('count-header-children', this.header.children.length)
+    if (!this.root.contains(this.header)) this.html = this.header
     return Promise.resolve()
   }
 
@@ -240,10 +238,6 @@ export default class Header extends Shadow() {
     } else {
       this.open()
     }
-  }
-
-  get header () {
-    return this.root.querySelector('header')
   }
 
   get logo () {

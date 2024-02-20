@@ -119,6 +119,68 @@ export default class Index extends Mutation() {
   * @return {Promise<void>}
   */
   renderHTML () {
+    // Header is expected to be initially open, below <o-header open></o-header>
+    this.classList.add('header-open')
+    this.html = /* html */`
+      <section>
+        <o-header open>
+          <header>
+            <a href="?page=/chat" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+            <a-logo namespace="logo-default-"></a-logo>
+          </header>
+        </o-header>
+        <o-body>
+          <main>
+            <div class=pattern>
+              <div class=content>
+                <!-- https://funtranslations.com/yoda -->
+                <h1>Oh, welcome!</h1>
+                <h3>ああ、まいどまいど。</h3>
+                <hr>
+                <h2>Dear Ninja,</h2>
+                <p>Very pleased that you found the way to my dojo, I am!<br>
+                In these challenging times of censorship, surveillance, and big data. New skills and weaponry required there are.</p>
+                <hr>
+                <h4>Empower your conversations, empower your privacy</h4>
+                <p> Unleash your conversations with the speed and precision of a ninja, ensuring your messages remain as agile and elusive as you are.
+                Join the revolution in communication with Decentral.Ninja - the cutting-edge decentralized chat platform that puts privacy and control back in your hands, ensuring your conversations stay truly confidential.
+                </p>
+                <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
+                <div> 
+                <a href="?page=/chat" route target="_self">
+                  <wct-button namespace="button-primary-">Start Chat</wct-button>
+                </a>
+                </div>
+                <div>       
+                <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback" target="_blank">Chat With Us</wct-button>
+                </div>
+                </wct-grid>
+                <hr>
+                <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>
+                <ul>
+                  <li>Local first CRDT (conflict-free replicated data sets)</li>
+                  <li>WebRTC</li>
+                  <li>Flux WebSocket (coming soon)</li>
+                  <li>IPFS (coming soon)</li>
+                  <li>WebTorrent (coming soon)</li>
+                  <li>end to end encryption (coming soon)</li>
+                </ul>
+                <p>As you see, we are very busy building it all. In the meantime, use our proof of concept, please: <a href="?page=/chat" route target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+                <hr>
+                <h4>To further train with new tools, there is... Web 3.0...</h4>
+                <ul>
+                  <li>Presearch, a decentral search engine</li>
+                  <li>Crypto Currencies... anonymous ones, best are, like Monero or the pirate chain.</li>
+                  <li>The Torproject</li>
+                  <li>and many many more there are...</li>
+                </ul>
+              </div>
+            </div>
+          </main>
+        </o-body>
+        <o-footer></o-footer>
+      </section>
+    `
     return this.fetchModules([
       {
         // @ts-ignore
@@ -148,69 +210,14 @@ export default class Index extends Mutation() {
       {
         // @ts-ignore
         path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/organisms/grid/Grid.js?${Environment?.version || ''}`,
-        name: 'o-grid'
+        name: 'wct-grid'
       },
       {
         // @ts-ignore
         path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/button/Button.js?${Environment?.version || ''}`,
-        name: 'a-button'
+        name: 'wct-button'
       }
-    ]).then((children) => {
-      // Header is expected to be initially open, below <o-header open></o-header>
-      this.classList.add('header-open')
-      this.html = /* html */`
-        <section>
-          <o-header open>
-            <a href="?page=/chat" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
-            <a-logo namespace="logo-default-"></a-logo>
-          </o-header>
-          <o-body>
-            <!-- https://funtranslations.com/yoda -->
-            <h1>Oh, welcome!</h1>
-            <h3>ああ、まいどまいど。</h3>
-            <hr>
-            <h2>Dear Ninja,</h2>
-            <p>Very pleased that you found the way to my dojo, I am!<br>
-            In these challenging times of censorship, surveillance, and big data. New skills and weaponry required there are.</p>
-            <hr>
-            <h4>Empower your conversations, empower your privacy</h4>
-            <p> Unleash your conversations with the speed and precision of a ninja, ensuring your messages remain as agile and elusive as you are.
-            Join the revolution in communication with Decentral.Ninja - the cutting-edge decentralized chat platform that puts privacy and control back in your hands, ensuring your conversations stay truly confidential.
-            </p>
-            <o-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
-            <div> 
-            <a href="?page=/chat" route target="_self">
-              <a-button namespace="button-primary-">Start Chat</a-button>
-            </a>
-            </div>
-            <div>       
-            <a-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback" target="_blank">Chat With Us</a-button>
-            </div>
-            </o-grid>
-            <hr>
-            <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>
-            <ul>
-              <li>Local first CRDT (conflict-free replicated data sets)</li>
-              <li>WebRTC</li>
-              <li>Flux WebSocket (coming soon)</li>
-              <li>IPFS (coming soon)</li>
-              <li>WebTorrent (coming soon)</li>
-              <li>end to end encryption (coming soon)</li>
-            </ul>
-            <p>As you see, we are very busy building it all. In the meantime, use our proof of concept, please: <a href="?page=/chat" route target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
-            <hr>
-            <h4>To further train with new tools, there is... Web 3.0...</h4>
-            <ul>
-              <li>Presearch, a decentral search engine</li>
-              <li>Crypto Currencies... anonymous ones, best are, like Monero or the pirate chain.</li>
-              <li>The Torproject</li>
-              <li>and many many more there are...</li>
-            </ul>
-          </o-body>
-          <o-footer></o-footer>
-        </section>
-      `
-    })
+    ])
   }
 
   get section () {

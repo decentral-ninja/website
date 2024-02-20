@@ -19,16 +19,17 @@
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color-smallListContainer: rgba(255,255,255,0.7);
   --background-color: var(--dark);
+  --border-radius: 0.7em;
   --box-shadow-default: 0px 4px 8px rgba(0, 0, 0, 0.2);
   --button-primary-border-color-hover: transparent;
   --button-primary-border-color: var(--color-secondary);
-  --button-primary-border-radius: 0.7em;
+  --button-primary-border-radius: var(--border-radius);
   --button-primary-border-width: 7px;
   --button-primary-color-custom: var(--color);
   --button-primary-color-hover-custom: var(--background-color);
   --button-primary-transform-hover: scale(1.05);
   --button-primary-transition-custom: border-color .5s ease, background-color .3s ease, color .3s ease, transform .2s ease;
-  --button-secondary-border-radius: 0.7em;
+  --button-secondary-border-radius: var(--border-radius);
   --button-secondary-border-width-custom: 2px;
   --button-secondary-transform-hover: scale(1.05);
   --button-secondary-transition-custom: border-color .3s ease-out, color .3s ease-out, transform .2s ease;
@@ -69,11 +70,11 @@
   --light: #fff8e0;
   --line-height: 1.5;
   --menu-icon-close-background-color: var(--menu-icon-open-background-color);
-  --menu-icon-close-border-radius: 25%;
-  --menu-icon-close-height: 3px;
-  --menu-icon-close-margin: calc(var(--header-height) / 2) 0 0 calc(-1 * var(--spacing));
+  --menu-icon-close-border-radius: var(--menu-icon-open-border-radius);
+  --menu-icon-close-height: var(--menu-icon-open-height);
+  --menu-icon-close-margin: calc(var(--header-height) / 2) 0 var(--spacing) calc(-1 * var(--spacing));
   --menu-icon-close-padding: var(--menu-icon-open-padding);
-  --menu-icon-close-width: 28px;
+  --menu-icon-close-width: var(--menu-icon-open-width);
   --menu-icon-open-background-color: var(--dark);
   --menu-icon-open-border-radius: 25%;
   --menu-icon-open-height: 3px;
@@ -81,7 +82,15 @@
   --menu-icon-open-width: 28px;
   --outline-color: var(--color-secondary);
   --p-text-align: center;
-  --spacing: 0.75rem;
+  --spacing: 0.5rem;
+  --wct-input-border: 1px solid var(--dark);
+  --wct-input-input-bg-color-disabled: lightgray;
+  --wct-input-input-bg-color: field;
+  --wct-input-input-color-disabled: darkgray;
+  --wct-middle-input-border: var(--wct-input-border);
+  --wct-middle-input-input-bg-color-disabled: var(--wct-input-input-bg-color);
+  --wct-middle-input-input-bg-color: var(--wct-input-input-bg-color);
+  --wct-middle-input-input-color-disabled: var(--wct-input-border);
   /*will-change: color, background-color;*/
   background-color: var(--background-color, transparent);
   color: var(--color, white);
@@ -92,6 +101,7 @@
 :root[invert] {
   --background-color: var(--light);
   --color: var(--dark);
+  --button-primary-color-custom: var(--background-color);
 }
 body {
   margin: 0;

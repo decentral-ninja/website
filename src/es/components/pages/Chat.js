@@ -33,6 +33,46 @@ export default class Chat extends Index {
   * @return {Promise<void>}
   */
   renderHTML () {
+    this.html = /* html */`
+        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
+          <c-providers>
+            <c-rooms>
+              <c-users>
+                <c-chat>
+                  <section>
+                    <o-header toggle-once style="--header-align-items: center;">
+                      <header>
+                        <div>
+                          <chat-o-header></chat-o-header>
+                          <m-providers></m-providers>
+                          <m-rooms></m-rooms>
+                          <m-notifications></m-notifications>
+                        </div>
+                        <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
+                      </header>
+                    </o-header>
+                    <o-body>
+                      <main>
+                        <div class=pattern>
+                          <div class=content>
+                            <m-chat></m-chat>
+                          </div>
+                        </div>
+                      </main>
+                    </o-body>
+                    <o-footer>
+                      <footer>
+                        <a-input style="order: -1;"></a-input>
+                        <m-users></m-users>
+                      </footer>
+                    </o-footer>
+                  </section>
+                </c-chat>
+              </c-users>
+            </c-rooms>
+          </c-providers>
+        </c-event-driven-yjs>
+      `
     return this.fetchModules([
       {
         // @ts-ignore
@@ -127,37 +167,6 @@ export default class Chat extends Index {
         path: `${this.importMetaUrl}../../chat/es/components/organisms/Header.js?${Environment?.version || ''}`,
         name: 'chat-o-header'
       }
-    ]).then((children) => {
-      this.html = /* html */`
-        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
-          <c-providers>
-            <c-rooms>
-              <c-users>
-                <c-chat>
-                  <section>
-                    <o-header toggle-once style="--header-align-items: center;">
-                      <chat-o-header></chat-o-header>
-                      <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
-                    </o-header>
-                    <o-body>
-                      <m-chat></m-chat>
-                    </o-body>
-                    <o-footer>
-                      <a-input style="order: -1;"></a-input>
-                      <div>
-                        <m-providers></m-providers>
-                        <m-rooms></m-rooms>
-                        <m-users></m-users>
-                        <m-notifications></m-notifications>
-                      </div>
-                    </o-footer>
-                  </section>
-                </c-chat>
-              </c-users>
-            </c-rooms>
-          </c-providers>
-        </c-event-driven-yjs>
-      `
-    })
+    ])
   }
 }

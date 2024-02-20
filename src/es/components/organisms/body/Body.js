@@ -163,13 +163,23 @@ export default class Body extends Shadow() {
    */
   renderHTML () {
     this.main = this.root.querySelector(this.cssSelector + ' > main') || document.createElement('main')
-    this.main.innerHTML = '<div class="pattern"><div class="content"></div></div>'
-    this.contentDiv = this.main.querySelector('div.content')
+    let patternDiv = this.main.querySelector('div.pattern')
+    if (!patternDiv) {
+      patternDiv = document.createElement('div')
+      patternDiv.classList.add('pattern')
+      this.main.appendChild(patternDiv)
+    }
+    let contentDiv = patternDiv.querySelector('div.content')
+    if (!contentDiv) {
+      contentDiv = document.createElement('div')
+      contentDiv.classList.add('content')
+      patternDiv.appendChild(contentDiv)
+    }
     Array.from(this.root.children).forEach(node => {
       if (node === this.main || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
-      this.contentDiv.appendChild(node)
+      contentDiv.appendChild(node)
     })
-    this.html = this.main
+    if (!this.root.contains(this.main)) this.html = this.main
     return Promise.resolve()
   }
 
