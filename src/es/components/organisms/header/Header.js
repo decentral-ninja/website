@@ -111,6 +111,8 @@ export default class Header extends Shadow() {
         right: 0;
         width: var(--height);
         transform: translate(0, 0);
+      }
+      :host > header > a-logo:not([no-animation]), :host > header > a > a-logo:not([no-animation]) {
         animation: transition-reverse ${this.transitionDuration}ms ease-out;
         /*will-change: width; TODO: side effect on z-index?*//* will-change transform blured the svg */
       }
@@ -131,7 +133,7 @@ export default class Header extends Shadow() {
         order: 2;
         position: static;
       }
-      :host([open]) > header > a-logo, :host([open]) > header > a > a-logo {
+      :host([open]) > header > a-logo:not([no-animation]), :host([open]) > header > a > a-logo:not([no-animation]) {
         width: 100svw;
         transform: translate(calc(50svw - 50% + var(--padding)), calc(50svh - 50% - var(--padding)));
         animation: transition ${this.transitionDuration}ms ease-out;

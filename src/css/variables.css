@@ -91,7 +91,7 @@
   --wct-middle-input-input-bg-color-disabled: var(--wct-input-input-bg-color);
   --wct-middle-input-input-bg-color: var(--wct-input-input-bg-color);
   --wct-middle-input-input-color-disabled: var(--wct-input-border);
-  /*will-change: color, background-color;*/
+  will-change: color, background-color;
   background-color: var(--background-color, transparent);
   color: var(--color, white);
   font-family: var(--font-family, sans-serif);

@@ -26,6 +26,7 @@ export default class Logo extends Shadow(WebWorker()) {
     this.setAttribute('aria-label', 'show navigation menu')
     this.setAttribute('aria-expanded', 'true')
     this.transitionDuration = this.getAttribute('transition-duration') || 400
+    if (this.hasAttribute('no-animation')) this.removeAttribute('animation')
     this.clickEventListener = event => {
       if (this.getAttribute('href')) {
         self.open(this.getAttribute('href'), this.getAttribute('target') || '_self')
@@ -137,15 +138,18 @@ export default class Logo extends Shadow(WebWorker()) {
         opacity: 0;
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out, filter 5000ms ease-in);
         width: var(--svg-width, var(--svg-size, min(100svw, 100svh, 100%)));
-        will-change: opacity, filter;
+        /*will-change: opacity, filter;*/
+        will-change: filter;
       }
       :host([loaded]) > svg {
         filter: grayscale(0);
       }
       :host([favicon][auto-width]) > svg {
+        width: var(--favicon-svg-width, var(--favicon-svg-size, var(--svg-width, var(--svg-size, 3em))));
+      }
+      :host([favicon][auto-width]:not([no-animation])) > svg {
         will-change: width;
         transition: var(--transition, width ${this.transitionDuration}ms ease-out);
-        width: var(--favicon-svg-width, var(--favicon-svg-size, var(--svg-width, var(--svg-size, 3em))));
       }
       :host([loaded]) > svg.first {
         opacity: 1;
@@ -189,7 +193,7 @@ export default class Logo extends Shadow(WebWorker()) {
       }
       :host([animation]) > svg g[inkscape-label=ajnaGlow] {
         animation: opacity 30s ease-in-out infinite;
-        will-change: opacity;
+        /*will-change: opacity;*/
       }
       @keyframes rotate {
         from {

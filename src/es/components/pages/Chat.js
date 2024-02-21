@@ -48,7 +48,7 @@ export default class Chat extends Index {
                           <m-rooms></m-rooms>
                           <m-notifications></m-notifications>
                         </div>
-                        <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon="true"></a-logo></a>
+                        <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                       </header>
                     </o-header>
                     <o-body>
