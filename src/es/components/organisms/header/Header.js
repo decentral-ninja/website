@@ -114,7 +114,7 @@ export default class Header extends Shadow() {
       }
       :host > header > a-logo:not([no-animation]), :host > header > a > a-logo:not([no-animation]) {
         animation: transition-reverse ${this.transitionDuration}ms ease-out;
-        /*will-change: width; TODO: side effect on z-index?*//* will-change transform blured the svg */
+        will-change: width;
       }
       :host > header > a {
         display: flex;

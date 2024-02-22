@@ -138,8 +138,6 @@ export default class Logo extends Shadow(WebWorker()) {
         opacity: 0;
         transition: var(--transition, opacity ${this.transitionDuration}ms ease-out, filter 5000ms ease-in);
         width: var(--svg-width, var(--svg-size, min(100svw, 100svh, 100%)));
-        /*will-change: opacity, filter;*/
-        /*will-change: filter;*/
       }
       :host([loaded]) > svg {
         filter: grayscale(0);
@@ -148,7 +146,6 @@ export default class Logo extends Shadow(WebWorker()) {
         width: var(--favicon-svg-width, var(--favicon-svg-size, var(--svg-width, var(--svg-size, 3em))));
       }
       :host([favicon][auto-width]:not([no-animation])) > svg {
-        /*will-change: width;*/
         transition: var(--transition, width ${this.transitionDuration}ms ease-out);
       }
       :host([loaded]) > svg.first {
@@ -169,31 +166,31 @@ export default class Logo extends Shadow(WebWorker()) {
       :host([animation]) > svg g[inkscape-label=star] {
         transform-origin: center;
         animation: rotate 300s linear infinite;
-        /*will-change: transform;*/
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=ninjaStar] {
         transform-origin: center;
         animation: rotate 1800s linear infinite reverse;
-        /*will-change: transform;*/
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=starInner] {
         transform-origin: center;
         animation: rotate 30s linear infinite reverse;
-        /*will-change: transform;*/
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=starInner] path {
         transform-origin: center;
         animation: scaleAndStroke 10050ms ease-in-out infinite;
-        /*will-change: transform, stroke-width;*/
+        will-change: transform, stroke-width;
       }
       :host([animation]) > svg g[inkscape-label=ajna] {
         transform-origin: center;
         animation: rotate 30s linear infinite reverse;
-        /*will-change: transform;*/
+        will-change: transform;
       }
       :host([animation]) > svg g[inkscape-label=ajnaGlow] {
         animation: opacity 30s ease-in-out infinite;
-        /*will-change: opacity;*/
+        will-change: opacity;
       }
       @keyframes rotate {
         from {
