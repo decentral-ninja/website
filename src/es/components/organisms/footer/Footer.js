@@ -103,7 +103,7 @@ export default class Footer extends Shadow() {
       if (node === this.footer || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
       this.footer.appendChild(node)
     })
-    if (!this.root.contains(this.footer)) this.html = this.footer
+    this.html = this.footer
     return Promise.resolve()
   }
 

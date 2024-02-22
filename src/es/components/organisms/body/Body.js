@@ -179,7 +179,7 @@ export default class Body extends Shadow() {
       if (node === this.main || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
       contentDiv.appendChild(node)
     })
-    if (!this.root.contains(this.main)) this.html = this.main
+    this.html = this.main
     return Promise.resolve()
   }
 

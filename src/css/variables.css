@@ -91,6 +91,7 @@
   --wct-middle-input-input-bg-color-disabled: var(--wct-input-input-bg-color);
   --wct-middle-input-input-bg-color: var(--wct-input-input-bg-color);
   --wct-middle-input-input-color-disabled: var(--wct-input-border);
+  --wct-middle-input-placeholder-color: lightgray;
   background-color: var(--background-color, transparent);
   color: var(--color, white);
   font-family: var(--font-family, sans-serif);
@@ -112,9 +113,6 @@ c-router {
   display: flex;
   height: 100svh;
 }
-
-
-
 /* LOADER: https://www.cssportal.com/css-loader-generator/ */
 .custom-loader {
   margin: auto;

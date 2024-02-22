@@ -70,10 +70,8 @@ export default class Logo extends Shadow(WebWorker()) {
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => {
-      this.addEventListener('click', this.clickEventListener)
-      this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener))
-    })
+    Promise.all(showPromises).then(() => this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener)))
+    this.addEventListener('click', this.clickEventListener)
   }
 
   disconnectedCallback () {
@@ -248,9 +246,8 @@ export default class Logo extends Shadow(WebWorker()) {
         opacity: 1 !important;
         transition: none;
       }
-      :host([favicon]) > div.custom-loader > div {
-        width: 2em;
-        height: 2em;
+      :host([favicon]) > div.custom-loader {
+        display: none;
       }
       :host > div.custom-loader > div:before,
       :host > div.custom-loader > div:after {

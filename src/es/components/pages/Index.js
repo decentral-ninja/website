@@ -145,14 +145,16 @@ export default class Index extends Mutation() {
                 Join the revolution in communication with Decentral.Ninja - the cutting-edge decentralized chat platform that puts privacy and control back in your hands, ensuring your conversations stay truly confidential.
                 </p>
                 <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
-                <div> 
-                <a href="?page=/chat" route target="_self">
-                  <wct-button namespace="button-primary-">Start Chat</wct-button>
-                </a>
-                </div>
-                <div>       
-                <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback" target="_blank">Chat With Us</wct-button>
-                </div>
+                  <section>
+                    <div> 
+                      <a href="?page=/chat" route target="_self">
+                        <wct-button namespace="button-primary-">Start Chat</wct-button>
+                      </a>
+                    </div>
+                    <div>       
+                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback" target="_blank">Chat With Us</wct-button>
+                    </div>
+                  </section>
                 </wct-grid>
                 <hr>
                 <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>

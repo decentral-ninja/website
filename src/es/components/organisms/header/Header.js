@@ -191,7 +191,7 @@ export default class Header extends Shadow() {
       this.header.appendChild(node)
     })
     this.setAttribute('count-header-children', this.header.children.length)
-    if (!this.root.contains(this.header)) this.html = this.header
+    this.html = this.header
     return Promise.resolve()
   }
 
