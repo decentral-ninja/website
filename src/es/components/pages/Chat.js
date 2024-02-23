@@ -116,13 +116,11 @@ export default class Chat extends Index {
         name: 'm-providers'
       },
       {
-        // TODO: see todos at controllers/Rooms.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Rooms.js?${Environment?.version || ''}`,
         name: 'c-rooms'
       },
       {
-        // TODO: see todos at molecules/Rooms.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Rooms.js?${Environment?.version || ''}`,
         name: 'm-rooms'
@@ -133,7 +131,6 @@ export default class Chat extends Index {
         name: 'c-users'
       },
       {
-        // TODO: see todos at molecules/Users.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Users.js?${Environment?.version || ''}`,
         name: 'm-users'

@@ -45,7 +45,6 @@ export default class Logo extends Shadow(WebWorker()) {
     this.animationiterationListener = (event, dispatch = true) => {
       // workaround for nice css transition between the two logos
       if (this.hasAttribute('favicon')) {
-        // TODO: smoothen the transition ether reverse animation to initial position or change opacity before removing the animation attribute
         this.removeAttribute('animation')
       } else {
         this.setAttribute('animation', 'true')
