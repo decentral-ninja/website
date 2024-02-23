@@ -37,7 +37,7 @@ export default class Body extends Shadow() {
   }
 
   disconnectedCallback () {
-    document.body.addEventListener('main-scroll', this.mainScrollEventListener)
+    document.body.removeEventListener('main-scroll', this.mainScrollEventListener)
   }
 
   /**

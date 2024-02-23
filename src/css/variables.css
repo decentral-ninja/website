@@ -87,6 +87,7 @@
   --wct-input-input-bg-color-disabled: lightgray;
   --wct-input-input-bg-color: field;
   --wct-input-input-color-disabled: darkgray;
+  --wct-input-placeholder-color: darkgray;
   --wct-middle-input-border: var(--wct-input-border);
   --wct-middle-input-input-bg-color-disabled: var(--wct-input-input-bg-color);
   --wct-middle-input-input-bg-color: var(--wct-input-input-bg-color);
