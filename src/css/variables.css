@@ -46,7 +46,6 @@
   --dark: #000f33;
   --dialog-left-slide-in-background-color: var(--background-color, canvas);
   --dialog-left-slide-in-gap-custom: var(--spacing);
-  --dialog-left-slide-in-outline-style: none;
   --dialog-left-slide-in-padding-custom: var(--spacing);
   --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
   --font-family-secondary: Kashima, Arial, sans-serif;
@@ -67,12 +66,13 @@
   --h4-color: var(--color);
   --h4-font-family: var(--font-family);
   --header-height: 3em;
+  --input-font-size-mobile: max(var(--font-size-mobile), 16px);
   --light: #fff8e0;
   --line-height: 1.5;
   --menu-icon-close-background-color: var(--menu-icon-open-background-color);
   --menu-icon-close-border-radius: var(--menu-icon-open-border-radius);
   --menu-icon-close-height: var(--menu-icon-open-height);
-  --menu-icon-close-margin: calc(var(--header-height) / 2) 0 var(--spacing) calc(-1 * var(--spacing));
+  --menu-icon-close-margin: calc(var(--header-height) / 3) 0 var(--spacing) calc(-1.5 * var(--spacing));
   --menu-icon-close-padding: var(--menu-icon-open-padding);
   --menu-icon-close-width: var(--menu-icon-open-width);
   --menu-icon-open-background-color: var(--dark);
