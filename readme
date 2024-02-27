@@ -19,7 +19,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] header controls in dialog (nav modal)
 - [x] replace confirm box with input dialog and fix lost username by storing it to local storage
 - [ ] add an atom listening to "yjs-room" any event and displaying the "room name" info "in the header" where ever placed (general element with info batch support and dispatch Event to open dialog menu) & nickname on each message which on click opens the nickname window and updates on yjs-nickname
-- [ ] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen
+- [ ] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen / give option to open in new tab
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
 - [ ] MasterServiceWorker add a Notification Queue which can be read through events
 - [ ] BugFix, persistence clears document before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
