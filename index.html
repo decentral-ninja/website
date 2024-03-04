@@ -29,21 +29,23 @@
   <c-fetch-html>
     <c-fetch-css>
       <c-fetch-modules>
-        <c-router routes="[
-          {
-            'name': 'p-index',
-            'path': '../../components/pages/Index.js',
-            'regExp': ['/[#=]{1}\/$/', '/^\/$/']
-          },
-          {
-            'name': 'p-chat',
-            'path': '../../components/pages/Chat.js',
-            'regExp': ['/[#=]{1}\/chat/'],
-            'createNew': 'room'
-          }
-        ]">
-          <div class="custom-loader"></div>
-        </c-router>
+        <c-storage>
+          <c-router routes="[
+            {
+              'name': 'p-index',
+              'path': '../../components/pages/Index.js',
+              'regExp': ['/[#=]{1}\/$/', '/^\/$/']
+            },
+            {
+              'name': 'p-chat',
+              'path': '../../components/pages/Chat.js',
+              'regExp': ['/[#=]{1}\/chat/'],
+              'createNew': 'room'
+            }
+          ]">
+            <div class="custom-loader"></div>
+          </c-router>
+        </c-storage>
       </c-fetch-modules>
     </c-fetch-css>
   </c-fetch-html>
@@ -52,6 +54,7 @@
       import('./src/es/event-driven-web-components-prototypes/src/FetchHtml.js').then(module => ['c-fetch-html', module.default]),
       import('./src/es/event-driven-web-components-prototypes/src/FetchCss.js').then(module => ['c-fetch-css', module.default]),
       import('./src/es/event-driven-web-components-prototypes/src/FetchModules.js').then(module => ['c-fetch-modules', module.default]),
+      import('./src/es/event-driven-web-components-prototypes/src/controllers/Storage.js').then(module => ['c-storage', module.default]),
       import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
     ]).then(elements => elements.forEach(element => {
       // don't define already existing customElements

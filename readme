@@ -48,6 +48,10 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 - [ ] CRDT Corrupted undo option with Room change
 --- Version One ---
+- [ ] Chat message on intersection declare as read by filling it into array with own uid (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
+- [ ] Keep chat scroll position by intersection (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
+- [ ] Pin and sort rooms (https://github.com/shresthalucky/sortable-dnd/blob/master/src/sortable-dnd.js + https://artecher.github.io/react-dnd-ax-demo/?selectedKind=Button&selectedStory=Complex%20Example&full=0&down=1&left=1&panelRight=0&downPanel=storybook%2Factions%2Factions-panel + https://github.com/blackboard/react-dnd-ax)
+- [ ] On Desktop keep chat rooms alive even with route or focus lost. Ether just hide at route.js or set the following attributes on EventDrivenYjs controller (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L938 + https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L986)
 - [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/
 - [ ] yjs in webworker (https://github.com/y-js/y-webworker)
 - [ ] check security requirements from https://www.securemessagingapps.com
