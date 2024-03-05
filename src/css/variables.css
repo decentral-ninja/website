@@ -48,6 +48,7 @@
   --dialog-left-slide-in-gap-custom: var(--spacing);
   --dialog-left-slide-in-padding-custom: var(--spacing);
   --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
+  --dialog-top-slide-in-ul-margin: 0;
   --font-family-secondary: Kashima, Arial, sans-serif;
   --font-family: Arial, sans-serif;
   --font-size-mobile: min(14px, 5vw);

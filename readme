@@ -18,25 +18,26 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] pimp Router to open new components on certain query parameters (as key) and make room view to choose room or create room
 - [x] header controls in dialog (nav modal)
 - [x] replace confirm box with input dialog and fix lost username by storing it to local storage
-- [ ] add an atom listening to "yjs-room" any event and displaying the "room name" info "in the header" where ever placed (general element with info batch support and dispatch Event to open dialog menu) & nickname on each message which on click opens the nickname window and updates on yjs-nickname
-- [ ] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen / give option to open in new tab
+- [x] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen / give option to open in new tab
+- [ ] delete room local storage
+- [ ] replace index.js "chat 👉" link with select room drop down
+- [ ] add an atom listening to "yjs-room" any event and displaying the "room name" info "in the header" (also replace 'yjs-get-room' in the header with that atom) where ever placed (general element with info batch support and dispatch Event to open dialog menu) & nickname on each message which on click opens the nickname window and updates on yjs-nickname
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
 - [ ] MasterServiceWorker add a Notification Queue which can be read through events
-- [ ] BugFix, persistence clears document before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
-- [ ] Answer to a certain or multiple messages
-- [ ] style and overhaul src/es/chat/es/components/views/Input.js (BTN: https://weedshaker.github.io/webnesday2023_event-driven/)
-- [ ] add scroll down/not read messages button 
-- [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
-- [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing
-- [ ] video call in iframe from flux (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
-- [ ] https://www.runonflux.io/
-- [ ] Update yjs rollup stuff
-- [ ] chat msgObj[] shall hold msgType and if unknown has to include not supported and link to newest version.
-- [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
-- [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old
+- [ ] add scroll down/not read messages button 
+- [ ] Answer to a certain or multiple messages
+- [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
 - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
+- [ ] video call in iframe from flux (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
+- [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
+- [ ] Update yjs rollup stuff
+- [ ] https://www.runonflux.io/
+- [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old
+- [ ] BugFix, persistence clears document before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
+- [ ] user give a room a hint name (local storage only)
+- [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner
 - [ ] security and text & room link encryption 

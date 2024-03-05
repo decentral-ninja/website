@@ -117,11 +117,6 @@ export default class Chat extends Index {
       },
       {
         // @ts-ignore
-        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Rooms.js?${Environment?.version || ''}`,
-        name: 'c-rooms'
-      },
-      {
-        // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Rooms.js?${Environment?.version || ''}`,
         name: 'm-rooms'
       },
