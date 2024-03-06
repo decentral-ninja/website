@@ -19,15 +19,16 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] header controls in dialog (nav modal)
 - [x] replace confirm box with input dialog and fix lost username by storing it to local storage
 - [x] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen / give option to open in new tab
-- [ ] delete room local storage
-- [ ] replace index.js "chat 👉" link with select room drop down
+- [x] delete room local storage
 - [ ] add an atom listening to "yjs-room" any event and displaying the "room name" info "in the header" (also replace 'yjs-get-room' in the header with that atom) where ever placed (general element with info batch support and dispatch Event to open dialog menu) & nickname on each message which on click opens the nickname window and updates on yjs-nickname
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
 - [ ] MasterServiceWorker add a Notification Queue which can be read through events
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing
+- [ ] open pwa on decentral.ninja link
 - [ ] add scroll down/not read messages button 
 - [ ] Answer to a certain or multiple messages
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
+- [ ] QR code scanner
 - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
 - [ ] video call in iframe from flux (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
 - [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
