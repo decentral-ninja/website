@@ -86,6 +86,10 @@ export default class Header extends Shadow() {
   renderCSS () {
     this.css = /* css */`
       :host {
+        ${this.hasAttribute('height-auto')
+          ? '--header-height: auto;'
+          : ''
+        }
         --padding: var(--spacing);
         --height: var(--header-height, 3em);
         grid-area: header;
@@ -101,18 +105,25 @@ export default class Header extends Shadow() {
         position: relative;
       }
       :host > header > *:first-child {
+        overflow: hidden;
+      }
+      :host > header > *:first-child {
         z-index: 1;
       }
       :host([count-header-children="1"]) > header {
         justify-content: flex-end;
       }
-      :host > header > a-logo, :host > header > a > a-logo {
+      :host > header a-logo {
         position: absolute;
         right: 0;
         width: var(--height);
         transform: translate(0, 0);
+        ${this.hasAttribute('logo-max-width')
+          ? 'width: max-content;'
+          : ''
+        }
       }
-      :host > header > a-logo:not([no-animation]), :host > header > a > a-logo:not([no-animation]) {
+      :host > header a-logo:not([no-animation]) {
         animation: transition-reverse ${this.transitionDuration}ms ease-out;
         will-change: width;
       }
@@ -129,11 +140,11 @@ export default class Header extends Shadow() {
       :host > header > a > a-icon-chat {
         width: calc(var(--height) - 0.5em);
       }
-      :host([close]) > header > a-logo, :host([close]) > header > a > a-logo {
+      :host([close]) > header a-logo {
         order: 2;
         position: static;
       }
-      :host([open]) > header > a-logo:not([no-animation]), :host([open]) > header > a > a-logo:not([no-animation]) {
+      :host([open]) > header a-logo:not([no-animation]) {
         width: 100svw;
         transform: translate(calc(50svw - 50% + var(--padding)), calc(50svh - 50% - var(--padding)));
         animation: transition ${this.transitionDuration}ms ease-out;

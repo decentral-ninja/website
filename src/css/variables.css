@@ -70,6 +70,7 @@
   --input-font-size-mobile: max(var(--font-size-mobile), 16px);
   --light: #fff8e0;
   --line-height: 1.5;
+  --logo-invert-svg-height: 2em;
   --menu-icon-close-background-color: var(--menu-icon-open-background-color);
   --menu-icon-close-border-radius: var(--menu-icon-open-border-radius);
   --menu-icon-close-height: var(--menu-icon-open-height);

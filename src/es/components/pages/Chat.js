@@ -40,7 +40,7 @@ export default class Chat extends Index {
               <c-users>
                 <c-chat>
                   <section>
-                    <o-header close toggle-once style="--header-align-items: center;">
+                    <o-header height-auto logo-max-width close toggle-once style="--header-align-items: center;">
                       <header>
                         <chat-a-room-name></chat-a-room-name>
                         <div>

@@ -20,16 +20,13 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] replace confirm box with input dialog and fix lost username by storing it to local storage
 - [x] controllers/Rooms.js getting a room event from EventDrivenYjs.js and maintaining the rooms at local storage for further consumption at Rooms view / manifest to fullscreen / give option to open in new tab
 - [x] delete room local storage
-- [ ] Direct route to last visited room
 - [ ] add an atom listening to "yjs-room" any event and displaying the "room name" info "in the header" (also replace 'yjs-get-room' in the header with that atom) where ever placed (general element with info batch support and dispatch Event to open dialog menu) & nickname on each message which on click opens the nickname window and updates on yjs-nickname
 - [ ] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this location, see MasterServiceWorker.js L:37)
 - [ ] MasterServiceWorker add a Notification Queue which can be read through events
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing
-- [ ] open pwa on decentral.ninja link
 - [ ] add scroll down/not read messages button 
 - [ ] Answer to a certain or multiple messages
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
-- [ ] QR code scanner
 - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
 - [ ] video call in iframe from flux (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
 - [ ] Service Worker for caching assets PWA & TODO at yjs sw regarding this.location save to cache
@@ -38,19 +35,21 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old
 - [ ] BugFix, persistence clears document before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
+- [ ] security and text & room link encryption 
+- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key])
+- [ ] key pair share encrypt with jwt
 - [ ] user give a room a hint name (local storage only)
 - [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner
-- [ ] security and text & room link encryption 
-- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key])
-- [ ] key pair share encrypt with jwt
+- [ ] open pwa on decentral.ninja link
 - [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation)
 - [ ] IndexedDB delete Option per room
 - [ ] controllers/Providers.js when on automatic connect look for the most favorable connections and avoid orphans else allow manual choice at Providers view (User controller if not connected offer to connect to other urls max. 2 per socket / connecting to other servers according user crdt data [provider has mutually connected users with some connected to other providers with mutually connected users and vice versa]) + handle on error ws connection at provider
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 - [ ] CRDT Corrupted undo option with Room change
 --- Version One ---
+- [ ] on app reset directly route to last visited room vs. home
 - [ ] Chat message on intersection declare as read by filling it into array with own uid (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
 - [ ] Keep chat scroll position by intersection (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
 - [ ] Pin and sort rooms (https://github.com/shresthalucky/sortable-dnd/blob/master/src/sortable-dnd.js + https://artecher.github.io/react-dnd-ax-demo/?selectedKind=Button&selectedStory=Complex%20Example&full=0&down=1&left=1&panelRight=0&downPanel=storybook%2Factions%2Factions-panel + https://github.com/blackboard/react-dnd-ax)

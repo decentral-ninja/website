@@ -66,10 +66,14 @@ export default class Logo extends Shadow(WebWorker()) {
   }
 
   connectedCallback () {
+    this.hidden = true
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener)))
+    Promise.all(showPromises).then(() => {
+      this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener))
+      this.hidden = false
+    })
     this.addEventListener('click', this.clickEventListener)
   }
 
@@ -110,7 +114,6 @@ export default class Logo extends Shadow(WebWorker()) {
     this.css = /* css */`
       :host {
         --show: none;
-        -webkit-tap-highlight-color: transparent;
         align-items: center;
         color: var(--color);
         cursor: pointer;
@@ -119,6 +122,7 @@ export default class Logo extends Shadow(WebWorker()) {
         grid-template-rows: 1fr;
         justify-items: center;
         tap-highlight-color: transparent;
+        --webkit-tap-highlight-color: transparent;
         transition: filter 0.3s ease-out, transform 0.07s ease-out;
       }
       :host([favicon]:hover) {

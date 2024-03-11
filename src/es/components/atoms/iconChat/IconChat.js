@@ -55,7 +55,7 @@ export default class IconChat extends Hover() {
       :host > svg {
         transform: translateY(0.25em);
         transition: color .3s ease-out;
-        height: auto;
+        height: ${this.getAttribute('size') || 'auto'};
         width: 100%;
       }
       :host(.hover) > svg, :host(:hover) > svg {
