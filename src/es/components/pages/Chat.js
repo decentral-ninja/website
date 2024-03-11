@@ -42,13 +42,16 @@ export default class Chat extends Index {
                   <section>
                     <o-header close toggle-once style="--header-align-items: center;">
                       <header>
+                        <chat-a-room-name></chat-a-room-name>
                         <div>
-                          <chat-o-header></chat-o-header>
-                          <m-providers></m-providers>
-                          <m-rooms></m-rooms>
-                          <m-notifications></m-notifications>
+                          <div>
+                            <chat-m-navigation></chat-m-navigation>
+                            <m-providers></m-providers>
+                            <m-rooms></m-rooms>
+                            <m-notifications></m-notifications>
+                          </div>
+                          <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                         </div>
-                        <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                       </header>
                     </o-header>
                     <o-body>
@@ -156,8 +159,19 @@ export default class Chat extends Index {
       {
         // TODO: see todos at molecules/Chat.js Class
         // @ts-ignore
-        path: `${this.importMetaUrl}../../chat/es/components/organisms/Header.js?${Environment?.version || ''}`,
-        name: 'chat-o-header'
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/Navigation.js?${Environment?.version || ''}`,
+        name: 'chat-m-navigation'
+      },
+      {
+        // TODO: see todos at molecules/Chat.js Class
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../chat/es/components/atoms/roomName/RoomName.js?${Environment?.version || ''}`,
+        name: 'chat-a-room-name'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/organisms/grid/Grid.js?${Environment?.version || ''}`,
+        name: 'wct-grid'
       }
     ])
   }

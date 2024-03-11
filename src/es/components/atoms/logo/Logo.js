@@ -66,10 +66,14 @@ export default class Logo extends Shadow(WebWorker()) {
   }
 
   connectedCallback () {
+    this.hidden = true
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener)))
+    Promise.all(showPromises).then(() => {
+      this.svgs.forEach(svg => svg.addEventListener('animationiteration', this.animationiterationListener))
+      this.hidden = false
+    })
     this.addEventListener('click', this.clickEventListener)
   }
 
