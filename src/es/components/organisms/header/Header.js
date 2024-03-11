@@ -118,12 +118,8 @@ export default class Header extends Shadow() {
       :host > header a-logo {
         position: absolute;
         right: 0;
-        width: var(--height);
+        width: ${this.getAttribute('logo-width') || 'var(--height)'};
         transform: translate(0, 0);
-        ${this.hasAttribute('logo-max-width')
-          ? 'width: max-content;'
-          : ''
-        }
       }
       :host > header a-logo:not([no-animation]) {
         animation: transition-reverse ${this.transitionDuration}ms ease-out;
@@ -150,6 +146,9 @@ export default class Header extends Shadow() {
         width: 100svw;
         transform: translate(calc(50svw - 50% + var(--padding)), calc(50svh - 50% - var(--padding)));
         animation: transition ${this.transitionDuration}ms ease-out;
+      }
+      :host > header > chat-a-room-name {
+        min-width: 25svw;
       }
       @keyframes transition {
         from {
