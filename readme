@@ -25,6 +25,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] MasterServiceWorker add a Notification Queue which can be read through events
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing
 - [ ] add scroll down/not read messages button 
+- [ ] other (notSelf) nickname open users dialog, keep link in footer
 - [ ] Answer to a certain or multiple messages
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
 - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect

@@ -103,7 +103,9 @@
 }
 :root[invert] {
   --background-color: var(--light);
+  --a-color: var(--color-secondary);
   --color: var(--dark);
+  --color-active: var(--a-color);
   --button-primary-color-custom: var(--background-color);
 }
 body {
