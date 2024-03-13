@@ -112,6 +112,9 @@ export default class Logo extends Shadow(WebWorker()) {
    */
   renderCSS () {
     this.css = /* css */`
+      *:focus {
+        outline: none;
+      }
       :host {
         --show: none;
         align-items: center;

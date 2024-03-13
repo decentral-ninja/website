@@ -97,6 +97,9 @@ export default class Header extends Shadow() {
         min-height: var(--height);
         z-index: 1;
       }
+      *:focus {
+        outline: none;
+      }
       :host > header, :host > header > div {
         display: flex;
         gap: var(--spacing);

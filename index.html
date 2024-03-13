@@ -60,6 +60,16 @@
       // don't define already existing customElements
       if (element && !customElements.get(element[0])) customElements.define(...element)
     }))
+    // Iphone rotation zoom issue
+    // http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
+    if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent) && window.addEventListener && document.querySelector) self.addEventListener('orientationchange', event => {
+      const viewport = document.querySelector('meta[name=viewport]')
+      if (viewport) {
+        var content = viewport.getAttribute('content')
+        viewport.setAttribute('content', content + ', maximum-scale=1.0')
+        setTimeout(() => viewport.setAttribute('content', content), 90)
+      }
+    }, false);
   </script>
 </body>
 </html>
