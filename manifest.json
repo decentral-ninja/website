@@ -7,8 +7,25 @@
     "background_color": "#000f33",
     "description": "The future of WEB3.0 comes with CRDTs. The decentral ninja helps the peasant to navigate around the pitfalls of central services. The hidden aspect of our ninja is to navigate anonymously. The weapons are CRDTs, Websocket, WebRTC, IPFS, etc. Always, 100% open source!",
     "dir": "ltr",
-    "categories": "communication, decentralized, chat, platform",
+    "categories": ["utilities", "communication", "decentralized", "chat", "platform"],
     "lang": "en",
+    "shortcuts": [
+      {
+        "name": "Home",
+        "url": "https://decentral.ninja",
+        "description": "Home"
+      },
+      {
+        "name": "Chat",
+        "url": "https://decentral.ninja/?page=/chat",
+        "description": "Start a chat"
+      },
+      {
+        "name": "Support",
+        "url": "https://decentral.ninja/?page=/chat&room=chat-Questions-And-Feedback",
+        "description": "Chat with us"
+      }
+    ],
     "orientation": "portrait",
     "scope": "./",
     "theme_color": "#fff8e0",
