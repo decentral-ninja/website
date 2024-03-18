@@ -37,7 +37,7 @@
   "theme_color": "#fff8e0",
   "serviceworker": {
     "scope": "./",
-    "src": "./MasterServiceWorker.js",
+    "src": "./ServiceWorker.js",
     "use_cache": "true"
   },
   "icons": [

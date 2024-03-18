@@ -34,7 +34,7 @@ export default class Chat extends Index {
   */
   renderHTML () {
     this.html = /* html */`
-        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../MasterServiceWorker.js">
+        <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../ServiceWorker.js">
           <c-providers>
             <c-rooms>
               <c-users>
