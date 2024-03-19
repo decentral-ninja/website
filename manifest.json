@@ -18,17 +18,17 @@
   "shortcuts": [
     {
       "name": "Home",
-      "url": "https://decentral.ninja",
+      "url": "./",
       "description": "Home"
     },
     {
       "name": "Chat",
-      "url": "https://decentral.ninja/?page=/chat",
+      "url": "./?page=/chat",
       "description": "Start a chat"
     },
     {
       "name": "Support",
-      "url": "https://decentral.ninja/?page=/chat&amp;room=chat-Questions-And-Feedback",
+      "url": "./?page=/chat&amp;room=chat-Questions-And-Feedback",
       "description": "Chat with us"
     }
   ],

@@ -35,45 +35,47 @@ export default class Chat extends Index {
   renderHTML () {
     this.html = /* html */`
         <c-event-driven-yjs websocket-url="wss://the-decentral-web.herokuapp.com?keep-alive=86400000" indexeddb no-blur sw-url="${this.importMetaUrl}../../../../ServiceWorker.js">
-          <c-providers>
-            <c-rooms>
-              <c-users>
-                <c-chat>
-                  <section>
-                    <o-header height-auto logo-width="2em" close toggle-once style="--header-align-items: center;">
-                      <header>
-                        <chat-a-room-name></chat-a-room-name>
-                        <div>
+          <c-notifications sw-url="./ServiceWorker.js">
+            <c-providers>
+              <c-rooms>
+                <c-users>
+                  <c-chat>
+                    <section>
+                      <o-header height-auto logo-width="2em" close toggle-once style="--header-align-items: center;">
+                        <header>
+                          <chat-a-room-name></chat-a-room-name>
                           <div>
-                            <chat-m-navigation></chat-m-navigation>
-                            <m-providers></m-providers>
-                            <m-rooms></m-rooms>
-                            <m-notifications></m-notifications>
+                            <div>
+                              <chat-m-navigation></chat-m-navigation>
+                              <m-providers></m-providers>
+                              <m-rooms></m-rooms>
+                              <m-notifications></m-notifications>
+                            </div>
+                            <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                           </div>
-                          <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
-                        </div>
-                      </header>
-                    </o-header>
-                    <o-body>
-                      <main>
-                        <div class=pattern>
-                          <div class=content>
-                            <m-chat></m-chat>
+                        </header>
+                      </o-header>
+                      <o-body>
+                        <main>
+                          <div class=pattern>
+                            <div class=content>
+                              <m-chat></m-chat>
+                            </div>
                           </div>
-                        </div>
-                      </main>
-                    </o-body>
-                    <o-footer>
-                      <footer>
-                        <a-input style="order: -1;"></a-input>
-                        <m-users></m-users>
-                      </footer>
-                    </o-footer>
-                  </section>
-                </c-chat>
-              </c-users>
-            </c-rooms>
-          </c-providers>
+                        </main>
+                      </o-body>
+                      <o-footer>
+                        <footer>
+                          <a-input style="order: -1;"></a-input>
+                          <m-users></m-users>
+                        </footer>
+                      </o-footer>
+                    </section>
+                  </c-chat>
+                </c-users>
+              </c-rooms>
+            </c-providers>
+          </c-notifications>
         </c-event-driven-yjs>
       `
     return this.fetchModules([
@@ -106,6 +108,11 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/EventDrivenYjs.js?${Environment?.version || ''}`,
         name: 'c-event-driven-yjs'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Notifications.js?${Environment?.version || ''}`,
+        name: 'c-notifications'
       },
       {
         // @ts-ignore
