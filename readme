@@ -55,6 +55,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 - [ ] CRDT Corrupted undo option with Room change
 --- Version One ---
+- [ ] fix Iphone/IOS Notifications/Batches
 - [ ] native operating system share dialog behavior (https://docs.pwabuilder.com/#/builder/manifest?id=share_target-object)
 - [ ] Chat message on intersection declare as read by filling it into array with own uid (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
 - [ ] Keep chat scroll position by intersection (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
