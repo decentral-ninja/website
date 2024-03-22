@@ -41,7 +41,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] BugFix, persistence clears document before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
 - [ ] security and text & room link encryption 
-- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
+- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_again
 - [ ] key pair share encrypt with jwt
 - [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
