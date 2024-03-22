@@ -45,11 +45,11 @@ export default class Chat extends Index {
                         <header>
                           <chat-a-room-name></chat-a-room-name>
                           <div>
+                            <chat-m-notifications></chat-m-notifications>
                             <div>
                               <chat-m-navigation></chat-m-navigation>
-                              <m-providers></m-providers>
-                              <m-rooms></m-rooms>
-                              <m-notifications></m-notifications>
+                              <chat-m-providers></chat-m-providers>
+                              <chat-m-rooms></chat-m-rooms>
                             </div>
                             <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                           </div>
@@ -66,8 +66,8 @@ export default class Chat extends Index {
                       </o-body>
                       <o-footer>
                         <footer>
-                          <a-input style="order: -1;"></a-input>
-                          <m-users></m-users>
+                          <chat-a-input style="order: -1;"></chat-a-input>
+                          <chat-m-users></chat-m-users>
                         </footer>
                       </o-footer>
                     </section>
@@ -115,6 +115,7 @@ export default class Chat extends Index {
         name: 'c-notifications'
       },
       {
+        // TODO: see todos at controllers/Providers.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Providers.js?${Environment?.version || ''}`,
         name: 'c-providers'
@@ -123,28 +124,29 @@ export default class Chat extends Index {
         // TODO: see todos at molecules/Providers.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Providers.js?${Environment?.version || ''}`,
-        name: 'm-providers'
+        name: 'chat-m-providers'
       },
       {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Rooms.js?${Environment?.version || ''}`,
-        name: 'm-rooms'
+        name: 'chat-m-rooms'
       },
       {
+        // TODO: see todos at controllers/Users.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Users.js?${Environment?.version || ''}`,
         name: 'c-users'
       },
       {
+        // TODO: see todos at molecules/Users.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Users.js?${Environment?.version || ''}`,
-        name: 'm-users'
+        name: 'chat-m-users'
       },
       {
-        // TODO: see todos at molecules/Notifications.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Notifications.js?${Environment?.version || ''}`,
-        name: 'm-notifications'
+        name: 'chat-m-notifications'
       },
       {
         // TODO: see todos at controllers/Chat.js Class
@@ -161,16 +163,14 @@ export default class Chat extends Index {
       {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/atoms/Input.js?${Environment?.version || ''}`,
-        name: 'a-input'
+        name: 'chat-a-input'
       },
       {
-        // TODO: see todos at molecules/Chat.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Navigation.js?${Environment?.version || ''}`,
         name: 'chat-m-navigation'
       },
       {
-        // TODO: see todos at molecules/Chat.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/atoms/roomName/RoomName.js?${Environment?.version || ''}`,
         name: 'chat-a-room-name'
