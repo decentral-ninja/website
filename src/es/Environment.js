@@ -9,7 +9,7 @@ self.Environment = {
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
   keepAlive: 86400000,
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.0.12', // https://semver.org/
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.1.0', // https://semver.org/
   /**
    * Get custom mobile breakpoint
    * @param {{constructor?: string, tagName?: string, namespace?: string}} organism
@@ -22,4 +22,7 @@ self.Environment = {
     }
   }
 }
-document.body.addEventListener('pre-route', event => (self.Environment.activeRoute = event.detail.component))
+document.body.addEventListener('pre-route', event => {
+  self.Environment.activeRoute = event.detail.component
+  self.Environment.router = event.target
+})
