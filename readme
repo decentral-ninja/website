@@ -25,6 +25,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] room overview show current chat grayed out
 - [x] notification on request per room (deliver through message channel), cache notification at sw cache with room name (cache this uid, see MasterServiceWorker.js L:37), badge: https://developer.mozilla.org/en-US/docs/Web/API/Badging_API
 - [x] MasterServiceWorker add a Notification Queue which can be read through events
+- [ ] WebWorkers for controller/Notifications.js _updateNotifications, controller/User.js + controller/Provider.js
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API
 - [ ] add scroll down/not read messages button 
 - [ ] other (notSelf) nickname open users dialog, keep link in footer
