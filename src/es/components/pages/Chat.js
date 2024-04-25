@@ -48,6 +48,7 @@ export default class Chat extends Index {
                         <chat-a-room-name></chat-a-room-name>
                         <div>
                           <chat-m-notifications></chat-m-notifications>
+                          <a-icon-mdx onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em" hover-on-parent-shadow-root-host></a-icon-mdx>
                           <div>
                             <chat-m-navigation></chat-m-navigation>
                             <chat-m-providers></chat-m-providers>
@@ -180,6 +181,10 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/organisms/grid/Grid.js?${Environment?.version || ''}`,
         name: 'wct-grid'
+      },
+      {
+        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/iconMdx/IconMdx.js`,
+        name: 'a-icon-mdx'
       }
     ])
   }
