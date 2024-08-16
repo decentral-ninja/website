@@ -58,7 +58,7 @@ export default class Chat extends Index {
                         </div>
                       </header>
                     </o-header>
-                    <o-body>
+                    <o-body scroll-icon scroll-icon-only-show-on-event>
                       <main>
                         <div class=pattern>
                           <div class=content>

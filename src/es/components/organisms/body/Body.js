@@ -18,12 +18,30 @@ export default class Body extends Shadow() {
     super({ importMetaUrl: import.meta.url, ...options }, ...args)
 
     this.setAttribute('aria-label', 'Body')
+    let timeoutId = null
+    this.scrollEventListener = event => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(async () => {
+        // isScrolledBottom
+        if (this.main.scrollHeight < this.main.scrollTop + this.main.offsetHeight + 40 /* tollerance */) {
+          this.setAttribute('is-scrolled-bottom', '')
+          if (this.hasAttribute('scroll-icon-only-show-on-event')) this.removeAttribute('scroll-icon-has-show-event')
+        } else {
+          this.removeAttribute('is-scrolled-bottom')
+        }
+      }, 200)
+    }
     this.mainScrollEventListener = event => {
       const options = {}
       if (event.detail?.x) options.left = event.detail?.x
       options.top = event.detail?.y || this.main.scrollHeight
       options.behavior = event.detail?.behavior || 'smooth'
       this.main.scroll(options)
+    }
+    this.scrollIconShowEventListener = event => this.setAttribute('scroll-icon-has-show-event', '')
+    this.aScrollClickEventListener = event => {
+      this.mainScrollEventListener({detail: {}})
+      if (this.hasAttribute('scroll-icon-only-show-on-event')) this.removeAttribute('scroll-icon-has-show-event')
     }
   }
 
@@ -33,11 +51,20 @@ export default class Body extends Shadow() {
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
     Promise.all(showPromises).then(() => (this.hidden = false))
-    document.body.addEventListener('main-scroll', this.mainScrollEventListener)
+    this.main.addEventListener('scroll', this.scrollEventListener)
+    this.globalEventTarget.addEventListener('main-scroll', this.mainScrollEventListener)
+    this.globalEventTarget.addEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
+    if (this.aScroll) {
+      this.setAttribute('is-scrolled-bottom', '')
+      this.aScroll.addEventListener('click', this.aScrollClickEventListener)
+    }
   }
 
   disconnectedCallback () {
-    document.body.removeEventListener('main-scroll', this.mainScrollEventListener)
+    this.main.removeEventListener('scroll', this.scrollEventListener)
+    this.globalEventTarget.removeEventListener('main-scroll', this.mainScrollEventListener)
+    this.globalEventTarget.removeEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
+    if (this.aScroll) this.aScroll.removeEventListener('click', this.aScrollClickEventListener)
   }
 
   /**
@@ -123,7 +150,17 @@ export default class Body extends Shadow() {
         max-width: min(100%, 1400px);
         position: relative;
       }
-    
+      :host > a-scroll {
+        position: absolute;
+        bottom: var(--spacing);
+        right: calc(3 * var(--spacing));
+        opacity: 0.8;
+        transition: opacity 0.3s ease-out;
+      }
+      :host([is-scrolled-bottom]:not([scroll-icon-only-show-on-event])) > a-scroll, :host([scroll-icon-only-show-on-event]:not([scroll-icon-has-show-event])) > a-scroll {
+        opacity: 0;
+        pointer-events: none;
+      }
     `
     return this.fetchTemplate()
   }
@@ -180,7 +217,14 @@ export default class Body extends Shadow() {
       contentDiv.appendChild(node)
     })
     this.html = this.main
-    return Promise.resolve()
+    if (!this.hasAttribute('scroll-icon')) return Promise.resolve()
+    this.html = '<a-scroll></a-scroll>'
+    return this.fetchModules([
+      {
+        path: `${this.importMetaUrl}../../atoms/scroll/Scroll.js`,
+        name: 'a-scroll'
+      }
+    ])
   }
 
   /**
@@ -194,5 +238,14 @@ export default class Body extends Shadow() {
     if (!contentEl) return false
     contentEl.innerHTML = html
     return true
+  }
+
+  get aScroll () {
+    return this.root.querySelector('a-scroll')
+  }
+
+  get globalEventTarget () {
+    // @ts-ignore
+    return this._globalEventTarget || (this._globalEventTarget = self.Environment?.activeRoute || document.body)
   }
 }
