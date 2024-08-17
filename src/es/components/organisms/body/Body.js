@@ -29,7 +29,15 @@ export default class Body extends Shadow() {
         } else {
           this.removeAttribute('is-scrolled-bottom')
         }
-      }, 200)
+        this.dispatchEvent(new CustomEvent('merge-active-room', {
+          detail: {
+            scrollTop: this.main.scrollTop
+          },
+          bubbles: true,
+          cancelable: true,
+          composed: true
+        }))
+      }, 400)
     }
     this.mainScrollEventListener = event => {
       const options = {}
@@ -51,20 +59,22 @@ export default class Body extends Shadow() {
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
     Promise.all(showPromises).then(() => (this.hidden = false))
-    this.main.addEventListener('scroll', this.scrollEventListener)
     this.globalEventTarget.addEventListener('main-scroll', this.mainScrollEventListener)
-    this.globalEventTarget.addEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
     if (this.aScroll) {
+      this.main.addEventListener('scroll', this.scrollEventListener)
+      this.globalEventTarget.addEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
       this.setAttribute('is-scrolled-bottom', '')
       this.aScroll.addEventListener('click', this.aScrollClickEventListener)
     }
   }
 
   disconnectedCallback () {
-    this.main.removeEventListener('scroll', this.scrollEventListener)
     this.globalEventTarget.removeEventListener('main-scroll', this.mainScrollEventListener)
-    this.globalEventTarget.removeEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
-    if (this.aScroll) this.aScroll.removeEventListener('click', this.aScrollClickEventListener)
+    if (this.aScroll) {
+      this.main.removeEventListener('scroll', this.scrollEventListener)
+      this.globalEventTarget.removeEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
+      this.aScroll.removeEventListener('click', this.aScrollClickEventListener)
+    }
   }
 
   /**
@@ -157,7 +167,7 @@ export default class Body extends Shadow() {
         opacity: 0.8;
         transition: opacity 0.3s ease-out;
       }
-      :host([is-scrolled-bottom]:not([scroll-icon-only-show-on-event])) > a-scroll, :host([scroll-icon-only-show-on-event]:not([scroll-icon-has-show-event])) > a-scroll {
+      :host([is-scrolled-bottom]) > a-scroll, :host([scroll-icon-only-show-on-event]:not([scroll-icon-has-show-event])) > a-scroll {
         opacity: 0;
         pointer-events: none;
       }
