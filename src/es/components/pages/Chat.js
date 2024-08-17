@@ -41,40 +41,42 @@ export default class Chat extends Index {
           <c-notifications sw-url="./ServiceWorker.js">
             <c-providers>
               <c-users>
-                <c-chat>
-                  <section>
-                    <o-header height-auto logo-width="2em" close toggle-once style="--header-align-items: center;">
-                      <header>
-                        <chat-a-room-name></chat-a-room-name>
-                        <div>
-                          <chat-m-notifications></chat-m-notifications>
-                          <a-icon-mdx onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></a-icon-mdx>
+                <c-rooms>
+                  <c-chat>
+                    <section>
+                      <o-header height-auto logo-width="2em" close toggle-once style="--header-align-items: center;">
+                        <header>
+                          <chat-a-room-name></chat-a-room-name>
                           <div>
-                            <chat-m-navigation></chat-m-navigation>
-                            <chat-m-providers></chat-m-providers>
-                            <chat-m-rooms></chat-m-rooms>
+                            <chat-m-notifications></chat-m-notifications>
+                            <a-icon-mdx onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></a-icon-mdx>
+                            <div>
+                              <chat-m-navigation></chat-m-navigation>
+                              <chat-m-providers></chat-m-providers>
+                              <chat-m-rooms></chat-m-rooms>
+                            </div>
+                            <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                           </div>
-                          <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
-                        </div>
-                      </header>
-                    </o-header>
-                    <o-body scroll-icon scroll-icon-only-show-on-event>
-                      <main>
-                        <div class=pattern>
-                          <div class=content>
-                            <m-chat></m-chat>
+                        </header>
+                      </o-header>
+                      <o-body scroll-icon scroll-icon-only-show-on-event>
+                        <main>
+                          <div class=pattern>
+                            <div class=content>
+                              <m-chat></m-chat>
+                            </div>
                           </div>
-                        </div>
-                      </main>
-                    </o-body>
-                    <o-footer>
-                      <footer>
-                        <chat-a-input style="order: -1;"></chat-a-input>
-                        <chat-m-users></chat-m-users>
-                      </footer>
-                    </o-footer>
-                  </section>
-                </c-chat>
+                        </main>
+                      </o-body>
+                      <o-footer>
+                        <footer>
+                          <chat-a-input style="order: -1;"></chat-a-input>
+                          <chat-m-users></chat-m-users>
+                        </footer>
+                      </o-footer>
+                    </section>
+                  </c-chat>
+                </c-rooms>
               </c-users>
             </c-providers>
           </c-notifications>
@@ -127,6 +129,11 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Providers.js?${Environment?.version || ''}`,
         name: 'chat-m-providers'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../chat/es/components/controllers/Rooms.js?${Environment?.version || ''}`,
+        name: 'c-rooms'
       },
       {
         // @ts-ignore
