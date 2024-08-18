@@ -67,6 +67,7 @@
   --h3-font-size: 1.25em;
   --h4-color: var(--color);
   --h4-font-family: var(--font-family);
+  --h4-font-size: 1em;
   --header-height: 3em;
   --input-font-size-mobile: max(var(--font-size-mobile), 16px);
   --light: #fff8e0;
