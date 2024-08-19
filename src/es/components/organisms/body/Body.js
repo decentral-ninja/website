@@ -29,7 +29,7 @@ export default class Body extends Shadow() {
         } else {
           this.removeAttribute('is-scrolled-bottom')
         }
-        this.dispatchEvent(new CustomEvent('merge-active-room', {
+        if (this.hasAttribute('scroll-event-name')) this.dispatchEvent(new CustomEvent(this.getAttribute('scroll-event-name') || 'merge-active-room', {
           detail: {
             scrollTop: this.main.scrollTop
           },
@@ -48,7 +48,8 @@ export default class Body extends Shadow() {
     }
     this.scrollIconShowEventListener = event => this.setAttribute('scroll-icon-has-show-event', '')
     this.aScrollClickEventListener = event => {
-      this.mainScrollEventListener({detail: {}})
+      this.mainScrollEventListener({detail: {behavior: 'instant'}})
+      setTimeout(() => this.mainScrollEventListener({detail: {behavior: 'smooth'}}), 200)
       if (this.hasAttribute('scroll-icon-only-show-on-event')) this.removeAttribute('scroll-icon-has-show-event')
     }
   }
