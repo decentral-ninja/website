@@ -98,3 +98,4 @@ Add Chat Options:
 - [ ] add emojis where cursor is in text
 - [ ] dont hide emoji picker when clicked in textarea
 - [ ] use "own" emoji style --> symbl.cc
+- [ ] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers
