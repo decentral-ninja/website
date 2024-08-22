@@ -46,7 +46,10 @@ export default class Body extends Shadow() {
       options.behavior = event.detail?.behavior || 'smooth'
       this.main.scroll(options)
     }
-    this.scrollIconShowEventListener = event => this.setAttribute('scroll-icon-has-show-event', '')
+    this.scrollIconShowEventListener = event => {
+      this.setAttribute('scroll-icon-has-show-event', '')
+      this.scrollEventListener()
+    }
     this.aScrollClickEventListener = event => {
       this.mainScrollEventListener({detail: {behavior: 'instant'}})
       setTimeout(() => this.mainScrollEventListener({detail: {behavior: 'smooth'}}), 200)
