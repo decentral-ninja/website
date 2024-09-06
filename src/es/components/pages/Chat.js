@@ -54,6 +54,10 @@ export default class Chat extends Index {
                               <chat-m-navigation></chat-m-navigation>
                               <chat-m-providers></chat-m-providers>
                               <chat-m-rooms></chat-m-rooms>
+                              <chat-m-jitsi-dialog
+                                namespace="dialog-top-slide-in-"
+                                show-event-name="jitsi-dialog-show-event"
+                              ></chat-m-jitsi-dialog>
                             </div>
                             <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                           </div>
@@ -139,6 +143,11 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Rooms.js?${Environment?.version || ''}`,
         name: 'chat-m-rooms'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/dialogs/JitsiDialog.js?${Environment?.version || ''}`,
+        name: 'chat-m-jitsi-dialog'
       },
       {
         // TODO: see todos at controllers/Users.js Class
