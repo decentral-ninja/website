@@ -31,7 +31,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] Delete message disappear effect
 - [x] ~~wormhole iframe~~ does not work due to policy restrictions
 - [x] start video meeting in iframe (JitsiDialog)
-- [ ] replyTo (continuer src/es/chat/es/components/atoms/Input.js L:136 + src/es/chat/es/components/molecules/dialogs/MessageDialog.js L:121)
+- [x] replyTo (continuer src/es/chat/es/components/atoms/Input.js L:136 + src/es/chat/es/components/molecules/dialogs/MessageDialog.js L:121)
 - [ ] copy message button
 - [ ] refresh after longer session inactive and focus comes back
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
