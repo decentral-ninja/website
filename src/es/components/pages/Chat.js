@@ -109,11 +109,6 @@ export default class Chat extends Index {
       },
       {
         // @ts-ignore
-        path: `${this.importMetaUrl}../atoms/iconChat/IconChat.js?${Environment?.version || ''}`,
-        name: 'a-icon-chat'
-      },
-      {
-        // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/EventDrivenYjs.js?${Environment?.version || ''}`,
         name: 'c-event-driven-yjs'
       },
@@ -192,11 +187,6 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/atoms/roomName/RoomName.js?${Environment?.version || ''}`,
         name: 'chat-a-room-name'
-      },
-      {
-        // @ts-ignore
-        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/organisms/grid/Grid.js?${Environment?.version || ''}`,
-        name: 'wct-grid'
       },
       {
         path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/iconMdx/IconMdx.js`,

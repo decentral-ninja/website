@@ -58,6 +58,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API
 - [ ] Pick past usernames analog room name storage
+- [ ] add gifs from gify or similar
 - [ ] open pwa on decentral.ninja link
 - [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation)
 - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
