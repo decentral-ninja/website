@@ -32,9 +32,9 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] ~~wormhole iframe~~ does not work due to policy restrictions
 - [x] start video meeting in iframe (JitsiDialog)
 - [x] replyTo (continuer src/es/chat/es/components/atoms/Input.js L:136 + src/es/chat/es/components/molecules/dialogs/MessageDialog.js L:121)
-- [ ] copy message button
-- [ ] emoji (https://nolanlawson.github.io/emoji-picker-element/) all in one dialog overlay per message
+- [x] copy message button
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
+- [ ] emoji (https://nolanlawson.github.io/emoji-picker-element/) all in one dialog overlay per message
 - [ ] refresh after longer session inactive and focus comes back
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
 - [ ] send user to overwrite
