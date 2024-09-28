@@ -35,7 +35,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] copy message button
 - [x] each instance of message must link to chat ul main message and update on each connect, resp replace with fresh clone, or rerender with fresh data
 - [ ] atoms/nickname update on connectedCallback when attribute set analog chat keeping all unpacked in map, or update message without this.html = '', since that gets the newest nickname, too.
-- [ ] bug fixes: 🐯 scroll reply to message not working, insert emoji at textarea cursor, sort overview room after homescreen not working, make sure dialog message opens, review event listeners or avoid this.html = ''
+- [ ] bug fixes: 🐯 scroll reply to message not working, insert emoji at textarea cursor, sort overview room after homescreen not working, make sure dialog message opens, review event listeners or avoid this.html = '', improve max-height inside message scroll
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
 - [ ] emoji (https://nolanlawson.github.io/emoji-picker-element/) all in one dialog overlay per message
 - [ ] refresh after longer session inactive and focus comes back
