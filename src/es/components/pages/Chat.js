@@ -16,6 +16,8 @@ export default class Chat extends Index {
       importMetaUrl: import.meta.url,
       ...options
     }, ...args)
+
+    this.removeAttribute('noise')
   }
 
   connectedCallback () {

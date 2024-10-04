@@ -34,9 +34,8 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] replyTo (continuer src/es/chat/es/components/atoms/Input.js L:136 + src/es/chat/es/components/molecules/dialogs/MessageDialog.js L:121)
 - [x] copy message button
 - [x] each instance of message must link to chat ul main message and update on each connect, resp replace with fresh clone, or rerender with fresh data
-- [ ] atoms/nickname update on connectedCallback when attribute set analog chat keeping all unpacked in map, or update message without this.html = '', since that gets the newest nickname, too.
-- [ ] bug fixes: 🐯 scroll reply to message not working, insert emoji at textarea cursor, sort overview room after homescreen not working, make sure dialog message opens, review event listeners or avoid this.html = '', improve max-height inside message scroll
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
+- [ ] pin messages
 - [ ] emoji (https://nolanlawson.github.io/emoji-picker-element/) all in one dialog overlay per message
 - [ ] refresh after longer session inactive and focus comes back
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API

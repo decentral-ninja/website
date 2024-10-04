@@ -18,6 +18,7 @@ export default class Index extends Mutation() {
       ...options
     }, ...args)
 
+    this.setAttribute('noise', '')
     this.transitionDuration = this.getAttribute('transition-duration') || 400
   }
 
@@ -72,6 +73,23 @@ export default class Index extends Mutation() {
   */
   renderCSS () {
     this.css = /* css */ `
+      :host([noise].header-open)::after {
+        animation: noise .2s steps(1) infinite;
+        background-repeat: repeat;
+        background-size: 100px 100px;
+        background: transparent url(_import-meta-url_../../../img/macaque-noise.webp) repeat 0 0;
+        bottom: 0;
+        content: '';
+        left: 0;
+        opacity: 1;
+        overflow: hidden;
+        pointer-events: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform-origin: 50% 50%;
+        z-index: 9998;
+      }
       :host {
         font-size: var(--font-size, 10px);
         font-weight: var(--font-weight, normal);
@@ -106,6 +124,20 @@ export default class Index extends Mutation() {
         }
         :host section {
           grid-template-rows: minmax(var(--header-height-mobile, var(--header-height, var(--spacing))), auto) 1fr minmax(var(--footer-min-height-mobile, var(--footer-min-height, var(--spacing))), auto);
+        }
+      }
+      @keyframes noise {
+        0% {
+          transform:scale(1)
+        }
+        25% {
+          transform:scaleX(-2)
+        }
+        50% {
+          transform:scale(-1)
+        }
+        75% {
+          transform:scaleY(-1)
         }
       }
     `
