@@ -61,14 +61,14 @@ export default class Scroll extends Shadow() {
       :host(.hover) > div, :host(:hover) > div {
         background-color: var(--background-color);
       }
-      :host > div > a-icon-mdx {
+      :host > div > wct-icon-mdx {
         color: var(--background-color);
         transform: translateY(0.25em);
         transition: color .3s ease-out;
         height: auto;
         width: 100%;
       }
-      :host(.hover) > div > a-icon-mdx, :host(:hover) > div > a-icon-mdx {
+      :host(.hover) > div > wct-icon-mdx, :host(:hover) > div > wct-icon-mdx {
         color: var(--color-hover);
       }
     `
@@ -82,10 +82,10 @@ export default class Scroll extends Shadow() {
   renderHTML () {
     this.html = ''
     // https://tabler-icons.io/
-    this.html = /* html */`<div><a-icon-mdx hover-on-parent-element id="show-modal" icon-url="../../../../../../img/icons/swipe-down.svg" size="2em"></a-icon-mdx></div>`
+    this.html = /* html */`<div><wct-icon-mdx hover-on-parent-element id="show-modal" icon-url="../../../../../../img/icons/swipe-down.svg" size="2em"></wct-icon-mdx></div>`
   }
 
   get aIconMdx () {
-    return this.root.querySelector('a-icon-mdx')
+    return this.root.querySelector('wct-icon-mdx')
   }
 }
