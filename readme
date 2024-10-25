@@ -38,10 +38,12 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [x] dialog close cross hover color
 - [x] message edit self and info other make same info icon [or other ...](https://tabler.io/icons/icon/dots-circle-horizontal)
 - [x] ~~emoji (https://nolanlawson.github.io/emoji-picker-element/) all in one dialog overlay per message but triggers normal reply message with one emoji and effect on intersection evtl.~~ (done by reply and keep existing picker for the moment)
+- [ ] empty message when opening new chat room
+- [ ] show user status if mutually connected, below
+- [ ] mutually connected users with self (in sync) incl. indirect/recursive as provider status
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
 - [ ] share room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API, https://docs.pwabuilder.com/#/home/native-features?id=web-share-api, https://docs.pwabuilder.com/#/home/native-features?id=how-to-share-from-your-pwa
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
-- [ ] mutually connected users with self (in sync) incl. indirect/recursive as provider status
 - [ ] refresh after longer session inactive and focus comes back
 - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 - [ ] other (notSelf) nickname open users dialog, keep link in footer
@@ -91,7 +93,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] Preserve nickname, color, and recently used emojis on the "device" and enable synchronization with other devices through a QR code and link
 Add Chat Options:
 - [x] Delete Messages
-- [ ] Reply To Message
+- [x] Reply To Message
 - [ ] Emoji Reply to Message
 - [ ] Edit Message
 - [ ] Forward Message
