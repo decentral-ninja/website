@@ -44,7 +44,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] dialog for choosing providers when entering new room
 - [ ] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) 
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
-- [ ] share room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API, https://docs.pwabuilder.com/#/home/native-features?id=web-share-api, https://docs.pwabuilder.com/#/home/native-features?id=how-to-share-from-your-pwa
+- [ ] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API, https://docs.pwabuilder.com/#/home/native-features?id=web-share-api, https://docs.pwabuilder.com/#/home/native-features?id=how-to-share-from-your-pwa
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
 - [ ] refresh after longer session inactive and focus comes back
 - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
