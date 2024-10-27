@@ -126,15 +126,15 @@ export default class Chat extends Index {
         name: 'c-providers'
       },
       {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Rooms.js?${Environment?.version || ''}`,
+        name: 'c-rooms'
+      },
+      {
         // TODO: see todos at molecules/Providers.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Providers.js?${Environment?.version || ''}`,
         name: 'chat-m-providers'
-      },
-      {
-        // @ts-ignore
-        path: `${this.importMetaUrl}../../chat/es/components/controllers/Rooms.js?${Environment?.version || ''}`,
-        name: 'c-rooms'
       },
       {
         // @ts-ignore

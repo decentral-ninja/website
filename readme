@@ -41,6 +41,8 @@ The easiest way to connect with others without the need for phone numbers or ema
 - [ ] empty message when opening new chat room
 - [ ] show user status if mutually connected, below
 - [ ] mutually connected users with self (in sync) incl. indirect/recursive as provider status
+- [ ] dialog for choosing providers when entering new room
+- [ ] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) 
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
 - [ ] share room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API, https://docs.pwabuilder.com/#/home/native-features?id=web-share-api, https://docs.pwabuilder.com/#/home/native-features?id=how-to-share-from-your-pwa
 - [ ] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
