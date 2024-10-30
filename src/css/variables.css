@@ -58,6 +58,8 @@
   --dialog-clipboard-default-h4-color: var(--background-color);
   --dialog-left-slide-in-background-color: var(--background-color, canvas);
   --dialog-left-slide-in-gap-custom: var(--spacing);
+  --dialog-left-slide-in-max-width-custom: max(560px, 50dvw);
+  --dialog-left-slide-in-max-width-mobile-custom: 100%;
   --dialog-left-slide-in-padding-custom: var(--spacing);
   --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
   --dialog-top-slide-in-ul-margin: 0;
