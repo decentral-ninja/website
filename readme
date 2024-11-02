@@ -43,8 +43,9 @@ https://tabler.io/icons
 - [x] ~~emoji (https://nolanlawson.github.io/emoji-picker-element/) all in one dialog overlay per message but triggers normal reply message with one emoji and effect on intersection evtl.~~ (done by reply and keep existing picker for the moment)
 - [x] QR code generator (something like https://github.com/sumimakito/Awesome-qr.js#browsers) and print css https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing
 - [x] empty message when opening new chat room
+- [x] process message at ww
+- [x] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
 - [ ] rooms online status in room overview
-- [ ] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API, https://docs.pwabuilder.com/#/home/native-features?id=web-share-api, https://docs.pwabuilder.com/#/home/native-features?id=how-to-share-from-your-pwa
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [ ] user dialog and clean up users dialog
     - [ ] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
@@ -71,13 +72,15 @@ https://tabler.io/icons
 - [ ] test webRTC server
 - [ ] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
-- [ ] Local hosting https://ipv6.rs/cloudseeder/, https://www.noip.com/
-- [ ] WebSocket could have an api call to check the status and deliver some context from the owner
-- [ ] user give a room a hint name (local storage only)
-- [ ] send user to overwrite/share between devices
+- [ ] Hint dialog component (help and texts with translation)
+  - Room Eg.: <h4>Open or enter a room by typing a room name below or pasting a decentral ninja link:</h4><h5>Hint: The more random the room name, the less likely to get unwanted visitors!</h5>
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
-- [ ] security and text & room link encryption 
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto
+- [ ] WebSocket could have an api call to check the status and deliver some context from the owner
+- [ ] Local hosting https://ipv6.rs/cloudseeder/, https://www.noip.com/
+- [ ] security and text & room link encryption 
+- [ ] send user to overwrite/share between devices
+- [ ] user give a room a hint name (local storage only)
 - [ ] key pair share encrypt with jwt
 - [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
 - [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
