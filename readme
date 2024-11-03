@@ -45,21 +45,23 @@ https://tabler.io/icons
 - [x] empty message when opening new chat room
 - [x] process message at ww
 - [x] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
-- [ ] rooms online status in room overview
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [ ] user dialog and clean up users dialog
+    - [ ] https://github.com/feross/p2p-graph
     - [ ] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
     - [ ] other (notSelf) nickname open users dialog, keep link in footer
     - [ ] show user status if mutually connected
-    - [ ] https://github.com/feross/p2p-graph
   - [ ] providers dialog and provider dialog
+    - [ ] open at rooms online status in room overview
     - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
-    - [ ] dialog for choosing providers when entering new room
+    - [ ] dialog for choosing providers when sharing
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
 - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings and mutually connected users
   - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 - [ ] when room delete also delete localStorage and Indexeddb
+  - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
+  - [ ] Filters for different encryption keys
   Should read:
   - [ ] https://www.crypto101.io/
   - [ ] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR
@@ -72,64 +74,60 @@ https://tabler.io/icons
 - [ ] test webRTC server
 - [ ] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
+- [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto
+- [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
+- [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
 - [ ] Hint dialog component (help and texts with translation)
   - Room Eg.: <h4>Open or enter a room by typing a room name below or pasting a decentral ninja link:</h4><h5>Hint: The more random the room name, the less likely to get unwanted visitors!</h5>
-- [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
-- [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto
 - [ ] WebSocket could have an api call to check the status and deliver some context from the owner
-- [ ] Local hosting https://ipv6.rs/cloudseeder/, https://www.noip.com/
-- [ ] security and text & room link encryption 
-- [ ] send user to overwrite/share between devices
-- [ ] user give a room a hint name (local storage only)
-- [ ] key pair share encrypt with jwt
-- [ ] user pick a color (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
-- [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
-- [ ] pin messages
-- [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API
-- [ ] add gifs from gify or similar
-- [ ] open pwa on decentral.ninja link
+- [ ] Local hosting https://ipv6.rs/cloudseeder/, https://www.noip.com/, https://tailscale.com/blog/tailscale-funnel-beta/?utm_source=changelog-news
+- [ ] pin messages with pin categories (local and shared) and filters for pinned messages
 - [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation)
-- [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
+- [ ] send user to overwrite/share between devices
+- [ ] CRDT Corrupted undo option with Room change
+- [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
+--- Version One ---
+- [ ] dialog for choosing providers before entering a new room
+- [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
+  - [ ] security and text & room link encryption 
+- [ ] native operating system share dialog behavior (https://docs.pwabuilder.com/#/builder/manifest?id=share_target-object)
+  - [ ] open pwa on decentral.ninja link
+- [x] Chat message on intersection declare as read by filling it into array with own uid (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
+- [x] Keep chat scroll position by intersection (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
+- [ ] Pin and sort rooms (https://github.com/shresthalucky/sortable-dnd/blob/master/src/sortable-dnd.js + https://artecher.github.io/react-dnd-ax-demo/?selectedKind=Button&selectedStory=Complex%20Example&full=0&down=1&left=1&panelRight=0&downPanel=storybook%2Factions%2Factions-panel + https://github.com/blackboard/react-dnd-ax)
+- [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API
+- [ ] On Desktop keep chat rooms alive even with route or focus lost. Ether just hide at route.js or set the following attributes on EventDrivenYjs controller (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L938 + https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L986)
+- [ ] add gifs from gify or similar
 - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app
 - [ ] controllers/Providers.js when on automatic connect look for the most favorable connections and avoid orphans else allow manual choice at Providers view (User controller if not connected offer to connect to other urls max. 2 per socket / connecting to other servers according user crdt data [provider has mutually connected users with some connected to other providers with mutually connected users and vice versa]) + handle on error ws connection at provider
-- [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
-- [ ] CRDT Corrupted undo option with Room change
---- Version One ---
-- [ ] native operating system share dialog behavior (https://docs.pwabuilder.com/#/builder/manifest?id=share_target-object)
-- [ ] Chat message on intersection declare as read by filling it into array with own uid (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
-- [ ] Keep chat scroll position by intersection (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
-- [ ] Pin and sort rooms (https://github.com/shresthalucky/sortable-dnd/blob/master/src/sortable-dnd.js + https://artecher.github.io/react-dnd-ax-demo/?selectedKind=Button&selectedStory=Complex%20Example&full=0&down=1&left=1&panelRight=0&downPanel=storybook%2Factions%2Factions-panel + https://github.com/blackboard/react-dnd-ax)
-- [ ] On Desktop keep chat rooms alive even with route or focus lost. Ether just hide at route.js or set the following attributes on EventDrivenYjs controller (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L938 + https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L986)
 - [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/ | https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
-- [ ] yjs in webworker (https://github.com/y-js/y-webworker)
 - [ ] check security requirements from https://www.securemessagingapps.com
 - [ ] Mail Notifications or voluntary authentication by mail (https://github.com/nodemailer/nodemailer)
 - [ ] draw https://github.com/tldraw/tldraw
-- [ ] dns (link board) / dns crdt
+- [ ] Add Spaces that act as buckets for rooms and Users
+  - [ ] dns (link board) / dns crdt
 - [ ] id, room administrators (nostr)
 - [ ] organization (DAO?)
-- [ ] Add Spaces that act as buckets for rooms and Users
 - [ ] Add Contact Book Functionality --> Users "list"
-- [ ] Preserve nickname, color, and recently used emojis on the "device"
+- [ ] rewrite parts with: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers
+- [ ] yjs in webworker (https://github.com/y-js/y-webworker)
 Add Chat Options:
 - [x] Delete Messages
 - [x] Reply To Message
 - [ ] Emoji Reply to Message
 - [ ] Edit Message
 - [ ] Forward Message
-- [ ] Change the Color for a User in a Room or set UserName Colors automatically as WhatsApp does
 
 --- UI / UX ---
-- [ ] create UI similar to element.io
 - [ ] Add Days or/and Date of the message section
 
 --- Emoji TODO ---
+- [ ] evaluate: https://nolanlawson.github.io/emoji-picker-element/
 - [ ] Output larger if only emoji is sent
 - [x] Make EmojiPicker Responsive
 - [x] create top global used emojis list
 - [ ] search function for emojis
 - [ ] display recent used emojis
-- [ ] add emojis where cursor is in text
+- [x] add emojis where cursor is in text
 - [ ] dont hide emoji picker when clicked in textarea
 - [ ] use "own" emoji style --> symbl.cc
-- [ ] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers
