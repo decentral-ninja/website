@@ -87,6 +87,7 @@ https://tabler.io/icons
 - [ ] CRDT Corrupted undo option with Room change
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 --- Version One ---
+- [ ] inform if there is a version update and refresh
 - [ ] dialog for choosing providers before entering a new room
 - [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
   - [ ] security and text & room link encryption 
