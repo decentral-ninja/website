@@ -45,6 +45,7 @@ https://tabler.io/icons
 - [x] empty message when opening new chat room
 - [x] process message at ww
 - [x] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
+- [ ] on resize scroll to right message position
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [ ] user dialog and clean up users dialog
     - [ ] https://github.com/feross/p2p-graph
@@ -54,7 +55,7 @@ https://tabler.io/icons
   - [ ] providers dialog and provider dialog
     - [ ] open at rooms online status in room overview
     - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
-    - [ ] dialog for choosing providers when sharing
+    - [ ] dialog for choosing providers when sharing and entering room, remove default provider at src/es/components/pages/Chat.js:39, attention local storage router-resume
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
 - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings and mutually connected users
   - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
