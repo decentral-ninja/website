@@ -45,7 +45,7 @@ https://tabler.io/icons
 - [x] empty message when opening new chat room
 - [x] process message at ww
 - [x] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
-- [ ] on resize scroll to right message position
+- [x] on resize scroll to right message position
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [ ] user dialog and clean up users dialog
     - [ ] https://github.com/feross/p2p-graph
@@ -75,7 +75,7 @@ https://tabler.io/icons
 - [x] test webRTC server
 - [ ] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
-- [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md
+- [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
 - [ ] Hint dialog component (help and texts with translation)
@@ -83,7 +83,7 @@ https://tabler.io/icons
 - [ ] WebSocket could have an api call to check the status and deliver some context from the owner
 - [ ] Local hosting https://ipv6.rs/cloudseeder/, https://www.noip.com/, https://tailscale.com/blog/tailscale-funnel-beta/?utm_source=changelog-news
 - [ ] pin messages with pin categories (local and shared) and filters for pinned messages
-- [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation)
+- [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation, https://github.com/bvaughn/js-search)
 - [ ] send user to overwrite/share between devices
 - [ ] CRDT Corrupted undo option with Room change
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
