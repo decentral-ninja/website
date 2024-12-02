@@ -45,7 +45,7 @@ https://tabler.io/icons
 - [x] empty message when opening new chat room
 - [x] process message at ww
 - [x] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
-- [x] on resize scroll to right message position
+- [x] on resize scroll to right message position, last message visible scroll to that instead
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [ ] user dialog and clean up users dialog
     - [ ] https://github.com/feross/p2p-graph
