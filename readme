@@ -46,6 +46,7 @@ https://tabler.io/icons
 - [x] process message at ww
 - [x] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
 - [x] on resize scroll to right message position, last message visible scroll to that instead
+- [x] not connected providers users crdt delete mechanism at users controller
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [ ] user dialog and clean up users dialog
     - [ ] https://github.com/feross/p2p-graph
@@ -68,6 +69,7 @@ https://tabler.io/icons
   - [ ] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR
   - [ ] https://getstream.io/blog/web-crypto-api-chat/
   - [ ] Ernie Turner: Dodging Web Crypto API Landmines | Web Rebels 2018 https://www.youtube.com/watch?v=lbt2_M1hZeg
+  - [ ] stealth message with all (sender, date?, message etc.) encrypted
 - [ ] Service Worker for caching assets PWA, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] Update yjs rollup stuff
 - [ ] https://www.runonflux.io/
