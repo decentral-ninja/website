@@ -77,10 +77,11 @@ https://tabler.io/icons
 - [x] test webRTC server
 - [ ] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
-- [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293
+- [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
 - [ ] markdown support: https://github.com/marcopolo/gossip-pad?tab=readme-ov-file
 - [ ] add/make new providers https://github.com/MarcoPolo/y-libp2p (https://github.com/marcopolo/gossip-pad), https://github.com/YousefED/nostr-crdt, https://github.com/YousefED/Matrix-CRDT, https://github.com/dmotz/trystero / https://github.com/kahnpoint/y-trystero or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js, etc: https://github.com/search?q=yjs%20provider&type=repositories
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
+- [ ] ai eg. https://github.com/ngxson/wllama
 - [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
 - [ ] integrate https://github.com/webxdc
 - [ ] Hint dialog component (help and texts with translation)

@@ -29,7 +29,7 @@ export default class Body extends Shadow() {
         } else {
           this.removeAttribute('is-scrolled-bottom')
         }
-        if (this.hasAttribute('scroll-event-name')) this.dispatchEvent(new CustomEvent(this.getAttribute('scroll-event-name') || 'merge-active-room', {
+        if (this.hasAttribute('scroll-event-name')) this.dispatchEvent(new CustomEvent(this.getAttribute('scroll-event-name') || 'yjs-merge-active-room', {
           detail: {
             scrollTop: this.main.scrollTop
           },
