@@ -1,5 +1,6 @@
 /* global self */
-/* global clients */
+/* global importScripts */
+/* global NotificationServiceWorker */
 
 importScripts('./src/es/event-driven-web-components-yjs/src/es/serviceWorkers/NotificationServiceWorker.js')
 

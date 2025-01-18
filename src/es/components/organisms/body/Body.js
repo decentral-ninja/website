@@ -1,6 +1,8 @@
 // @ts-check
 import { Shadow } from '../../../event-driven-web-components-prototypes/src/Shadow.js'
 
+/* global self */
+
 /**
  * Body
  * As an organism, this component shall hold molecules and/or atoms
@@ -29,14 +31,16 @@ export default class Body extends Shadow() {
         } else {
           this.removeAttribute('is-scrolled-bottom')
         }
-        if (this.hasAttribute('scroll-event-name')) this.dispatchEvent(new CustomEvent(this.getAttribute('scroll-event-name') || 'yjs-merge-active-room', {
-          detail: {
-            scrollTop: this.main.scrollTop
-          },
-          bubbles: true,
-          cancelable: true,
-          composed: true
-        }))
+        if (this.hasAttribute('scroll-event-name')) {
+          this.dispatchEvent(new CustomEvent(this.getAttribute('scroll-event-name') || 'yjs-merge-active-room', {
+            detail: {
+              scrollTop: this.main.scrollTop
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: true
+          }))
+        }
       }, 400)
     }
     this.mainScrollEventListener = event => {
@@ -51,8 +55,8 @@ export default class Body extends Shadow() {
       this.scrollEventListener()
     }
     this.aScrollClickEventListener = event => {
-      this.mainScrollEventListener({detail: {behavior: 'instant'}})
-      setTimeout(() => this.mainScrollEventListener({detail: {behavior: 'smooth'}}), 200)
+      this.mainScrollEventListener({ detail: { behavior: 'instant' } })
+      setTimeout(() => this.mainScrollEventListener({ detail: { behavior: 'smooth' } }), 200)
       if (this.hasAttribute('scroll-icon-only-show-on-event')) this.removeAttribute('scroll-icon-has-show-event')
     }
   }
