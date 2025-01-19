@@ -96,8 +96,11 @@ export default class Footer extends Shadow() {
   renderHTML () {
     this.footer = this.root.querySelector(this.cssSelector + ' > footer') || document.createElement('footer')
     const div = document.createElement('div')
-    // @ts-ignore
-    div.innerHTML = `<a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / ${Environment.stage} ${Environment.version}</a>`
+    div.innerHTML = location.hostname === 'decentral.ninja'
+      // @ts-ignore
+      ? `<a href="https://github.com/decentral-ninja" target="_blank">© decentral.ninja / ${Environment.stage} ${Environment.version}</a>`
+      // @ts-ignore
+      : `<a href="https://decentral.ninja${location.href.replace(location.origin, '')}" target="_self">© decentral.ninja / ${Environment.stage} ${Environment.version}</a>`
     this.footer.prepend(div.children[0])
     Array.from(this.root.children).forEach(node => {
       if (node === this.footer || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
