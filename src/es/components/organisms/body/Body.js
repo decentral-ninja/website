@@ -25,7 +25,7 @@ export default class Body extends Shadow() {
       clearTimeout(timeoutId)
       timeoutId = setTimeout(async () => {
         // isScrolledBottom
-        if (this.main.scrollHeight < this.main.scrollTop + this.main.offsetHeight + 40 /* tollerance */) {
+        if (this.main.scrollHeight < this.main.scrollTop + this.main.offsetHeight + 40 /* tolerance */) {
           this.setAttribute('is-scrolled-bottom', '')
           if (this.hasAttribute('scroll-icon-only-show-on-event')) this.removeAttribute('scroll-icon-has-show-event')
         } else {
@@ -239,7 +239,8 @@ export default class Body extends Shadow() {
     this.html = '<a-scroll></a-scroll>'
     return this.fetchModules([
       {
-        path: `${this.importMetaUrl}../../atoms/scroll/Scroll.js`,
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../atoms/scroll/Scroll.js?${Environment?.version || ''}`,
         name: 'a-scroll'
       }
     ])
