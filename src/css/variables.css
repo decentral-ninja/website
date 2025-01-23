@@ -35,6 +35,7 @@
   --button-secondary-transition-custom: border-color .3s ease-out, color .3s ease-out, transform .2s ease;
   --color-active: var(--color-yellow);
   --color-black: black;
+  --color-custom-loader: var(--color-rgba-50);
   --color-disabled: gray;
   --color-error: red;
   --color-gray-lighter: rgb(233, 226, 226);
@@ -127,6 +128,7 @@
   --color: var(--dark);
   --color-active: var(--a-color);
   --button-primary-color-custom: var(--background-color);
+  --color-custom-loader: var(--color-secondary);
 }
 body {
   margin: 0;
@@ -145,7 +147,7 @@ c-router {
   height: 3.5em;
   border-radius: 50%;
   border: 0.5em solid #0000;
-  border-right-color: var(--color-rgba-50);
+  border-right-color: var(--color-custom-loader, var(--color-rgba-50));
   position: relative;
   animation: s4 1s infinite linear;
   opacity: 1 !important;

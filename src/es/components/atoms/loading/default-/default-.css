@@ -1,0 +1,28 @@
+/* LOADER: https://www.cssportal.com/css-loader-generator/ */
+.custom-loader {
+  margin: auto;
+  width: ${this.getAttribute('size') || '3.5'}em;
+  height: ${this.getAttribute('size') || '3.5'}em;
+  border-radius: 50%;
+  border: ${Number(this.getAttribute('size')) * 0.15  || '0.5'}em solid var(--color-rgba-50);
+  border-right-color: var(--color-custom-loader, var(--color-rgba-50));;
+  position: relative;
+  animation: s4 1s infinite linear !important;
+  opacity: 1 !important;
+}
+.custom-loader:before,
+.custom-loader:after {
+  content: "";
+  position: absolute;
+  inset:-${Number(this.getAttribute('size')) * 0.15  || '0.5'}em;
+  border-radius: 50%;
+  border:inherit;
+  animation:inherit;
+  animation-duration: 2s;
+}
+.custom-loader:after {
+  animation-duration: 4s;
+}
+@keyframes s4 {
+  100% {transform: rotate(1turn)}
+}
