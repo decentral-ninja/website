@@ -12,7 +12,7 @@ self.Environment = {
   keepAlive: 86400000,
   version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.4.10', // https://semver.org/
   timestampNamespace: 't_',
-  awarenessEventListenerDelay: 5000, // the delay to react on events like 'yjs-users' or 'yjs-providers' 
+  awarenessEventListenerDelay: 5000, // the delay to react on events like 'yjs-users' or 'yjs-providers'
   /**
    * Get custom mobile breakpoint
    * @param {{constructor?: string, tagName?: string, namespace?: string}} organism
