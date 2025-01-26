@@ -58,6 +58,7 @@ https://tabler.io/icons
     - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
     - [ ] dialog for choosing providers when sharing and entering room, remove default provider at src/es/components/pages/Chat.js:39, attention local storage router-resume
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
+    - [ ] WebSocket could have an api call to check the status and deliver some context from the owner
 - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings and mutually connected users
   - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 - [ ] when room delete also delete localStorage and Indexeddb
