@@ -83,7 +83,7 @@ https://tabler.io/icons
 - [ ] markdown support: https://github.com/marcopolo/gossip-pad?tab=readme-ov-file
 - [ ] add/make new providers... best make your own libp2p provider: https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), search others: https://github.com/search?q=yjs%20provider&type=repositories
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
-- [ ] ai eg. https://github.com/ngxson/wllama
+- [ ] ai eg. https://github.com/ngxson/wllama, https://medium.com/@heyamit10/fine-tuning-gguf-models-a-practical-guide-d4cc83f9e157
 - [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
 - [ ] integrate https://github.com/webxdc
 - [ ] Hint dialog component (help and texts with translation)
