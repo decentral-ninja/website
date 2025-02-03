@@ -59,6 +59,7 @@
   --dark: #000f33;
   --dialog-backdrop-filter-open: blur(0.1em);
   --dialog-clipboard-default-backdrop-background-color-open-custom: var(--color-green-rgba-75);
+  --dialog-clipboard-default-border: none;
   --dialog-clipboard-default-h4-color: var(--background-color);
   --dialog-left-slide-in-background-color: var(--background-color, canvas);
   --dialog-left-slide-in-gap-custom: var(--spacing);

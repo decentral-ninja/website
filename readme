@@ -71,6 +71,7 @@ https://tabler.io/icons
   - [ ] https://getstream.io/blog/web-crypto-api-chat/
   - [ ] Ernie Turner: Dodging Web Crypto API Landmines | Web Rebels 2018 https://www.youtube.com/watch?v=lbt2_M1hZeg
   - [ ] stealth message with all (sender, date?, message etc.) encrypted
+  - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted
 - [ ] Service Worker for caching assets PWA, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] Update yjs rollup stuff
 - [ ] https://www.runonflux.io/
