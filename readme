@@ -51,7 +51,7 @@ https://tabler.io/icons
   - [ ] user dialog and clean up users dialog
     - [x] https://github.com/feross/p2p-graph
     - [x] other (notSelf) nickname open users dialog and nickname change keep link in footer
-    - [ ] li el text (sort and describe keys) and styling (table as flex, no-connections in red plus hide other stuff, etc.), see "TODO: online"
+    - [ ] li el text (sort and describe keys) and styling (table as flex, li in desktop into grid, no-connections in red plus hide other stuff, etc.), see "TODO: online"
     - [ ] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
   - [ ] providers dialog and provider dialog
     - [ ] open at rooms online status in room overview
