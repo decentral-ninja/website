@@ -10,7 +10,7 @@ self.Environment = {
   roomNamePrefix: 'chat-',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
   keepAlive: 86400000,
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.5.1', // https://semver.org/
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.5.2', // https://semver.org/
   timestampNamespace: 't_',
   awarenessEventListenerDelay: 5000, // the delay to react on events like 'yjs-users' or 'yjs-providers'
   /**
