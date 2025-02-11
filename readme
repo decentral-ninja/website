@@ -48,20 +48,21 @@ https://tabler.io/icons
 - [x] on resize scroll to right message position, last message visible scroll to that instead
 - [x] not connected providers users crdt delete mechanism at users controller
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
-  - [ ] user dialog and clean up users dialog
+  - [x] user dialog and clean up users dialog
     - [x] https://github.com/feross/p2p-graph
     - [x] other (notSelf) nickname open users dialog and nickname change keep link in footer
-    - [ ] li el text (sort and describe keys) and styling (table as flex, li in desktop into grid, no-connections in red plus hide other stuff, etc.), see "TODO: online", don't list users doubled, scroll cleaner (test at sepp)
-    - [ ] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
+    - [x] li el text (sort and describe keys)
+    - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
   - [ ] providers dialog and provider dialog
-    - [ ] open at rooms online status in room overview
+    - [ ] open at rooms online status in room overview and/or navigation
     - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
+    - [ ] dialog for choosing providers before entering a new room
     - [ ] dialog for choosing providers when sharing and entering room, remove default provider at src/es/components/pages/Chat.js:39, attention local storage router-resume
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
-    - [ ] dialog for choosing providers before entering a new room
+    - [ ] check navigator online offline
     - [ ] WebSocket could have an api call to check the status and deliver some context from the owner
-- [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings and mutually connected users
-  - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+  - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings and mutually connected users
+    - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 - [ ] when room delete also delete localStorage and Indexeddb
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
@@ -72,7 +73,7 @@ https://tabler.io/icons
   - [ ] https://getstream.io/blog/web-crypto-api-chat/
   - [ ] Ernie Turner: Dodging Web Crypto API Landmines | Web Rebels 2018 https://www.youtube.com/watch?v=lbt2_M1hZeg
   - [ ] stealth message with all (sender, date?, message etc.) encrypted
-  - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted
+  - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted, or salt with a question
 - [ ] Service Worker for caching assets PWA, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] Update yjs rollup stuff
 - [ ] https://www.runonflux.io/
