@@ -53,7 +53,7 @@ https://tabler.io/icons
     - [x] other (notSelf) nickname open users dialog and nickname change keep link in footer
     - [x] li el text (sort and describe keys)
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
-  - [ ] providers dialog and provider dialog
+  - [ ] providers dialog and share incl. provider choose in dialog
     - [ ] open at rooms online status in room overview and/or navigation
     - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect
     - [ ] dialog for choosing providers before entering a new room
