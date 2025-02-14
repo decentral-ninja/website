@@ -26,7 +26,7 @@ export default class Body extends Shadow() {
       clearTimeout(timeoutId)
       timeoutId = setTimeout(async () => {
         // isScrolledBottom
-        if (this.main.scrollHeight < this.main.scrollTop + this.main.offsetHeight + 40 /* tolerance */) {
+        if (this.isScrolledBottom()) {
           this.setAttribute('is-scrolled-bottom', '')
           if (this.hasAttribute('scroll-icon-only-show-on-event')) this.removeAttribute('scroll-icon-has-show-event')
         } else {
@@ -44,12 +44,37 @@ export default class Body extends Shadow() {
         }
       }, 400)
     }
-    this.mainScrollEventListener = event => {
+    const scrollTimer = 200
+    this.mainScrollEventListener = (event, counter = 0) => {
+      counter++
       const options = {}
       if (event.detail?.x) options.left = event.detail?.x
-      options.top = event.detail?.y || this.main.scrollHeight
+      if (!isNaN(event.detail?.y) || event.detail?.y === undefined) options.top = event.detail?.y || this.main.scrollHeight
       options.behavior = event.detail?.behavior || 'smooth'
       this.main.scroll(options)
+      setTimeout(() => {
+        if (((options.left !== undefined && Math.ceil(options.left - this.main.clientWidth) !== this.main.scrollLeft) || (options.top !== undefined && Math.ceil(options.top - this.main.clientHeight) !== this.main.scrollTop)) && counter < 15) {
+          this.mainScrollEventListener(event, counter)
+        } else {
+          this.main.scroll({...options, behavior: 'instant'})
+          // trying to have scroll down button work more reliable
+          setTimeout(() => this.main.scroll({...options, behavior: 'smooth'}), 50)
+        }
+      }, scrollTimer)
+    }
+    this.getMainScrollElEventListener = event => {
+      const detail = {
+        el: this.main,
+        isScrolledBottom: () => this.isScrolledBottom(),
+        scrollTimer
+      }
+      if (event.detail.resolve) return event.detail.resolve(detail)
+      this.dispatchEvent(new CustomEvent(this.getAttribute('main-scroll-el') || 'main-scroll-el', {
+        detail,
+        bubbles: true,
+        cancelable: true,
+        composed: true
+      }))
     }
     this.scrollIconShowEventListener = event => {
       this.setAttribute('scroll-icon-has-show-event', '')
@@ -69,6 +94,7 @@ export default class Body extends Shadow() {
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
     Promise.all(showPromises).then(() => (this.hidden = false))
     this.globalEventTarget.addEventListener('main-scroll', this.mainScrollEventListener)
+    this.globalEventTarget.addEventListener('get-main-scroll-el', this.getMainScrollElEventListener)
     if (this.aScroll) {
       this.main.addEventListener('scroll', this.scrollEventListener)
       this.globalEventTarget.addEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
@@ -79,6 +105,7 @@ export default class Body extends Shadow() {
 
   disconnectedCallback () {
     this.globalEventTarget.removeEventListener('main-scroll', this.mainScrollEventListener)
+    this.globalEventTarget.removeEventListener('get-main-scroll-el', this.getMainScrollElEventListener)
     if (this.aScroll) {
       this.main.removeEventListener('scroll', this.scrollEventListener)
       this.globalEventTarget.removeEventListener('scroll-icon-show-event', this.scrollIconShowEventListener)
@@ -258,6 +285,10 @@ export default class Body extends Shadow() {
     if (!contentEl) return false
     contentEl.innerHTML = html
     return true
+  }
+
+  isScrolledBottom () {
+    return Math.ceil(this.main.scrollHeight - this.main.scrollTop) === this.main.clientHeight
   }
 
   get aScroll () {
