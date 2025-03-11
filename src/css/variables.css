@@ -43,6 +43,7 @@
   --color-error: red;
   --color-gray-lighter: rgb(233, 226, 226);
   --color-gray: lightgray;
+  --color-green-full: green;
   --color-green-rgba-50: rgba(144, 238, 144, 0.5);
   --color-green-rgba-75: rgba(144, 238, 144, 0.75);
   --color-green: lightgreen;
