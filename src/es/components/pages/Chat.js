@@ -54,7 +54,6 @@ export default class Chat extends Index {
                             <chat-m-notifications></chat-m-notifications>
                             <wct-icon-mdx onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
                             <div>
-                              <chat-m-navigation></chat-m-navigation>
                               <chat-m-providers></chat-m-providers>
                               <chat-m-rooms></chat-m-rooms>
                               <chat-m-jitsi-dialog
@@ -180,11 +179,6 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/atoms/Input.js?${Environment?.version || ''}`,
         name: 'chat-a-input'
-      },
-      {
-        // @ts-ignore
-        path: `${this.importMetaUrl}../../chat/es/components/molecules/Navigation.js?${Environment?.version || ''}`,
-        name: 'chat-m-navigation'
       },
       {
         // @ts-ignore
