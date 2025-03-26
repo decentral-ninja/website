@@ -61,12 +61,14 @@ export default class Footer extends Shadow() {
       :host {
         grid-area: footer;
         padding: var(--spacing) var(--spacing) 0;
-        font-size: 0.65em;
       }
       :host > footer {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+      }
+      :host > footer > a {
+        font-size: 0.65em;
       }
     `
     return this.fetchTemplate()

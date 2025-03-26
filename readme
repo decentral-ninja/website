@@ -47,19 +47,20 @@ https://tabler.io/icons
 - [x] share room, share in this room, share api + https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
 - [x] on resize scroll to right message position, last message visible scroll to that instead
 - [x] not connected providers users crdt delete mechanism at users controller
+- [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
+- [ ] new version available message
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [x] user dialog and clean up users dialog
     - [x] https://github.com/feross/p2p-graph
     - [x] other (notSelf) nickname open users dialog and nickname change keep link in footer
     - [x] li el text (sort and describe keys)
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
-  - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
   - [ ] providers dialog and share incl. provider choose in dialog
     - [ ] dialog for choosing providers when sharing and entering room, remove default provider at src/es/components/pages/Chat.js:39, attention local storage router-resume
     - [ ] dialog for choosing providers before entering a new room
     - [ ] shared room link in message or pasted room link in room dialog input: navigate to provider select window with preselection provider query param from link
     - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect, before unload, change room
-    - [ ] WebSocket could have an api call to check the status and deliver some context from the owner as well as fallback providers
+    - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed)
     - [x] open at rooms online status in room overview and/or navigation
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
@@ -76,10 +77,14 @@ https://tabler.io/icons
   - [ ] Ernie Turner: Dodging Web Crypto API Landmines | Web Rebels 2018 https://www.youtube.com/watch?v=lbt2_M1hZeg
   - [ ] stealth message with all (sender, date?, message etc.) encrypted
   - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted, or salt with a question
-- [ ] Service Worker for caching assets PWA, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
+- [ ] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] Update yjs rollup stuff
 - [ ] https://www.runonflux.io/
   - [ ] video call in iframe from flux (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
+  - [ ] https://github.com/localtunnel/server
+  - [ ] website
+  - [ ] https://github.com/Weedshaker/y-websocket
+  - [ ] https://github.com/yjs/y-webrtc
 - [x] test webRTC server
 - [ ] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
