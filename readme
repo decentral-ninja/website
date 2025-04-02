@@ -48,7 +48,7 @@ https://tabler.io/icons
 - [x] on resize scroll to right message position, last message visible scroll to that instead
 - [x] not connected providers users crdt delete mechanism at users controller
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
-- [ ] new version available message
+- [ ] Inform new version available message
 - [ ] navigation menu redesign, new icon, room link share from rooms menu with qr
   - [x] user dialog and clean up users dialog
     - [x] https://github.com/feross/p2p-graph
@@ -61,6 +61,7 @@ https://tabler.io/icons
     - [ ] shared room link in message or pasted room link in room dialog input: navigate to provider select window with preselection provider query param from link
     - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect, before unload, change room
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed)
+    - [ ] share provider setting with other users to click & change
     - [x] open at rooms online status in room overview and/or navigation
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
@@ -107,7 +108,7 @@ https://tabler.io/icons
 - [ ] CRDT Corrupted undo option with Room change
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 --- Version One ---
-- [ ] inform if there is a version update and refresh
+- [ ] Local hosting 2.0 https://github.com/anderspitman/awesome-tunneling?tab=readme-ov-file
 - [ ] restore/recover crdt state from saved data
 - [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
   - [ ] security and text & room link encryption 
