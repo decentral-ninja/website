@@ -56,9 +56,9 @@ export default class Body extends Shadow() {
         if (((options.left !== undefined && Math.ceil(options.left - this.main.clientWidth) !== this.main.scrollLeft) || (options.top !== undefined && Math.ceil(options.top - this.main.clientHeight) !== this.main.scrollTop)) && counter < 15) {
           this.mainScrollEventListener(event, counter)
         } else {
-          this.main.scroll({...options, behavior: 'instant'})
+          this.main.scroll({ ...options, behavior: 'instant' })
           // trying to have scroll down button work more reliable
-          setTimeout(() => this.main.scroll({...options, behavior: 'smooth'}), 50)
+          setTimeout(() => this.main.scroll({ ...options, behavior: 'smooth' }), 50)
         }
       }, scrollTimer)
     }
