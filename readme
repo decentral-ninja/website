@@ -53,6 +53,7 @@ https://tabler.io/icons
     - [x] other (notSelf) nickname open users dialog and nickname change keep link in footer
     - [x] li el text (sort and describe keys)
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
+    - [ ] no innerHTML at the TODO marked sections within: src/es/chat/es/components/molecules/Users.js (// TODO: Proper update diffing logic, only render the graph when having changes, to avoid jumping on multiple updates)
   - [ ] providers dialog and share incl. provider choose in dialog
     - [ ] dialog for choosing providers when sharing and entering room, remove default provider at src/es/components/pages/Chat.js:39, attention local storage router-resume
     - [ ] dialog for choosing providers before entering a new room
