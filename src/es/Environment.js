@@ -10,7 +10,11 @@ self.Environment = {
   roomNamePrefix: 'chat-',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
   keepAlive: 86400000,
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.7', // https://semver.org/
+  providers: [{
+    name: 'websocket',
+    url: 'wss://the-decentral-web.herokuapp.com'
+  }],
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.8', // https://semver.org/
   timestampNamespace: 't_',
   awarenessEventListenerDelay: 1000, // the delay to react on events like 'yjs-users' or 'yjs-providers'
   /**
