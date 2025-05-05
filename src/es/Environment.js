@@ -14,7 +14,7 @@ self.Environment = {
     name: 'websocket',
     url: 'wss://the-decentral-web.herokuapp.com'
   }],
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.8', // https://semver.org/
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.9', // https://semver.org/
   timestampNamespace: 't_',
   awarenessEventListenerDelay: 1000, // the delay to react on events like 'yjs-users' or 'yjs-providers'
   /**
