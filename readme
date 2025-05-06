@@ -54,7 +54,6 @@ https://tabler.io/icons
     - [x] other (notSelf) nickname open users dialog and nickname change keep link in footer
     - [x] li el text (sort and describe keys)
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
-    - [ ] no innerHTML at the TODO marked sections within: src/es/chat/es/components/molecules/Users.js (// TODO: Proper update diffing logic, only render the graph when having changes, to avoid jumping on multiple updates)
   - [ ] providers dialog and share incl. provider choose in dialog
     - [x] Provider controller getWebsocketInfo function save ('yjs-merge-unique-active-room') fallbacks to local storage, incase api call does not always work. And consume it at fillProvidersWithProvidersFromRooms.
     - [ ] update Providers when link copy/pasted into room name field
@@ -95,6 +94,8 @@ https://tabler.io/icons
 --- Beta ---
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
+- [ ] user dialog - no innerHTML at the TODO marked sections within: src/es/chat/es/components/molecules/Users.js (// TODO: Proper update diffing logic, only render the graph when having changes, to avoid jumping on multiple updates)
+- [ ] mobile keyboard scrolls rooms because of dvh
 - [ ] allow an aka. (also known as) user name saved locally
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] markdown support: https://github.com/marcopolo/gossip-pad?tab=readme-ov-file when selecting showing italic, bold, etc.
@@ -125,6 +126,7 @@ https://tabler.io/icons
 - [x] Keep chat scroll position by intersection (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
 - [x] Pin and sort rooms (https://github.com/shresthalucky/sortable-dnd/blob/master/src/sortable-dnd.js + https://artecher.github.io/react-dnd-ax-demo/?selectedKind=Button&selectedStory=Complex%20Example&full=0&down=1&left=1&panelRight=0&downPanel=storybook%2Factions%2Factions-panel + https://github.com/blackboard/react-dnd-ax)
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API
+- [ ] https://xmpp.org
 - [ ] add gifs from gify or similar
 - [ ] Notification: When new messages change document.title (emoji) until read plus allow notification sound
 - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app

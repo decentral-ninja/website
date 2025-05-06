@@ -7,14 +7,19 @@ const currentScriptUrl = new URL(document.currentScript.src)
 self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
-  roomNamePrefix: 'chat-',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.11', // https://semver.org/
+  roomNamePrefix: 'chat-',
   keepAlive: 86400000,
   providers: [{
     name: 'websocket',
     url: 'wss://the-decentral-web.herokuapp.com'
+  },
+  {
+    name: 'websocket',
+    url: 'https://the-decentral-web.loca.lt'
   }],
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.10', // https://semver.org/
+  permanentFallbacks: new Map([['wss://the-decentral-web.herokuapp.com', 'https://the-decentral-web.loca.lt']]),
   timestampNamespace: 't_',
   awarenessEventListenerDelay: 1000, // the delay to react on events like 'yjs-users' or 'yjs-providers'
   /**
@@ -29,6 +34,7 @@ self.Environment = {
     }
   }
 }
+// react to the router and expose the active route for components globalEventTarget
 document.body.addEventListener('pre-route', event => {
   self.Environment.activeRoute = event.detail.component
   self.Environment.router = event.target
