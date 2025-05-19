@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.11', // https://semver.org/
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.12', // https://semver.org/
   roomNamePrefix: 'chat-',
   keepAlive: 86400000,
   providers: [{
@@ -21,6 +21,7 @@ self.Environment = {
   }],
   permanentFallbacks: new Map([['wss://the-decentral-web.herokuapp.com', 'https://the-decentral-web.loca.lt']]),
   timestampNamespace: 't_',
+  providerNamespace: 'p_',
   awarenessEventListenerDelay: 1000, // the delay to react on events like 'yjs-users' or 'yjs-providers'
   /**
    * Get custom mobile breakpoint

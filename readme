@@ -71,7 +71,7 @@ https://tabler.io/icons
 - [ ] when room delete also delete localStorage and Indexeddb
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
-- [ ] Inform new version available message
+- [ ] Inform new version available message and/or fetch the newest providers and permanent fallback providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text))
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
   - [ ] Filters for different encryption keys
   Should read:
