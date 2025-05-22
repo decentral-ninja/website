@@ -83,12 +83,6 @@ https://tabler.io/icons
   - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted, or salt with a question
 - [ ] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] Update yjs rollup stuff
-- [ ] https://www.runonflux.io/
-  - [ ] video call in iframe from flux (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
-  - [ ] https://github.com/localtunnel/server
-  - [ ] website
-  - [ ] https://github.com/Weedshaker/y-websocket
-  - [ ] https://github.com/yjs/y-webrtc
 - [x] test webRTC server
 - [ ] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
@@ -114,6 +108,13 @@ https://tabler.io/icons
 - [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation, https://github.com/bvaughn/js-search) (+ https://yacy.net/)
 - [ ] send user to overwrite/share between devices
 - [ ] CRDT Corrupted undo option with Room change
+- [/] https://www.runonflux.io/ done for website 8080 interface (not applicable since it load balances between a minimum of three instances, which makes it unreliable if clients land on different nodes aka. instances.)
+  - [ ] forward proxy to local instance (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)
+  - [ ] video call in iframe from local instance (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
+  - [x] https://github.com/localtunnel/server
+  - [x] website on flux
+  - [ ] from local instance https://github.com/Weedshaker/y-websocket
+  - [ ] from local instance https://github.com/yjs/y-webrtc
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 --- Version One ---
 - [ ] Local hosting 2.0 https://github.com/anderspitman/awesome-tunneling?tab=readme-ov-file
