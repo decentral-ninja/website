@@ -56,11 +56,12 @@ https://tabler.io/icons
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
   - [ ] providers dialog and share incl. provider choose in dialog
     - [x] Provider controller getWebsocketInfo function save ('yjs-merge-unique-active-room') fallbacks to local storage, incase api call does not always work. And consume it at fillProvidersWithProvidersFromRooms.
-    - [ ] update Providers when link copy/pasted into room name field
-    - [ ] dialog for choosing providers when sharing and entering room, remove default provider at src/es/components/pages/Chat.js:39, attention local storage router-resume
-    - [ ] dialog for choosing providers before entering a new room
-    - [ ] shared room link in message or pasted room link in room dialog input: navigate to provider select window with preselection provider query param from link
-    - [ ] Kill Room Button for KeepAlive at "You are alone" disconnect, before unload, change room
+    - [ ] link to users dialog and add p2pGraph for connected providers
+    - [x] update Providers when link copy/pasted into room name field
+    - [ ] dialog for choosing providers when sharing (show provider dialog link to adjust) ~~and entering room~~, remove default provider at src/es/components/pages/Chat.js:39 and take only default from Environment when no other provider present, attention local storage router-resume
+    - [/] dialog for choosing providers before entering a new room
+    - [/] shared room link in message or pasted room link in room dialog input: navigate to provider select window with preselection provider query param from link
+    - [/] Kill Room Button for KeepAlive at "You are alone" disconnect, before unload, change room
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed)
     - [ ] share provider setting with other users to click & change (sends a message with the provider to share, when clicked opens the provider dialog and adds the received provider for the session)
     - [x] open at rooms online status in room overview and/or navigation
