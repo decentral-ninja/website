@@ -18,8 +18,13 @@ self.Environment = {
   {
     name: 'websocket',
     url: 'https://the-decentral-web.loca.lt'
+  },
+  {
+    name: 'websocket',
+    url: 'https://decentral-ninja.loca.lt'
   }],
-  permanentFallbacks: new Map([['wss://the-decentral-web.herokuapp.com', 'https://the-decentral-web.loca.lt']]),
+  permanentFallbacks: new Map([['wss://the-decentral-web.herokuapp.com', 'https://the-decentral-web.loca.lt']]), // TODO: permanentFallbacks test and then remove this line as long as heroku works
+  alternativeWebsiteHosts: ['https://decentralninja.app.runonflux.io/', 'https://decentralninja_8080.app.runonflux.io'],
   timestampNamespace: 't_',
   providerNamespace: 'p_',
   awarenessEventListenerDelay: 1000, // the delay to react on events like 'yjs-users' or 'yjs-providers'

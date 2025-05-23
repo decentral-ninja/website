@@ -67,6 +67,7 @@ https://tabler.io/icons
     - [x] open at rooms online status in room overview and/or navigation
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
+    - [ ] permanentFallbacks test (see Environment.js)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
     - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 - [ ] when room delete also delete localStorage and Indexeddb
