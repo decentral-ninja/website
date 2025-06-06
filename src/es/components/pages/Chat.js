@@ -52,7 +52,7 @@ export default class Chat extends Index {
                           <chat-a-room-name></chat-a-room-name>
                           <div>
                             <chat-m-notifications></chat-m-notifications>
-                            <wct-icon-mdx onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
+                            <wct-icon-mdx title=reload onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
                             <div>
                               <chat-m-providers></chat-m-providers>
                               <chat-m-rooms></chat-m-rooms>
@@ -61,7 +61,7 @@ export default class Chat extends Index {
                                 show-event-name="jitsi-dialog-show-event"
                               ></chat-m-jitsi-dialog>
                             </div>
-                            <a href="?page=/" route target="_self"><a-logo namespace="logo-invert-" invert favicon no-animation></a-logo></a>
+                            <a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                           </div>
                         </header>
                       </o-header>

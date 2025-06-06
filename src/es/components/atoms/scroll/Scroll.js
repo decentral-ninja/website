@@ -82,7 +82,7 @@ export default class Scroll extends Shadow() {
   renderHTML () {
     this.html = ''
     // https://tabler-icons.io/
-    this.html = /* html */'<div><wct-icon-mdx hover-on-parent-element id="show-modal" icon-url="../../../../../../img/icons/swipe-down.svg" size="2em"></wct-icon-mdx></div>'
+    this.html = /* html */'<div><wct-icon-mdx title="scroll down" hover-on-parent-element id="show-modal" icon-url="../../../../../../img/icons/swipe-down.svg" size="2em"></wct-icon-mdx></div>'
   }
 
   get aIconMdx () {
