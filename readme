@@ -59,7 +59,7 @@ https://tabler.io/icons
     - [ ] check for notifications at provider molecule for origin/host related notifications
     - [ ] mute/un-mute providers regarding notifications at notification molecule and controller, saving providers for which to block get-notifications (loading animation on change)
     - [ ] link to users dialog and add p2pGraph for connected providers
-    - [ ] allow mute even when there is no message (this allows to block unwanted or dead providers), allow unmute (add) for those which were even not included in the getNotification and not muted (add those ignored providers, when added, to localStorage)
+    - [ ] allow mute even when there is no message (this allows to block unwanted or dead providers), allow unmute (add) for those which were even not included in the getNotification and not muted (add those ignored providers, when added, to localStorage) [NOTE: think about all possible notification states (success, failed, ignored)]
     - [ ] sort muted providers last
     - [ ] provider url is missing :port
     - [x] update Providers when link copy/pasted into room name field
