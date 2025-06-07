@@ -10,6 +10,7 @@ self.Environment = {
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
   version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '4.7.12', // https://semver.org/
   roomNamePrefix: 'chat-',
+  updateNotificationsAfter: 5000,
   keepAlive: 86400000,
   providers: [{
     name: 'websocket',
