@@ -59,10 +59,13 @@ https://tabler.io/icons
     - [ ] check for notifications at provider molecule for origin/host related notifications
     - [ ] mute/un-mute providers regarding notifications at notification molecule and controller, saving providers for which to block get-notifications (loading animation on change)
     - [ ] link to users dialog and add p2pGraph for connected providers
+    - [ ] allow mute even when there is no message (this allows to block unwanted or dead providers)
+    - [ ] sort muted providers last
+    - [ ] provider url is missing :port
     - [x] update Providers when link copy/pasted into room name field
     - [ ] dialog for choosing providers when sharing (show provider dialog link to adjust) ~~and entering room~~, remove default provider at src/es/components/pages/Chat.js:39 and take only default from Environment when no other provider present, attention local storage router-resume
     - [ ] dialog for choosing providers before entering a new room
-    - [/] shared room link in message or pasted room link in room dialog input: navigate to provider select window with preselection provider query param from link
+    - [/] shared room link in message or pasted room link in room dialog input: navigate to provider select window with preselection provider query param from link (already shared through crdt)
     - [/] Kill Room Button for KeepAlive at "You are alone" disconnect, before unload, change room
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed)
     - [ ] share provider setting with other users to click & change (sends a message with the provider to share, when clicked opens the provider dialog and adds the received provider for the session)
@@ -72,6 +75,7 @@ https://tabler.io/icons
     - [ ] permanentFallbacks test (see Environment.js)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
     - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+- [ ] Decentral href share inside message, open by routing (no refresh) same as room input field
 - [ ] when room delete also delete localStorage and Indexeddb
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
