@@ -36,7 +36,7 @@ export default class IconStates extends Shadow() {
         :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover] {
           display: contents;
         }
-        :host > section > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}][no-counter] ~ p, :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover][no-counter] ~ p {
+        :host > section > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}][no-counter] ~ span, :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover][no-counter] ~ span {
           display: none;
         }
       `
@@ -129,20 +129,10 @@ export default class IconStates extends Shadow() {
         --color-wormhole: var(--color-disabled);
         --color-yellow: var(--color-disabled);
       }
-      :host  > section > p {
-        color: var(--color-disabled);
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        transition: color 0.3s ease-out;
-      }
-      :host  > section > p:has(> span:empty), :host(:not([show-counter-on-hover])) > section:hover > p {
-        display: none;
-      }
-      :host  > section > p > span {
-        background-color: var(--color-secondary);
+      :host  > section > span {
+        background-color: var(--counter-color, var(--color));
         border-radius: 50%;
-        color: white;
+        color: var(--background-color, white);
         cursor: pointer;
         font-size: 0.75em;
         height: fit-content;
@@ -152,7 +142,7 @@ export default class IconStates extends Shadow() {
         overflow: hidden;
         padding: 0.1em 0.5em;
         text-overflow: ellipsis;
-        transform: translate(1.5em, 1.25em);
+        transform: translate(${this.getAttribute('translate') || '1.5em, 1.25em'});
         transition: background-color 0.3s ease-out;
         white-space: nowrap;
         width: fit-content;
@@ -161,8 +151,11 @@ export default class IconStates extends Shadow() {
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      :host > section:has(> .hover) > p > span, :host > section:hover > p > span {
-        background-color: var(--color-yellow);
+      :host > section > .hover ~ span, :host > section:hover > span {
+        background-color: var(--counter-color-hover, var(--color-hover, var(--color)));
+      }
+      :host  > section > span:empty, :host(:not([show-counter-on-hover])) > section:hover > span {
+        display: none;
       }
     `
     return Promise.resolve()
@@ -177,7 +170,7 @@ export default class IconStates extends Shadow() {
     this.html = /* html */`
       <section>
         <a-loading namespace="loading-default-" size="1.5"></a-loading>
-        <p><span></span></p>
+        <span></span>
       </section>
     `
     children.forEach(node => {
@@ -203,7 +196,7 @@ export default class IconStates extends Shadow() {
   }
 
   get counterEl () {
-    return this.root.querySelector('section > p > span')
+    return this.root.querySelector('section > span')
   }
 
   get customStyle () {
