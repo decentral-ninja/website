@@ -8,7 +8,7 @@ import { Shadow } from '../../../web-components-toolbox/src/es/components/protot
 */
 export default class IconStates extends Shadow() {
   static get observedAttributes () {
-    return ['state']
+    return ['state', 'counter']
   }
 
   constructor (options = {}, ...args) {
@@ -26,11 +26,21 @@ export default class IconStates extends Shadow() {
   disconnectedCallback () {}
 
   attributeChangedCallback (name, oldValue, newValue) {
-    this.customStyle.innerText = /* css */`
-      :host > section > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}] {
-        display: contents;
-      }
-    `
+    if (name === 'counter') {
+      this.counterEl.textContent = this.getAttribute('counter')
+    } else if (name = 'state') {
+      this.customStyle.innerText = /* css */`
+        :host > section${this.stateElsStates.some(attribute => attribute.includes(`${this.getAttribute('state') || 'default'}-hover`)) ? ':not(:hover)' : '' } > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}] {
+          display: contents;
+        }
+        :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover] {
+          display: contents;
+        }
+        :host > section > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}][no-counter] ~ p, :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover][no-counter] ~ p {
+          display: none;
+        }
+      `
+    }
   }
 
   /**
@@ -61,12 +71,22 @@ export default class IconStates extends Shadow() {
       :host {
         display: contents;
       }
+      ${
+        this.stateElsStates.some(attribute => attribute.includes('hover'))
+          ? /* css */`
+            :host > section:hover {
+              cursor: pointer;
+            }
+          `
+          : ''
+      }
       :host > section {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         align-content: center;
         justify-content: center;
+        width: fit-content;
       }
       :host > section > *, :host > section > wct-icon-mdx::part(svg) {
         grid-column: 1;
@@ -109,6 +129,41 @@ export default class IconStates extends Shadow() {
         --color-wormhole: var(--color-disabled);
         --color-yellow: var(--color-disabled);
       }
+      :host  > section > p {
+        color: var(--color-disabled);
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        transition: color 0.3s ease-out;
+      }
+      :host  > section > p:has(> span:empty), :host(:not([show-counter-on-hover])) > section:hover > p {
+        display: none;
+      }
+      :host  > section > p > span {
+        background-color: var(--color-secondary);
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        font-size: 0.75em;
+        height: fit-content;
+        margin-right: 1.5em;
+        max-width: 2em;
+        opacity: 0.75;
+        overflow: hidden;
+        padding: 0.1em 0.5em;
+        text-overflow: ellipsis;
+        transform: translate(1.5em, 1.25em);
+        transition: background-color 0.3s ease-out;
+        white-space: nowrap;
+        width: fit-content;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      :host > section:has(> .hover) > p > span, :host > section:hover > p > span {
+        background-color: var(--color-yellow);
+      }
     `
     return Promise.resolve()
   }
@@ -122,11 +177,12 @@ export default class IconStates extends Shadow() {
     this.html = /* html */`
       <section>
         <a-loading namespace="loading-default-" size="1.5"></a-loading>
+        <p><span></span></p>
       </section>
     `
     children.forEach(node => {
       if (node.getAttribute('slot') || node.nodeName === 'STYLE') return false
-      this.section.appendChild(node)
+      this.section.prepend(node)
     })
     this.html = this.customStyle
     return this.fetchModules([
@@ -140,6 +196,14 @@ export default class IconStates extends Shadow() {
 
   get section () {
     return this.root.querySelector('section')
+  }
+
+  get stateElsStates () {
+    return Array.from(this.root.querySelectorAll('[state]')).map(el => el.getAttribute('state'))
+  }
+
+  get counterEl () {
+    return this.root.querySelector('section > p > span')
   }
 
   get customStyle () {
