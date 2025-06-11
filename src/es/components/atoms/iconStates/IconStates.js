@@ -29,7 +29,8 @@ export default class IconStates extends Shadow() {
     if (name === 'counter') {
       this.counterEl.textContent = this.getAttribute('counter')
     } else if (name = 'state') {
-      this.customStyle.innerText = /* css */`
+      this.customStyle.textContent = ''
+      this.setCss(/* css */`
         :host > section${this.stateElsStates.some(attribute => attribute.includes(`${this.getAttribute('state') || 'default'}-hover`)) ? ':not(:hover)' : '' } > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}] {
           display: contents;
         }
@@ -39,7 +40,7 @@ export default class IconStates extends Shadow() {
         :host > section > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}][no-counter] ~ span, :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover][no-counter] ~ span {
           display: none;
         }
-      `
+      `, undefined, undefined, undefined, this.customStyle, false)
     }
   }
 
@@ -136,7 +137,6 @@ export default class IconStates extends Shadow() {
         cursor: pointer;
         font-size: 0.75em;
         height: fit-content;
-        margin-right: 1.5em;
         max-width: 2em;
         opacity: 0.75;
         overflow: hidden;
