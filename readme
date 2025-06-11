@@ -55,7 +55,8 @@ https://tabler.io/icons
     - [x] li el text (sort and describe keys)
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
   - [ ] providers dialog and share incl. provider choose in dialog
-    - [ ] mute state change loading animation
+    - [x] mute state change loading animation
+    - [ ] rename chat-notification-mutes and add provider urls to include as well as inform at notification event if provider is included
     - [ ] when mute and due to that "force" && this.notificationsPromise.done === false, do abort by signal all fetches
     - [ ] allow mute even when there is no message (this allows to block unwanted or dead providers), allow unmute (add) for those which were even not included in the getNotification and not muted (add those ignored providers, when added, to localStorage) [NOTE: think about all possible notification states (success, failed, ignored, muted)]
     - [ ] show at status connected provider the amount of users
