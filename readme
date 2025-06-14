@@ -56,9 +56,9 @@ https://tabler.io/icons
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
   - [ ] providers dialog and share incl. provider choose in dialog
     - [x] mute state change loading animation
-    - [ ] rename chat-notification-mutes and add provider urls to include as well as inform at notification event if provider is included
+    - [x] rename chat-notification-mutes and add provider urls to include as well as inform at notification event if provider is included
     - [ ] when mute and due to that "force" && this.notificationsPromise.done === false, do abort by signal all fetches
-    - [ ] allow mute even when there is no message (this allows to block unwanted or dead providers), allow unmute (add) for those which were even not included in the getNotification and not muted (add those ignored providers, when added, to localStorage) [NOTE: think about all possible notification states (success, failed, ignored, muted)]
+    - [x] allow mute even when there is no message (this allows to block unwanted or dead providers), allow unmute (add) for those which were even not included in the getNotification and not muted (add those ignored providers, when added, to localStorage) [NOTE: think about all possible notification states (success, failed, ignored, muted)]
     - [ ] show at status connected provider the amount of users
     - [ ] link to users dialog and add p2pGraph for connected providers
     - [ ] provider url is missing :port
@@ -101,6 +101,7 @@ https://tabler.io/icons
 --- Beta ---
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
+- [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch in service worker
 - [ ] user dialog - no innerHTML at the TODO marked sections within: src/es/chat/es/components/molecules/Users.js (// TODO: Proper update diffing logic, only render the graph when having changes, to avoid jumping on multiple updates)
 - [ ] mobile keyboard scrolls rooms because of dvh
 - [ ] allow an aka. (also known as) user name saved locally

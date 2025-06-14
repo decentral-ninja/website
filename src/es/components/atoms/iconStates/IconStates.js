@@ -103,6 +103,9 @@ export default class IconStates extends Shadow() {
       :host > section > a-loading {
         display: none;
       }
+      :host([no-pointer-events-updating][updating]) > section > * {
+        pointer-events: none;
+      }
       :host([updating]) > section > a-loading {
         display: flex;
       }
