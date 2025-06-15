@@ -57,6 +57,7 @@ https://tabler.io/icons
   - [ ] providers dialog and share incl. provider choose in dialog
     - [x] mute state change loading animation
     - [x] rename chat-notification-mutes and add provider urls to include as well as inform at notification event if provider is included
+    - [ ] intersection lazy load provider
     - [ ] when mute and due to that "force" && this.notificationsPromise.done === false, do abort by signal all fetches
     - [x] allow mute even when there is no message (this allows to block unwanted or dead providers), allow unmute (add) for those which were even not included in the getNotification and not muted (add those ignored providers, when added, to localStorage) [NOTE: think about all possible notification states (success, failed, ignored, muted)]
     - [ ] show at status connected provider the amount of users
