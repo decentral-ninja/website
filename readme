@@ -58,9 +58,9 @@ https://tabler.io/icons
     - [x] mute state change loading animation
     - [x] rename chat-notification-mutes and add provider urls to include as well as inform at notification event if provider is included
     - [ ] intersection lazy load provider
-    - [ ] when mute and due to that "force" && this.notificationsPromise.done === false, do abort by signal all fetches
+    - [x] notifications do abort by signal all fetches
     - [x] allow mute even when there is no message (this allows to block unwanted or dead providers), allow unmute (add) for those which were even not included in the getNotification and not muted (add those ignored providers, when added, to localStorage) [NOTE: think about all possible notification states (success, failed, ignored, muted)]
-    - [ ] show at status connected provider the amount of users
+    - [ ] show at status connected provider the amount of users and on the header provider icon the amount of connected providers
     - [ ] link to users dialog and add p2pGraph for connected providers
     - [ ] provider url is missing :port
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed)
