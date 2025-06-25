@@ -120,7 +120,6 @@ export default class Chat extends Index {
         name: 'c-notifications'
       },
       {
-        // TODO: see todos at controllers/Providers.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Providers.js?${Environment?.version || ''}`,
         name: 'c-providers'
@@ -131,7 +130,6 @@ export default class Chat extends Index {
         name: 'c-rooms'
       },
       {
-        // TODO: see todos at molecules/Providers.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Providers.js?${Environment?.version || ''}`,
         name: 'chat-m-providers'
@@ -147,13 +145,11 @@ export default class Chat extends Index {
         name: 'chat-m-jitsi-dialog'
       },
       {
-        // TODO: see todos at controllers/Users.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Users.js?${Environment?.version || ''}`,
         name: 'c-users'
       },
       {
-        // TODO: see todos at molecules/Users.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Users.js?${Environment?.version || ''}`,
         name: 'chat-m-users'
@@ -164,13 +160,11 @@ export default class Chat extends Index {
         name: 'chat-m-notifications'
       },
       {
-        // TODO: see todos at controllers/Chat.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/controllers/Chat.js?${Environment?.version || ''}`,
         name: 'c-chat'
       },
       {
-        // TODO: see todos at molecules/Chat.js Class
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/Chat.js?${Environment?.version || ''}`,
         name: 'm-chat'
