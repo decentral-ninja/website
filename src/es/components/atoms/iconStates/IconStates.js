@@ -1,6 +1,8 @@
 // @ts-check
 import { Shadow } from '../../../web-components-toolbox/src/es/components/prototypes/Shadow.js'
 
+/* global Environment */
+
 /**
 * @export
 * @class IconStates
@@ -28,10 +30,10 @@ export default class IconStates extends Shadow() {
   attributeChangedCallback (name, oldValue, newValue) {
     if (name === 'counter') {
       this.counterEl.textContent = this.getAttribute('counter')
-    } else if (name = 'state') {
+    } else {
       this.customStyle.textContent = ''
       this.setCss(/* css */`
-        :host > section${this.stateElsStates.some(attribute => attribute.includes(`${this.getAttribute('state') || 'default'}-hover`)) ? ':not(:hover)' : '' } > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}] {
+        :host > section${this.stateElsStates.some(attribute => attribute.includes(`${this.getAttribute('state') || 'default'}-hover`)) ? ':not(:hover)' : ''} > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}] {
           display: contents;
         }
         :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover] {
