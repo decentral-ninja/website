@@ -59,6 +59,7 @@ https://tabler.io/icons
     - [ ] indicate providerFallbacks
     - [ ] permanentFallbacks test (see Environment.js)
     - [ ] link to users dialog, docker hub and github y-websocket repo ~~ and add p2pGraph for connected providers~~
+    - [ ] dialog clipboard to copy the provider url 
     - [ ] only set default providers when room is newly opened, don't enforce those when no provider is chosen
     - [x] mute state change loading animation
     - [x] rename chat-notification-mutes and add provider urls to include as well as inform at notification event if provider is included
