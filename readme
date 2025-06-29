@@ -55,12 +55,13 @@ https://tabler.io/icons
     - [x] li el text (sort and describe keys)
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
   - [ ] providers dialog and share incl. provider choose in dialog
+    - [ ] link to users dialog, docker hub and github y-websocket repo ~~ and add p2pGraph for connected providers~~
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo & data.pingProvider
     - [ ] indicate providerFallbacks
     - [ ] permanentFallbacks test (see Environment.js)
-    - [ ] link to users dialog, docker hub and github y-websocket repo ~~ and add p2pGraph for connected providers~~
     - [ ] dialog clipboard to copy the provider url 
     - [ ] only set default providers when room is newly opened, don't enforce those when no provider is chosen
+    - [x] fix btn hover and connect/disconnect button different color
     - [x] mute state change loading animation
     - [x] rename chat-notification-mutes and add provider urls to include as well as inform at notification event if provider is included
     - [x] intersection lazy load provider
