@@ -57,7 +57,7 @@ https://tabler.io/icons
   - [ ] providers dialog and share incl. provider choose in dialog
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo & data.pingProvider
     - [ ] infos about provider origins
-    - [ ] indicate providerFallbacks
+    - [ ] indicate providerFallbacks especially when provider active but not connected with highlight
     - [ ] permanentFallbacks test (see Environment.js)
     - [ ] dialog clipboard to copy the provider url 
     - [ ] only set default providers when room is newly opened, don't enforce those when no provider is chosen
