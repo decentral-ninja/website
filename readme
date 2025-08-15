@@ -57,6 +57,14 @@ https://tabler.io/icons
   - [ ] providers dialog and share incl. provider choose in dialog
     - [x] fixes: Providers.js molecules status active check hostname for provider and hostname for url instead of only includes, only order providers after closing dialog
     - [x] connected providers counter (number bubble)
+    - [x] info users connected with specific provider, historical providers and users at user overview card inside details summary
+    - [x] user view show all, incl. none active connections, to inform about providers | details summary with option to see all historical connections
+    - [/] provider graph tab which opens user graph (remove list link to user graph)
+    - [x] move user info besides provider icon
+    - [ ] at user graph/connection detail card, click on provider opens provider dialog and scrolls to the provider as well as graph svg click within provider dialog should scroll to the provider
+    - [ ] reload smart icon
+      - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
+        - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo & data.pingProvider
     - [ ] infos about provider origins
     - [ ] indicate providerFallbacks especially when provider active but not connected with highlight
@@ -86,8 +94,6 @@ https://tabler.io/icons
     - [x] open at rooms online status in room overview and/or navigation
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
-  - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
-    - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 - [ ] Decentral href share inside message, open by routing (no refresh) same as room input field
 - [ ] when room delete also delete localStorage and Indexeddb
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API

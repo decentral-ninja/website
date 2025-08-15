@@ -53,8 +53,9 @@ export default class Chat extends Index {
                           <div>
                             <chat-m-notifications></chat-m-notifications>
                             <wct-icon-mdx title=reload onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
+                            <chat-m-providers></chat-m-providers>
                             <div>
-                              <chat-m-providers></chat-m-providers>
+                              <chat-m-users></chat-m-users>
                               <chat-m-rooms></chat-m-rooms>
                               <chat-m-jitsi-dialog
                                 namespace="dialog-top-slide-in-"
@@ -77,7 +78,6 @@ export default class Chat extends Index {
                       <o-footer>
                         <footer>
                           <chat-a-input style="order: -1;"></chat-a-input>
-                          <chat-m-users></chat-m-users>
                         </footer>
                       </o-footer>
                     </section>
