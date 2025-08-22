@@ -18,7 +18,7 @@
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color-smallListContainer: rgba(255,255,255,0.7);
-  --background-color: var(--dark);
+  --background-color: var(--color-black);
   --border-radius: 0.7em;
   --box-shadow-color: var(--color);
   --box-shadow-default: var(--box-shadow-length-one) var(--box-shadow-color), var(--box-shadow-length-two) var(--box-shadow-color);
@@ -50,18 +50,20 @@
   --color-green: lightgreen;
   --color-hover: var(--color-active);
   --color-jitsi: #175e95;
+  --color-orange: orange;
   --color-provider: var(--color-black);
   --color-rgba-50: rgba(255, 248, 224, 0.3);
   --color-secondary-rgba-50: rgba(166, 12, 15, 0.5);
   --color-secondary: #a80d10;
   --color-user-self: var(--color-secondary);
   --color-user: var(--color-green);
+  --color-white: #fff8e0;
   --color-wormhole: #D6BCFA;
   --color-yellow: #fccf00;
-  --color: var(--light);
+  --color: var(--color-white);
   --content-spacing-mobile: 1rem;
   --content-spacing: 1.143rem;
-  --dark: #000f33;
+  --color-black: #000f33;
   --details-default-icon-align-items-custom: center;
   --dialog-backdrop-filter-open: blur(0.1em);
   --dialog-clipboard-default-backdrop-background-color-open-custom: var(--color-green-rgba-75);
@@ -95,7 +97,6 @@
   --h4-font-size: 1em;
   --header-height: 3em;
   --input-font-size-mobile: max(var(--font-size-mobile), 16px);
-  --light: #fff8e0;
   --line-height: 1.5;
   --logo-invert-svg-height: 2em;
   --menu-icon-close-background-color-hover: var(--color-secondary);
@@ -105,7 +106,7 @@
   --menu-icon-close-margin: calc(var(--header-height) / 3) 0 var(--spacing) calc(-1.5 * var(--spacing));
   --menu-icon-close-padding: var(--menu-icon-open-padding);
   --menu-icon-close-width: var(--menu-icon-open-width);
-  --menu-icon-open-background-color: var(--dark);
+  --menu-icon-open-background-color: var(--color-black);
   --menu-icon-open-border-radius: 25%;
   --menu-icon-open-height: 3px;
   --menu-icon-open-padding: 0;
@@ -114,7 +115,7 @@
   --p-text-align: center;
   --qr-code-svg-default-color: var(--color-secondary);
   --spacing: 0.5rem;
-  --wct-input-border: 1px solid var(--dark);
+  --wct-input-border: 1px solid var(--color-black);
   --wct-input-input-bg-color-disabled: lightgray;
   --wct-input-input-bg-color: field;
   --wct-input-input-color-disabled: darkgray;
@@ -131,9 +132,9 @@
   transition: var(--transition, color 0.3s ease-out, background-color 0.3s ease-out);
 }
 :root[invert] {
-  --background-color: var(--light);
+  --background-color: var(--color-white);
   --a-color: var(--color-secondary);
-  --color: var(--dark);
+  --color: var(--color-black);
   --color-active: var(--a-color);
   --button-primary-color-custom: var(--background-color);
   --color-custom-loader: var(--color-secondary);

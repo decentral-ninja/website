@@ -43,6 +43,8 @@ export default class IconStates extends Shadow() {
           display: none;
         }
       `, undefined, undefined, undefined, this.customStyle, false)
+      let activeElState
+      if ((activeElState = this.activeElState)) this.setAttribute('title', activeElState.getAttribute('title'))
     }
   }
 
@@ -198,6 +200,10 @@ export default class IconStates extends Shadow() {
 
   get stateElsStates () {
     return Array.from(this.root.querySelectorAll('[state]')).map(el => el.getAttribute('state'))
+  }
+
+  get activeElState () {
+    return this.root.querySelector(`wct-icon-mdx[state=${this.getAttribute('state') || 'default'}]`)
   }
 
   get counterEl () {
