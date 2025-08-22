@@ -66,6 +66,7 @@ https://tabler.io/icons
     - [ ] reload smart icon (move it left of notification icon)
       - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
         - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+    - [ ] providers with origins: ['crdt'] && status: ['unknown'] were never connected but a user in the crdt claims the connection. sort those providers into a details-summary labeled further providers
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo & data.pingProvider
     - [ ] infos about provider origins
     - [ ] indicate providerFallbacks especially when provider active but not connected with highlight
@@ -116,6 +117,7 @@ https://tabler.io/icons
 --- Beta ---
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
+- [ ] rooms wct-load-template-tag for chat-m-rooms > dialog > ul > li > (room entry) to make the rerendering faster (opening the dialog always has a slight delay)
 - [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch in service worker
 - [ ] Provider support keepAlive=[string] = forever
 - [ ] mobile keyboard scrolls rooms because of dvh
