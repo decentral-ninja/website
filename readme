@@ -119,14 +119,15 @@ https://tabler.io/icons
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
 - [x] rooms wct-load-template-tag for chat-m-rooms > dialog > ul > li > (room entry) to make the rerendering faster (opening the dialog always has a slight delay)
 - [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch in service worker
-- [ ] Provider support keepAlive=[string] = forever
+- [/] Provider support keepAlive=[string] = forever
 - [ ] mobile keyboard scrolls rooms because of dvh
 - [ ] allow an aka. (also known as) user name saved locally
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] add dark mode (@media (prefers-color-scheme: dark))
 - [ ] markdown support: https://github.com/marcopolo/gossip-pad?tab=readme-ov-file when selecting showing italic, bold, etc.
 - [ ] On Desktop keep chat rooms alive even with route or focus lost (maybe even show in room overview which has active connections). Ether just hide at route.js or set the following attributes on EventDrivenYjs controller (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L938 + https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L986)
-- [ ] add/make new providers... best make your own libp2p provider: https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), search others: https://github.com/search?q=yjs%20provider&type=repositories
+- [ ] add/make new providers... best make your own libp2p provider: https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), search others: https://github.com/search?q=yjs%20provider&type=repositories
+- [ ] announce room publicly
 - [ ] ai eg. https://github.com/ngxson/wllama, https://medium.com/@heyamit10/fine-tuning-gguf-models-a-practical-guide-d4cc83f9e157, https://technotim.live/posts/ai-stack-tutorial/, https://www.kla.tv/36858
 - [ ] verification service through signature. chat host same domain and provider (websocket) owner and user can verify to other users through sending public key encrypted message/token to same domain fetch url, websocket host has more crud control and can by running the chat on localhost where the websocket runs push those through origin restricted to localhost api call into websocket, which answers to other members on other origin and can verify admin rights. verified admin can define moderators and hand them a key to verify at provider who knows the role from admin. w.
 - [ ] crdt snapshot
@@ -138,10 +139,11 @@ https://tabler.io/icons
 - [x] Local hosting https://localtunnel.github.io/www/~~, https://ipv6.rs/cloudseeder/, https://www.noip.com/, https://tailscale.com/blog/tailscale-funnel-beta/?utm_source=changelog-news, https://theeconomictruth.org/f/the-outerrnet-founders-box-the-dawn-of-digital-freedom, https://github.com/traefik/traefik~~
 - [ ] pin messages with pin categories (local and shared) and filters for pinned messages
 - [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation, https://github.com/bvaughn/js-search) (+ https://yacy.net/)
+- [ ] search chat texts of publicly announced chats
 - [ ] send user to overwrite/share between devices
 - [ ] CRDT Corrupted undo option with Room change
 - [/] https://www.runonflux.io/ done for website 8080 interface (not applicable since it load balances between a minimum of three instances, which makes it unreliable if clients land on different nodes aka. instances.)
-  - [ ] forward proxy to local instance (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)
+  - [ ] forward proxy to local instance (local tunnel) (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)
   - [ ] video call in iframe from local instance (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
   - [x] https://github.com/localtunnel/server
   - [x] website on flux
