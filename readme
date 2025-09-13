@@ -68,7 +68,7 @@ https://tabler.io/icons
         - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
     - [/] providers with origins: ['crdt'] && status: ['unknown'] were never connected but a user in the crdt claims the connection. sort those providers into a details-summary labeled further providers (fixed with "connected" providers not allProviders)
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo & data.pingProvider
-    - [ ] infos about provider origins
+    - [ ] infos about provider origins, users active and historically connected
     - [ ] indicate providerFallbacks especially when provider active but not connected with highlight
     - [ ] permanentFallbacks test (see Environment.js)
     - [ ] dialog share/clipboard to message/copy the provider url 
