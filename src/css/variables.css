@@ -38,7 +38,7 @@
   --button-secondary-transition-custom: border-color .3s ease-out, color .3s ease-out, transform .2s ease;
   --card-padding: 0.75em;
   --color-active: var(--color-yellow);
-  --color-black: black;
+  --color-black: #000f33;
   --color-custom-loader: var(--color-rgba-50);
   --color-disabled: gray;
   --color-error: red;
@@ -63,7 +63,6 @@
   --color: var(--color-white);
   --content-spacing-mobile: 1rem;
   --content-spacing: 1.143rem;
-  --color-black: #000f33;
   --details-default-icon-align-items-custom: center;
   --dialog-backdrop-filter-open: blur(0.1em);
   --dialog-clipboard-default-backdrop-background-color-open-custom: var(--color-green-rgba-75);
@@ -99,8 +98,10 @@
   --input-font-size-mobile: max(var(--font-size-mobile), 16px);
   --line-height: 1.5;
   --logo-invert-svg-height: 2em;
-  --menu-icon-close-background-color-hover: var(--color-secondary);
-  --menu-icon-close-background-color: var(--menu-icon-open-background-color);
+  --menu-icon-close-background-before-hover: var(--color-yellow);
+  --menu-icon-close-background-before: var(--color-secondary);
+  --menu-icon-close-background-color-hover: var(--background-color);
+  --menu-icon-close-background-color: var(--background-color);
   --menu-icon-close-border-radius: var(--menu-icon-open-border-radius);
   --menu-icon-close-height: var(--menu-icon-open-height);
   --menu-icon-close-margin: calc(var(--header-height) / 3) 0 var(--spacing) calc(-1.5 * var(--spacing));
