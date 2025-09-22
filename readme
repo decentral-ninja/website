@@ -61,8 +61,8 @@ https://tabler.io/icons
     - [x] user view show all, incl. none active connections, to inform about providers | details summary with option to see all historical connections
     - [/] provider graph tab which opens user graph (remove list link to user graph)
     - [x] move user info besides provider icon
-    - [ ] user dialog - no innerHTML at the TODO marked sections within: src/es/chat/es/components/molecules/Users.js (// TODO: Proper update diffing logic, only render the graph when having changes, to avoid jumping on multiple updates) / consider awarenessEventListenerDelay exception dialog open again on 200ms instead of now 2000ms
-    - [ ] at user graph/connection detail card, click on provider opens provider dialog and scrolls to the provider as well as graph svg click within provider dialog should scroll to the provider, also active room notification on provider open dialog -> scroll to the certain provider! (provider-dialog-show-event)
+    - [x] user dialog - no innerHTML at the TODO marked sections within: src/es/chat/es/components/molecules/Users.js (// TODO: Proper update diffing logic, only render the graph when having changes, to avoid jumping on multiple updates) / consider awarenessEventListenerDelay exception dialog open again on 200ms instead of now 2000ms
+    - [ ] at user graph/connection detail card, click on provider (make a provider atom similar to nickname atom) opens provider dialog and scrolls to the provider as well as graph svg click within provider dialog should scroll to the provider, also active room notification on provider open dialog -> scroll to the certain provider! (provider-dialog-show-event)
     - [ ] reload smart icon (move it left of notification icon)
       - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
         - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
