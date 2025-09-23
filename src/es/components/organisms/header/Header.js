@@ -40,7 +40,7 @@ export default class Header extends Shadow() {
         this.addEventListener('a-logo-click', this.toggle)
       }
       this.addEventListener('a-logo-click', event => this.removeEventListener('a-logo-animationiteration', this.close), { once: true })
-      this.connectedCallbackOnce()
+      if (this.isConnected) this.connectedCallbackOnce()
       this.hidden = false
     })
   }
