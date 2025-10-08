@@ -153,7 +153,7 @@ https://tabler.io/icons
   - [ ] video call in iframe from local instance (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
   - [x] https://github.com/localtunnel/server
   - [x] website on flux
-  - [ ] forward proxy to local instance (local tunnel) (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)
+  - [ ] forward proxy to local instance https://pangolin.fossorial.io (evtl. local tunnel) (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)
   - [ ] from local instance https://github.com/Weedshaker/y-websocket
   - [ ] from local instance https://github.com/yjs/y-webrtc
   - [ ] Local hosting https://localtunnel.github.io/www/~~, https://ipv6.rs/cloudseeder/, https://www.noip.com/, https://tailscale.com/blog/tailscale-funnel-beta/?utm_source=changelog-news, https://theeconomictruth.org/f/the-outerrnet-founders-box-the-dawn-of-digital-freedom, https://github.com/traefik/traefik~~
@@ -175,7 +175,7 @@ https://tabler.io/icons
 - [ ] Notification: When new messages change document.title (emoji) until read plus allow notification sound
 - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app
 - [ ] controllers/Providers.js when on automatic connect look for the most favorable connections and avoid orphans else allow manual choice at Providers view (User controller if not connected offer to connect to other urls max. 2 per socket / connecting to other servers according user crdt data [provider has mutually connected users with some connected to other providers with mutually connected users and vice versa]) + handle on error ws connection at provider
-- [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/ | https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
+- [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/ | https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API / whole earth cartalog
 - [ ] check security requirements from https://www.securemessagingapps.com
 - [ ] Mail Notifications or voluntary authentication by mail (https://github.com/nodemailer/nodemailer)
 - [ ] draw https://github.com/tldraw/tldraw
