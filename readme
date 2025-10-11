@@ -65,10 +65,11 @@ https://tabler.io/icons
     - [x] at user graph/connection detail card, click on provider (make a provider atom similar to nickname atom) opens provider dialog and scrolls to the provider as well as graph svg click within provider dialog should scroll to the provider, ~~also active room notification on provider open dialog -> scroll to the certain provider! (provider-dialog-show-event)~~
     - [/] providers with origins: ['crdt'] && status: ['unknown'] were never connected but a user in the crdt claims the connection. sort those providers into a details-summary labeled further providers (fixed with "connected" providers not allProviders)
     - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo (os.uptime ranking or info) & data.pingProvider
+    - [ ] "connected users" providers of all historically connected users
     - [ ] infos about provider origins, users active and historically connected
     - [ ] indicate providerFallbacks especially when provider active but not connected with highlight
     - [ ] permanentFallbacks test (see Environment.js), regex with enforce fallback
-    - [ ] dialog share/clipboard to message/copy the provider url 
+    - [ ] dialog share/clipboard to message/copy the provider url, trigger this before disconnecting and at connecting
     - [ ] dialog share room with provider selection options
     - [ ] first time enter room or entering link with new providers for the existing room, block automatic provider connection with provider selection options
     - [ ] only set default providers when room is newly opened, don't enforce those when no provider is chosen
@@ -104,6 +105,7 @@ https://tabler.io/icons
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
 - [ ] Inform new version available message and/or fetch the newest providers and permanent fallback providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text))
 - [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
+  - [ ] ===> first easy version using public/private key pair sharing to each CRDT existing user (at user crdt (controller)) a sync encryption key on (own user object || by message [needs notification support]). every user creates an own sync encryption key, shares it on (own user object || by message [needs notification support]) encrypted with the public key of each user. UI for encrypt icon and question dialog, want to share with user? sharing user interaction.
   - [ ] Filters for different encryption keys
   Should read:
   - [ ] https://www.crypto101.io/
