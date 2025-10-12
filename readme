@@ -103,18 +103,34 @@ https://tabler.io/icons
 - [ ] when room delete also delete localStorage and Indexeddb
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
-- [ ] Inform new version available message and/or fetch the newest providers and permanent fallback providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text))
-- [ ] chat end to end encryption https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
-  - [ ] ===> first easy version using public/private key pair sharing to each CRDT existing user (at user crdt (controller)) a sync encryption key on (own user object || by message [needs notification support]). every user creates an own sync encryption key, shares it on (own user object || by message [needs notification support]) encrypted with the public key of each user. UI for encrypt icon and question dialog, want to share with user? sharing user interaction. (User declares on own object, which keys he has and which keys he shared)
-  - [ ] Filters for different encryption keys
+- [ ] Inform new version available message and/or fetch the newest providers and permanent fallback providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+- End-to-End encryption Part 1:
+  NOTE: Automatic sharing would generate many private key messages. Each user has one sync key times other users. Expl.: 2users = 2keys x 1other user = 2encrypted keys or 10users = 10keys x 9other users = 90encrypted keys. Also, newest crdt sync key entry approach would still create many but less private key messages. Expl.: 2users = 1key x 1other user = 1encrypted keys or example with three key overwrites when users joined 10users = 4keys x 9other users = 36encrypted keys.
+  ==> The manual, user interaction approach, is more UI heavy but far more transparent and controllable for the user as well as it only sends the minimum, requested or voluntarily shared private key messages.
+  - [ ] a: Each user creates per room a private/public key pair. The private key is stored locally, the public key at the user object along the uid.
+  - [ ] b: A user can create synchronous keys (not shared plainly) but stored locally. These keys can be used at multiple rooms.
+  - [ ] c: (Private key message) A synchronous key is salted, encrypted with the public key of other/receiving user and shared as a message with public viewable properties: TO user uid and key uid.
+  ------------
   Should read:
-  - [ ] https://www.crypto101.io/
-  - [ ] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR
-  - [ ] https://getstream.io/blog/web-crypto-api-chat/
-  - [ ] Ernie Turner: Dodging Web Crypto API Landmines | Web Rebels 2018 https://www.youtube.com/watch?v=lbt2_M1hZeg
-  - [ ] stealth message with all (sender, date?, message etc.) encrypted
-  - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted, or salt with a question
-  - [ ] approve key holding by pub key encryption signature or simply declare key uid in user crdt to be in possession
+  ------------
+    - [ ] https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto with asymmetrical private/public key -> https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js (read & write [key pair], only read [private key ? must not include pub key], only write [public key]) | https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API | explanation video: https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_agai, https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
+    - [ ] https://www.crypto101.io/
+    - [ ] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR
+    - [ ] https://getstream.io/blog/web-crypto-api-chat/
+    - [ ] Ernie Turner: Dodging Web Crypto API Landmines | Web Rebels 2018 https://www.youtube.com/watch?v=lbt2_M1hZeg
+  ---------------------------
+  Workflow encrypted message:
+  ---------------------------
+    - [ ] 1. Encrypted message: User [User A] salts and encrypts message with synchronous key (b). Message object holds key uid at public viewable properties.
+    - [ ] 2. Public request message: Other user [User B], who does not have the synchronous key locally (b), see's encrypted message with UI hint (UI-Request) to request the synchronous key. The user sends the request holding the key uid in a public request message to every one, on user interaction.
+    - [ ] 3. Private key message: Users [User B or other User] who have the requested key, see the public request message with the key uid request as UI hint (UI-Reply) to reply with the requested synchronous key (c) as a private key message holding public viewable properties TO user uid and key uid (c).
+    - [ ] 4. At requesting user [User A], the UI hint (UI-Request) on message (2) to request is removed, since key, received as private key message, was decrypted, stored locally and message (1) was decrypted.
+    - [ ] 5. For every user, the public request message UI hint (UI-Reply) is marked checked/done and disabled by the existence (:has(...)) of the reply as private key message.
+    NOTE: Hide public request message and reply private key message, once the request is satisfied, to keep the public message chat clean. Option to make it visible.
+  Workflow sharing key:
+  ---------------------
+    - [ ] 1. Private key message: User [User A] sends key in a message holding public viewable properties TO user uid and key uid (c).
+    - [ ] 2. Receiving user [User B] sees UI hint to store key locally
 - [ ] Update yjs rollup stuff
 - [ ] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event, https://github.com/charlpcronje/PWA-Service-Worker-Config-and-Generator
 - [ ] test again webRTC server and fire up an instance, also get some backup server instances
@@ -124,13 +140,18 @@ https://tabler.io/icons
 - [ ] Sponsoring (top tear vote on roadmap) - model
 - [ ] provider: data.getWebsocketInfo "get-info" receives os (https://nodejs.org/docs/latest/api/os.html#os_os_cpus) cpus (calc free cpu "i'm using this code:" https://stackoverflow.com/questions/9565912/convert-the-output-of-os-cpus-in-node-js-to-percentage), freemem (avoid low value), uptime (rank by uptime). inform on low websocket performance/overload and hint to switch to other provider. share new switched provider (optional) as message, disconnect overloaded provider workflow or at least hint the user to do this manually. Also, postpone rapid notification pulling, for this, check from time to time at providers.getData the getWebsocketInfo and inform through event the notification controller.
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
-- [ ] Marketplace (DFX Implementation - Sponsoring?)
+- [ ] - End-to-End encryption Part 2:
+  - [ ] Filters for different encryption keys
+  - [ ] approve key holding by pub key encryption signature or simply declare key uid in user crdt to be in possession
+  - [ ] stealth message with all (sender, date?, message etc.) encrypted
+  - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted, or salt with a question
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
 - [x] rooms wct-load-template-tag for chat-m-rooms > dialog > ul > li > (room entry) to make the rerendering faster (opening the dialog always has a slight delay)
 - [ ] add/make new providers... best make your own libp2p provider: https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories
-- [ ] announce room publicly with active user numbers
-- [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch in service worker
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
+- [ ] announce room publicly with active user numbers
+- [ ] Marketplace (DFX Implementation - Sponsoring?)
+- [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch in service worker
 - [/] Provider support keepAlive=[string] = forever
 - [ ] bug: mobile keyboard scrolls rooms because of dvh
 - [ ] allow an aka. (also known as) user name saved locally
