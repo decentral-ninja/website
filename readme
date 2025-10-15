@@ -64,15 +64,14 @@ https://tabler.io/icons
     - [x] user dialog - no innerHTML at the TODO marked sections within: src/es/chat/es/components/molecules/Users.js (// TODO: Proper update diffing logic, only render the graph when having changes, to avoid jumping on multiple updates) / consider awarenessEventListenerDelay exception dialog open again on 200ms instead of now 2000ms
     - [x] at user graph/connection detail card, click on provider (make a provider atom similar to nickname atom) opens provider dialog and scrolls to the provider as well as graph svg click within provider dialog should scroll to the provider, ~~also active room notification on provider open dialog -> scroll to the certain provider! (provider-dialog-show-event)~~
     - [/] providers with origins: ['crdt'] && status: ['unknown'] were never connected but a user in the crdt claims the connection. sort those providers into a details-summary labeled further providers (fixed with "connected" providers not allProviders)
-    - [ ] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo (os.uptime ranking or info) & data.pingProvider
-    - [ ] "connected users" providers of all historically connected users
-    - [ ] infos about provider origins, users active and historically connected
-    - [ ] indicate providerFallbacks especially when provider active but not connected with highlight
+    - [x] WebSocket api call to check the status and deliver some context from the owner as well as fallback providers (if websocket pingProviders after api info call, on 503 service unavailable or 511 = failed) data.getWebsocketInfo data.pingProvider
+    - [x] infos about provider origins
+    - [/] indicate providerFallbacks especially when provider active but not connected with highlight
+    - [/] dialog share room with provider selection options
+    - [ ] dialog share/clipboard to message/copy the provider url
     - [ ] permanentFallbacks test (see Environment.js), regex with enforce fallback
-    - [ ] dialog share/clipboard to message/copy the provider url, trigger this before disconnecting and at connecting
-    - [ ] dialog share room with provider selection options
-    - [ ] first time enter room or entering link with new providers for the existing room, block automatic provider connection with provider selection options
-    - [ ] only set default providers when room is newly opened, don't enforce those when no provider is chosen
+    - [ ] no default providers when room is newly opened, don't enforce those when no provider is chosen
+    - [ ] open new room, when no provider selected open the provider dialog once
     - [x] link to users dialog, docker hub and github y-websocket repo and add p2pGraph for connected providers
     - [x] fix btn hover and connect/disconnect button different color
     - [x] mute state change loading animation
@@ -96,6 +95,7 @@ https://tabler.io/icons
     - [x] open at rooms online status in room overview and/or navigation
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
+    - [ ] cleanup permanentFallbacks, fallbacks at environment and server.js... start new proper instances, not local tunnel
 - [x] Decentral href share inside message, open by routing (no refresh) same as room input field
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
