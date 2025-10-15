@@ -71,7 +71,8 @@ https://tabler.io/icons
     - [ ] dialog share/clipboard to message/copy the provider url
     - [ ] permanentFallbacks test (see Environment.js), regex with enforce fallback
     - [ ] no default providers when room is newly opened, don't enforce those when no provider is chosen
-    - [ ] open new room, when no provider selected open the provider dialog once
+    - [ ] open new room, when no provider selected open the provider dialog once or other hint
+    - [ ] when sharing room without provider selected hint with open the provider dialog or other hint
     - [x] link to users dialog, docker hub and github y-websocket repo and add p2pGraph for connected providers
     - [x] fix btn hover and connect/disconnect button different color
     - [x] mute state change loading animation
@@ -95,7 +96,6 @@ https://tabler.io/icons
     - [x] open at rooms online status in room overview and/or navigation
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
-    - [ ] cleanup permanentFallbacks, fallbacks at environment and server.js... start new proper instances, not local tunnel
 - [x] Decentral href share inside message, open by routing (no refresh) same as room input field
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
@@ -133,8 +133,9 @@ https://tabler.io/icons
     - [ ] 2. Receiving user [User B] sees UI hint to store key locally
 - [ ] Update yjs rollup stuff
 - [ ] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event, https://github.com/charlpcronje/PWA-Service-Worker-Config-and-Generator
-- [ ] test again webRTC server and fire up an instance, also get some backup server instances
 - [ ] host on multiple strong websocket instances
+  - [ ] test again webRTC server and fire up an instance, also get some backup server instances
+  - [ ] cleanup permanentFallbacks, fallbacks at environment and server.js... start new proper instances, not local tunnel
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
 - [ ] Sponsoring (top tear vote on roadmap) - model
