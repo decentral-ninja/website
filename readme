@@ -70,9 +70,9 @@ https://tabler.io/icons
     - [/] dialog share room with provider selection options
     - [ ] dialog share/clipboard to message/copy the provider url
     - [ ] permanentFallbacks test (see Environment.js), regex with enforce fallback
-    - [ ] no default providers when room is newly opened, don't enforce those when no provider is chosen
-    - [ ] open new room, when no provider selected open the provider dialog once or other hint
-    - [ ] when sharing room without provider selected hint with open the provider dialog or other hint
+    - [ ] no default providers when room is opened, don't enforce those when no provider is chosen
+    - [ ] hint at provider icon if none is connected/active
+    - [/] when sharing room without provider selected hint with open the provider dialog or other hint
     - [x] link to users dialog, docker hub and github y-websocket repo and add p2pGraph for connected providers
     - [x] fix btn hover and connect/disconnect button different color
     - [x] mute state change loading animation
@@ -135,12 +135,11 @@ https://tabler.io/icons
 - [ ] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event, https://github.com/charlpcronje/PWA-Service-Worker-Config-and-Generator
 - [ ] host on multiple strong websocket instances
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
-  - [ ] cleanup permanentFallbacks, fallbacks at environment and server.js... start new proper instances, not local tunnel
+  - [ ] cleanup permanentFallbacks, fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
-- [ ] Sponsoring (top tear vote on roadmap) - model
-- [ ] provider: data.getWebsocketInfo "get-info" receives os (https://nodejs.org/docs/latest/api/os.html#os_os_cpus) cpus (calc free cpu "i'm using this code:" https://stackoverflow.com/questions/9565912/convert-the-output-of-os-cpus-in-node-js-to-percentage), freemem (avoid low value), uptime (rank by uptime). inform on low websocket performance/overload and hint to switch to other provider. share new switched provider (optional) as message, disconnect overloaded provider workflow or at least hint the user to do this manually. Also, postpone rapid notification pulling, for this, check from time to time at providers.getData the getWebsocketInfo and inform through event the notification controller.
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
+- [ ] provider: data.getWebsocketInfo "get-info" receives os (https://nodejs.org/docs/latest/api/os.html#os_os_cpus) cpus (calc free cpu "i'm using this code:" https://stackoverflow.com/questions/9565912/convert-the-output-of-os-cpus-in-node-js-to-percentage), freemem (avoid low value), uptime (rank by uptime). inform on low websocket performance/overload and hint to switch to other provider. share new switched provider (optional) as message, disconnect overloaded provider workflow or at least hint the user to do this manually. Also, postpone rapid notification pulling, for this, check from time to time at providers.getData the getWebsocketInfo and inform through event the notification controller.
 - [ ] - End-to-End encryption Part 2:
   - [ ] Filters for different encryption keys
   - [ ] approve key holding by pub key encryption signature or simply declare key uid in user crdt to be in possession

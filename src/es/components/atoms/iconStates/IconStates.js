@@ -182,6 +182,7 @@ export default class IconStates extends Shadow() {
     `
     children.forEach(node => {
       if (node.getAttribute('slot') || node.nodeName === 'STYLE') return false
+      node.setAttribute('hover-on-parent-shadow-root-host', '')
       this.section.prepend(node)
     })
     this.html = this.customStyle
