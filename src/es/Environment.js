@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '5.0.32', // https://semver.org/
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '5.0.33', // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   keepAlive: 86400000,

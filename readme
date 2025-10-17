@@ -68,7 +68,7 @@ https://tabler.io/icons
     - [x] infos about provider origins
     - [/] indicate providerFallbacks especially when provider active but not connected with highlight
     - [/] dialog share room with provider selection options
-    - [ ] dialog share/clipboard to message/copy the provider url
+    - [x] dialog share/clipboard to message/copy the provider url
     - [ ] permanentFallbacks test (see Environment.js), regex with enforce fallback
     - [ ] no default providers when room is opened, don't enforce those when no provider is chosen
     - [ ] hint at provider icon if none is connected/active
