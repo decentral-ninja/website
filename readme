@@ -54,7 +54,7 @@ https://tabler.io/icons
     - [x] other (notSelf) nickname open users dialog and nickname change keep link in footer
     - [x] li el text (sort and describe keys)
     - [x] user icon https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript#answer-68968983, https://codepen.io/blindfish3/pen/LYbaNrw, https://svelte.dev/playground/e3500b1fd6da49dc9eb5813bdbc6d12b?version=3.35.0, https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest + indicate if user is connected to self with icon
-  - [ ] providers dialog and share incl. provider choose in dialog
+  - [x] providers dialog and share incl. provider choose in dialog
     - [x] fixes: Providers.js molecules status active check hostname for provider and hostname for url instead of only includes, only order providers after closing dialog
     - [x] connected providers counter (number bubble)
     - [x] info users connected with specific provider, historical providers and users at user overview card inside details summary
@@ -69,9 +69,9 @@ https://tabler.io/icons
     - [/] indicate providerFallbacks especially when provider active but not connected with highlight
     - [/] dialog share room with provider selection options
     - [x] dialog share/clipboard to message/copy the provider url
-    - [ ] permanentFallbacks test (see Environment.js), regex with enforce fallback
-    - [ ] no default providers when room is opened, don't enforce those when no provider is chosen
-    - [ ] hint at provider icon if none is connected/active
+    - [/] permanentFallbacks test (see Environment.js), regex with enforce fallback
+    - [x] no default providers when room is opened, don't enforce those when no provider is chosen
+    - [x] hint at provider icon if none is connected/active
     - [/] when sharing room without provider selected hint with open the provider dialog or other hint
     - [x] link to users dialog, docker hub and github y-websocket repo and add p2pGraph for connected providers
     - [x] fix btn hover and connect/disconnect button different color
@@ -135,7 +135,7 @@ https://tabler.io/icons
 - [ ] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event, https://github.com/charlpcronje/PWA-Service-Worker-Config-and-Generator
 - [ ] host on multiple strong websocket instances
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
-  - [ ] cleanup permanentFallbacks, fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
+  - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
