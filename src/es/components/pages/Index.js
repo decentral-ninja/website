@@ -156,7 +156,7 @@ export default class Index extends Mutation() {
       <section>
         <o-header open>
           <header>
-            <a href="?page=/chat" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+            <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
             <a-logo namespace="logo-default-"></a-logo>
           </header>
         </o-header>
@@ -179,12 +179,12 @@ export default class Index extends Mutation() {
                 <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
                   <section>
                     <div> 
-                      <a href="?page=/chat" route target="_self">
+                      <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self">
                         <wct-button namespace="button-primary-">Start Chat</wct-button>
                       </a>
                     </div>
                     <div>       
-                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback">Chat With Us</wct-button>
+                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D259200000">Chat With Us</wct-button>
                     </div>
                   </section>
                 </wct-grid>
@@ -198,7 +198,7 @@ export default class Index extends Mutation() {
                   <li>WebTorrent (coming soon)</li>
                   <li>end to end encryption (coming soon)</li>
                 </ul>
-                <p>As you see, we are very busy building it all. In the meantime, use our proof of concept, please: <a href="?page=/chat" route target="_self"><a-icon-chat></a-icon-chat> chat</a> here anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+                <p>As you see, we are very busy building it all. In the meantime, use our proof of concept <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
                 <hr>
                 <h4>To further train with new tools, there is... Web 3.0...</h4>
                 <ul>
