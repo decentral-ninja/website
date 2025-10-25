@@ -41,9 +41,10 @@
   --color-black: #000f33;
   --color-custom-loader: var(--color-rgba-50);
   --color-disabled: gray;
-  --color-error: red;
+  --color-error: var(--color-red-full);
   --color-gray-lighter: rgb(233, 226, 226);
   --color-gray: lightgray;
+  --color-green-dark: rgb(0, 70, 0);
   --color-green-full: green;
   --color-green-rgba-50: rgba(144, 238, 144, 0.5);
   --color-green-rgba-75: rgba(144, 238, 144, 0.75);
@@ -52,9 +53,11 @@
   --color-jitsi: #175e95;
   --color-orange: orange;
   --color-provider: var(--color-black);
+  --color-red-full: red;
+  --color-red: #a80d10;
   --color-rgba-50: rgba(255, 248, 224, 0.3);
   --color-secondary-rgba-50: rgba(166, 12, 15, 0.5);
-  --color-secondary: #a80d10;
+  --color-secondary: var(--color-red);
   --color-user-self: var(--color-secondary);
   --color-user: var(--color-green);
   --color-white: #fff8e0;
