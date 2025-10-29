@@ -189,24 +189,20 @@ export default class Index extends Mutation() {
                   </section>
                 </wct-grid>
                 <hr>
-                <h4>Our chat, our first set of weapon 武器 at hand which uses:</h4>
+                <h4>Our chat, our first set of weapon 武器 at hand:</h4>
                 <ul>
-                  <li>Local first CRDT (conflict-free replicated data sets)</li>
-                  <li>WebRTC</li>
-                  <li>Flux WebSocket (coming soon)</li>
-                  <li>IPFS (coming soon)</li>
-                  <li>WebTorrent (coming soon)</li>
-                  <li>end to end encryption (coming soon)</li>
+                  <li>Local first <a href="https://docs.yjs.dev/" target="_blank">CRDT</a> (conflict-free replicated data sets)</li>
+                  <li>Websocket provider: <a href="https://github.com/Weedshaker/y-websocket/blob/master/package.json#L15" target="_blank">nodejs</a>, <a href="https://hub.docker.com/repository/docker/weedshaker/y-websocket/general" target="_blank">docker container</a></li>
+                  <li>WebRTC provider: <a href="https://github.com/yjs/y-webrtc/tree/master" target="_blank">nodejs</a></li>
+                  <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank">Flux Nodes</a></li>
+                  <li>End to end encryption (coming soon)</li>
+                  <li>PWA - offline support</li>
+                  <li>File through WebTorrent and/or ipfs (coming soon)</li>
+                  <li>Libp2p provider (coming soon)</li>
+                  <li>Matrix provider (coming soon)</li>
+                  <li>Nostr provider (coming soon)</li>
                 </ul>
-                <p>As you see, we are very busy building it all. In the meantime, use our proof of concept <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any track record nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
-                <hr>
-                <h4>To further train with new tools, there is... Web 3.0...</h4>
-                <ul>
-                  <li>Presearch, a decentral search engine</li>
-                  <li>Crypto Currencies... anonymous ones, best are, like Monero or the pirate chain.</li>
-                  <li>The Torproject</li>
-                  <li>and many many more there are...</li>
-                </ul>
+                <p>Use our alpha version <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
               </div>
             </div>
           </main>
