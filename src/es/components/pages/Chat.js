@@ -37,52 +37,54 @@ export default class Chat extends Index {
   */
   renderHTML () {
     this.html = /* html */`
-        <c-event-driven-yjs indexeddb no-blur>
-          <c-notifications sw-url="./ServiceWorker.js">
-            <c-providers>
-              <c-users>
-                <c-rooms>
-                  <c-chat>
-                    <section>
-                      <o-header height-auto logo-width="2em" close toggle-once style="--header-align-items: center;">
-                        <header>
-                          <chat-a-room-name></chat-a-room-name>
-                          <div>
-                            <chat-m-notifications></chat-m-notifications>
-                            <wct-icon-mdx title=reload onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
-                            <chat-m-providers></chat-m-providers>
+        <c-event-driven-yjs indexeddb no-blur use-public-key>
+          <c-keys>
+            <c-notifications sw-url="./ServiceWorker.js">
+              <c-providers>
+                <c-users>
+                  <c-rooms>
+                    <c-chat>
+                      <section>
+                        <o-header height-auto logo-width="2em" close toggle-once style="--header-align-items: center;">
+                          <header>
+                            <chat-a-room-name></chat-a-room-name>
                             <div>
-                              <chat-m-users></chat-m-users>
-                              <chat-m-rooms></chat-m-rooms>
-                              <chat-m-jitsi-dialog
-                                namespace="dialog-top-slide-in-"
-                                show-event-name="jitsi-dialog-show-event"
-                              ></chat-m-jitsi-dialog>
+                              <chat-m-notifications></chat-m-notifications>
+                              <wct-icon-mdx title=reload onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
+                              <chat-m-providers></chat-m-providers>
+                              <div>
+                                <chat-m-users></chat-m-users>
+                                <chat-m-rooms></chat-m-rooms>
+                                <chat-m-jitsi-dialog
+                                  namespace="dialog-top-slide-in-"
+                                  show-event-name="jitsi-dialog-show-event"
+                                ></chat-m-jitsi-dialog>
+                              </div>
+                              <a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                             </div>
-                            <a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-invert-" invert favicon no-animation></a-logo></a>
-                          </div>
-                        </header>
-                      </o-header>
-                      <o-body scroll-icon scroll-icon-only-show-on-event>
-                        <main>
-                          <div class=pattern>
-                            <div class=content>
-                              <m-chat></m-chat>
+                          </header>
+                        </o-header>
+                        <o-body scroll-icon scroll-icon-only-show-on-event>
+                          <main>
+                            <div class=pattern>
+                              <div class=content>
+                                <m-chat></m-chat>
+                              </div>
                             </div>
-                          </div>
-                        </main>
-                      </o-body>
-                      <o-footer>
-                        <footer>
-                          <chat-a-input style="order: -1;"></chat-a-input>
-                        </footer>
-                      </o-footer>
-                    </section>
-                  </c-chat>
-                </c-rooms>
-              </c-users>
-            </c-providers>
-          </c-notifications>
+                          </main>
+                        </o-body>
+                        <o-footer>
+                          <footer>
+                            <chat-a-input style="order: -1;"></chat-a-input>
+                          </footer>
+                        </o-footer>
+                      </section>
+                    </c-chat>
+                  </c-rooms>
+                </c-users>
+              </c-providers>
+            </c-notifications>
+          </c-keys>
         </c-event-driven-yjs>
       `
     return this.fetchModules([
@@ -110,6 +112,11 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/EventDrivenYjs.js?${Environment?.version || ''}`,
         name: 'c-event-driven-yjs'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../event-driven-web-components-yjs/src/es/controllers/Keys.js?${Environment?.version || ''}`,
+        name: 'c-keys'
       },
       {
         // @ts-ignore
