@@ -37,7 +37,7 @@ export default class Chat extends Index {
   */
   renderHTML () {
     this.html = /* html */`
-        <c-event-driven-yjs indexeddb no-blur use-public-key>
+        <c-event-driven-yjs indexeddb no-blur>
           <c-keys>
             <c-notifications sw-url="./ServiceWorker.js">
               <c-providers>
