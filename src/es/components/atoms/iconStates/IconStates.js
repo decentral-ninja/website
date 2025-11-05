@@ -180,8 +180,13 @@ export default class IconStates extends Shadow() {
         <span></span>
       </section>
     `
+    const templateContent = this.template?.content
+    if (templateContent) {
+      this.section.prepend(templateContent)
+      this.template.remove()
+    }
     children.forEach(node => {
-      if (node.getAttribute('slot') || node.nodeName === 'STYLE') return false
+      if (node.getAttribute('slot') || node.nodeName === 'STYLE' || node.nodeName === 'TEMPLATE') return false
       node.setAttribute('hover-on-parent-shadow-root-host', '')
       this.section.prepend(node)
     })
@@ -209,6 +214,10 @@ export default class IconStates extends Shadow() {
 
   get counterEl () {
     return this.root.querySelector('section > span')
+  }
+
+  get template () {
+    return this.root.querySelector('template')
   }
 
   get customStyle () {

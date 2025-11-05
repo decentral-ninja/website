@@ -122,8 +122,13 @@ export default class IconCombinations extends Shadow() {
         <a-loading namespace="loading-default-" size="1.5"></a-loading>
       </section>
     `
+    const templateContent = this.template?.content
+    if (templateContent) {
+      this.section.prepend(templateContent)
+      this.template.remove()
+    }
     children.forEach(node => {
-      if (node.getAttribute('slot') || node.nodeName === 'STYLE') return false
+      if (node.getAttribute('slot') || node.nodeName === 'STYLE' || node.nodeName === 'TEMPLATE') return false
       node.setAttribute('hover-on-parent-shadow-root-host', '')
       this.section.prepend(node)
     })
@@ -139,5 +144,9 @@ export default class IconCombinations extends Shadow() {
 
   get section () {
     return this.root.querySelector('section')
+  }
+
+  get template () {
+    return this.root.querySelector('template')
   }
 }

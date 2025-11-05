@@ -59,6 +59,7 @@ export default class Chat extends Index {
                                   namespace="dialog-top-slide-in-"
                                   show-event-name="jitsi-dialog-show-event"
                                 ></chat-m-jitsi-dialog>
+                                <chat-m-keys-dialog namespace="dialog-top-slide-in-" show-event-name="open-keys"></chat-m-keys-dialog>
                               </div>
                               <a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                             </div>
@@ -147,6 +148,11 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/molecules/dialogs/JitsiDialog.js?${Environment?.version || ''}`,
         name: 'chat-m-jitsi-dialog'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../chat/es/components/molecules/dialogs/KeysDialog.js?${Environment?.version || ''}`,
+        name: 'chat-m-keys-dialog'
       },
       {
         // @ts-ignore
