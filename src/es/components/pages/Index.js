@@ -196,14 +196,15 @@ export default class Index extends Mutation() {
                   <li>WebRTC provider: <a href="https://github.com/yjs/y-webrtc/tree/master" target="_blank">nodejs</a></li>
                   <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank">Flux Nodes</a></li>
                   <li>End to end encryption (coming soon)</li>
-                  <li>PWA - offline support</li>
+                  <li>PWA - offline support (coming soon)</li>
                   <li>File through WebTorrent and/or ipfs (coming soon)</li>
                   <li>Libp2p provider (coming soon)</li>
                   <li>Matrix provider (coming soon)</li>
                   <li>Nostr provider (coming soon)</li>
                 </ul>
                 <p>Use our alpha version <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
-              </div>
+                <iframe title="Think Privacy Is Dead? You're Wrong." width="560" height="315" style="aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: var(--border-radius);" src="https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
             </div>
           </main>
         </o-body>
