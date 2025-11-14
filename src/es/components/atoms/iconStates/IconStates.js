@@ -22,7 +22,10 @@ export default class IconStates extends Shadow() {
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => (this.hidden = false))
+    Promise.all(showPromises).then(() => {
+      this.attributeChangedCallback()
+      this.hidden = false
+    })
   }
 
   disconnectedCallback () {}
@@ -71,7 +74,6 @@ export default class IconStates extends Shadow() {
    * @returns Promise<void>
    */
   renderCSS () {
-    this.attributeChangedCallback()
     this.css = /* css */`
       :host {
         display: contents;
