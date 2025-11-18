@@ -97,7 +97,7 @@ https://tabler.io/icons
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
 - [x] Decentral href share inside message, open by routing (no refresh) same as room input field
-- [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md
+- [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - End-to-End encryption Part 1:
   NOTE: Automatic sharing would generate many private key messages. Each user has one sync key times other users. Expl.: 2users = 2keys x 1other user = 2encrypted keys or 10users = 10keys x 9other users = 90encrypted keys. Also, newest crdt sync key entry approach would still create many but less private key messages. Expl.: 2users = 1key x 1other user = 1encrypted keys or example with three key overwrites when users joined 10users = 4keys x 9other users = 36encrypted keys.
   ==> The manual, user interaction approach, is more UI heavy but far more transparent and controllable for the user as well as it only sends the minimum, requested or voluntarily shared private key messages.
