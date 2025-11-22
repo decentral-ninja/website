@@ -19,6 +19,7 @@
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
   --background-color-smallListContainer: rgba(255,255,255,0.7);
   --background-color: var(--color-black);
+  --border-radius-focus-visible: 0;
   --border-radius: 0.7em;
   --box-shadow-color: var(--color);
   --box-shadow-default: var(--box-shadow-length-one) var(--box-shadow-color), var(--box-shadow-length-two) var(--box-shadow-color);
