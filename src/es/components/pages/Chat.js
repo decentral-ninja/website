@@ -59,7 +59,10 @@ export default class Chat extends Index {
                                   namespace="dialog-top-slide-in-"
                                   show-event-name="jitsi-dialog-show-event"
                                 ></chat-m-jitsi-dialog>
-                                <chat-m-keys-dialog namespace="dialog-top-slide-in-" show-event-name="keys-dialog-show-event"></chat-m-keys-dialog>
+                                <chat-m-keys-dialog
+                                  namespace="dialog-top-slide-in-"
+                                  show-event-name="keys-dialog-show-event"
+                                ></chat-m-keys-dialog>
                               </div>
                               <a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-invert-" invert favicon no-animation></a-logo></a>
                             </div>
