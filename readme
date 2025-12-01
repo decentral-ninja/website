@@ -101,7 +101,7 @@ https://tabler.io/icons
 - End-to-End encryption Part 1:
   NOTE: Automatic sharing would generate many private key messages. Each user has one sync key times other users. Expl.: 2users = 2keys x 1other user = 2encrypted keys or 10users = 10keys x 9other users = 90encrypted keys. Also, newest crdt sync key entry approach would still create many but less private key messages. Expl.: 2users = 1key x 1other user = 1encrypted keys or example with three key overwrites when users joined 10users = 4keys x 9other users = 36encrypted keys.
   ==> The manual, user interaction approach, is more UI heavy but far more transparent and controllable for the user as well as it only sends the minimum, requested or voluntarily shared private key messages.
-  - [ ] a: Each user creates per room a private/public key pair. The private key is stored locally, the public key at the user object along the uid.
+  - [x] a: Each user creates per room a private/public key pair. The private key is stored locally, the public key at the user object along the uid.
   - [ ] b: A user can create synchronous keys (not shared plainly) but stored locally. These keys can be used at multiple rooms.
   - [ ] c: (Private key message) A synchronous key is salted, encrypted with the public key of other/receiving user and shared as a message with public viewable properties: TO user uid and key uid.
   ------------
@@ -177,7 +177,7 @@ https://tabler.io/icons
 - [ ] send user to overwrite/share between devices
 - [ ] CRDT Corrupted undo option with Room change
 - [/] https://www.runonflux.io/ done for website 8080 interface (not applicable since it load balances between a minimum of three instances, which makes it unreliable if clients land on different nodes aka. instances.)
-  - [ ] video call in iframe from local instance (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api)
+  - [ ] video call in iframe from local instance (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api), jitsi deep fe integration. user video attached to chat on top. multiple jitsi instances support.
   - [x] https://github.com/localtunnel/server
   - [x] website on flux
   - [ ] forward proxy to local instance https://pangolin.fossorial.io (evtl. local tunnel) (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)

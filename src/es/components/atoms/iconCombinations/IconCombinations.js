@@ -69,11 +69,12 @@ export default class IconCombinations extends Shadow() {
         opacity: 0.6;
       }
       :host([icons-count="2"][keys]) > section > wct-icon-mdx:first-of-type {
-        transform: rotate(20deg);
+        transform: rotate(20deg) translateY(-2em);
       }
       :host([icons-count="2"][keys]) > section > wct-icon-mdx:last-of-type {
-        transform: rotate(-20deg) translate(0.3em, 0.3em);
+        transform: rotate(-20deg) translate(2.5em, 0.8em);
       }
+      /* TODO: https://prismic.io/blog/css-animation-examples */
       :host > section > a-loading {
         display: none;
       }
@@ -138,6 +139,11 @@ export default class IconCombinations extends Shadow() {
         // @ts-ignore
         path: `${this.importMetaUrl}../loading/Loading.js?${Environment?.version || ''}`,
         name: 'a-loading'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../../web-components-toolbox/src/es/components/atoms/iconMdx/IconMdx.js?${Environment?.version || ''}`,
+        name: 'wct-icon-mdx'
       }
     ])
   }
