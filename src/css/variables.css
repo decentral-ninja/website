@@ -14,6 +14,7 @@
 }
 
  :root {
+  --a-color-visited: var(--color-orange);
   --a-color: var(--color-active);
   --a-text-decoration: none;
   --background-color-rgba-50: rgba(0, 15, 51, 0.5);
