@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
-  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '6.1.2', // https://semver.org/
+  version: currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '6.1.3', // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   keepAlive: 86400000,
@@ -69,7 +69,7 @@ if (typeof self.trustedTypes?.createPolicy === 'function' && !self.trustedTypes.
   self.trustedTypes.createPolicy('default', {
     // first sanitize tags eg.: <img src="xyz" onload=alert('XSS')>, <img src="xyz" onmouseover=alert('XSS')>, <image/src/onerror=alert('XSS')>, etc.
     // second sanitize tags eg.: <a href="javascript:alert(document.location);">XSS</a>, <form action="javascript:alert(document.location);"><input type="submit" /></form>, etc.
-    createHTML: string => string.replace(/<[a-z]*[\s|\/][^>]*on[a-z]{4,10}=[^>]*>/gi, '').replace(/<[a-z]*[\s|\/][^>]*javascript:[^>]*>/gi, ''),
+    createHTML: string => string.replace(/<[a-z]+[\s|\/][^>]*on[a-z]{4,10}=[^>]*>/gi, '').replace(/<[a-z]+[\s|\/][^>]*javascript:[^>]*>/gi, ''),
     createScriptURL: string => string, // unsafe but including webworker's, service workers, etc. is okay
     createScript: string => string // unsafe but eval at css templates is okay
   })

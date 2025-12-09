@@ -210,19 +210,6 @@ export default class Header extends Shadow() {
     return Promise.resolve()
   }
 
-  /**
-   * to avoid connect and disconnect callbacks within children when moving them into header
-   *
-   * @param {string} html
-   * @return {boolean}
-   */
-  setContent (html) {
-    const contentEl = this.header
-    if (!contentEl) return false
-    contentEl.innerHTML = html
-    return true
-  }
-
   open = () => {
     clearTimeout(this.closeTimeout)
     clearTimeout(this.faviconTimeout)

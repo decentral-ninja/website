@@ -274,19 +274,6 @@ export default class Body extends Shadow() {
     ])
   }
 
-  /**
-   * to avoid connect and disconnect callbacks within children when moving them into div.content
-   *
-   * @param {string} html
-   * @return {boolean}
-   */
-  setContent (html) {
-    const contentEl = this.root.querySelector('.content')
-    if (!contentEl) return false
-    contentEl.innerHTML = html
-    return true
-  }
-
   isScrolledBottom () {
     return Math.ceil(this.main.scrollHeight - this.main.scrollTop) === this.main.clientHeight
   }

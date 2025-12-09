@@ -112,17 +112,4 @@ export default class Footer extends Shadow() {
     this.html = this.footer
     return Promise.resolve()
   }
-
-  /**
-   * to avoid connect and disconnect callbacks within children when moving them into footer
-   *
-   * @param {string} html
-   * @return {boolean}
-   */
-  setContent (html) {
-    const contentEl = this.footer
-    if (!contentEl) return false
-    contentEl.innerHTML = html
-    return true
-  }
 }
