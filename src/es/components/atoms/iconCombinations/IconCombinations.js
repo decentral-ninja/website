@@ -69,10 +69,10 @@ export default class IconCombinations extends Shadow() {
         opacity: 0.6;
       }
       :host([icons-count="2"][keys]) > section > wct-icon-mdx:first-of-type {
-        transform: rotate(20deg) translateY(-2em);
+        transform: rotate(20deg);
       }
       :host([icons-count="2"][keys]) > section > wct-icon-mdx:last-of-type {
-        transform: rotate(-20deg) translate(2.5em, 0.8em);
+        transform: rotate(-20deg) translate(12%, 11%);
       }
       /* TODO: https://prismic.io/blog/css-animation-examples */
       :host > section > a-loading {

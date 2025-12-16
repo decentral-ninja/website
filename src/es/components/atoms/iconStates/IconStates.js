@@ -36,13 +36,13 @@ export default class IconStates extends Shadow() {
     } else {
       this.customStyle.textContent = ''
       this.setCss(/* css */`
-        :host > section${this.stateElsStates.some(attribute => attribute.includes(`${this.getAttribute('state') || 'default'}-hover`)) ? ':not(:hover)' : ''} > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}] {
+        :host > section${this.stateElsStates.some(attribute => attribute.includes(`${this.getAttribute('state') || 'default'}-hover`)) ? ':not(:hover)' : ''} > [state=${this.getAttribute('state') || 'default'}]:not(a-loading, span) {
           display: contents;
         }
-        :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover] {
+        :host > section:hover > [state=${this.getAttribute('state') || 'default'}-hover]:not(a-loading, span) {
           display: contents;
         }
-        :host > section > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}][no-counter] ~ span, :host > section:hover > wct-icon-mdx[state=${this.getAttribute('state') || 'default'}-hover][no-counter] ~ span {
+        :host > section > [state=${this.getAttribute('state') || 'default'}][no-counter]:not(a-loading, span) ~ span, :host > section:hover > [state=${this.getAttribute('state') || 'default'}-hover][no-counter]:not(a-loading, span) ~ span {
           display: none;
         }
       `, undefined, undefined, undefined, this.customStyle, false)
@@ -95,15 +95,15 @@ export default class IconStates extends Shadow() {
         justify-content: center;
         width: fit-content;
       }
-      :host > section > *, :host > section > wct-icon-mdx::part(svg) {
+      :host > section > *, :host > section > :not(a-loading, span)::part(svg) {
         grid-column: 1;
         grid-row: 1;
       }
-      :host > section > wct-icon-mdx::part(svg) {
+      :host > section > :not(a-loading, span)::part(svg) {
         align-self: center;
         justify-self: center;
       }
-      :host > section > wct-icon-mdx {
+      :host > section > :not(a-loading, span) {
         display: none;
       }
       :host > section > a-loading {
@@ -115,7 +115,7 @@ export default class IconStates extends Shadow() {
       :host([updating]) > section > a-loading {
         display: flex;
       }
-      :host([updating]) > section > wct-icon-mdx {
+      :host([updating]) > section > :not(a-loading, span) {
         color: var(--color-disabled) !important;
         --color: var(--color-disabled);
         --color-active: var(--color-disabled);
@@ -211,7 +211,7 @@ export default class IconStates extends Shadow() {
   }
 
   get activeElState () {
-    return this.root.querySelector(`wct-icon-mdx[state=${this.getAttribute('state') || 'default'}]`)
+    return this.root.querySelector(`[state=${this.getAttribute('state') || 'default'}]:not(a-loading, span)`)
   }
 
   get counterEl () {

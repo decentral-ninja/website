@@ -177,7 +177,7 @@ https://tabler.io/icons
 - [ ] Hint dialog component (help and texts with translation)
   - [ ] interactive elements often found as wct-icon-mdx must have an <a href="#"> tag preventing default but accessible for click by tab and enter key
   - Room Eg.: <h4>Open or enter a room by typing a room name below or pasting a decentral ninja link:</h4><h5>Hint: The more random the room name, the less likely to get unwanted visitors!</h5>
-  - [ ] tour explaining the website, self made or with something like https://driverjs.com/
+  - [ ] tour explaining the website, self made or with something like https://developer.mozilla.org/en-US/docs/Web/API/Popover_API or https://driverjs.com/
 - [ ] pin messages with pin categories (local and shared) and filters for pinned messages
 - [ ] Chat full text search (https://github.com/nextapps-de/flexsearch#installation, https://github.com/bvaughn/js-search) (+ https://yacy.net/)
 - [ ] search chat texts of publicly announced chats
