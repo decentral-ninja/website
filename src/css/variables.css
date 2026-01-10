@@ -13,7 +13,7 @@
 	font-display: swap;
 }
 
- :root {
+:root {
   --a-color-visited: var(--color-orange);
   --a-color: var(--color-active);
   --a-text-decoration: none;
@@ -146,6 +146,15 @@
   --button-primary-color-custom: var(--background-color);
   --color-custom-loader: var(--color-secondary);
 }
+/* TODO: Dark mode */
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+  :root[invert] {
+  }
+}
+*/
 body {
   margin: 0;
   min-height: var(--body-min-height, var(--min-height, 100svh));
