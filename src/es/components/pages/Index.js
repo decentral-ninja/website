@@ -14,6 +14,7 @@ export default class Index extends Mutation() {
   constructor (options = {}, ...args) {
     super({
       importMetaUrl: import.meta.url,
+      tabindex: 'no-tabindex-style',
       mutationObserverInit: { attributes: true, attributeFilter: ['open'] },
       ...options
     }, ...args)

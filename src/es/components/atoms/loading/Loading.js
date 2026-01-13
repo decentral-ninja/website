@@ -8,7 +8,7 @@ import { Shadow } from '../../../event-driven-web-components-prototypes/src/Shad
 */
 export default class Loading extends Shadow() {
   constructor (options = {}, ...args) {
-    super({ importMetaUrl: import.meta.url, ...options }, ...args)
+    super({ importMetaUrl: import.meta.url, tabindex: 'no-tabindex-style', ...options }, ...args)
   }
 
   connectedCallback () {

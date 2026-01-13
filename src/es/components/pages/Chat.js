@@ -15,6 +15,7 @@ export default class Chat extends Index {
   constructor (options = {}, ...args) {
     super({
       importMetaUrl: import.meta.url,
+      tabindex: 'no-tabindex-style',
       ...options
     }, ...args)
 

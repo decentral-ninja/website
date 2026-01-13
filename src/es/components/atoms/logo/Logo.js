@@ -21,7 +21,7 @@ export default class Logo extends Shadow(WebWorker()) {
   }
 
   constructor (options = {}, ...args) {
-    super({ importMetaUrl: import.meta.url, ...options }, ...args)
+    super({ importMetaUrl: import.meta.url, tabindex: 'no-tabindex-style', ...options }, ...args)
 
     this.setAttribute('aria-label', 'show navigation menu')
     this.setAttribute('aria-expanded', 'true')

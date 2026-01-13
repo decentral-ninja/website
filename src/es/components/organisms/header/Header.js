@@ -15,7 +15,7 @@ import { Shadow } from '../../../event-driven-web-components-prototypes/src/Shad
  */
 export default class Header extends Shadow() {
   constructor (options = {}, ...args) {
-    super({ importMetaUrl: import.meta.url, ...options }, ...args)
+    super({ importMetaUrl: import.meta.url, tabindex: 'no-tabindex', ...options }, ...args)
 
     this.setAttribute('aria-label', 'Header')
     this.transitionDuration = this.getAttribute('transition-duration') || 400
