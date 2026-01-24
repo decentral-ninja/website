@@ -28,7 +28,12 @@ export default class Chat extends Index {
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => (this.hidden = false))
+    Promise.all(showPromises).then(() => {
+      // TODO: Remove general reload button, see readme.
+      // @ts-ignore
+      Chat.walksDownDomQueryMatchesAll(this, 'wct-icon-mdx[title=reload]')[0]?.addEventListener('click', event => location.reload(), { once: true })
+      this.hidden = false
+    })
   }
 
   /**
@@ -51,7 +56,7 @@ export default class Chat extends Index {
                             <chat-a-room-name></chat-a-room-name>
                             <div>
                               <chat-m-notifications></chat-m-notifications>
-                              <wct-icon-mdx title=reload onclick="(function(){location.reload()})()" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
+                              <wct-icon-mdx title=reload icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
                               <chat-m-providers></chat-m-providers>
                               <div>
                                 <chat-m-users></chat-m-users>
