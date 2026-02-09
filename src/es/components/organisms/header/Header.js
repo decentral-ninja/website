@@ -150,7 +150,7 @@ export default class Header extends Shadow() {
         transform: translate(calc(50svw - 50% + var(--padding)), calc(50svh - 50% - var(--padding)));
         animation: transition ${this.transitionDuration}ms ease-out;
       }
-      :host > header > chat-a-room-name {
+      :host > header > chat-a-room-title {
         min-width: 25svw;
       }
       @keyframes transition {

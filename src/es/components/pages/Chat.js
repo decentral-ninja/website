@@ -53,7 +53,7 @@ export default class Chat extends Index {
                       <section>
                         <o-header height-auto logo-width="2em" close toggle-once style="--header-align-items: center;">
                           <header>
-                            <chat-a-room-name></chat-a-room-name>
+                            <chat-a-room-title></chat-a-room-title>
                             <div>
                               <chat-m-notifications></chat-m-notifications>
                               <wct-icon-mdx title=reload icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
@@ -195,8 +195,8 @@ export default class Chat extends Index {
       },
       {
         // @ts-ignore
-        path: `${this.importMetaUrl}../../chat/es/components/atoms/roomName/RoomName.js?${Environment?.version || ''}`,
-        name: 'chat-a-room-name'
+        path: `${this.importMetaUrl}../../chat/es/components/atoms/roomTitle/RoomTitle.js?${Environment?.version || ''}`,
+        name: 'chat-a-room-title'
       },
       {
         // @ts-ignore

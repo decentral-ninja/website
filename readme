@@ -138,6 +138,7 @@ https://tabler.io/icons
 - [ ] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
   - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
+- [ ] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
 - [ ] consider https://docs.codeberg.org/codeberg-pages/
