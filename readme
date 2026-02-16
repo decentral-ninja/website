@@ -97,14 +97,12 @@ https://tabler.io/icons
     - [x] ping providers to see if they are online before trying connection or proposing it for connection: https://jsfiddle.net/4yrmknfa/15/ (Image error) , check if self online
     - [x] check navigator online offline
 - [x] Decentral href share inside message, open by routing (no refresh) same as room input field
-- [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - End-to-End encryption Part 1:
   NOTE: Automatic sharing would generate many private key messages. Each user has one sync key times other users. Expl.: 2users = 2keys x 1other user = 2encrypted keys or 10users = 10keys x 9other users = 90encrypted keys. Also, newest crdt sync key entry approach would still create many but less private key messages. Expl.: 2users = 1key x 1other user = 1encrypted keys or example with three key overwrites when users joined 10users = 4keys x 9other users = 36encrypted keys.
   ==> The manual, user interaction approach, is more UI heavy but far more transparent and controllable for the user as well as it only sends the minimum, requested or voluntarily shared private key messages.
   - [x] a: Each user creates per room a private/public key pair. The private key is stored locally, the public key at the user object along the uid.
-  - [ ] b: A user can create synchronous keys (not shared plainly) but stored locally. These keys can be used at multiple rooms.
+  - [x] b: A user can create synchronous keys (not shared plainly) but stored locally. These keys can be used at multiple rooms.
   - [ ] c: (Private key message) A synchronous key is salted, encrypted with the public key of other/receiving user and shared as a message with public viewable properties: TO user uid and key uid.
-  - [ ] share key to multiple users dialog
   ------------
   Should read:
   ------------
@@ -126,6 +124,7 @@ https://tabler.io/icons
   ---------------------
     - [ ] 1. Private key message: User [User A] sends key in a message holding public viewable properties TO user uid and key uid (c).
     - [ ] 2. Receiving user [User B] sees UI hint to store key locally
+- [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
     - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
@@ -134,7 +133,7 @@ https://tabler.io/icons
   - [ ] receives os (https://nodejs.org/docs/latest/api/os.html#os_os_cpus) cpus (calc free cpu "i'm using this code:" https://stackoverflow.com/questions/9565912/convert-the-output-of-os-cpus-in-node-js-to-percentage), freemem (avoid low value), uptime (rank by uptime). inform on low websocket performance/overload and hint to switch to other provider. share new switched provider (optional) as message, disconnect overloaded provider workflow or at least hint the user to do this manually. Also, postpone rapid notification pulling, for this, check from time to time at providers.getData the getWebsocketInfo and inform through event the notification controller.
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview.
 - [ ] linter, Update yjs rollup stuff
-- [ ] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event, https://github.com/charlpcronje/PWA-Service-Worker-Config-and-Generator
+- [x] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
   - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
@@ -142,13 +141,17 @@ https://tabler.io/icons
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 --- Beta ---
 - [ ] consider https://docs.codeberg.org/codeberg-pages/
-- [ ] bat brave; https://creativemarket.com/abodanielcom/7260016-Kashima
-- [ ] Inform new version available message and/or fetch the newest providers and permanent fallback providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+  - [ ] bat brave; https://creativemarket.com/abodanielcom/7260016-Kashima
+  - [ ] Inform new version available message and/or fetch the newest providers and permanent fallback providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, webtorrent stream: https://github.com/Chocobozzz/PeerTube/blob/develop/server/core/helpers/webtorrent.ts, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
+  - [ ] storage and indexeddb backup and restore function.
 - [ ] - End-to-End encryption Part 2:
-  - [ ] Filters/tabs for different encryption keys
+  - [ ] share key to multiple users dialog
+  - [ ] share multiple keys to single user dialog
+  - [ ] Free text filters at keys dialog
+  - [ ] filters/tabs to filter messages for different encryption keys
   - [ ] share hashed key as url param with room link. Make a note at each key public.received.throughUrl:boolean, private.(origin, received, shared).throughUrl:boolean + distinguish if key was shared through plain url vs qr code url (rooms should also have that property throughQrCode:boolean). Mark a throughUrl and throughQrCode Key with different icons and title attributes.
   - [ ] https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/sign / https://mdn.github.io/dom-examples/web-crypto/sign-verify/ vote with signatures for a key, message (similar to likes), etc.
   - [ ] approve key holding by pub key encryption signature or simply declare by signing key uid in user crdt to be in possession (key can be used to vote/sign content)
@@ -157,12 +160,11 @@ https://tabler.io/icons
   - [ ] encrypt locally stored keys https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/wrapKey and allowing a user master password to decrypt those keys
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
 - [x] rooms wct-load-template-tag for chat-m-rooms > dialog > ul > li > (room entry) to make the rerendering faster (opening the dialog always has a slight delay)
-- [ ] storage and indexeddb backup and restore function.
 - [ ] add/make new providers... https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
+- [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] announce room publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
 - [ ] Marketplace (DFX Implementation - Sponsoring?)
-- [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker
 - [/] Provider support keepAlive=[string] = forever
 - [ ] bug: mobile keyboard scrolls rooms because of dvh
 - [ ] allow an aka. (also known as) user name saved locally
@@ -192,6 +194,7 @@ https://tabler.io/icons
   - [ ] from local instance https://github.com/Weedshaker/y-websocket
   - [ ] from local instance https://github.com/yjs/y-webrtc
   - [ ] Local hosting https://localtunnel.github.io/www/~~, https://ipv6.rs/cloudseeder/, https://www.noip.com/, https://tailscale.com/blog/tailscale-funnel-beta/?utm_source=changelog-news, https://theeconomictruth.org/f/the-outerrnet-founders-box-the-dawn-of-digital-freedom, https://github.com/traefik/traefik~~
+  - [ ] ServiceWorker.js fallback fetch of files to Environment.js - alternativeWebsiteHosts
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 --- Version One ---
 - [ ] email to room and vice versa
