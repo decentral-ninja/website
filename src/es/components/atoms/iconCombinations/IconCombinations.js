@@ -66,6 +66,8 @@ export default class IconCombinations extends Shadow() {
       :host > section > wct-icon-mdx {
         align-self: center;
         justify-self: center;
+      }
+      :host([keys]) > section > wct-icon-mdx {
         opacity: 0.6;
       }
       :host([icons-count="2"][keys]) > section > wct-icon-mdx:first-of-type {
@@ -126,7 +128,7 @@ export default class IconCombinations extends Shadow() {
   renderHTML () {
     const children = Array.from(this.root.children)
     this.html = /* html */`
-      <section>
+      <section part=section>
         <a-loading namespace="loading-default-" size="1.5"></a-loading>
       </section>
     `

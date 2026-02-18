@@ -95,7 +95,7 @@ export default class IconStates extends Shadow() {
         justify-content: center;
         width: fit-content;
       }
-      :host > section > *, :host > section > :not(a-loading, span)::part(svg) {
+      :host > section > *, :host > section > :not(a-loading, span)::part(svg), :host > section > *::part(section) {
         grid-column: 1;
         grid-row: 1;
       }
@@ -178,7 +178,7 @@ export default class IconStates extends Shadow() {
     const children = Array.from(this.root.children)
     this.html = /* html */`
       <section>
-        <a-loading namespace="loading-default-" size="1.5"></a-loading>
+        <a-loading namespace="loading-default-" size="${this.getAttribute('loading-size') || '1.5'}"></a-loading>
         <span></span>
       </section>
     `
