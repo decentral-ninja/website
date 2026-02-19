@@ -28,12 +28,7 @@ export default class Chat extends Index {
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
     if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
-    Promise.all(showPromises).then(() => {
-      // TODO: Remove general reload button, see readme.
-      // @ts-ignore
-      Chat.walksDownDomQueryMatchesAll(this, 'wct-icon-mdx[title=reload]')[0]?.addEventListener('click', event => location.reload(), { once: true })
-      this.hidden = false
-    })
+    Promise.all(showPromises).then(() => (this.hidden = false))
   }
 
   /**
@@ -56,7 +51,7 @@ export default class Chat extends Index {
                             <chat-a-room-title></chat-a-room-title>
                             <div>
                               <chat-m-notifications></chat-m-notifications>
-                              <wct-icon-mdx title=reload icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
+                              <a-icon-reload></a-icon-reload>
                               <chat-m-providers></chat-m-providers>
                               <div>
                                 <chat-m-users></chat-m-users>
@@ -107,6 +102,11 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../atoms/logo/Logo.js?${Environment?.version || ''}`,
         name: 'a-logo'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../atoms/iconReload/IconReload.js?${Environment?.version || ''}`,
+        name: 'a-icon-reload'
       },
       {
         // @ts-ignore
@@ -197,11 +197,6 @@ export default class Chat extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../chat/es/components/atoms/roomTitle/RoomTitle.js?${Environment?.version || ''}`,
         name: 'chat-a-room-title'
-      },
-      {
-        // @ts-ignore
-        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/iconMdx/IconMdx.js?${Environment?.version || ''}`,
-        name: 'wct-icon-mdx'
       }
     ])
   }
