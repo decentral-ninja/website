@@ -1,0 +1,9 @@
+:host > section > wct-icon-mdx {
+  opacity: 0.6;
+}
+:host([icons-count="2"]) > section > wct-icon-mdx:first-of-type {
+  transform: rotate(20deg);
+}
+:host([icons-count="2"]) > section > wct-icon-mdx:last-of-type {
+  transform: rotate(-20deg) translate(12%, 11%);
+}

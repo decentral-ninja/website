@@ -125,7 +125,8 @@ https://tabler.io/icons
     - [ ] 1. Private key message: User [User A] sends key in a message holding public viewable properties TO user uid and key uid (c).
     - [ ] 2. Receiving user [User B] sees UI hint to store key locally
   ---------------------
-    - [ ] show key shared/received and decrypted at User.js as an indication which keys this user has (used) at Users overview dialog
+    - [ ] show KeysDialog when no preset regarding default/last used key at room
+    - [ ] show KeyName at KeyStatus when active
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
@@ -153,6 +154,8 @@ https://tabler.io/icons
 - [ ] Provider Part 2:
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview.
 - [ ] - End-to-End encryption Part 2:
+  - [ ] change/edit encryption of message from unencrypted to encrypted as well as from one key to another
+  - [ ] show key shared/received and decrypted at User.js as an indication which keys this user has (used) at Users overview dialog
   - [ ] disable key
   - [ ] share key to multiple users dialog
   - [ ] share multiple keys to single user dialog
