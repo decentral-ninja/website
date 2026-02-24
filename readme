@@ -178,7 +178,7 @@ https://tabler.io/icons
 - [/] Provider support keepAlive=[string] = forever
 - [ ] bug: mobile keyboard scrolls rooms because of dvh
 - [ ] allow an aka. (also known as) user name saved locally
-- [ ] add dark mode (@media (prefers-color-scheme: dark))
+- [x] add dark mode (@media (prefers-color-scheme: dark))
 - [ ] markdown support: https://github.com/marcopolo/gossip-pad?tab=readme-ov-file when selecting showing italic, bold, etc.
 - [ ] On Desktop keep chat rooms alive even with route or focus lost (maybe even show in room overview which has active connections). Ether just hide at route.js or set the following attributes on EventDrivenYjs controller (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L938 + https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/src/es/EventDrivenYjs.js#L986)
 - [ ] local, private client side AI eg. https://github.com/ngxson/wllama, https://medium.com/@heyamit10/fine-tuning-gguf-models-a-practical-guide-d4cc83f9e157, https://technotim.live/posts/ai-stack-tutorial/, https://www.kla.tv/36858; https://www.lewrockwell.com/2025/11/mark-keenan/the-matrix-is-talking-to-the-matrix-how-ai-is-replacing-human-thought/

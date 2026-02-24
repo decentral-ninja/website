@@ -142,7 +142,7 @@ export default class IconStates extends Shadow() {
       :host  > section > span {
         background-color: var(--counter-color, var(--color));
         border-radius: 50%;
-        color: var(--background-color, white);
+        color: var(--counter-text-color, var(--background-color, white));
         cursor: pointer;
         font-size: 0.75em;
         height: fit-content;

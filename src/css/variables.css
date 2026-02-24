@@ -73,13 +73,15 @@
   --dialog-backdrop-filter-open: blur(0.1em);
   --dialog-clipboard-default-backdrop-background-color-open-custom: var(--color-green-rgba-75);
   --dialog-clipboard-default-border: none;
-  --dialog-clipboard-default-h4-color: var(--background-color);
+  --dialog-clipboard-default-h4-color: var(--color);
   --dialog-left-slide-in-background-color: var(--background-color, canvas);
+  --dialog-left-slide-in-color: var(--color, canvastext);
   --dialog-left-slide-in-gap-custom: var(--spacing);
   --dialog-left-slide-in-max-width-custom: max(560px, 50dvw);
   --dialog-left-slide-in-max-width-mobile-custom: 100%;
   --dialog-left-slide-in-padding-custom: var(--spacing);
   --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
+  --dialog-top-slide-in-color: var(--dialog-left-slide-in-color);
   --dialog-top-slide-in-ul-margin: 0;
   --font-family-secondary: Kashima, Arial, sans-serif;
   --font-family: Arial, sans-serif;
@@ -147,15 +149,34 @@
   --button-primary-color-custom: var(--background-color);
   --color-custom-loader: var(--color-secondary);
 }
-/* TODO: Dark mode */
-/*
 @media (prefers-color-scheme: dark) {
-  :root {
-  }
   :root[invert] {
+    --background-color: var(--color-black);
+    --button-primary-color-custom: var(--color-white);
+    --button-primary-color-hover-custom: var(--color-white);
+    --card-a-color: var(--color-secondary);
+    --card-background-color: var(--message-li-background-color);
+    --card-color: var(--color-white);
+    --color-custom-loader: var(--color-secondary);
+    --color-disabled: lightgray;
+    --color: var(--color-white);
+    --counter-text-color: var(--color-white);
+    --dialog-clipboard-default-color: var(--color-white);
+    --dialog-clipboard-default-h4-color: var(--color-white);
+    --input-area-background-color: transparent;
+    --input-area-border: 1px solid var(--color-white);
+    --input-area-select-background-color: var(--color-white);
+    --message-li-self-background-color: #161a25;
+    --message-li-self-color: var(--color-white);
+    --message-li-background-color: #a9acb5;
+    --message-li-color: var(--color-black);
+    --rooms-border-bottom: 1px solid var(--color-white);
+    --svg-text-color: var(--color-white);
+    --svg-text-filter: invert(1);
+    --wct-input-input-color: var(--color-black);
+    --wct-middle-input-input-color: var(--color-black);
   }
 }
-*/
 body {
   margin: 0;
   min-height: var(--body-min-height, var(--min-height, 100svh));

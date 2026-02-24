@@ -1,7 +1,19 @@
-:host {
-    --logo-invert-background-color: var(--color);
-    --logo-invert-color-rgba-50: var(--background-color-rgba-50);
-    --logo-invert-color-shadow: var(--color-hover);
-    --logo-invert-color-star: var(--color-active);
-    --logo-invert-color: var(--background-color);
+@media not (prefers-color-scheme: dark) {
+  :host {
+      --logo-invert-background-color: var(--color);
+      --logo-invert-color-rgba-50: var(--background-color-rgba-50);
+      --logo-invert-color-shadow: var(--color-hover);
+      --logo-invert-color-star: var(--color-active);
+      --logo-invert-color: var(--background-color);
+  }
+}
+/* ../default-/default-.css */
+@media (prefers-color-scheme: dark) {
+  :host {
+    --logo-invert-background-color: var(--background-color);
+    --logo-invert-color-rgba-50: var(--color-rgba-50);
+    --logo-invert-color-shadow: var(--color-error);
+    --logo-invert-color-star: var(--color-yellow);
+    --logo-invert-color: var(--color-white);
+  }
 }
