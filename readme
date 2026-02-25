@@ -150,6 +150,7 @@ https://tabler.io/icons
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
   - [ ] all storage incl. indexeddb encrypted backup (to webtorrent) and restore function.
 - [ ] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
+- [ ] redo notifications; pull get-notifications at sw instead of push
 - [ ] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Provider Part 2:
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview.
