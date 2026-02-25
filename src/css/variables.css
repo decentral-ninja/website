@@ -151,6 +151,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root[invert] {
+    --a-color-hover: var(--color-yellow);
     --background-color: var(--color-black);
     --button-primary-color-custom: var(--color-white);
     --button-primary-color-hover-custom: var(--color-white);
