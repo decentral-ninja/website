@@ -160,6 +160,7 @@
     --color-custom-loader: var(--color-secondary);
     --color-disabled: lightgray;
     --color: var(--color-white);
+    --controls-color: var(--color-white);
     --counter-text-color: var(--color-white);
     --dialog-clipboard-default-color: var(--color-white);
     --dialog-clipboard-default-h4-color: var(--color-white);
