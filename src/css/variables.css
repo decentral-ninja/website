@@ -40,7 +40,7 @@
   --button-secondary-transition-custom: border-color .3s ease-out, color .3s ease-out, transform .2s ease;
   --card-padding: 0.75em;
   --color-active: var(--color-yellow);
-  --color-black: #000f33;
+  --color-black: #0d162d;
   --color-blue: #A2B2E0;
   --color-custom-loader: var(--color-rgba-50);
   --color-disabled: gray;
@@ -57,7 +57,7 @@
   --color-orange: orange;
   --color-provider: var(--color-black);
   --color-red-full: red;
-  --color-red: #d30d11;
+  --color-red: #a80d10;
   --color-rgba-50: rgba(255, 248, 224, 0.3);
   --color-secondary-rgba-50: rgba(166, 12, 15, 0.5);
   --color-secondary: var(--color-red);
