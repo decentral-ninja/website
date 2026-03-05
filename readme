@@ -125,8 +125,8 @@ https://tabler.io/icons
     - [ ] 1. Private key message: User [User A] sends key in a message holding public viewable properties TO user uid and key uid (c).
     - [ ] 2. Receiving user [User B] sees UI hint to store key locally
   ---------------------
-    - [ ] show KeysDialog when no preset regarding default/last used key at room
-    - [ ] show KeyName at KeyStatus when active
+    - [x] show KeyName at KeyStatus when active
+    - [ ] on reply choose same key if applicable
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
@@ -140,6 +140,7 @@ https://tabler.io/icons
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
   - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
+- [ ] refresh notifications key
 --- Beta ---
 - [ ] consider https://docs.codeberg.org/codeberg-pages/
   - [ ] Review Home text
@@ -149,8 +150,8 @@ https://tabler.io/icons
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
   - [ ] all storage incl. indexeddb encrypted backup (to webtorrent) and restore function.
-- [ ] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] redo notifications; pull get-notifications at sw instead of push
+- [ ] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Provider Part 2:
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview.

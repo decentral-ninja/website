@@ -171,7 +171,9 @@
     --message-li-self-background-color: #161a25;
     --message-li-self-color: var(--color-white);
     --message-li-background-color: #a9acb5;
+    --message-li-box-shadow: var(--color-white);
     --message-li-color: var(--color-black);
+    --message-li-timestamp-color: var(--color-white);
     --rooms-border-bottom: 1px solid var(--color-white);
     --svg-text-color: var(--color-white);
     --svg-text-filter: invert(1);
