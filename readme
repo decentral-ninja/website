@@ -158,6 +158,7 @@ https://tabler.io/icons
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview.
 - [ ] - End-to-End encryption Part 2:
   - [ ] change/edit encryption of message from unencrypted to encrypted as well as from one key to another
+  - [ ] when key received ask by dialog if wanna have it as default at room
   - [ ] key.public.name synced through own crdt map analog controllers/Users.js
   - [ ] show key shared/received and decrypted at User.js as an indication which keys this user has (used) at Users overview dialog
   - [ ] disable key
