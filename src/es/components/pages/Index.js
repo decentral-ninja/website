@@ -196,8 +196,8 @@ export default class Index extends Mutation() {
                   <li>Websocket provider: <a href="https://github.com/Weedshaker/y-websocket/blob/master/package.json#L15" target="_blank">nodejs</a>, <a href="https://hub.docker.com/repository/docker/weedshaker/y-websocket/general" target="_blank">docker container</a></li>
                   <li>WebRTC provider: <a href="https://github.com/yjs/y-webrtc/tree/master" target="_blank">nodejs</a></li>
                   <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank">Flux Nodes</a></li>
-                  <li>End to end encryption (coming soon)</li>
-                  <li>PWA - offline support (coming soon)</li>
+                  <li>End to end encryption</li>
+                  <li>PWA - offline support</li>
                   <li>File through WebTorrent and/or ipfs (coming soon)</li>
                   <li>Libp2p provider (coming soon)</li>
                   <li>Matrix provider (coming soon)</li>
