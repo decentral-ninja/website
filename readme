@@ -102,7 +102,7 @@ https://tabler.io/icons
   ==> The manual, user interaction approach, is more UI heavy but far more transparent and controllable for the user as well as it only sends the minimum, requested or voluntarily shared private key messages.
   - [x] a: Each user creates per room a private/public key pair. The private key is stored locally, the public key at the user object along the uid.
   - [x] b: A user can create synchronous keys (not shared plainly) but stored locally. These keys can be used at multiple rooms.
-  - [ ] c: (Private key message) A synchronous key is salted, encrypted with the public key of other/receiving user and shared as a message with public viewable properties: TO user uid and key uid.
+  - [x] c: (Private key message) A synchronous key is salted, encrypted with the public key of other/receiving user and shared as a message with public viewable properties: TO user uid and key uid.
   ------------
   Should read:
   ------------
@@ -126,8 +126,10 @@ https://tabler.io/icons
     - [x] 2. Receiving user [User B] sees UI hint to store key locally
   ---------------------
     - [x] show KeyName at KeyStatus when active
-    - [ ] on reply choose same key if applicable
-    - [ ] display: none request messages should be hidden first and also no delete effect if user does not have key to send
+    - [x] on reply choose same key if applicable
+    - [x] on receive, set received key as default, if no active key
+    - [x] display: none request messages should be hidden first and also no delete effect if user does not have key to send and display-none anyway
+    - [x] generate truly random room name
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
@@ -141,7 +143,7 @@ https://tabler.io/icons
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
   - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
-- [ ] refresh notifications key
+- [ ] refresh notifications key + update sw this.precache
 --- Beta ---
 - [ ] consider https://docs.codeberg.org/codeberg-pages/
   - [ ] Review Home text
