@@ -130,6 +130,7 @@ https://tabler.io/icons
     - [x] on receive, set received key as default, if no active key
     - [x] display: none request messages should be hidden first and also no delete effect if user does not have key to send and display-none anyway
     - [x] generate truly random room name
+    - [x] key sorting
 - [ ] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
@@ -154,6 +155,7 @@ https://tabler.io/icons
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
   - [ ] all storage incl. indexeddb encrypted backup (to webtorrent) and restore function.
 - [ ] redo notifications; pull get-notifications at sw instead of push
+- [ ] translations
 - [ ] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Provider Part 2:
@@ -180,6 +182,7 @@ https://tabler.io/icons
   - [ ] encrypt locally stored keys https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/wrapKey and allowing a user master password to decrypt those keys
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] announce room publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
+- [ ] share location
 - [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
 - [ ] Marketplace (DFX Implementation - Sponsoring?)
 - [/] Provider support keepAlive=[string] = forever
