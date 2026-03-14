@@ -131,7 +131,7 @@ https://tabler.io/icons
     - [x] display: none request messages should be hidden first and also no delete effect if user does not have key to send and display-none anyway
     - [x] generate truly random room name
     - [x] key sorting
-- [/] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
+- [x] cooler https://github.com/ipv6rslimited/cloudseeder/blob/main/LICENSE.md , AGPL-3.0 https://github.com/Chocobozzz/PeerTube?tab=AGPL-3.0-1-ov-file#readme
 - [ ] reload smart icon (move it left of notification icon)
   - [ ] refresh after longer session inactive and focus comes back, check navigator.onLine, provider pings when all status "timeout" and mutually connected users
     - [ ] mobile on focus ask by dialog to refresh (reload), when the last activity to provider is old: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
@@ -147,7 +147,7 @@ https://tabler.io/icons
 - [ ] refresh notifications key + update sw this.precache
 --- Beta ---
 - [ ] consider https://docs.codeberg.org/codeberg-pages/
-  - [ ] Review Home text
+  - [ ] Review Home text red line
   - [ ] bat brave; https://creativemarket.com/abodanielcom/7260016-Kashima
   - [ ] buymeacoffee or such...
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, webtorrent stream: https://github.com/Chocobozzz/PeerTube/blob/develop/server/core/helpers/webtorrent.ts, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
@@ -166,7 +166,7 @@ https://tabler.io/icons
   - [ ] key.public.name synced through own crdt map analog controllers/Users.js
   - [ ] show key shared/received and decrypted at User.js as an indication which keys this user has (used) at Users overview dialog
   - [ ] disable key
-  - [ ] share key to multiple users dialog
+  - [ ] share key to multiple users dialog, receive without active confirmation but key entry is at state passive. Three states: confirmed[active/favorite] (can not be deleted), unconfirmed[passive], disabled
   - [ ] share multiple keys to single user dialog
   - [ ] Free text filters at keys dialog
   - [ ] filters/tabs to filter messages for different encryption keys + filter for users (users dialog click user to activate tab/filter), free text filters in dialogs
