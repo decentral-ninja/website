@@ -77,7 +77,7 @@
   --dialog-left-slide-in-background-color: var(--background-color, canvas);
   --dialog-left-slide-in-color: var(--color, canvastext);
   --dialog-left-slide-in-gap-custom: var(--spacing);
-  --dialog-left-slide-in-max-width-custom: max(560px, 50dvw);
+  --dialog-left-slide-in-max-width-custom: max(560px, 55dvw);
   --dialog-left-slide-in-max-width-mobile-custom: 100%;
   --dialog-left-slide-in-padding-custom: var(--spacing);
   --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
