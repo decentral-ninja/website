@@ -50,8 +50,8 @@ export default class Chat extends Index {
                           <header>
                             <chat-a-room-title></chat-a-room-title>
                             <div>
-                              <chat-m-notifications></chat-m-notifications>
                               <a-icon-reload></a-icon-reload>
+                              <chat-m-notifications></chat-m-notifications>
                               <chat-m-providers></chat-m-providers>
                               <div>
                                 <chat-m-users></chat-m-users>
