@@ -14,7 +14,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v22'
+    this.version = 'v23'
     // KEEP DOING: When version upgrade also update the precache. This is a manual process by clicking through all the routes and dialogs, then enter the following code snippet into the console and copy/paste the result into this.precache:
     // Code: document.body.prepend(Array.from(new Set(self.performance.getEntriesByType('resource').filter(resource => resource.name.includes(location.origin)).map(resource => {let url = resource.name;try{url = new URL(resource.name);url.searchParams.delete('version');url = url.href}catch(error){}return url.replace(location.origin, '.')}).sort((a, b) => a < b ? -1 : a > b ? 1 : 0))).reduce((textarea, curr) => {textarea.value += `'${curr}',\n`;return textarea}, document.createElement('textarea')))
     this.precache = [
@@ -122,6 +122,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/web-components-toolbox/src/es/components/prototypes/Shadow.js',
       './src/es/web-components-toolbox/src/es/helpers/Helpers.js',
       './src/font/Kashima.woff2',
+      './src/img/icons/alert-triangle.svg',
       './src/img/icons/android-icon-144x144.png',
       './src/img/icons/arrow-back-up.svg',
       './src/img/icons/bell-off.svg',

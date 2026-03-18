@@ -128,7 +128,7 @@ export default class IconReload extends Shadow() {
    */
   renderHTML () {
     this.html = /* html */`
-      <wct-icon-mdx title=reload icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
+      <wct-icon-mdx title="Reload due to connection problems!" icon-url="../../../../../../img/icons/reload.svg" size="2em"></wct-icon-mdx>
     `
     return this.fetchModules([
       {
