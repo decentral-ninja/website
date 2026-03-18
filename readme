@@ -138,7 +138,7 @@ https://tabler.io/icons
 - [x] when room delete also delete localStorage and Indexeddb
 - [x] provider: data.getWebsocketInfo "get-info"
   - [x] receives os (https://nodejs.org/docs/latest/api/os.html#os_os_cpus) cpus (calc free cpu "i'm using this code:" https://stackoverflow.com/questions/9565912/convert-the-output-of-os-cpus-in-node-js-to-percentage), freemem (avoid low value), ~~uptime (rank by uptime)~~. inform on low websocket performance/overload and hint to switch to other provider. ~~share new switched provider (optional) as message~~, disconnect overloaded provider workflow or at least hint the user to do this manually. Also, postpone rapid notification pulling, for this, check from time to time at providers.getData the getWebsocketInfo and inform through event the notification controller.
-- [ ] linter, Update yjs rollup stuff
+- [x] linter, ~~Update yjs rollup stuff~~ rollup stuff needs updates, note only yjs had major changes by 2026
 - [x] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
@@ -146,7 +146,7 @@ https://tabler.io/icons
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 - [x] refresh notifications key
 --- Beta ---
-- [ ] consider https://docs.codeberg.org/codeberg-pages/
+- [ ] announce
   - [ ] Review Home text red line, FOSS, human authored
   - [ ] bat brave; https://creativemarket.com/abodanielcom/7260016-Kashima
   - [ ] buymeacoffee or such...
@@ -185,6 +185,7 @@ https://tabler.io/icons
   - [ ] encrypt locally stored keys https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/wrapKey and allowing a user master password to decrypt those keys
 - [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] announce room publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
+- [ ] consider https://docs.codeberg.org/codeberg-pages/
 - [ ] share location
 - [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
 - [ ] Marketplace (DFX Implementation - Sponsoring?)
