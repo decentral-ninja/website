@@ -144,7 +144,7 @@ https://tabler.io/icons
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
   - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
-- [ ] refresh notifications key + update sw this.precache
+- [x] refresh notifications key
 --- Beta ---
 - [ ] consider https://docs.codeberg.org/codeberg-pages/
   - [ ] Review Home text red line, FOSS, human authored
