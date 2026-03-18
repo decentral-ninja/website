@@ -2,7 +2,6 @@
 import Index from './Index.js'
 
 /* global Environment */
-/* global self */
 
 /**
 * Decentral Ninja Main/Start Page

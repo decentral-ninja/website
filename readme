@@ -138,7 +138,7 @@ https://tabler.io/icons
 - [x] when room delete also delete localStorage and Indexeddb
 - [x] provider: data.getWebsocketInfo "get-info"
   - [x] receives os (https://nodejs.org/docs/latest/api/os.html#os_os_cpus) cpus (calc free cpu "i'm using this code:" https://stackoverflow.com/questions/9565912/convert-the-output-of-os-cpus-in-node-js-to-percentage), freemem (avoid low value), ~~uptime (rank by uptime)~~. inform on low websocket performance/overload and hint to switch to other provider. ~~share new switched provider (optional) as message~~, disconnect overloaded provider workflow or at least hint the user to do this manually. Also, postpone rapid notification pulling, for this, check from time to time at providers.getData the getWebsocketInfo and inform through event the notification controller.
-- [ ] linter, Update yjs rollup stuff, debugger tests (detect possible multiple renders or other multiple executions of functions)
+- [ ] linter, Update yjs rollup stuff
 - [x] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances

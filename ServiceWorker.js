@@ -1,4 +1,6 @@
 /* global self */
+/* global location */
+/* global caches */
 /* global importScripts */
 /* global NotificationServiceWorker */
 
@@ -6,7 +8,7 @@ importScripts('./src/es/event-driven-web-components-yjs/src/es/serviceWorkers/No
 
 /**
  * This ServiceWorker always fetches and caches but races each time cache vs. fetch. Which means that it serves from cache but updates cache on each request.
- * 
+ *
  * @extends NotificationServiceWorker
  */
 class ServiceWorker extends NotificationServiceWorker {
@@ -14,7 +16,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v23'
+    this.version = 'v24'
     // KEEP DOING: When version upgrade also update the precache. This is a manual process by clicking through all the routes and dialogs, then enter the following code snippet into the console and copy/paste the result into this.precache:
     // Code: document.body.prepend(Array.from(new Set(self.performance.getEntriesByType('resource').filter(resource => resource.name.includes(location.origin)).map(resource => {let url = resource.name;try{url = new URL(resource.name);url.searchParams.delete('version');url = url.href}catch(error){}return url.replace(location.origin, '.')}).sort((a, b) => a < b ? -1 : a > b ? 1 : 0))).reduce((textarea, curr) => {textarea.value += `'${curr}',\n`;return textarea}, document.createElement('textarea')))
     this.precache = [
@@ -27,6 +29,9 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/chat/es/components/atoms/glideToReveal/GlideToReveal.js',
       './src/es/chat/es/components/atoms/Input.js',
       './src/es/chat/es/components/atoms/keyName/KeyName.js',
+      './src/es/chat/es/components/atoms/keyRequestButton/KeyRequestButton.js',
+      './src/es/chat/es/components/atoms/keyRequestMessage/KeyRequestMessage.js',
+      './src/es/chat/es/components/atoms/keyStatus/KeyStatus.js',
       './src/es/chat/es/components/atoms/nickName/NickName.js',
       './src/es/chat/es/components/atoms/p2pGraph/p2p-graph.js',
       './src/es/chat/es/components/atoms/p2pGraph/P2pGraph.js',
@@ -54,6 +59,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/chat/es/components/molecules/Users.js',
       './src/es/components/atoms/iconChat/IconChat.js',
       './src/es/components/atoms/iconCombinations/IconCombinations.js',
+      './src/es/components/atoms/iconReload/IconReload.js',
       './src/es/components/atoms/iconStates/IconStates.js',
       './src/es/components/atoms/loading/default-/default-.css',
       './src/es/components/atoms/loading/Loading.js',
@@ -219,7 +225,7 @@ class ServiceWorker extends NotificationServiceWorker {
           })
         })
         : fetch(event.request)
-      )
+    )
     )
   }
 
@@ -241,7 +247,7 @@ class ServiceWorker extends NotificationServiceWorker {
 
   /**
    * modifies a request url to loose it's version param
-   * 
+   *
    * @static
    * @param {Request} request
    * @returns {Request}

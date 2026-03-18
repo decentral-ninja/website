@@ -1,6 +1,8 @@
 // @ts-check
 import { Shadow } from '../../../event-driven-web-components-prototypes/src/Shadow.js'
 
+/* global Environment */
+
 /**
  * Scroll of decentral ninja
  *

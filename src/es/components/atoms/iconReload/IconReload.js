@@ -1,16 +1,16 @@
 // @ts-check
 import { Shadow } from '../../../event-driven-web-components-prototypes/src/Shadow.js'
 
+/* global self */
+/* global Environment */
+/* global location */
+
 /**
  * IconReload of decentral ninja
  *
  * @export
  * @class IconReload
  * @type {CustomElementConstructor}
- * @attribute {
- *  {string} src used for the image source
- *  {string} href used for the link reference
- * }
  */
 export default class IconReload extends Shadow() {
   constructor (options = {}, ...args) {
