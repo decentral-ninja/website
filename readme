@@ -143,6 +143,8 @@ https://tabler.io/icons
 - [ ] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
   - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
+  - [ ] from local instance https://github.com/Weedshaker/y-websocket
+  - [ ] from local instance https://github.com/yjs/y-webrtc
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 - [x] refresh notifications key
 --- Beta ---
@@ -154,10 +156,17 @@ https://tabler.io/icons
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
   - [ ] all storage incl. indexeddb encrypted backup (to webtorrent) and restore function.
-- [ ] redo notifications; pull get-notifications at sw instead of push
+- [ ] BugFix, click send button on Iphone contracts the inputField but does not send the message
+- [ ] Notification:
+  - [ ] redo notifications; pull get-notifications at sw instead of push
+  - [ ] Consider alternatives: https://unifiedpush.org/
+  - [ ] When new messages change document.title (emoji) until read
+  - [ ] allow notification sound
+  - [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
+  - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app or...
+  - [ ] Service worker directly pull or push notifications and do batches instead of current sw notification implementation
 - [ ] translations
 - [ ] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
-- [ ] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Provider Part 2:
   - [ ] get-info os: uptime (rank by uptime)
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview.
@@ -187,8 +196,8 @@ https://tabler.io/icons
 - [ ] announce room publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
 - [ ] consider https://docs.codeberg.org/codeberg-pages/
 - [ ] share location
-- [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
 - [ ] Marketplace (DFX Implementation - Sponsoring?)
+  - [ ] integrate https://github.com/webxdc - https://webxdc.org/
 - [/] Provider support keepAlive=[string] = forever
 - [ ] bug: mobile keyboard scrolls rooms because of dvh
 - [ ] allow an aka. (also known as) user name saved locally
@@ -200,7 +209,6 @@ https://tabler.io/icons
 - [ ] nostr identity or other verification service through signature. chat host same domain and provider (websocket) owner and user can verify to other users through sending public key encrypted message/token to same domain fetch url, websocket host has more crud control and can by running the chat on localhost where the websocket runs push those through origin restricted to localhost api call into websocket, which answers to other members on other origin and can verify admin rights. verified admin can define moderators and hand them a key to verify at provider who knows the role from admin. w.
 - [ ] crdt snapshot
 - [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
-- [ ] integrate https://github.com/webxdc - https://webxdc.org/
 - [ ] Hint dialog component (help and texts with translation)
   - [ ] interactive elements often found as wct-icon-mdx must have an <a href="#"> tag preventing default but accessible for click by tab and enter key
   - Room Eg.: <h4>Open or enter a room by typing a room name below or pasting a decentral ninja link:</h4><h5>Hint: The more random the room name, the less likely to get unwanted visitors!</h5>
@@ -214,12 +222,11 @@ https://tabler.io/icons
   - [ ] video call in iframe from local instance (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api), jitsi deep fe integration. user video attached to chat on top. multiple jitsi instances support.
   - [x] https://github.com/localtunnel/server
   - [x] website on flux
-  - [ ] forward proxy to local instance https://pangolin.fossorial.io (evtl. local tunnel) (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)
-  - [ ] from local instance https://github.com/Weedshaker/y-websocket
-  - [ ] from local instance https://github.com/yjs/y-webrtc
-  - [ ] Local hosting https://localtunnel.github.io/www/~~, https://ipv6.rs/cloudseeder/, https://www.noip.com/, https://tailscale.com/blog/tailscale-funnel-beta/?utm_source=changelog-news, https://theeconomictruth.org/f/the-outerrnet-founders-box-the-dawn-of-digital-freedom, https://github.com/traefik/traefik~~
+  - [x] forward proxy to local instance https://pangolin.fossorial.io (evtl. local tunnel) (https://github.com/anderspitman/awesome-tunneling expl. https://github.com/rapiz1/rathole)
+  - [x] Local hosting https://localtunnel.github.io/www/~~, https://ipv6.rs/cloudseeder/, https://www.noip.com/, https://tailscale.com/blog/tailscale-funnel-beta/?utm_source=changelog-news, https://theeconomictruth.org/f/the-outerrnet-founders-box-the-dawn-of-digital-freedom, https://github.com/traefik/traefik~~
   - [ ] ServiceWorker.js fallback fetch of files to Environment.js - alternativeWebsiteHosts
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
+- [ ] update yjs dependencies
 --- Version One ---
 - [ ] email to room and vice versa
 - [ ] Local hosting 2.0 https://github.com/anderspitman/awesome-tunneling?tab=readme-ov-file
@@ -227,18 +234,12 @@ https://tabler.io/icons
 - [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
   - [ ] security and text & room link encryption 
 - [ ] native operating system share dialog behavior (https://docs.pwabuilder.com/#/builder/manifest?id=share_target-object)
-  - [ ] open pwa on decentral.ninja link
+  - [ ] open pwa on decentral.ninja link DCN:... link (double point)
 - [x] Chat message on intersection declare as read by filling it into array with own uid (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
 - [x] Keep chat scroll position by intersection (https://github.com/mits-gossau/web-components-toolbox/blob/master/src/es/components/prototypes/Intersection.js)
 - [x] Pin and sort rooms (https://github.com/shresthalucky/sortable-dnd/blob/master/src/sortable-dnd.js + https://artecher.github.io/react-dnd-ax-demo/?selectedKind=Button&selectedStory=Complex%20Example&full=0&down=1&left=1&panelRight=0&downPanel=storybook%2Factions%2Factions-panel + https://github.com/blackboard/react-dnd-ax)
 - [ ] https://xmpp.org
 - [ ] add gifs from gify or similar
-- [ ] Notification:
-  - [ ] Consider alternatives: https://unifiedpush.org/
-  - [ ] When new messages change document.title (emoji) until read
-  - [ ] allow notification sound
-  - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app or...
-  - [ ] Service worker directly pull or push notifications and do batches instead of current sw notification implementation
 - [ ] controllers/Providers.js when on automatic connect look for the most favorable connections and avoid orphans else allow manual choice at Providers view (User controller if not connected offer to connect to other urls max. 2 per socket / connecting to other servers according user crdt data [provider has mutually connected users with some connected to other providers with mutually connected users and vice versa]) + handle on error ws connection at provider
 - [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/ | https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API / whole earth cartalog
 - [ ] check security requirements from https://www.securemessagingapps.com
