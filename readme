@@ -142,9 +142,11 @@ https://tabler.io/icons
 - [x] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
 - [ ] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
   - [ ] test again webRTC server and fire up an instance, also get some backup server instances
+  - [ ] server.js pass new vapid keys by env var
   - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
   - [ ] from local instance https://github.com/Weedshaker/y-websocket
   - [ ] from local instance https://github.com/yjs/y-webrtc
+  - [ ] update flux alternative website hosts
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 - [x] refresh notifications key
 --- Beta ---
@@ -156,7 +158,7 @@ https://tabler.io/icons
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
   - [ ] all storage incl. indexeddb encrypted backup (to webtorrent) and restore function.
-- [ ] BugFix, click send button on Iphone contracts the inputField but does not send the message
+- [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Notification:
   - [ ] redo notifications; pull get-notifications at sw instead of push
   - [ ] Consider alternatives: https://unifiedpush.org/
