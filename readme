@@ -160,6 +160,8 @@ https://tabler.io/icons
   - [ ] all storage incl. indexeddb encrypted backup (to webtorrent) and restore function.
   - [ ] last red message label
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
+- [ ] disable rooms === hidden except free text search finds it
+- [ ] last connected, synced hr at chat.js
 - [ ] Notification:
   - [ ] redo notifications; pull get-notifications at sw instead of push
   - [ ] Consider alternatives: https://unifiedpush.org/
