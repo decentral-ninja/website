@@ -153,11 +153,12 @@ export default class Index extends Mutation() {
   renderHTML () {
     // Header is expected to be initially open, below <o-header open></o-header>
     this.classList.add('header-open')
+    const providerQuery = 'websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D86400000&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site'
     this.html = /* html */`
       <section>
         <o-header open>
           <header>
-            <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+            <a href="?page=/chat&${providerQuery}" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
             <a-logo namespace="logo-default-"></a-logo>
           </header>
         </o-header>
@@ -180,12 +181,12 @@ export default class Index extends Mutation() {
                 <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
                   <section>
                     <div> 
-                      <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self">
+                      <a href="?page=/chat&${providerQuery}" route target="_self">
                         <wct-button namespace="button-primary-">Start Chat</wct-button>
                       </a>
                     </div>
                     <div>       
-                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D259200000">Chat With Us</wct-button>
+                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&${providerQuery}">Chat With Us</wct-button>
                     </div>
                   </section>
                 </wct-grid>
@@ -203,7 +204,7 @@ export default class Index extends Mutation() {
                   <li>Matrix provider (coming soon)</li>
                   <li>Nostr provider (coming soon)</li>
                 </ul>
-                <p>Use our alpha version <a href="?page=/chat&websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+                <p>Use our alpha version <a href="?page=/chat&${providerQuery}" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
                 <iframe title="Think Privacy Is Dead? You're Wrong." width="560" height="315" style="aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: var(--border-radius);" src="https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
                 </div>
             </div>

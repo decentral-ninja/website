@@ -7,8 +7,8 @@ const currentScriptUrl = new URL(document.currentScript.src)
 self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
-  stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'alpha',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '7.0.13'}`, // https://semver.org/
+  stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'beta',
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.0.0'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
@@ -19,11 +19,19 @@ self.Environment = {
   },
   {
     name: 'websocket',
-    url: 'https://the-decentral-web.loca.lt' // TODO: test and then remove this line cause the loca.lt subdomain could be hijacked
+    url: 'wss://websocket.peerweb.site'
   },
   {
     name: 'websocket',
-    url: 'https://decentral-ninja.loca.lt' // TODO: test and then remove this line cause the loca.lt subdomain could be hijacked
+    url: 'wss://websocket-two.peerweb.site'
+  },
+  {
+    name: 'webrtc',
+    url: 'wss://webrtc.peerweb.site'
+  },
+  {
+    name: 'webrtc',
+    url: 'wss://webrtc-two.peerweb.site'
   }],
   alternativeWebsiteHosts: ['https://decentralninja.app.runonflux.io/', 'https://decentralninja_8080.app.runonflux.io'],
   timestampNamespace: 't_',

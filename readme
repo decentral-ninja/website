@@ -140,13 +140,13 @@ https://tabler.io/icons
   - [x] receives os (https://nodejs.org/docs/latest/api/os.html#os_os_cpus) cpus (calc free cpu "i'm using this code:" https://stackoverflow.com/questions/9565912/convert-the-output-of-os-cpus-in-node-js-to-percentage), freemem (avoid low value), ~~uptime (rank by uptime)~~. inform on low websocket performance/overload and hint to switch to other provider. ~~share new switched provider (optional) as message~~, disconnect overloaded provider workflow or at least hint the user to do this manually. Also, postpone rapid notification pulling, for this, check from time to time at providers.getData the getWebsocketInfo and inform through event the notification controller.
 - [x] linter, ~~Update yjs rollup stuff~~ rollup stuff needs updates, note only yjs had major changes by 2026
 - [x] Service Worker for caching assets PWA + Fallback local hosting von decentral.ninja, https://docs.pwabuilder.com/#/home/sw-intro?id=pre-caching-during-the-install-event
-- [ ] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
-  - [ ] test again webRTC server and fire up an instance, also get some backup server instances
-  - [ ] server.js pass new vapid keys by env var
-  - [ ] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
-  - [ ] from local instance https://github.com/Weedshaker/y-websocket
-  - [ ] from local instance https://github.com/yjs/y-webrtc
-  - [ ] update flux alternative website hosts
+- [x] host on multiple strong websocket instances ([pangolin](https://pangolin.net/))
+  - [x] test again webRTC server and fire up an instance, also get some backup server instances
+  - [x] server.js pass new vapid keys by env var
+  - [x] cleanup; fallbacks at environment and server.js... start new proper instances, not local tunnel 'Bypass-Tunnel-Reminder': 'yup'
+  - [x] from local instance https://github.com/Weedshaker/y-websocket
+  - [x] from local instance https://github.com/yjs/y-webrtc
+  - [x] update flux alternative website hosts
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 - [x] refresh notifications key
 --- Beta ---
@@ -158,6 +158,7 @@ https://tabler.io/icons
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
   - [ ] all storage incl. indexeddb encrypted backup (to webtorrent) and restore function.
+  - [ ] last red message label
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Notification:
   - [ ] redo notifications; pull get-notifications at sw instead of push
