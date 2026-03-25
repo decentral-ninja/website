@@ -125,7 +125,7 @@ export default class Logo extends Shadow(WebWorker()) {
         grid-template-rows: 1fr;
         justify-items: center;
         tap-highlight-color: transparent;
-        --webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: transparent;
         transition: filter 0.3s ease-out, transform 0.07s ease-out;
       }
       :host([favicon]:hover) {

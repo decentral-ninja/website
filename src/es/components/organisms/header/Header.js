@@ -107,7 +107,7 @@ export default class Header extends Shadow() {
         align-items: var(--header-align-items, top);
         position: relative;
         tap-highlight-color: transparent;
-        --webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: transparent;
       }
       :host > header > *:first-child {
         overflow: hidden;
