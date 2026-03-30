@@ -45,6 +45,7 @@ export default class Index extends Mutation() {
         ? 'add'
         : 'remove'
       ]('header-open')
+      this.removeAttribute('noise')
     }
   }
 
