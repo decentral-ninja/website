@@ -150,10 +150,6 @@ https://tabler.io/icons
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 - [x] refresh notifications key
 --- Beta ---
-- [ ] announce
-  - [ ] Review Home text red line, FOSS, human authored
-  - [ ] bat brave; https://creativemarket.com/abodanielcom/7260016-Kashima
-  - [ ] buymeacoffee or such...
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, webtorrent stream: https://github.com/Chocobozzz/PeerTube/blob/develop/server/core/helpers/webtorrent.ts, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
   - [ ] IndexedDB delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
@@ -176,7 +172,7 @@ https://tabler.io/icons
   - [ ] user p2p graph webrtc url string split "," multiple urls and show separate (seen at history users dialog)
   - [ ] provider fallback info, mark old providers
   - [ ] get-info os: uptime (rank by uptime)
-  - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview.
+  - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview. (https://github.com/shuding/cobe)
 - [ ] - End-to-End encryption Part 2:
   - [ ] key property to automatically answer with key within some time window when requested plus prop which indicates a key once had this automatic option active
   - [ ] make checkbox if notification for keyRequest and keyAnswer textObj.sendNotifications (Chat.js)

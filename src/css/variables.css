@@ -6,8 +6,8 @@
  */
 
  @font-face{
-	font-family:"Kashima";
-	src:url("../font/Kashima.woff2") format("woff2");
+	font-family:"Tokyo";
+	src:url("../font/night-in-tokyo.regular.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -83,7 +83,7 @@
   --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
   --dialog-top-slide-in-color: var(--dialog-left-slide-in-color);
   --dialog-top-slide-in-ul-margin: 0;
-  --font-family-secondary: Kashima, Arial, sans-serif;
+  --font-family-secondary: Tokyo, Arial, sans-serif;
   --font-family: Arial, sans-serif;
   --font-size-mobile: min(14px, 5vw);
   --font-size: max(16px, 0.8vw);
