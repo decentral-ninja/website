@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'beta',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.0.8'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.0.0'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
@@ -32,6 +32,10 @@ self.Environment = {
   {
     name: 'webrtc',
     url: 'wss://webrtc-two.peerweb.site'
+  },
+  {
+    name: 'webrtc',
+    url: 'wss://webrtc-trystero.ninja'
   }],
   alternativeWebsiteHosts: ['https://decentralninja.app.runonflux.io/', 'https://decentralninja_8080.app.runonflux.io'],
   timestampNamespace: 't_',

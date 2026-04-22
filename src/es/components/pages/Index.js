@@ -154,7 +154,7 @@ export default class Index extends Mutation() {
   renderHTML () {
     // Header is expected to be initially open, below <o-header open></o-header>
     this.classList.add('header-open')
-    const providerQuery = 'websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D86400000&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site'
+    const providerQuery = 'websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D86400000&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site%2Cwss%3A%2F%2Fwebrtc-trystero.ninja'
     this.html = /* html */`
       <section>
         <o-header open>
@@ -194,16 +194,14 @@ export default class Index extends Mutation() {
                 <hr>
                 <h4>Our chat, our first set of weapon 武器 at hand:</h4>
                 <ul>
-                  <li>Local first <a href="https://docs.yjs.dev/" target="_blank">CRDT</a> (conflict-free replicated data sets)</li>
-                  <li>Websocket provider: <a href="https://github.com/Weedshaker/y-websocket/blob/master/package.json#L15" target="_blank">nodejs</a>, <a href="https://hub.docker.com/repository/docker/weedshaker/y-websocket/general" target="_blank">docker container</a></li>
-                  <li>WebRTC provider: <a href="https://github.com/yjs/y-webrtc/tree/master" target="_blank">nodejs</a></li>
-                  <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank">Flux Nodes</a></li>
-                  <li>End to end encryption</li>
-                  <li>PWA - offline support</li>
-                  <li>File through WebTorrent and/or ipfs (coming soon)</li>
-                  <li>Libp2p provider (coming soon)</li>
-                  <li>Matrix provider (coming soon)</li>
-                  <li>Nostr provider (coming soon)</li>
+                  <li>Local first <a href="https://docs.yjs.dev/" target="_blank">CRDT</a> (conflict-free replicated data sets) ✅</li>
+                  <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank">Flux Nodes</a> ✅</li>
+                  <li>End to end encryption ✅</li>
+                  <li>PWA - offline support ✅</li>
+                  <li>Websocket provider: <a href="https://github.com/Weedshaker/y-websocket/blob/master/package.json#L15" target="_blank">nodejs</a>, <a href="https://hub.docker.com/repository/docker/weedshaker/y-websocket/general" target="_blank">docker container</a> ✅</li>
+                  <li>WebRTC provider: <a href="https://github.com/yjs/y-webrtc/tree/master" target="_blank">nodejs</a> ✅</li>
+                  <li><a href="https://github.com/dmotz/trystero" target="_blank">BitTorrent, Nostr, MQTT & IPFS</a> provider ✅</li>
+                  <li>Files through WebTorrent (coming soon)</li>
                 </ul>
                 <p>Use our beta version <a href="?page=/chat&${providerQuery}" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
                 <iframe title="Think Privacy Is Dead? You're Wrong." width="560" height="315" style="aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: var(--border-radius);" src="https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>

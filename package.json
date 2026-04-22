@@ -25,7 +25,7 @@
       "src/es/event-driven-web-components-yjs/servers/*",
       "src/es/event-driven-web-components-yjs/src/fingerprint/*",
       "src/es/event-driven-web-components-yjs/src/y-indexeddb/*",
-      "src/es/event-driven-web-components-yjs/src/y-p2pt/*",
+      "src/es/event-driven-web-components-yjs/src/y-webrtc-trystero/*",
       "src/es/event-driven-web-components-yjs/src/y-webrtc/*",
       "src/es/event-driven-web-components-yjs/src/y-websocket/*",
       "src/es/event-driven-web-components-yjs/src/yjs/*",

@@ -47,6 +47,8 @@ export default class IconReload extends Shadow() {
         // @ts-ignore
       }, self.Environment.awarenessEventListenerDelay || 1000)
     }
+    
+    this.hintReloadEventListener = event => this.setAttribute('has-problems')
 
     this.visibilitychangeEventListener = event => {
       if (document.hidden) return
@@ -65,6 +67,7 @@ export default class IconReload extends Shadow() {
     this.addEventListener('click', this.clickEventListener, { once: true })
     this.globalEventTarget.addEventListener('yjs-users', this.usersEventListener)
     this.globalEventTarget.addEventListener('yjs-providers-data', this.providersEventListener)
+    this.globalEventTarget.addEventListener('hint-reload', this.hintReloadEventListener)
     document.addEventListener('visibilitychange', this.visibilitychangeEventListener)
     self.addEventListener('online', this.onlineEventListener)
     self.addEventListener('offline', this.offlineEventListener)
@@ -79,6 +82,7 @@ export default class IconReload extends Shadow() {
     this.removeEventListener('click', this.clickEventListener)
     this.globalEventTarget.removeEventListener('yjs-users', this.usersEventListener)
     this.globalEventTarget.removeEventListener('yjs-providers-data', this.providersEventListener)
+    this.globalEventTarget.removeEventListener('hint-reload', this.hintReloadEventListener)
     document.removeEventListener('visibilitychange', this.visibilitychangeEventListener)
     self.removeEventListener('online', this.onlineEventListener)
     self.removeEventListener('offline', this.offlineEventListener)
@@ -115,7 +119,7 @@ export default class IconReload extends Shadow() {
         display: none;
       }
       /* navigator.onLine && this.getAttribute('is-connected-to-users') === 'true' && this.getAttribute('is-connected-to-providers') === 'false' */
-      :host([online][is-connected-to-users=true][is-connected-to-providers=false]) {
+      :host([online][is-connected-to-users=true][is-connected-to-providers=false]), :host([online][has-problems]) {
         display: flex;
       }
     `
@@ -145,7 +149,7 @@ export default class IconReload extends Shadow() {
 
   async setAttributeIsConnectedToProviders (eventDetail) {
     const data = await eventDetail.getData()
-    this.setAttribute('is-connected-to-providers', (await Promise.all((await data.getSessionProvidersByStatus()).connected.map(provider => data.pingProvider(provider.split(data.separator)[1], true)))).some(ping => ping.status === 'success'))
+    this.setAttribute('is-connected-to-providers', (await Promise.all((await data.getSessionProvidersByStatus()).connected.map(provider => provider.includes('webrtc-trystero') ? {status: 'success'} : data.pingProvider(provider.split(data.separator)[1], true)))).some(ping => ping.status === 'success'))
   }
 
   hasConnectionProblem () {
