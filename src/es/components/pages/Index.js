@@ -154,7 +154,7 @@ export default class Index extends Mutation() {
   renderHTML () {
     // Header is expected to be initially open, below <o-header open></o-header>
     this.classList.add('header-open')
-    const providerQuery = 'websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D86400000&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site%2Cwss%3A%2F%2Fwebrtc-trystero.ninja'
+    const providerQuery = 'websocket-url=wss%3A%2F%2Fthe-decentral-web.herokuapp.com%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D86400000%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D86400000&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site'// %2Cwss%3A%2F%2Fwebrtc-trystero.ninja
     this.html = /* html */`
       <section>
         <o-header open>
