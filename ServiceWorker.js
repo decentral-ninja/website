@@ -16,7 +16,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v39'
+    this.version = 'v40'
     // KEEP DOING: When version upgrade also update the precache. This is a manual process by clicking through all the routes and dialogs, then enter the following code snippet into the console and copy/paste the result into this.precache:
     // Code: document.body.prepend(Array.from(new Set(self.performance.getEntriesByType('resource').filter(resource => resource.name.includes(location.origin)).map(resource => {let url = resource.name;try{url = new URL(resource.name);url.searchParams.delete('version');url = url.href}catch(error){}return url.replace(location.origin, '.')}).sort((a, b) => a < b ? -1 : a > b ? 1 : 0))).reduce((textarea, curr) => {textarea.value += `'${curr}',\n`;return textarea}, document.createElement('textarea')))
     this.precache = [
@@ -58,6 +58,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/chat/es/components/molecules/User.js',
       './src/es/chat/es/components/molecules/Users.js',
       './src/es/components/atoms/iconChat/IconChat.js',
+      './src/es/components/atoms/iconCombinations/add-key-/add-key-.css',
       './src/es/components/atoms/iconCombinations/IconCombinations.js',
       './src/es/components/atoms/iconReload/IconReload.js',
       './src/es/components/atoms/iconStates/IconStates.js',
@@ -92,6 +93,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/event-driven-web-components-yjs/src/es/controllers/Users.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/fp.min.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/y-indexeddb.js',
+      './src/es/event-driven-web-components-yjs/src/es/dependencies/y-webrtc-trystero.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/y-websocket.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/yjs.js',
       './src/es/event-driven-web-components-yjs/src/es/EventDrivenYjs.js',
@@ -146,6 +148,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/img/icons/key-square.svg',
       './src/img/icons/lock-open-2.svg',
       './src/img/icons/lock.svg',
+      './src/img/icons/message-2-share.svg',
       './src/img/icons/message-check.svg',
       './src/img/icons/message-x.svg',
       './src/img/icons/mobiledata.svg',
@@ -162,6 +165,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/img/icons/swipe-down.svg',
       './src/img/icons/trash-off.svg',
       './src/img/icons/trash.svg',
+      './src/img/icons/upload.svg',
       './src/img/icons/user-off.svg',
       './src/img/icons/user-other.svg',
       './src/img/icons/user-self.svg',
@@ -247,6 +251,7 @@ class ServiceWorker extends NotificationServiceWorker {
 
   /**
    * modifies a request url to loose it's version param
+   * consider to use cache.match ignoreSearch instead of filtering the  search params manually: https://developer.mozilla.org/en-US/docs/Web/API/Cache/match
    *
    * @static
    * @param {Request} request
@@ -256,6 +261,8 @@ class ServiceWorker extends NotificationServiceWorker {
     try {
       const url = new URL(request.url)
       url.searchParams.delete('version')
+      // since we use a router at index.html, this is always index.html as response, no matter the search params
+      if (url.pathname === '/') url.search = ''
       return new Request(url.href)
     } catch (error) {
       return request
