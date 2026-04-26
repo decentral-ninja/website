@@ -8,14 +8,14 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'beta',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.0.4'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.0.5'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
   keepAlive: 86400000,
   providers: [{
     name: 'websocket',
-    url: 'wss://the-decentral-web.herokuapp.com'
+    url: 'wss://heroku.peerweb.site'
   },
   {
     name: 'websocket',
@@ -36,6 +36,15 @@ self.Environment = {
   {
     name: 'webrtc',
     url: 'wss://webrtc-trystero.ninja'
+  }],
+  // !!! KEEP THIS IN SYNC WITH ServiceWorker.js !!!
+  // used for hard replace of domain host
+  replaceHosts: [{
+    hostname: 'the-decentral-web.herokuapp.com',
+    pattern: '/the-decentral-web\.herokuapp\.com/',
+    replacement: 'heroku.peerweb.site',
+    idPattern: 'p_the-decentral-web-herokuapp-com', // used at molecules/Provider.js setActive L:617
+    idReplacement: 'p_heroku-peerweb-site'
   }],
   alternativeWebsiteHosts: ['https://decentralninja.app.runonflux.io/', 'https://decentralninja_8080.app.runonflux.io'],
   timestampNamespace: 't_',

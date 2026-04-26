@@ -16,7 +16,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v40'
+    this.version = 'v41'
     // KEEP DOING: When version upgrade also update the precache. This is a manual process by clicking through all the routes and dialogs, then enter the following code snippet into the console and copy/paste the result into this.precache:
     // Code: document.body.prepend(Array.from(new Set(self.performance.getEntriesByType('resource').filter(resource => resource.name.includes(location.origin)).map(resource => {let url = resource.name;try{url = new URL(resource.name);url.searchParams.delete('version');url = url.href}catch(error){}return url.replace(location.origin, '.')}).sort((a, b) => a < b ? -1 : a > b ? 1 : 0))).reduce((textarea, curr) => {textarea.value += `'${curr}',\n`;return textarea}, document.createElement('textarea')))
     this.precache = [
@@ -179,6 +179,15 @@ class ServiceWorker extends NotificationServiceWorker {
     ]
     this.doNotIntercept = []
     this.doIntercept = [location.origin]
+    // !!! KEEP THIS IN SYNC WITH Environment.js !!!
+    // used for hard replace of domain host
+    this.replaceHosts = [{
+      hostname: 'the-decentral-web.herokuapp.com',
+      pattern: '/the-decentral-web\.herokuapp\.com/',
+      replacement: 'heroku.peerweb.site',
+      idPattern: 'p_the-decentral-web-herokuapp-com', // used at molecules/Provider.js setActive L:617
+      idReplacement: 'p_heroku-peerweb-site'
+    }]
 
     this.addInstallEventListener()
     this.addActivateEventListener()
@@ -203,46 +212,50 @@ class ServiceWorker extends NotificationServiceWorker {
 
   // intercepts fetches, asks cache for fast response and still fetches and caches afterwards
   addFetchEventListener () {
-    self.addEventListener('fetch', event => event.respondWith(
-      this.doNotIntercept.every(url => !event.request.url.includes(url)) && this.doIntercept.some(url => event.request.url.includes(url))
-        ? new Promise((resolve, reject) => {
-          let counter = 0
-          let didResolve = false
-          const doResolve = response => {
-            counter++
-            if (!didResolve) {
-              if (response) {
-                didResolve = true
-                resolve(response)
-              } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
-                reject(response)
+    self.addEventListener('fetch', event => {
+      let request = event.request
+      let matchedReplaceHost
+      if (this.replaceHosts.some(replaceHost => request.url.match((matchedReplaceHost = replaceHost).pattern))) request = ServiceWorker.replaceHost(request, matchedReplaceHost)
+      return event.respondWith(
+        this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))
+          ? new Promise((resolve, reject) => {
+            let counter = 0
+            let didResolve = false
+            const doResolve = response => {
+              counter++
+              if (!didResolve) {
+                if (response) {
+                  didResolve = true
+                  resolve(response)
+                } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
+                  reject(response)
+                }
               }
+              return response || new Error(`No response for ${request.url}`)
             }
-            return response || new Error(`No response for ${event.request.url}`)
-          }
-          // race fetch vs. cache to resolve
-          this.getFetch(event).then(response => doResolve(response)).catch(error => { // start fetching and caching
-            console.info(`Can't fetch ${event.request.url}`, error)
+            // race fetch vs. cache to resolve
+            this.getFetch(request).then(response => doResolve(response)).catch(error => { // start fetching and caching
+              console.info(`Can't fetch ${request.url}`, error)
+            })
+            this.getCache(request).then(response => doResolve(response)).catch(error => { // grab cache
+              console.info(`Can't get cache ${request.url}`, error)
+            })
           })
-          this.getCache(event).then(response => doResolve(response)).catch(error => { // grab cache
-            console.info(`Can't get cache ${event.request.url}`, error)
-          })
-        })
-        : fetch(event.request)
-    )
-    )
+          : fetch(request)
+      )
+    })
   }
 
-  async getCache (event) {
-    return caches.match(ServiceWorker.removeRequestUrlVersionParam(event.request))
+  async getCache (request) {
+    return caches.match(ServiceWorker.ignoreSpecificSearch(request))
   }
 
-  async getFetch (event) {
-    return fetch(event.request, { cache: 'no-store' }).then(
+  async getFetch (request) {
+    return fetch(request, { cache: 'no-store' }).then(
       response => caches.open(this.version).then(
         cache => {
-          // console.log('cached', event.request.url)
-          cache.put(ServiceWorker.removeRequestUrlVersionParam(event.request), response.clone())
+          // console.log('cached', request.url)
+          cache.put(ServiceWorker.ignoreSpecificSearch(request), response.clone())
           return response
         }
       )
@@ -250,20 +263,39 @@ class ServiceWorker extends NotificationServiceWorker {
   }
 
   /**
-   * modifies a request url to loose it's version param
-   * consider to use cache.match ignoreSearch instead of filtering the  search params manually: https://developer.mozilla.org/en-US/docs/Web/API/Cache/match
+   * replaces a request with a new request with a different host
+   *
+   * @static
+   * @param {Request} request
+   * @param {{pattern: RegExp, replacement: string}} matchedReplaceHost
+   * @returns {Request}
+   */
+  static replaceHost (request, matchedReplaceHost) {
+    try {
+      const url = new URL(request.url)
+      url.host = matchedReplaceHost.replacement
+      return new Request(url.href, request)
+    } catch (error) {
+      return request
+    }
+  }
+
+  /**
+   * modifies a request url to loose it's version param and for index.html all its search params
+   * this keeps the cache clean and avoids caching the same file multiple times
+   * -> consider to use cache.match ignoreSearch instead of filtering the  search params manually: https://developer.mozilla.org/en-US/docs/Web/API/Cache/match
    *
    * @static
    * @param {Request} request
    * @returns {Request}
    */
-  static removeRequestUrlVersionParam (request) {
+  static ignoreSpecificSearch (request) {
     try {
       const url = new URL(request.url)
       url.searchParams.delete('version')
       // since we use a router at index.html, this is always index.html as response, no matter the search params
       if (url.pathname === '/') url.search = ''
-      return new Request(url.href)
+      return new Request(url.href, request)
     } catch (error) {
       return request
     }
