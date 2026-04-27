@@ -156,6 +156,7 @@ https://tabler.io/icons
   - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
   - [ ] webtorrent websocket seed encrypted files and get funds through https://trocador.app/en/docs/
   - [ ] own https://github.com/webtorrent/bittorrent-tracker include for trystero
+- [x] sw fetch new version from decentral.ninja priority one
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
 - [ ] announce room publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
@@ -170,8 +171,9 @@ https://tabler.io/icons
   - [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
   - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app or...
   - [ ] Service worker directly pull or push notifications and do batches instead of current sw notification implementation
+- [ ] user is typing indicator
 - [ ] translations
-- [ ] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
+- [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] Provider Part 2:
   - [ ] user p2p graph webrtc url string split "," multiple urls and show separate (seen at history users dialog)
   - [ ] provider fallback info, mark old providers

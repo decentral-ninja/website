@@ -16,7 +16,13 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v41'
+    this.version = 'v42'
+    if (location.hostname === 'localhost') {
+      this.decentralNinjaRequestsAvailable = false
+    } else  {
+      this.decentralNinjaRequestsAvailable = true
+      setInterval(() => (this.decentralNinjaRequestsAvailable = true), 86400000) // reset once a day
+    }
     // KEEP DOING: When version upgrade also update the precache. This is a manual process by clicking through all the routes and dialogs, then enter the following code snippet into the console and copy/paste the result into this.precache:
     // Code: document.body.prepend(Array.from(new Set(self.performance.getEntriesByType('resource').filter(resource => resource.name.includes(location.origin)).map(resource => {let url = resource.name;try{url = new URL(resource.name);url.searchParams.delete('version');url = url.href}catch(error){}return url.replace(location.origin, '.')}).sort((a, b) => a < b ? -1 : a > b ? 1 : 0))).reduce((textarea, curr) => {textarea.value += `'${curr}',\n`;return textarea}, document.createElement('textarea')))
     this.precache = [
@@ -219,47 +225,62 @@ class ServiceWorker extends NotificationServiceWorker {
       return event.respondWith(
         this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))
           ? new Promise((resolve, reject) => {
-            let counter = 0
-            let didResolve = false
-            const doResolve = response => {
-              counter++
-              if (!didResolve) {
-                if (response) {
-                  didResolve = true
-                  resolve(response)
-                } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
-                  reject(response)
+              let counter = 0
+              let didResolve = false
+              const doResolve = response => {
+                counter++
+                if (!didResolve) {
+                  if (response) {
+                    didResolve = true
+                    resolve(response)
+                  } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
+                    reject(response)
+                  }
                 }
+                return response || new Error(`No response for ${request.url}`)
               }
-              return response || new Error(`No response for ${request.url}`)
-            }
-            // race fetch vs. cache to resolve
-            this.getFetch(request).then(response => doResolve(response)).catch(error => { // start fetching and caching
-              console.info(`Can't fetch ${request.url}`, error)
+              // race fetch vs. cache to resolve
+              this.getFetch(request).then(response => doResolve(response)).catch(error => { // start fetching and caching
+                console.info(`Can't fetch ${request.url}`, error)
+              })
+              this.getCache(request).then(response => doResolve(response)).catch(error => { // grab cache
+                console.info(`Can't get cache ${request.url}`, error)
+              })
             })
-            this.getCache(request).then(response => doResolve(response)).catch(error => { // grab cache
-              console.info(`Can't get cache ${request.url}`, error)
-            })
-          })
           : fetch(request)
       )
     })
   }
 
   async getCache (request) {
-    return caches.match(ServiceWorker.ignoreSpecificSearch(request))
+    return caches.match(ServiceWorker.cacheIgnoreSpecificSearch(request))
   }
 
   async getFetch (request) {
-    return fetch(request, { cache: 'no-store' }).then(
-      response => caches.open(this.version).then(
-        cache => {
-          // console.log('cached', request.url)
-          cache.put(ServiceWorker.ignoreSpecificSearch(request), response.clone())
-          return response
-        }
-      )
+    const cachePut = response => caches.open(this.version).then(
+      cache => {
+        // always set the cache by the original request
+        cache.put(ServiceWorker.cacheIgnoreSpecificSearch(request), response.clone())
+        return response
+      }
     )
+    // first fetch from decentral.ninja
+    const newRequestObj = this.decentralNinjaRequestsAvailable ? ServiceWorker.getDecentralNinjaRequest(request) : {request}
+    return fetch(newRequestObj.newRequest || newRequestObj.request, { cache: 'no-store' })
+      .then(response => {
+        if (newRequestObj.newRequest) this.decentralNinjaRequestsAvailable = true
+        return cachePut(response)
+      })
+      .catch(error => {
+        if (newRequestObj.newRequest) {
+          this.decentralNinjaRequestsAvailable = false
+          return fetch(request, { cache: 'no-store' }).then(cachePut).catch(error => {
+            if (newRequestObj.newRequest) this.decentralNinjaRequestsAvailable = true
+            return error
+          })
+        }
+        return error
+      })
   }
 
   /**
@@ -289,7 +310,7 @@ class ServiceWorker extends NotificationServiceWorker {
    * @param {Request} request
    * @returns {Request}
    */
-  static ignoreSpecificSearch (request) {
+  static cacheIgnoreSpecificSearch (request) {
     try {
       const url = new URL(request.url)
       url.searchParams.delete('version')
@@ -298,6 +319,23 @@ class ServiceWorker extends NotificationServiceWorker {
       return new Request(url.href, request)
     } catch (error) {
       return request
+    }
+  }
+
+  /**
+   * replace request location.origin with decentral.ninja to fetch newest version of website assets/sources
+   *
+   * @static
+   * @param {Request} request
+   * @returns {{request: Request, newRequest: Request|null}}
+   */
+  static getDecentralNinjaRequest (request) {
+    if (!request.url.includes(location.origin)) return {request}
+    try {
+      const url = new URL(request.url)
+      return {request, newRequest: new Request(`${'https://decentral.ninja'}${url.pathname}${url.search}`, request)}
+    } catch (error) {
+      return {request}
     }
   }
 }
