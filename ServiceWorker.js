@@ -16,8 +16,9 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v42'
-    if (location.hostname === 'localhost') {
+    this.version = 'v43'
+    this.decentralNinjaOrigin = 'https://decentral.ninja'
+    if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
     } else  {
       this.decentralNinjaRequestsAvailable = true
@@ -265,7 +266,7 @@ class ServiceWorker extends NotificationServiceWorker {
       }
     )
     // first fetch from decentral.ninja
-    const newRequestObj = this.decentralNinjaRequestsAvailable ? ServiceWorker.getDecentralNinjaRequest(request) : {request}
+    const newRequestObj = this.decentralNinjaRequestsAvailable ? ServiceWorker.getDecentralNinjaRequest(request, this.decentralNinjaOrigin) : {request}
     return fetch(newRequestObj.newRequest || newRequestObj.request, { cache: 'no-store' })
       .then(response => {
         if (newRequestObj.newRequest) this.decentralNinjaRequestsAvailable = true
@@ -329,11 +330,11 @@ class ServiceWorker extends NotificationServiceWorker {
    * @param {Request} request
    * @returns {{request: Request, newRequest: Request|null}}
    */
-  static getDecentralNinjaRequest (request) {
+  static getDecentralNinjaRequest (request, decentralNinjaOrigin) {
     if (!request.url.includes(location.origin)) return {request}
     try {
       const url = new URL(request.url)
-      return {request, newRequest: new Request(`${'https://decentral.ninja'}${url.pathname}${url.search}`, request)}
+      return {request, newRequest: new Request(`${decentralNinjaOrigin}${url.pathname}${url.search}${url.hash}`, request)}
     } catch (error) {
       return {request}
     }
