@@ -16,7 +16,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v44'
+    this.version = 'v45'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -296,7 +296,7 @@ class ServiceWorker extends NotificationServiceWorker {
     try {
       const url = new URL(request.url)
       url.host = matchedReplaceHost.replacement
-      return new Request(url.href, request)
+      return new Request(url.href) // !important: don't use old request as second argument, this would cause issues with mismatches
     } catch (error) {
       return request
     }
@@ -317,7 +317,7 @@ class ServiceWorker extends NotificationServiceWorker {
       url.searchParams.delete('version')
       // since we use a router at index.html, this is always index.html as response, no matter the search params
       if (url.pathname === '/') url.search = ''
-      return new Request(url.href, request)
+      return new Request(url.href) // !important: don't use old request as second argument, this would cause issues with mismatches
     } catch (error) {
       return request
     }
@@ -334,7 +334,7 @@ class ServiceWorker extends NotificationServiceWorker {
     if (!request.url.includes(location.origin)) return {request}
     try {
       const url = new URL(request.url)
-      return {request, newRequest: new Request(`${decentralNinjaOrigin}${url.pathname}${url.search}${url.hash}`, request)}
+      return {request, newRequest: new Request(`${decentralNinjaOrigin}${url.pathname}${url.search}${url.hash}`)} // !important: don't use old request as second argument, this would cause issues with mismatches
     } catch (error) {
       return {request}
     }
