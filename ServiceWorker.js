@@ -16,7 +16,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v47'
+    this.version = 'v48'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -338,7 +338,7 @@ class ServiceWorker extends NotificationServiceWorker {
    * @returns {{request: Request, newRequest: Request|null}}
    */
   static getRequestWithNewOrigin (request, newOrigin) {
-    if (!request.url.includes(newOrigin)) return {request}
+    if (request.url.includes(newOrigin)) return {request}
     try {
       const url = new URL(request.url)
       return {request, newRequest: new Request(`${newOrigin}${url.pathname}${url.search}${url.hash}`)} // !important: don't use old request as second argument, this would cause issues with mismatches
