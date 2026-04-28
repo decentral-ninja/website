@@ -16,7 +16,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v45'
+    this.version = 'v47'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -185,7 +185,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/img/ninjaBob.png'
     ]
     this.doNotIntercept = []
-    this.doIntercept = [location.origin]
+    this.doIntercept = [location.origin, this.decentralNinjaOrigin]
     // !!! KEEP THIS IN SYNC WITH Environment.js !!!
     // used for hard replace of domain host
     this.replaceHosts = [{
@@ -240,12 +240,14 @@ class ServiceWorker extends NotificationServiceWorker {
                 }
                 return response || new Error(`No response for ${request.url}`)
               }
+              /** @type {Request} */
+              const cacheKey = ServiceWorker.getCacheKey(request, location.origin)
               // race fetch vs. cache to resolve
-              this.getFetch(request).then(response => doResolve(response)).catch(error => { // start fetching and caching
+              this.getFetch(request, cacheKey).then(response => doResolve(response)).catch(error => { // start fetching and caching
                 console.info(`Can't fetch ${request.url}`, error)
               })
-              this.getCache(request).then(response => doResolve(response)).catch(error => { // grab cache
-                console.info(`Can't get cache ${request.url}`, error)
+              this.getCache(cacheKey).then(response => doResolve(response)).catch(error => { // grab cache
+                console.info(`Can't get cache ${cacheKey}`, error)
               })
             })
           : fetch(request)
@@ -254,28 +256,32 @@ class ServiceWorker extends NotificationServiceWorker {
   }
 
   async getCache (request) {
-    return caches.match(ServiceWorker.cacheIgnoreSpecificSearch(request))
+    return caches.match(request)
   }
 
-  async getFetch (request) {
+  async getFetch (request, cacheKey) {
     const cachePut = response => caches.open(this.version).then(
       cache => {
         // always set the cache by the original request
-        cache.put(ServiceWorker.cacheIgnoreSpecificSearch(request), response.clone())
+        if (response.ok) cache.put(cacheKey, response.clone())
         return response
       }
     )
     // first fetch from decentral.ninja
-    const newRequestObj = this.decentralNinjaRequestsAvailable ? ServiceWorker.getDecentralNinjaRequest(request, this.decentralNinjaOrigin) : {request}
+    const newRequestObj = this.decentralNinjaRequestsAvailable ? ServiceWorker.getRequestWithNewOrigin(request, this.decentralNinjaOrigin) : {request}
     return fetch(newRequestObj.newRequest || newRequestObj.request, { cache: 'no-store' })
       .then(response => {
+        if (!response.ok) throw new TypeError(response.statusText)
         if (newRequestObj.newRequest) this.decentralNinjaRequestsAvailable = true
         return cachePut(response)
       })
       .catch(error => {
         if (newRequestObj.newRequest) {
           this.decentralNinjaRequestsAvailable = false
-          return fetch(request, { cache: 'no-store' }).then(cachePut).catch(error => {
+          return fetch(request, { cache: 'no-store' }).then(response => {
+            if (!response.ok) throw new TypeError(response.statusText)
+            return cachePut(response)
+          }).catch(error => {
             if (newRequestObj.newRequest) this.decentralNinjaRequestsAvailable = true
             throw error
           })
@@ -303,7 +309,7 @@ class ServiceWorker extends NotificationServiceWorker {
   }
 
   /**
-   * modifies a request url to loose it's version param and for index.html all its search params
+   * modifies a request url to loose it's version param and for index.html all its search params and does getRequestWithNewOrigin
    * this keeps the cache clean and avoids caching the same file multiple times
    * -> consider to use cache.match ignoreSearch instead of filtering the  search params manually: https://developer.mozilla.org/en-US/docs/Web/API/Cache/match
    *
@@ -311,30 +317,31 @@ class ServiceWorker extends NotificationServiceWorker {
    * @param {Request} request
    * @returns {Request}
    */
-  static cacheIgnoreSpecificSearch (request) {
+  static getCacheKey (request, newOrigin) {
     try {
       const url = new URL(request.url)
       url.searchParams.delete('version')
       // since we use a router at index.html, this is always index.html as response, no matter the search params
       if (url.pathname === '/') url.search = ''
-      return new Request(url.href) // !important: don't use old request as second argument, this would cause issues with mismatches
+      const newRequestObj = ServiceWorker.getRequestWithNewOrigin(new Request(url.href), newOrigin) // !important: don't use old request as second argument for new Request, this would cause issues with mismatches
+      return newRequestObj.newRequest || newRequestObj.request
     } catch (error) {
       return request
     }
   }
 
   /**
-   * replace request location.origin with decentral.ninja to fetch newest version of website assets/sources
+   * replace request origin with newOrigin to fetch newest version of website assets/sources
    *
    * @static
    * @param {Request} request
    * @returns {{request: Request, newRequest: Request|null}}
    */
-  static getDecentralNinjaRequest (request, decentralNinjaOrigin) {
-    if (!request.url.includes(location.origin)) return {request}
+  static getRequestWithNewOrigin (request, newOrigin) {
+    if (!request.url.includes(newOrigin)) return {request}
     try {
       const url = new URL(request.url)
-      return {request, newRequest: new Request(`${decentralNinjaOrigin}${url.pathname}${url.search}${url.hash}`)} // !important: don't use old request as second argument, this would cause issues with mismatches
+      return {request, newRequest: new Request(`${newOrigin}${url.pathname}${url.search}${url.hash}`)} // !important: don't use old request as second argument, this would cause issues with mismatches
     } catch (error) {
       return {request}
     }
