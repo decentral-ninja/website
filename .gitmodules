@@ -13,3 +13,6 @@
 [submodule "src/es/event-driven-web-components-yjs"]
 	path = src/es/event-driven-web-components-yjs
 	url = https://github.com/Weedshaker/event-driven-web-components-yjs.git
+[submodule "src/es/event-driven-web-components-webtorrent"]
+	path = src/es/event-driven-web-components-webtorrent
+	url = git@github.com:Weedshaker/event-driven-web-components-webtorrent.git
