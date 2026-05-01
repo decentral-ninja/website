@@ -5,6 +5,7 @@
 /* global NotificationServiceWorker */
 
 importScripts('./src/es/event-driven-web-components-yjs/src/es/serviceWorkers/NotificationServiceWorker.js')
+importScripts('./src/es/event-driven-web-components-webtorrent/src/webtorrent/lib/worker-server.js')
 
 /**
  * This ServiceWorker always fetches and caches but races each time cache vs. fetch. Which means that it serves from cache but updates cache on each request.
@@ -16,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v49'
+    this.version = 'v50'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -93,6 +94,11 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/event-driven-web-components-prototypes/src/Shadow.js',
       './src/es/event-driven-web-components-prototypes/src/WebWorker.js',
       './src/es/event-driven-web-components-router/src/Router.js',
+      './src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js',
+      './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Intersection.js',
+      './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Shadow.js',
+      './src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js',
+      './src/es/event-driven-web-components-webtorrent/src/webtorrent/dist/webtorrent.min.js',
       './src/es/event-driven-web-components-yjs/src/es/controllers/Keys.js',
       './src/es/event-driven-web-components-yjs/src/es/controllers/Notifications.js',
       './src/es/event-driven-web-components-yjs/src/es/controllers/Providers.js',
@@ -101,6 +107,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/event-driven-web-components-yjs/src/es/dependencies/fp.min.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/y-indexeddb.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/y-webrtc-trystero.js',
+      './src/es/event-driven-web-components-yjs/src/es/dependencies/y-webrtc.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/y-websocket.js',
       './src/es/event-driven-web-components-yjs/src/es/dependencies/yjs.js',
       './src/es/event-driven-web-components-yjs/src/es/EventDrivenYjs.js',
@@ -184,7 +191,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/img/macaque-noise.webp',
       './src/img/ninjaBob.png'
     ]
-    this.doNotIntercept = []
+    this.doNotIntercept = ['webtorrent']
     this.doIntercept = [location.origin, this.decentralNinjaOrigin]
     // !!! KEEP THIS IN SYNC WITH Environment.js !!!
     // used for hard replace of domain host
@@ -222,36 +229,38 @@ class ServiceWorker extends NotificationServiceWorker {
     self.addEventListener('fetch', event => {
       let request = event.request
       let matchedReplaceHost
+      // overwrite host
       if (this.replaceHosts.some(replaceHost => request.url.match((matchedReplaceHost = replaceHost).pattern))) request = ServiceWorker.replaceHost(request, matchedReplaceHost)
-      return event.respondWith(
-        this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))
-          ? new Promise((resolve, reject) => {
-              let counter = 0
-              let didResolve = false
-              const doResolve = response => {
-                counter++
-                if (!didResolve) {
-                  if (response) {
-                    didResolve = true
-                    resolve(response)
-                  } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
-                    reject(response)
-                  }
-                }
-                return response || new Error(`No response for ${request.url}`)
-              }
-              /** @type {Request} */
-              const cacheKey = ServiceWorker.getCacheKey(request, location.origin)
-              // race fetch vs. cache to resolve
-              this.getFetch(request, cacheKey).then(response => doResolve(response)).catch(error => { // start fetching and caching
-                console.info(`Can't fetch ${request.url}`, error)
-              })
-              this.getCache(cacheKey).then(response => doResolve(response)).catch(error => { // grab cache
-                console.info(`Can't get cache ${cacheKey}`, error)
-              })
-            })
-          : fetch(request)
-      )
+      // intercept for caching logic
+      if (this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))) return new Promise((resolve, reject) => {
+        let counter = 0
+        let didResolve = false
+        const doResolve = response => {
+          counter++
+          if (!didResolve) {
+            if (response) {
+              didResolve = true
+              resolve(response)
+            } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
+              reject(response)
+            }
+          }
+          return response || new Error(`No response for ${request.url}`)
+        }
+        /** @type {Request} */
+        const cacheKey = ServiceWorker.getCacheKey(request, location.origin)
+        // race fetch vs. cache to resolve
+        this.getFetch(request, cacheKey).then(response => doResolve(response)).catch(error => { // start fetching and caching
+          console.info(`Can't fetch ${request.url}`, error)
+        })
+        this.getCache(cacheKey).then(response => doResolve(response)).catch(error => { // grab cache
+          console.info(`Can't get cache ${cacheKey}`, error)
+        })
+      })
+      // check webtorrent
+      const webtorrentResponse = listener(event)
+      if (webtorrentResponse) return event.respondWith(webtorrentResponse)
+      return event.respondWith(fetch(request))
     })
   }
 
@@ -262,8 +271,10 @@ class ServiceWorker extends NotificationServiceWorker {
   async getFetch (request, cacheKey) {
     const cachePut = response => caches.open(this.version).then(
       cache => {
-        // always set the cache by the original request
-        if (response.ok) cache.put(cacheKey, response.clone())
+        try {
+          // always set the cache by the original request
+          if (response.ok) cache.put(cacheKey, response.clone())
+        } catch (error) {}
         return response
       }
     )

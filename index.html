@@ -32,22 +32,24 @@
       <c-fetch-modules>
         <c-crypto>
           <c-storage>
-            <c-router resume mode="search" routes="[
-              {
-                'name': 'p-index',
-                'path': '../../components/pages/Index.js',
-                'regExp': ['/[#=]{1}\/$/', '/^\/$/'],
-                'title': 'Decentral Ninja'
-              },
-              {
-                'name': 'p-chat',
-                'path': '../../components/pages/Chat.js',
-                'regExp': ['/[#=]{1}\/chat/'],
-                'createNew': 'room'
-              }
-            ]">
-              <div class="custom-loader"></div>
-            </c-router>
+            <c-webtorrent sw-url="../../../ServiceWorker.js">
+              <c-router resume mode="search" routes="[
+                {
+                  'name': 'p-index',
+                  'path': '../../components/pages/Index.js',
+                  'regExp': ['/[#=]{1}\/$/', '/^\/$/'],
+                  'title': 'Decentral Ninja'
+                },
+                {
+                  'name': 'p-chat',
+                  'path': '../../components/pages/Chat.js',
+                  'regExp': ['/[#=]{1}\/chat/'],
+                  'createNew': 'room'
+                }
+              ]">
+                <div class="custom-loader"></div>
+              </c-router>
+            </c-webtorrent>
           </c-storage>
         </c-crypto>
       </c-fetch-modules>
@@ -60,6 +62,7 @@
       import('./src/es/event-driven-web-components-prototypes/src/FetchModules.js').then(module => ['c-fetch-modules', module.default]),
       import('./src/es/event-driven-web-components-prototypes/src/controllers/Crypto.js').then(module => ['c-crypto', module.default]),
       import('./src/es/event-driven-web-components-prototypes/src/controllers/Storage.js').then(module => ['c-storage', module.default]),
+      import('./src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js').then(module => ['c-webtorrent', module.default]),
       import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
     ]).then(elements => elements.forEach(element => {
       // don't define already existing customElements
