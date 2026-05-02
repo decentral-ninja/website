@@ -156,6 +156,7 @@ https://tabler.io/icons
   - [ ] check if max storage and usage can be detected and if yes, minimal UI
   - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
   - [ ] webtorrent websocket seed encrypted files and get funds through https://trocador.app/en/docs/
+  - [ ] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
   - [ ] own https://github.com/webtorrent/bittorrent-tracker include for trystero
 - [x] sw fetch new version from decentral.ninja priority one
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
