@@ -17,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v59'
+    this.version = 'v60'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -232,7 +232,7 @@ class ServiceWorker extends NotificationServiceWorker {
       // overwrite host
       if (this.replaceHosts.some(replaceHost => request.url.match((matchedReplaceHost = replaceHost).pattern))) request = ServiceWorker.replaceHost(request, matchedReplaceHost)
       // intercept for caching logic
-      if (this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))) return new Promise((resolve, reject) => {
+      if (this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))) return event.respondWith(new Promise((resolve, reject) => {
         let counter = 0
         let didResolve = false
         const doResolve = response => {
@@ -256,7 +256,7 @@ class ServiceWorker extends NotificationServiceWorker {
         this.getCache(cacheKey).then(response => doResolve(response)).catch(error => { // grab cache
           console.info(`Can't get cache ${cacheKey}`, error)
         })
-      })
+      }))
       // check webtorrent
       const webtorrentResponse = listener(event)
       if (webtorrentResponse) return event.respondWith(webtorrentResponse)
