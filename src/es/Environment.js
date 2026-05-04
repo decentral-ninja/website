@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'beta',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.1.12'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.1.13'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
@@ -37,6 +37,14 @@ self.Environment = {
     name: 'webrtc',
     url: 'wss://webrtc-trystero.ninja'
   }],
+  trackers: [
+    'wss://tracker.peerweb.site',
+    'https://tracker.peerweb.site',
+    'wss://tracker.openwebtorrent.com',
+    'https://tracker.torrent.eu.org:443/announce',
+    'https://tracker.nanoha.org:443/announce',
+    'udp://tracker.opentrackr.org:1337/announce'
+  ],
   // !!! KEEP THIS IN SYNC WITH ServiceWorker.js !!!
   // used for hard replace of domain host
   replaceHosts: [{
