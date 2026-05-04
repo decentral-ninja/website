@@ -17,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v60'
+    this.version = 'v61'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -191,7 +191,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/img/macaque-noise.webp',
       './src/img/ninjaBob.png'
     ]
-    this.doNotIntercept = ['webtorrent']
+    this.doNotIntercept = [`${location.origin}/webtorrent/`]
     this.doIntercept = [location.origin, this.decentralNinjaOrigin]
     // !!! KEEP THIS IN SYNC WITH Environment.js !!!
     // used for hard replace of domain host
