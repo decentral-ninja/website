@@ -41,8 +41,8 @@ self.Environment = {
     'https://tracker.peerweb.site',
     'wss://tracker.openwebtorrent.com',
     'wss://nostr.data.haus',
-    'https://tracker.torrent.eu.org:443/announce',
-    'https://tracker.nanoha.org:443/announce',
+    'https://tracker.torrent.eu.org:443',
+    'https://tracker.nanoha.org:443',
     'udp://tracker.opentrackr.org:1337/announce'
   ],
   // !!! KEEP THIS IN SYNC WITH ServiceWorker.js !!!
