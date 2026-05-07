@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'beta',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.1.23'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.1.24'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
@@ -41,8 +41,7 @@ self.Environment = {
     'wss://tracker.peerweb.site',
     'wss://nostr.data.haus',
     'wss://tracker.openwebtorrent.com:443/announce',
-    'wss://tracker.webtorrent.dev',
-    'wss://tracker.files.fm:7073/announce'
+    'wss://tracker.webtorrent.dev'
   ],
   // !!! KEEP THIS IN SYNC WITH ServiceWorker.js !!!
   // used for hard replace of domain host

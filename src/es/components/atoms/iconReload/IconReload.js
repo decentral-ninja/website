@@ -26,7 +26,7 @@ export default class IconReload extends Shadow() {
       lastUsersEventDetail = event.detail
       if (usersTimeoutCounter % usersSkipTimeoutClear) clearTimeout(usersTimeoutId)
       usersTimeoutCounter++
-      usersTimeoutId = setTimeout(async () => {
+      usersTimeoutId = setTimeout(() => {
         usersTimeoutCounter = 1
         if (this.hasConnectionProblem()) this.setAttributeIsConnectedToUsers(event.detail)
         // @ts-ignore
@@ -41,7 +41,7 @@ export default class IconReload extends Shadow() {
       lastProvidersEventDetail = event.detail
       if (providersTimeoutCounter % providersSkipTimeoutClear) clearTimeout(providersTimeoutId)
       providersTimeoutCounter++
-      providersTimeoutId = setTimeout(async () => {
+      providersTimeoutId = setTimeout(() => {
         providersTimeoutCounter = 1
         if (this.hasConnectionProblem()) this.setAttributeIsConnectedToProviders(event.detail)
         // @ts-ignore

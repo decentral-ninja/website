@@ -24,7 +24,7 @@ export default class Body extends Shadow() {
     let timeoutId = null
     this.scrollEventListener = event => {
       clearTimeout(timeoutId)
-      timeoutId = setTimeout(async () => {
+      timeoutId = setTimeout(() => {
         // isScrolledBottom
         if (this.isScrolledBottom()) {
           this.setAttribute('is-scrolled-bottom', '')
