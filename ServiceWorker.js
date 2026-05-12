@@ -17,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v80'
+    this.version = 'v81'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -94,9 +94,11 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/event-driven-web-components-prototypes/src/Shadow.js',
       './src/es/event-driven-web-components-prototypes/src/WebWorker.js',
       './src/es/event-driven-web-components-router/src/Router.js',
+      './src/es/event-driven-web-components-webtorrent/src/controllers/Ipfs.js',
       './src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Intersection.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Shadow.js',
+      './src/es/event-driven-web-components-webtorrent/src/ipfs/index.min.js.js',
       './src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js',
       './src/es/event-driven-web-components-webtorrent/src/webtorrent/dist/webtorrent.min.js',
       './src/es/event-driven-web-components-yjs/src/es/controllers/Keys.js',
