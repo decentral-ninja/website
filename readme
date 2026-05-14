@@ -192,6 +192,7 @@ https://tabler.io/icons
   - [ ] provider fallback info, mark old providers
   - [ ] get-info os: uptime (rank by uptime)
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview. (https://github.com/shuding/cobe)
+  - [ ] add/make new provider https://github.com/Kkartik14/y-web-transport / https://github.com/Kkartik14/y-webtransport-go as websocket alternative
 - [ ] - End-to-End encryption Part 2:
   - [ ] key property to automatically answer with key within some time window when requested plus prop which indicates a key once had this automatic option active
   - [ ] make checkbox if notification for keyRequest and keyAnswer textObj.sendNotifications (Chat.js)

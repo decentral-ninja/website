@@ -17,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v81'
+    this.version = 'v82'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -98,7 +98,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Intersection.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Shadow.js',
-      './src/es/event-driven-web-components-webtorrent/src/ipfs/index.min.js.js',
+      './src/es/event-driven-web-components-webtorrent/src/ipfs/index.min.js',
       './src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js',
       './src/es/event-driven-web-components-webtorrent/src/webtorrent/dist/webtorrent.min.js',
       './src/es/event-driven-web-components-yjs/src/es/controllers/Keys.js',
@@ -193,7 +193,7 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/img/macaque-noise.webp',
       './src/img/ninjaBob.png'
     ]
-    this.doNotIntercept = [`${location.origin}/webtorrent/`]
+    this.doNotIntercept = [`${location.origin}/webtorrent/`, '/webtorrent-web-seed/'] // webtorrent gets intercepted by the webtorrent sw and webseed does not need caching but is handled below
     this.doIntercept = [location.origin, this.decentralNinjaOrigin]
     // !!! KEEP THIS IN SYNC WITH Environment.js !!!
     // used for hard replace of domain host
@@ -259,6 +259,8 @@ class ServiceWorker extends NotificationServiceWorker {
           console.info(`Can't get cache ${cacheKey}`, error)
         })
       }))
+      // webtorrent addWebSeed request
+      if (request.url.includes('/webtorrent-web-seed/')) return ServiceWorker.webSeedRespondWith(event, request)
       // check webtorrent
       const webtorrentResponse = listener(event)
       if (webtorrentResponse) return event.respondWith(webtorrentResponse)
@@ -358,6 +360,74 @@ class ServiceWorker extends NotificationServiceWorker {
     } catch (error) {
       return {request}
     }
+  }
+
+  // stitch a response together from multiple files and ranges
+  static webSeedRespondWith (event, request) {
+    const range = request.headers.get('range')
+    if (!range) return new Response('Range required', { status: 400 })
+    const [, rangeStart, rangeEnd] = /bytes=(\d+)-(\d+)/.exec(range).map(num => Number(num))
+    const [directoryRoot, restUrl] = request.url.split('/files-metadata/')
+    const filesMetadata = JSON.parse(decodeURIComponent(restUrl.split('/webtorrent-web-seed/')[0]))
+    const {parts: partsRange, rangeTotal} = ServiceWorker.resolveRange(filesMetadata, rangeStart, rangeEnd)
+    const stream = ServiceWorker.createMultipartStream(directoryRoot, partsRange)
+    return event.respondWith(new Response(stream, {
+      status: 206,
+      headers: {
+        'Content-Type': 'application/octet-stream',
+        'Accept-Ranges': 'bytes',
+        'Content-Range': `bytes ${rangeStart}-${rangeEnd}/${rangeTotal}`,
+        'Content-Length': String(rangeEnd - rangeStart + 1) // 0-0 starts with 1 thats why it must be added here
+      }
+    }))
+  }
+
+  // calculates the range per file, since start and end span multiple files
+  static resolveRange(files, start, end) {
+    const fileEnds = []
+    const parts = files.reduce((acc, file) => {
+      const fileStart = file.offset
+      const fileEnd = file.offset + file.length - 1 // -1 because it starts at 0
+      fileEnds.push(fileEnd)
+      // no overlap
+      if (end < fileStart || start > fileEnd) return acc
+      // overlap
+      const overlapStart = Math.max(start, fileStart)
+      const overlapEnd = Math.min(end, fileEnd)
+      acc.push({
+        name: file.name,
+        start: overlapStart - fileStart,
+        end: overlapEnd - fileStart
+      })
+      return acc
+    }, [])
+    return {parts, rangeTotal: Math.max(...fileEnds)}
+  }
+
+  static createMultipartStream(directoryRoot, parts) {
+    return new ReadableStream({
+      async start(controller) {
+        try {
+          for (const part of parts) {
+            const response = await fetch(`${directoryRoot}/${part.name}`, {
+              headers: {
+                Range: `bytes=${part.start}-${part.end}`
+              }
+            })
+            if (!response.ok && response.status !== 206) throw new Error(`Bad response: ${response.status}`)
+            const reader = response.body.getReader()
+            while (true) {
+              const { done, value } = await reader.read()
+              if (done) break
+              controller.enqueue(value)
+            }
+          }
+          controller.close()
+        } catch (err) {
+          controller.error(err)
+        }
+      }
+    })
   }
 }
 new ServiceWorker() // eslint-disable-line
