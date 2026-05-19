@@ -17,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v84'
+    this.version = 'v85'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -377,7 +377,7 @@ class ServiceWorker extends NotificationServiceWorker {
     } catch (error) {
       return new Response('Files metadata required', { status: 400 })
     }
-    const fileName = pathname.replace(/^.*\/(.*)$/, '$1')
+    const fileName = decodeURIComponent(pathname.replace(/^.*\/(.*)$/, '$1'))
     const {parts: partsRange, rangeTotal} = ServiceWorker.resolveRange(filesMetadata, fileName, rangeStart, rangeEnd)
     if (partsRange === undefined || !partsRange.length || rangeTotal === undefined) return new Response(`FileName: ${fileName} not found in files metadata`, { status: 400 })
     return event.respondWith(new Response(ServiceWorker.createMultipartStream(directoryRoot, partsRange), {
@@ -393,7 +393,9 @@ class ServiceWorker extends NotificationServiceWorker {
 
   // calculates the range per file, since start and end span multiple files
   static resolveRange(files, fileName, start, end) {
-    const file = files.find(file => file.name === fileName)
+    const file = files.length === 1
+      ? files[0]
+      : files.find(file => file.name === fileName)
     if (!file) return false
     return {parts: [{
       name: file.cid,
