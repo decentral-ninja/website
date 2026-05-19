@@ -17,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v83'
+    this.version = 'v84'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -98,7 +98,9 @@ class ServiceWorker extends NotificationServiceWorker {
       './src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Intersection.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Shadow.js',
+      './src/es/event-driven-web-components-webtorrent/src/ipfs/blockstore-core@7.0.1/dist/index.min.js',
       './src/es/event-driven-web-components-webtorrent/src/ipfs/index.min.js',
+      './src/es/event-driven-web-components-webtorrent/src/ipfs/ipfs-unixfs-importer@17.0.1/dist/index.min.js',
       './src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js',
       './src/es/event-driven-web-components-webtorrent/src/webtorrent/dist/webtorrent.min.js',
       './src/es/event-driven-web-components-yjs/src/es/controllers/Keys.js',
@@ -367,11 +369,18 @@ class ServiceWorker extends NotificationServiceWorker {
     const range = request.headers.get('range')
     if (!range) return new Response('Range required', { status: 400 })
     const [, rangeStart, rangeEnd] = /bytes=(\d+)-(\d+)/.exec(range).map(num => Number(num))
-    const [directoryRoot, restUrl] = request.url.split('/files-metadata/')
-    const filesMetadata = JSON.parse(decodeURIComponent(restUrl.split('/webtorrent-web-seed/')[0]))
-    const {parts: partsRange, rangeTotal} = ServiceWorker.resolveRange(filesMetadata, rangeStart, rangeEnd)
-    const stream = ServiceWorker.createMultipartStream(directoryRoot, partsRange)
-    return event.respondWith(new Response(stream, {
+    const [directoryRoot, filesMetadataUrl] = request.url.split('/files-metadata/')
+    let [filesMetadata, pathname] = filesMetadataUrl.split('/webtorrent-web-seed/')
+    try {
+      // we do this on every request, since the request.url can change
+      filesMetadata = JSON.parse(decodeURIComponent(filesMetadata))
+    } catch (error) {
+      return new Response('Files metadata required', { status: 400 })
+    }
+    const fileName = pathname.replace(/^.*\/(.*)$/, '$1')
+    const {parts: partsRange, rangeTotal} = ServiceWorker.resolveRange(filesMetadata, fileName, rangeStart, rangeEnd)
+    if (partsRange === undefined || !partsRange.length || rangeTotal === undefined) return new Response(`FileName: ${fileName} not found in files metadata`, { status: 400 })
+    return event.respondWith(new Response(ServiceWorker.createMultipartStream(directoryRoot, partsRange), {
       status: 206,
       headers: {
         'Content-Type': 'application/octet-stream',
@@ -383,27 +392,17 @@ class ServiceWorker extends NotificationServiceWorker {
   }
 
   // calculates the range per file, since start and end span multiple files
-  static resolveRange(files, start, end) {
-    const fileEnds = []
-    const parts = files.reduce((acc, file) => {
-      const fileStart = file.offset
-      const fileEnd = file.offset + file.length - 1 // -1 because it starts at 0
-      fileEnds.push(fileEnd)
-      // no overlap
-      if (end < fileStart || start > fileEnd) return acc
-      // overlap
-      const overlapStart = Math.max(start, fileStart)
-      const overlapEnd = Math.min(end, fileEnd)
-      acc.push({
-        name: file.name,
-        start: overlapStart - fileStart,
-        end: overlapEnd - fileStart
-      })
-      return acc
-    }, [])
-    return {parts, rangeTotal: Math.max(...fileEnds)}
+  static resolveRange(files, fileName, start, end) {
+    const file = files.find(file => file.name === fileName)
+    if (!file) return false
+    return {parts: [{
+      name: file.cid,
+      start,
+      end
+    }], rangeTotal: file.length - 1 /* -1 because it starts at 0 */}
   }
 
+  // this function makes a whole stream, which can spawn multiple files (parts) and stitches it into one
   static createMultipartStream(directoryRoot, parts) {
     return new ReadableStream({
       async start(controller) {
