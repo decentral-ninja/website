@@ -161,6 +161,7 @@ https://tabler.io/icons
   - [ ] max storage (navigator) and usage minimal UI
   - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
   - [ ] webtorrent websocket seed encrypted files and get funds through https://trocador.app/en/docs/
+  - [ ] announce subscription at kubo url inside self user object set to v-webtorrent through chat-message
   - [x] own https://github.com/webtorrent/bittorrent-tracker include for trystero
   - [ ] player: keep video and audio progress when resetting
 - [x] sw fetch new version from decentral.ninja priority one

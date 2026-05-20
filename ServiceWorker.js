@@ -17,7 +17,7 @@ class ServiceWorker extends NotificationServiceWorker {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v85'
+    this.version = 'v86'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -403,6 +403,29 @@ class ServiceWorker extends NotificationServiceWorker {
       end
     }], rangeTotal: file.length - 1 /* -1 because it starts at 0 */}
   }
+  /*
+  // the below chooses by range and not by fileName, not sure if this works with some bep definitions, but can be deleted if not needed
+  static resolveRange(files, fileName, start, end) {
+    const fileEnds = []
+    const parts = files.reduce((acc, file) => {
+      const fileStart = file.offset
+      const fileEnd = file.offset + file.length - 1 // -1 because it starts at 0
+      fileEnds.push(fileEnd)
+      // no overlap
+      if (end < fileStart || start > fileEnd) return acc
+      // overlap
+      const overlapStart = Math.max(start, fileStart)
+      const overlapEnd = Math.min(end, fileEnd)
+      acc.push({
+        name: file.cid,
+        start: overlapStart - fileStart,
+        end: overlapEnd - fileStart
+      })
+      return acc
+    }, [])
+    return {parts, rangeTotal: Math.max(...fileEnds)}
+  }
+  */
 
   // this function makes a whole stream, which can spawn multiple files (parts) and stitches it into one
   static createMultipartStream(directoryRoot, parts) {
