@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v92'
+    this.version = 'v93'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -85,6 +85,13 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/es/Environment.js',
       './src/es/event-driven-web-components-prototypes/src/controllers/Crypto.js',
       './src/es/event-driven-web-components-prototypes/src/controllers/Storage.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto-importmap/base64-js.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/concat-streams.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/ece.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/extract-transformer.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/keychain.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/slice-transformer.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/transform-stream.js',
       './src/es/event-driven-web-components-prototypes/src/FetchCss.js',
       './src/es/event-driven-web-components-prototypes/src/FetchHtml.js',
       './src/es/event-driven-web-components-prototypes/src/FetchModules.js',
@@ -99,6 +106,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Intersection.js',
       './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/Shadow.js',
+      './src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/WebWorker.js',
       './src/es/event-driven-web-components-webtorrent/src/ipfs/blockstore-core@7.0.1/dist/index.min.js',
       './src/es/event-driven-web-components-webtorrent/src/ipfs/index.min.js',
       './src/es/event-driven-web-components-webtorrent/src/ipfs/ipfs-unixfs-importer@17.0.1/dist/index.min.js',
