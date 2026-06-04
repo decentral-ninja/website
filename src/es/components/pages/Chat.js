@@ -18,6 +18,7 @@ export default class Chat extends Index {
       ...options
     }, ...args)
 
+    this.removeAttribute('font-family-tokyo')
     this.removeAttribute('noise')
   }
 

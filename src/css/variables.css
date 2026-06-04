@@ -5,9 +5,17 @@
  * - if a component holds other components you should share the attribute namespace with its children
  */
 
- @font-face{
+@font-face{
 	font-family:"Tokyo";
 	src:url("../font/night-in-tokyo.regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face{
+	font-family:"Roboto";
+	src:url("../font/RobotoMono-Regular.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -49,10 +57,10 @@
   --color-gray: lightgray;
   --color-green-dark: rgb(0, 70, 0);
   --color-green-full: green;
+  --color-green-original: var(--color-green);
   --color-green-rgba-50: rgba(144, 238, 144, 0.5);
   --color-green-rgba-75: rgba(144, 238, 144, 0.75);
   --color-green: lightgreen;
-  --color-green-original: var(--color-green);
   --color-hover: var(--color-active);
   --color-jitsi: #175e95;
   --color-orange: orange;
@@ -84,7 +92,8 @@
   --dialog-top-slide-in-background-color: var(--dialog-left-slide-in-background-color);
   --dialog-top-slide-in-color: var(--dialog-left-slide-in-color);
   --dialog-top-slide-in-ul-margin: 0;
-  --font-family-secondary: Tokyo, Arial, sans-serif;
+  --font-family-secondary: Roboto, Tokyo, Arial, sans-serif;
+  --font-family-tertiary: Tokyo, Roboto, Arial, sans-serif;
   --font-family: Arial, sans-serif;
   --font-size-mobile: min(14px, 5vw);
   --font-size: max(16px, 0.8vw);

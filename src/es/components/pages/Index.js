@@ -19,6 +19,7 @@ export default class Index extends Mutation() {
       ...options
     }, ...args)
 
+    this.setAttribute('font-family-tokyo', '')
     this.setAttribute('noise', '')
     this.transitionDuration = this.getAttribute('transition-duration') || 400
   }
@@ -91,6 +92,10 @@ export default class Index extends Mutation() {
         top: 0;
         transform-origin: 50% 50%;
         z-index: 9998;
+      }
+      :host([font-family-tokyo]) {
+        --font-family-secondary: var(--font-family-tertiary);
+        --h-font-family: var(--font-family-tertiary);
       }
       :host {
         font-size: var(--font-size, 10px);
