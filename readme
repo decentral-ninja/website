@@ -154,6 +154,7 @@ https://tabler.io/icons
   - [x] ipfs http integration
   - [ ] add input copy/paste
   - [ ] delete torrent plus files when room deleted / delete icon
+  - [ ] prompt if encryption is wanted for videos
   - [ ] download decrypted file link
   - [ ] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
   - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
