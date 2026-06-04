@@ -152,6 +152,7 @@ https://tabler.io/icons
 --- Beta ---
 - [ ] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, webtorrent stream: https://github.com/Chocobozzz/PeerTube/blob/develop/server/core/helpers/webtorrent.ts, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
   - [x] ipfs http integration
+  - [ ] add input copy/paste
   - [ ] delete torrent plus files when room deleted / delete icon
   - [ ] download decrypted file link
   - [ ] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
@@ -192,6 +193,7 @@ https://tabler.io/icons
 - [ ] user is typing indicator
 - [ ] translations
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
+- [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/
 - [ ] Provider Part 2:
   - [ ] overload provider backup triangle warning hint click connect trystero
   - [ ] user p2p graph webrtc url string split "," multiple urls and show separate (seen at history users dialog)
