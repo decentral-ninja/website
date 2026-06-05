@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v106'
+    this.version = 'v107'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -85,13 +85,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/es/Environment.js',
       './src/es/event-driven-web-components-prototypes/src/controllers/Crypto.js',
       './src/es/event-driven-web-components-prototypes/src/controllers/Storage.js',
-      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto-importmap/base64-js.js',
-      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/concat-streams.js',
-      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/ece.js',
-      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/extract-transformer.js',
-      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/keychain.js',
-      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/slice-transformer.js',
-      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto/lib/transform-stream.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto-esm/keychain.bundle.js',
       './src/es/event-driven-web-components-prototypes/src/FetchCss.js',
       './src/es/event-driven-web-components-prototypes/src/FetchHtml.js',
       './src/es/event-driven-web-components-prototypes/src/FetchModules.js',
