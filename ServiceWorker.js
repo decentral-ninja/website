@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v114'
+    this.version = 'v115'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -176,9 +176,12 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/img/icons/network-off.svg',
       './src/img/icons/network.svg',
       './src/img/icons/pencil.svg',
+      './src/img/icons/pin-filled.svg',
+      './src/img/icons/pin.svg',
       './src/img/icons/plug-connected-x.svg',
       './src/img/icons/plug-connected.svg',
       './src/img/icons/plus.svg',
+      './src/img/icons/progress-down.svg',
       './src/img/icons/reload.svg',
       './src/img/icons/send-2.svg',
       './src/img/icons/share-3.svg',
