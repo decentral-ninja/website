@@ -145,6 +145,8 @@
   --wct-middle-input-input-bg-color: var(--wct-input-input-bg-color);
   --wct-middle-input-input-color-disabled: var(--wct-input-border);
   --wct-middle-input-placeholder-color: lightgray;
+  --webtorrent-color-secondary: var(--color-secondary);
+  --webtorrent-color-white: var(--color-white);
   background-color: var(--background-color, transparent);
   color: var(--color, white);
   font-family: var(--font-family, sans-serif);
