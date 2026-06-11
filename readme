@@ -3,8 +3,7 @@ The easiest way to connect with others without the need for phone numbers or ema
 
 
 ## Install & Run
-- git submodule init
-- git submodule update
+- git submodule update --init --recursive
 - npm install
 - npm run serve
 
@@ -166,7 +165,7 @@ https://tabler.io/icons
   - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
   - [ ] player: keep video and audio progress when reloading
-  - [ ] when file input option name dialog
+  - [ ] when file input options: name dialog, upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
   - [ ] webtorrent websocket seed encrypted files and get funds through https://trocador.app/en/docs/
   - [ ] announce subscription at kubo url inside self user object set to v-webtorrent through chat-message or other way, that other clients use the premium kubo
   - [x] own https://github.com/webtorrent/bittorrent-tracker include for trystero
@@ -176,15 +175,15 @@ https://tabler.io/icons
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
 - Message Feature:
-  - [ ] snapshot chat room doc
   - [ ] Edit; file, encryption, emoji
   - [ ] move message between own messages order, boundary other users messages
   - [ ] multiple filters
-- [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
-- [ ] announce room/snapshot publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
-- [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
-- [ ] disable rooms === hidden except free text search finds it
 - [ ] last connected, synced hr at chat.js (analog last red message label)
+- [ ] user is typing indicator
+- [ ] disable rooms === hidden except free text search finds it
+- [ ] announce room/snapshot publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
+- [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
+- [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Notification:
   - [ ] redo notifications; pull get-notifications at sw instead of push
   - [ ] Consider alternatives: https://unifiedpush.org/
@@ -194,7 +193,6 @@ https://tabler.io/icons
   - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app or...
   - [ ] Service worker directly pull or push notifications and do batches instead of current sw notification implementation
   - [ ] resolveWhenOnline for calls like get-notifications, analog ipfs.js
-- [ ] user is typing indicator
 - [ ] translations
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
@@ -218,6 +216,8 @@ https://tabler.io/icons
   - [ ] share multiple keys to single user dialog
   - [ ] Free text filters at keys dialog
   - [ ] filters/tabs to filter messages for different encryption keys + filter for users (users dialog click user to activate tab/filter), free text filters in dialogs
+- [ ] crdt ipns snapshot
+  - [ ] snapshot chat room doc to ipns (analog share and url eventDrivenYjs.takeSnapshot), needs own gateway and key share from gateway into crdt or other place between users to share (Y.Doc->encodeStateAsUpdate()->Uint8Array->IPFS add->CID->IPNS publish)
 - [ ] profile photo as avatar
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
 - [x] rooms wct-load-template-tag for chat-m-rooms > dialog > ul > li > (room entry) to make the rerendering faster (opening the dialog always has a slight delay)
@@ -244,7 +244,6 @@ https://tabler.io/icons
 - [ ] local, private client side AI eg. https://github.com/ngxson/wllama, https://medium.com/@heyamit10/fine-tuning-gguf-models-a-practical-guide-d4cc83f9e157, https://technotim.live/posts/ai-stack-tutorial/, https://www.kla.tv/36858; https://www.lewrockwell.com/2025/11/mark-keenan/the-matrix-is-talking-to-the-matrix-how-ai-is-replacing-human-thought/
   - [ ] Do: https://www.udemy.com/course/hugging-face-transformersjs-free-ai-models-for-javascript/learn/lecture/39875390?start=0#overview
 - [ ] nostr identity or other verification service through signature. chat host same domain and provider (websocket) owner and user can verify to other users through sending public key encrypted message/token to same domain fetch url, websocket host has more crud control and can by running the chat on localhost where the websocket runs push those through origin restricted to localhost api call into websocket, which answers to other members on other origin and can verify admin rights. verified admin can define moderators and hand them a key to verify at provider who knows the role from admin. w.
-- [ ] crdt snapshot
 - [ ] record audio https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
 - [ ] Hint dialog component (help and texts with translation)
   - [ ] interactive elements often found as wct-icon-mdx must have an <a href="#"> tag preventing default but accessible for click by tab and enter key

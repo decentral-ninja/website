@@ -1,6 +1,6 @@
 [submodule "src/es/web-components-toolbox"]
 	path = src/es/web-components-toolbox
-	url = https://github.com/mits-gossau/web-components-toolbox.git
+	url = https://github.com/Weedshaker/web-components-toolbox.git
 [submodule "src/es/event-driven-web-components-prototypes"]
 	path = src/es/event-driven-web-components-prototypes
 	url = https://github.com/Weedshaker/event-driven-web-components-prototypes.git
