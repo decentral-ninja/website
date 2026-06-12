@@ -168,7 +168,7 @@ https://tabler.io/icons
   - [ ] player: keep video and audio progress when reloading
   - [ ] when file input options: name dialog, upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
   - [ ] file input/upload dialog choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
-    - [ ] also show file input/upload dialog when sharing room/message before shareDialog
+    - [ ] also show file input/upload dialog when sharing room/message before shareDialog or just use already set settings
   - [ ] webtorrent websocket seed encrypted files and get funds through https://trocador.app/en/docs/
   - [ ] announce subscription at kubo url inside self user object set to v-webtorrent through chat-message or other way, that other clients use the premium kubo
   - [x] own https://github.com/webtorrent/bittorrent-tracker include for trystero
