@@ -46,6 +46,7 @@ export default class Body extends Shadow() {
     }
     const scrollTimer = 200
     this.mainScrollEventListener = (event, counter = 0) => {
+      // onLoad got replaced with better overflow-anchor at molecules/Chat.js
       // keep scroll position until 'load' event + next animation frame
       if (event?.detail?.onLoad) {
           const scrollFromBottom = this.main.scrollHeight - this.main.scrollTop
