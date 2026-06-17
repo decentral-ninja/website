@@ -153,25 +153,26 @@ https://tabler.io/icons
   - [x] ipfs http integration
   - [x] add input copy/paste + drag and drop
   - [ ] prompt if encryption is wanted for videos
+  - [ ] icon indicate file encryption
   - [ ] client did reset + 1x manual torrent reset === header reload icon
   - [ ] download decrypted file link
   - [ ] pin file that it does not garbage collect when running out of OPFS space (don't allow more pins from certain limit)
-  - [ ] choose if seeding all intersection (default), room or all rooms or at first stage just pinned torrents
-  - [ ] give option per room to get all messages with all torrents and start loading them or just pinned torrents
-  - [ ] delete torrent plus files when room deleted and torrent is not existing in other room / delete icon
+  - [ ] auto garbage collect OPFS
+  - [ ] automatically start seeding all pinned torrents in that room not just intersecting
+  - [ ] delete torrent plus files when room/message deleted and torrent is not existing in other room/message / delete icon
   - [ ] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click
-  - [ ] max storage (navigator) and usage minimal UI
-  - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
-  - [ ] player: keep video and audio progress when reloading
-  - [ ] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
-  - [ ] file input/upload dialog choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
-    - [ ] also show file input/upload dialog when sharing room/message before shareDialog or just use already set settings
-  - [ ] webtorrent websocket seed encrypted files and get funds through https://trocador.app/en/docs/
-  - [ ] announce subscription at kubo url inside self user object set to v-webtorrent through chat-message or other way, that other clients use the premium kubo
+  - [ ] file input/upload dialog
+    - [ ] max storage (navigator) and usage minimal UI
+    - [ ] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
+    - [ ] choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
+    - [ ] note about subscription/gateway (kubo) along CID similar as magnetURI includes trackers CID is going to include or have param beside for gateway
+    - [ ] webtorrent websocket seed encrypted files through subscription gateway
+    - [ ] remove prompt
   - [x] own https://github.com/webtorrent/bittorrent-tracker include for trystero
   - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
-  - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
+  - [ ] player:
+    - [ ] keep video and audio progress when reloading
 - [x] sw fetch new version from decentral.ninja priority one
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
@@ -179,6 +180,7 @@ https://tabler.io/icons
 - [ ] fix double tab browser brave issue
 - [ ] jitsi allow other instances as well as custom room names
 - [ ] multi installer... starts docker or such... selectable: whole solutions, bittorrent tracker, ipfs gateway, yjs websocket, yjs webrtc, jitsi, DCN web, easy settings instruction or automatic solution, do not overwrite particular settings: env merge, variables overwrite, etc. show how to host custom vars and env dcn web
+  - [ ] allow local hosted instances to be public through pangolin
 - [ ] Message Feature:
   - [ ] Edit; file, encryption, emoji
   - [ ] move message between own messages order, boundary other users messages
@@ -201,6 +203,10 @@ https://tabler.io/icons
 - [ ] translations
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
+- [ ] ipfs and webtorrent integrations Part 2:
+  - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
+  - [ ] choose if seeding all torrents in current room or all rooms
+  - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
 - [ ] Provider Part 2:
   - [ ] ipns key as provider
   - [ ] overload provider backup triangle warning hint click connect trystero
@@ -223,7 +229,7 @@ https://tabler.io/icons
   - [ ] Free text filters at keys dialog
   - [ ] filters/tabs to filter messages for different encryption keys + filter for users (users dialog click user to activate tab/filter), free text filters in dialogs
   - [ ] regarding realtime collaboration encrypt crdt when yjs encodeStateAsUpdate or such for export, see https://encryptedspaces.org/whitepapers/encrypted-spaces.pdf
-- [ ] crdt ipns snapshot
+- [ ] crdt ipfs snapshot
   - [ ] snapshot chat room doc to ipns (analog share and url eventDrivenYjs.takeSnapshot), needs own gateway and key share from gateway into crdt or other place between users to share (Y.Doc->encodeStateAsUpdate()->Uint8Array->IPFS add->CID->IPNS publish)
 - [ ] profile photo as avatar
 - [x] indicator on message from who it was, at least by connection data, seen or in the user dialog if user is up to date
@@ -273,7 +279,6 @@ https://tabler.io/icons
 --- Version One ---
 - [ ] email to room and vice versa
 - [x] Local hosting 2.0 https://github.com/anderspitman/awesome-tunneling?tab=readme-ov-file
-- [ ] restore/recover crdt state from saved data
 - [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
   - [ ] security and text & room link encryption 
 - [ ] native operating system share dialog behavior (https://docs.pwabuilder.com/#/builder/manifest?id=share_target-object)
