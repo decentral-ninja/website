@@ -181,6 +181,7 @@ https://tabler.io/icons
 - [ ] jitsi allow other instances as well as custom room names
 - [ ] multi installer... starts docker or such... selectable: whole solutions, bittorrent tracker, ipfs gateway, yjs websocket, yjs webrtc, jitsi, DCN web, easy settings instruction or automatic solution, do not overwrite particular settings: env merge, variables overwrite, etc. show how to host custom vars and env dcn web
   - [ ] allow local hosted instances to be public through pangolin
+  - [ ] web, sw import json to control sw version overwrite for customization
 - [ ] Message Feature:
   - [ ] Edit; file, encryption, emoji
   - [ ] move message between own messages order, boundary other users messages
