@@ -171,6 +171,14 @@ export default class Index extends Mutation() {
           </header>
         </o-header>
         <o-body>
+          <style protected>
+            :host .deleted {
+              --a-text-decoration: line-through;
+            }
+            :host .sub {
+              --ul-margin: 0;
+            }
+          </style>
           <main>
             <div class=pattern>
               <div class=content>
@@ -202,13 +210,20 @@ export default class Index extends Mutation() {
                 <h4>Our chat, our first set of weapon 武器 at hand:</h4>
                 <ul>
                   <li>Local first <a href="https://docs.yjs.dev/" target="_blank">CRDT</a> (conflict-free replicated data sets) ✅</li>
-                  <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank">Flux Nodes</a> ✅</li>
+                  <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank" class="deleted">Flux Nodes</a> ✅<br>
+                    <ul class="sub">
+                      <li><a href="https://github.com/decentral-ninja/website/blob/main/readme#L5" target="_blank">Host your own DCN web</a></li>
+                    </ul>
+                  </li>
                   <li>End to end encryption ✅</li>
                   <li>PWA - offline support ✅</li>
                   <li>Websocket provider: <a href="https://github.com/Weedshaker/y-websocket/blob/master/package.json#L15" target="_blank">nodejs</a>, <a href="https://hub.docker.com/repository/docker/weedshaker/y-websocket/general" target="_blank">docker container</a> ✅</li>
                   <li>WebRTC provider: <a href="https://github.com/yjs/y-webrtc/tree/master" target="_blank">nodejs</a> ✅</li>
                   <li><a href="https://github.com/dmotz/trystero" target="_blank">BitTorrent, Nostr, MQTT & IPFS</a> provider ✅</li>
-                  <li>Files through WebTorrent (coming soon)</li>
+                  <li>Files through WebTorrent & IPFS (in progress...) ✅</li>
+                  <ul class="sub">
+                    <li>File - End to end encryption (beta testing: double click "upload files" - icon) ✅</li>
+                  </ul>
                 </ul>
                 <p>Use our beta version <a href="?page=/chat&${providerQuery}" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
                 <iframe title="Think Privacy Is Dead? You're Wrong." width="560" height="315" style="aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: var(--border-radius);" src="https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>

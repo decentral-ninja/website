@@ -163,6 +163,7 @@ https://tabler.io/icons
   - [ ] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
   - [ ] file input/upload dialog
+    - [ ] choose key
     - [ ] max storage (navigator) and usage minimal UI
     - [ ] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
     - [ ] choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
@@ -269,6 +270,7 @@ https://tabler.io/icons
 - [ ] send user to overwrite/share between devices
 - [ ] CRDT Corrupted undo option with Room change
 - [/] https://www.runonflux.io/ done for website 8080 interface (not applicable since it load balances between a minimum of three instances, which makes it unreliable if clients land on different nodes aka. instances.)
+  - [ ] web docker container, run some through pangolin
   - [ ] video call in iframe from local instance (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ljm-api), jitsi deep fe integration. user video attached to chat on top. multiple jitsi instances support.
   - [x] https://github.com/localtunnel/server
   - [x] website on flux
