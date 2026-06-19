@@ -191,7 +191,6 @@ https://tabler.io/icons
 - [ ] user is typing indicator
 - [ ] disable rooms === hidden except free text search finds it
 - [ ] announce room/snapshot publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
-- [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Notification:
   - [ ] redo notifications; pull get-notifications at sw instead of push
@@ -202,6 +201,7 @@ https://tabler.io/icons
   - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app or...
   - [ ] Service worker directly pull or push notifications and do batches instead of current sw notification implementation
   - [ ] resolveWhenOnline for calls like get-notifications, analog ipfs.js
+- [ ] speech (tests/exampleThree.html) see tests/exampleThree/Input.js
 - [ ] translations
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
