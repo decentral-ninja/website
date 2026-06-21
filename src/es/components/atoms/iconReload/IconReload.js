@@ -48,7 +48,7 @@ export default class IconReload extends Shadow() {
       }, self.Environment.awarenessEventListenerDelay || 1000)
     }
     
-    this.hintReloadEventListener = event => this.setAttribute('has-problems')
+    this.hintReloadEventListener = event => this.setAttribute('has-problems', '')
 
     this.visibilitychangeEventListener = event => {
       if (document.hidden) return
@@ -67,7 +67,7 @@ export default class IconReload extends Shadow() {
     this.addEventListener('click', this.clickEventListener, { once: true })
     this.globalEventTarget.addEventListener('yjs-users', this.usersEventListener)
     this.globalEventTarget.addEventListener('yjs-providers-data', this.providersEventListener)
-    this.globalEventTarget.addEventListener('hint-reload', this.hintReloadEventListener)
+    document.body.addEventListener('hint-reload', this.hintReloadEventListener)
     document.addEventListener('visibilitychange', this.visibilitychangeEventListener)
     self.addEventListener('online', this.onlineEventListener)
     self.addEventListener('offline', this.offlineEventListener)
@@ -82,7 +82,7 @@ export default class IconReload extends Shadow() {
     this.removeEventListener('click', this.clickEventListener)
     this.globalEventTarget.removeEventListener('yjs-users', this.usersEventListener)
     this.globalEventTarget.removeEventListener('yjs-providers-data', this.providersEventListener)
-    this.globalEventTarget.removeEventListener('hint-reload', this.hintReloadEventListener)
+    document.body.removeEventListener('hint-reload', this.hintReloadEventListener)
     document.removeEventListener('visibilitychange', this.visibilitychangeEventListener)
     self.removeEventListener('online', this.onlineEventListener)
     self.removeEventListener('offline', this.offlineEventListener)

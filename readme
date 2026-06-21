@@ -154,7 +154,7 @@ https://tabler.io/icons
   - [x] add input copy/paste + drag and drop
   - [x] prompt if encryption is wanted for videos
   - [x] icon indicate file encryption
-  - [ ] client did reset + 1x manual torrent reset === header reload icon
+  - [x] client did reset + 1x manual torrent reset === header reload icon
   - [ ] download decrypted file link
   - [ ] pin file that it does not garbage collect when running out of OPFS space (don't allow more pins from certain limit)
   - [ ] auto garbage collect OPFS
