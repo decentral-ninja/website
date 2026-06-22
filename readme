@@ -155,7 +155,8 @@ https://tabler.io/icons
   - [x] prompt if encryption is wanted for videos
   - [x] icon indicate file encryption
   - [x] client did reset + 1x manual torrent reset === header reload icon
-  - [ ] download decrypted file link
+  - [x] download decrypted file link
+  - [ ] checkbox pause/resume torrent
   - [ ] pin file that it does not garbage collect when running out of OPFS space (don't allow more pins from certain limit)
   - [ ] auto garbage collect OPFS
   - [ ] automatically start seeding all pinned torrents in that room not just intersecting
@@ -163,9 +164,10 @@ https://tabler.io/icons
   - [ ] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
   - [ ] file input/upload dialog
-    - [ ] choose key
+    - [ ] choose key (when key deleted fallback and when key added during runtime rerender)
     - [ ] max storage (navigator) and usage minimal UI
     - [ ] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
+    - [ ] collect and share gateways and trackers
     - [ ] choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
     - [ ] note about subscription/gateway (kubo) along CID similar as magnetURI includes trackers CID is going to include or have param beside for gateway
     - [ ] webtorrent websocket seed encrypted files through subscription gateway
@@ -174,6 +176,7 @@ https://tabler.io/icons
   - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
   - [ ] player:
     - [ ] keep video and audio progress when reloading
+    - [ ] unpack [includes-magnet] messages
 - [x] sw fetch new version from decentral.ninja priority one
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
