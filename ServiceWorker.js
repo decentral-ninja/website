@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v138'
+    this.version = 'v139'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
