@@ -156,7 +156,7 @@ https://tabler.io/icons
   - [x] icon indicate file encryption
   - [x] client did reset + 1x manual torrent reset === header reload icon
   - [x] download decrypted file link
-  - [ ] checkbox pause/resume torrent
+  - [x] checkbox pause/resume torrent
   - [ ] pin file that it does not garbage collect when running out of OPFS space (don't allow more pins from certain limit)
   - [ ] auto garbage collect OPFS
   - [ ] automatically start seeding all pinned torrents in that room not just intersecting
