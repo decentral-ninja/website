@@ -14,11 +14,7 @@
     "chat",
     "platform"
   ],
-  "url_handlers": [
-    {
-      "origin": "https://decentral.ninja"
-    }
-  ],
+  "handle_links": "preferred",
   "lang": "en",
   "shortcuts": [
     {
