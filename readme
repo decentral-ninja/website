@@ -158,7 +158,7 @@ https://tabler.io/icons
   - [x] download decrypted file link
   - [x] checkbox pause/resume torrent
   - [ ] pin file that it does not garbage collect when running out of OPFS space (don't allow more pins from certain limit)
-  - [ ] auto garbage collect OPFS
+  - [x] auto garbage collect OPFS
   - [ ] automatically start seeding all pinned torrents in that room not just intersecting
   - [ ] delete torrent plus files when room/message deleted and torrent is not existing in other room/message / delete icon
   - [ ] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click
@@ -211,6 +211,7 @@ https://tabler.io/icons
 - [ ] ipfs and webtorrent integrations Part 2:
   - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
   - [ ] choose if seeding all torrents in current room or all rooms
+  - [ ] user can manually change opfs storage limit (opfsMobileQuota + opfsDesktopQuota)
   - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
 - [ ] Provider Part 2:
   - [ ] ipns key as provider

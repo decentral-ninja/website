@@ -8,10 +8,12 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'beta',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.2.25'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.2.26'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
+  opfsMobileQuota: 1024 ** 3 * 50, // 1GB * 50
+  opfsDesktopQuota: 1024 ** 3 * 500, // 1GB * 500
   keepAlive: 432000000, // 1 day = 86400000,
   providers: [{
     name: 'websocket',
