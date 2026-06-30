@@ -157,11 +157,11 @@ https://tabler.io/icons
   - [x] client did reset + 1x manual torrent reset === header reload icon
   - [x] download decrypted file link
   - [x] checkbox pause/resume torrent
-  - [ ] pin file that it does not garbage collect when running out of OPFS space (don't allow more pins from certain limit)
+  - [x] pin file that it does not garbage collect when running out of OPFS space ~~(don't allow more pins from certain limit)~~
   - [x] auto garbage collect OPFS
-  - [ ] automatically start seeding all pinned torrents in that room not just intersecting
-  - [ ] delete torrent plus files when room/message deleted and torrent is not existing in other room/message / delete icon
+  - [ ] delete torrent plus files when room/message deleted and torrent is not existing in other room/message ~~/ delete icon~~
   - [ ] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click
+  - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
   - [ ] file input/upload dialog
     - [ ] choose key (when key deleted fallback and when key added during runtime rerender)
@@ -173,7 +173,6 @@ https://tabler.io/icons
     - [ ] webtorrent websocket seed encrypted files through subscription gateway
     - [ ] remove prompt
   - [x] own https://github.com/webtorrent/bittorrent-tracker include for trystero
-  - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
   - [ ] player:
     - [ ] keep video and audio progress when reloading
     - [ ] unpack [includes-magnet] messages
@@ -210,6 +209,7 @@ https://tabler.io/icons
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
 - [ ] ipfs and webtorrent integrations Part 2:
+  - [ ] status quo, it now automatically starts seeding all pinned torrents, which may overloads webtorrent, so better to offer here a more sophisticated mechanism
   - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
   - [ ] choose if seeding all torrents in current room or all rooms
   - [ ] user can manually change opfs storage limit (opfsMobileQuota + opfsDesktopQuota)
