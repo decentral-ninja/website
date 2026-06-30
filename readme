@@ -189,7 +189,7 @@ https://tabler.io/icons
   - [ ] Edit; file, encryption, emoji
   - [ ] move message between own messages order, boundary other users messages
   - [ ] multiple filters
-- [ ] last connected, synced hr at chat.js (analog last red message label)
+- [ ] last connected, synced hr at chat.js (analog last red message label) [// TODO: scroll to last read message once feature gets implemented - es/components/molecules/Chat.js:502]
 - [ ] user is typing indicator
 - [ ] disable rooms === hidden except free text search finds it
 - [ ] announce room/snapshot publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
