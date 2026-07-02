@@ -7,8 +7,8 @@ const currentScriptUrl = new URL(document.currentScript.src)
 self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
-  stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || 'beta',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.2.34'}`, // https://semver.org/
+  stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.0.0'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,

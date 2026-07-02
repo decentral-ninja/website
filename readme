@@ -159,11 +159,12 @@ https://tabler.io/icons
   - [x] checkbox pause/resume torrent
   - [x] pin file that it does not garbage collect when running out of OPFS space ~~(don't allow more pins from certain limit)~~
   - [x] auto garbage collect OPFS
-  - [ ] delete torrent plus files when room/message deleted and torrent is not existing in other room/message ~~/ delete icon~~
-  - [ ] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click, force
+  - [x] delete torrent plus files when room/message deleted and torrent is not existing in other room/message ~~/ delete icon~~
+  - [x] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click, force
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
+--- Version One ---
   - [ ] file input/upload dialog
-    - [ ] choose key (when key deleted fallback and when key added during runtime rerender)
+    - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
     - [ ] max storage (navigator) and usage minimal UI
     - [ ] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
     - [ ] collect and share gateways and trackers
@@ -215,8 +216,9 @@ https://tabler.io/icons
   - [ ] user can manually change opfs storage limit (opfsMobileQuota + opfsDesktopQuota)
   - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
 - [ ] Provider Part 2:
-  - [ ] ipns key as provider
+  - [ ] fix trystero freeze as well as not showing the connected users reliably
   - [ ] overload provider backup triangle warning hint click connect trystero
+  - [ ] ipns key as provider
   - [ ] user p2p graph webrtc url string split "," multiple urls and show separate (seen at history users dialog)
   - [ ] provider fallback info, mark old providers
   - [ ] get-info os: uptime (rank by uptime)
@@ -284,7 +286,7 @@ https://tabler.io/icons
   - [ ] ServiceWorker.js fallback fetch of files to Environment.js - alternativeWebsiteHosts
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 - [ ] update yjs dependencies
---- Version One ---
+--- Version Two ---
 - [ ] email to room and vice versa
 - [x] Local hosting 2.0 https://github.com/anderspitman/awesome-tunneling?tab=readme-ov-file
 - [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
