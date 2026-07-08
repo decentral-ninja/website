@@ -201,8 +201,8 @@ export default class Index extends Mutation() {
                         <wct-button namespace="button-primary-">Start Chat</wct-button>
                       </a>
                     </div>
-                    <div>       
-                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&${providerQuery}">Chat With Us</wct-button>
+                    <div>
+                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&${providerQuery}&magnet=magnet%253A%253Fxt%253Durn%253Abtih%253A7aa2fb8ddcf8b9c511b2a02da0c57dcfed709b2f%2526dn%253Dchat-Questions-And-Feedback.yjs%2526tr%253Dwss%25253A%25252F%25252Ftracker.peerweb.site%2526tr%253Dwss%25253A%25252F%25252Ftracker.openwebtorrent.com%25253A443%25252Fannounce%2526tr%253Dwss%25253A%25252F%25252Ftracker.webtorrent.dev&cid=QmNPpC58Lib36F6r7AdfQcs1CuB31X3cQxpy79evhVXGDS">Chat With Us</wct-button>
                     </div>
                   </section>
                 </wct-grid>

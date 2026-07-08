@@ -211,6 +211,7 @@ https://tabler.io/icons
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
 - [ ] ipfs and webtorrent integrations Part 2:
   - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
+  - [ ] when no provider in connection strings add torrents paused, no trigger ipfs add or cat
   - [ ] status quo, it now automatically starts seeding all pinned torrents, which may overloads webtorrent, so better to offer here a more sophisticated mechanism
   - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
   - [ ] choose if seeding all torrents in current room or all rooms
