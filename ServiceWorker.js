@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v165'
+    this.version = 'v166'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -31,6 +31,9 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     this.precache = [
       './.well-known/assetlinks.json',
       './',
+      './docs/browser.drawio.svg',
+      './docs/connection-graph.svg',
+      './docs/how.png',
       './index.html',
       './manifest.json',
       './src/css/variables.css',
@@ -82,8 +85,13 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/es/components/organisms/footer/Footer.js',
       './src/es/components/organisms/header/Header.js',
       './src/es/components/pages/Chat.js',
+      './src/es/components/pages/Decentralization.js',
+      './src/es/components/pages/Encryption.js',
+      './src/es/components/pages/How.js',
       './src/es/components/pages/Index.js',
+      './src/es/components/pages/Privacy.js',
       './src/es/Environment.js',
+      './src/es/event-driven-web-components-prototypes/src/controllers/Crypto.drawio.svg',
       './src/es/event-driven-web-components-prototypes/src/controllers/Crypto.js',
       './src/es/event-driven-web-components-prototypes/src/controllers/Storage.js',
       './src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto-esm/keychain.bundle.js',
@@ -131,6 +139,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/es/web-components-toolbox/src/es/components/atoms/iframe/Iframe.js',
       './src/es/web-components-toolbox/src/es/components/atoms/input/Input.js',
       './src/es/web-components-toolbox/src/es/components/atoms/menuIcon/MenuIcon.js',
+      './src/es/web-components-toolbox/src/es/components/atoms/picture/Picture.js',
       './src/es/web-components-toolbox/src/es/components/atoms/qrCodeSvg/qrcode.min.js',
       './src/es/web-components-toolbox/src/es/components/atoms/qrCodeSvg/QrCodeSvg.js',
       './src/es/web-components-toolbox/src/es/components/molecules/details/default-/default-.css',

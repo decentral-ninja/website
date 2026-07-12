@@ -20,6 +20,8 @@ export default class Index extends Mutation() {
       ...options
     }, ...args)
 
+    // @ts-ignore
+    this.providerQuery = `websocket-url=wss%3A%2F%2Fheroku.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site`// %2Cwss%3A%2F%2Fwebrtc-trystero.ninja
     this.setAttribute('font-family-tokyo', '')
     this.setAttribute('noise', '')
     this.transitionDuration = this.getAttribute('transition-duration') || 400
@@ -160,13 +162,11 @@ export default class Index extends Mutation() {
   renderHTML () {
     // Header is expected to be initially open, below <o-header open></o-header>
     this.classList.add('header-open')
-    // @ts-ignore
-    const providerQuery = `websocket-url=wss%3A%2F%2Fheroku.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site`// %2Cwss%3A%2F%2Fwebrtc-trystero.ninja
     this.html = /* html */`
       <section>
         <o-header open>
           <header>
-            <a href="?page=/chat&${providerQuery}" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
+            <a href="?page=/chat&${this.providerQuery}" route target="_self"><span>chat 👉</span> <a-icon-chat hover-selector="a"></a-icon-chat></a>
             <a-logo namespace="logo-default-"></a-logo>
           </header>
         </o-header>
@@ -189,45 +189,32 @@ export default class Index extends Mutation() {
                 <h2>Dear Ninja,</h2>
                 <p>Very pleased that you found the way to my dojo, I am!<br>
                 In these challenging times of censorship, surveillance, and big data. New skills and weaponry required there are.</p>
-                <hr>
-                <h4>Empower your conversations, empower your privacy</h4>
-                <p> Unleash your conversations with the speed and precision of a ninja, ensuring your messages remain as agile and elusive as you are.
-                Join the revolution in communication with Decentral.Ninja - the cutting-edge decentralized chat platform that puts privacy and control back in your hands, ensuring your conversations stay truly confidential.
-                </p>
                 <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
                   <section>
                     <div> 
-                      <a href="?page=/chat&${providerQuery}" route target="_self">
+                      <a href="?page=/chat&${this.providerQuery}" route target="_self">
                         <wct-button namespace="button-primary-">Start Chat</wct-button>
                       </a>
                     </div>
                     <div>
-                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&${providerQuery}&magnet=magnet%253A%253Fxt%253Durn%253Abtih%253A7aa2fb8ddcf8b9c511b2a02da0c57dcfed709b2f%2526dn%253Dchat-Questions-And-Feedback.yjs%2526tr%253Dwss%25253A%25252F%25252Ftracker.peerweb.site%2526tr%253Dwss%25253A%25252F%25252Ftracker.openwebtorrent.com%25253A443%25252Fannounce%2526tr%253Dwss%25253A%25252F%25252Ftracker.webtorrent.dev&cid=QmNPpC58Lib36F6r7AdfQcs1CuB31X3cQxpy79evhVXGDS">Chat With Us</wct-button>
+                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&${this.providerQuery}&magnet=magnet%253A%253Fxt%253Durn%253Abtih%253A7aa2fb8ddcf8b9c511b2a02da0c57dcfed709b2f%2526dn%253Dchat-Questions-And-Feedback.yjs%2526tr%253Dwss%25253A%25252F%25252Ftracker.peerweb.site%2526tr%253Dwss%25253A%25252F%25252Ftracker.openwebtorrent.com%25253A443%25252Fannounce%2526tr%253Dwss%25253A%25252F%25252Ftracker.webtorrent.dev&cid=QmNPpC58Lib36F6r7AdfQcs1CuB31X3cQxpy79evhVXGDS">Chat With Us</wct-button>
                     </div>
                   </section>
                 </wct-grid>
                 <hr>
-                <h4>Our chat, our first set of weapon 武器 at hand:</h4>
+                <h4>Empower your conversations, empower your privacy.</h4>
+                <hr>
+                <h2>INFORMATION</h2>
                 <ul>
-                  <li>Local first <a href="https://docs.yjs.dev/" target="_blank">CRDT</a> (conflict-free replicated data sets) ✅</li>
-                  <li><a href="https://decentralninja.app.runonflux.io/?page=/" target="_blank" class="deleted">Flux Nodes</a> ✅<br>
-                    <ul class="sub">
-                      <li><a href="https://github.com/decentral-ninja/website/blob/main/readme#L5" target="_blank">Host your own DCN web</a></li>
-                    </ul>
-                  </li>
-                  <li>End to end encryption ✅</li>
-                  <li>PWA - offline support ✅</li>
-                  <li>Websocket provider: <a href="https://github.com/Weedshaker/y-websocket/blob/master/package.json#L15" target="_blank">nodejs</a>, <a href="https://hub.docker.com/repository/docker/weedshaker/y-websocket/general" target="_blank">docker container</a> ✅</li>
-                  <li>WebRTC provider: <a href="https://github.com/yjs/y-webrtc/tree/master" target="_blank">nodejs</a> ✅</li>
-                  <li><a href="https://github.com/dmotz/trystero" target="_blank">BitTorrent, Nostr, MQTT & IPFS</a> provider ✅</li>
-                  <li>Files through WebTorrent & IPFS (in progress...) ✅</li>
-                  <ul class="sub">
-                    <li>File - End to end encryption (beta testing: double click "upload files" - icon) ✅</li>
-                  </ul>
+                  <li><a href="?page=/how" route target="_self">how to use?</a></li>
+                  <li><a href="?page=/decentralization" route target="_self">decentralization</a></li>
+                  <li><a href="?page=/encryption" route target="_self">end-to-end encryption</a></li>
+                  <li><a href="?page=/privacy" route target="_self">privacy</a></li>
+                  <li><a href="https://github.com/decentral-ninja/website" target=_blank>developers</a></li>
                 </ul>
-                <p>Use our beta version <a href="?page=/chat&${providerQuery}" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
-                <iframe title="Think Privacy Is Dead? You're Wrong." width="560" height="315" style="aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: var(--border-radius);" src="https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
+                <hr>
+                <p>Use DCN <a href="?page=/chat&${this.providerQuery}" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously, end-to-end encrypted and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
+              </div>
             </div>
           </main>
         </o-body>

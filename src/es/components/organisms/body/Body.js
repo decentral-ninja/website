@@ -203,6 +203,9 @@ export default class Body extends Shadow() {
         max-width: min(100%, 1400px);
         position: relative;
       }
+      :host > main > div.pattern > div.content > h1 {
+        margin-top: 0.5em;
+      }
       :host > a-scroll {
         position: absolute;
         bottom: var(--spacing);

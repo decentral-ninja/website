@@ -197,6 +197,7 @@ https://tabler.io/icons
 - [ ] announce room/snapshot publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Notification:
+  - [ ] fine grained notification per provider per room settings
   - [ ] redo notifications; pull get-notifications at sw instead of push
   - [ ] Consider alternatives: https://unifiedpush.org/
   - [ ] When new messages change document.title (emoji) until read
