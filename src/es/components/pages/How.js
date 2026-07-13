@@ -59,15 +59,15 @@ export default class How extends Index {
             <div class=pattern>
               <div class=content>
                 <h1>How to use DCN</h1>
+                <p><a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-default-" favicon no-animation></a-logo></a></p>
                 <h3>ディーシーエヌの使い方</h3>
                 <hr>
                 <h3>anonymous user session vs. identified user session</h3>
                 <p>decentral ninja (DCN) does not use identified user sessions as other messaging apps do. DCN has no central single point of truth and for that can not verify anything but let's users show trust through sharing keys with each other. For each room, DCN let's your browser generate an anonymous user with an unique ID and an unique asynchronous key pair linked to your browser session and stored locally. This means, that you can freely choose a username per room and send, receive end-to-end encrypted synchronous keys. The keys, which can be used through multiple rooms, become your own-trust identification.</p>
                 <hr>
                 <h3>manual - controls</h3>
-                <p><a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-default-" favicon no-animation></a-logo>0. HOME</a></p>
                 <wct-picture defaultSource="${this.importMetaUrl}../../../../docs/how.png" alt="How to use DCN"></wct-picture>
-                <hr>
+                <hr class=plain>
                 <ul>
                   <li>room list</li>
                   <ul class="sub">
@@ -91,9 +91,9 @@ export default class How extends Index {
                   </ul>
                   <li>message - username</li>
                   <ul class="sub">
-                    <li>click to view user@user list <span class="avatar" style="background-color: #622274"></span> or if it is your user, edit your username <wct-icon-mdx title="edit" icon-url="../../../../../../img/icons/pencil.svg" size="1em"></wct-icon-mdx></li>
+                    <li>click <span class="avatar" style="background-color: #622274"></span> to view user@user list and if it is your user, edit your username <wct-icon-mdx title="edit" icon-url="../../../../../../img/icons/pencil.svg" size="1em"></wct-icon-mdx></li>
                   </ul>
-                  <li>message details</li>
+                  <li>message details <wct-icon-mdx title="details" icon-url="../../../../../../img/icons/dots-circle-horizontal.svg" size="1em"></wct-icon-mdx></li>
                   <ul class="sub">
                     <li>reply <wct-icon-mdx title="reply" icon-url="../../../../../../img/icons/arrow-back-up.svg" size="1em"></wct-icon-mdx></li>
                     <li>delete (if it is your message) <wct-icon-mdx title="delete" icon-url="../../../../../../img/icons/trash.svg" size="1em"></wct-icon-mdx></li>
@@ -106,7 +106,7 @@ export default class How extends Index {
                   <li>upload files <wct-icon-mdx title="upload files" icon-url="../../../../../../img/icons/file-upload.svg" size="1em"></wct-icon-mdx></li>
                   <li>start jitsi peer-to-peer video call <wct-icon-mdx title="video call" icon-url="../../../../../../img/icons/video.svg" size="1em"></wct-icon-mdx></li>
                 </ul>
-                <hr>
+                <hr class=plain>
                 <p>Video under construction...</p>
                 <a href="https://github.com/decentral-ninja/website" target=_blank>open an issue, if you would like to do a tutorial video.</a>
                 <h2>check back later!</h2>

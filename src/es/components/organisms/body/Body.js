@@ -206,6 +206,10 @@ export default class Body extends Shadow() {
       :host > main > div.pattern > div.content > h1 {
         margin-top: 0.5em;
       }
+      :host > main > div.pattern > div.content > hr:not(.plain) {
+        --hr-border: 1px dotted var(--color);
+        width: 100%;
+      }
       :host > a-scroll {
         position: absolute;
         bottom: var(--spacing);

@@ -42,7 +42,7 @@ export default class Privacy extends Index {
                 <h3>プライバシー</h3>
                 <hr>
                 <h3>DCN is 100% committed to protect your privacy and for that is 100% <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target=_blank>FOSS</a></h3>
-                <hr>
+                <hr class=plain>
                 <h4>Here some thoughts regarding privacy...</h4>
                 <iframe title="Think Privacy Is Dead? You're Wrong." width="560" height="315" style="aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: var(--border-radius);" src="https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
               </div>

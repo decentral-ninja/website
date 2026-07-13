@@ -178,6 +178,23 @@ export default class Index extends Mutation() {
             :host .sub {
               --ul-margin: 0;
             }
+            :host .buyMeACoffee {
+              display: flex;
+              flex-direction: column;
+              gap: 0.25em;
+            }
+            :host .buyMeACoffeeImg {
+              border: 1px solid white;
+              border-radius: 10px;
+              position: sticky;
+              bottom: 0;
+            }
+            :host .buyMeACoffeePic {
+              --border-radius: 10px;
+              --border-radius-mobile: 10px;
+              --img-max-width: min(25dvw, 235px);
+              --img-max-width-mobile: 75dvw;
+            }
           </style>
           <main>
             <div class=pattern>
@@ -185,7 +202,7 @@ export default class Index extends Mutation() {
                 <!-- https://funtranslations.com/yoda -->
                 <h1>Oh, welcome!</h1>
                 <h3>ああ、まいどまいど。</h3>
-                <hr>
+                <hr class=plain>
                 <h2>Dear Ninja,</h2>
                 <p>Very pleased that you found the way to my dojo, I am!<br>
                 In these challenging times of censorship, surveillance, and big data. New skills and weaponry required there are.</p>
@@ -201,8 +218,14 @@ export default class Index extends Mutation() {
                     </div>
                   </section>
                 </wct-grid>
-                <hr>
+                <hr class=plain>
                 <h4>Empower your conversations, empower your privacy.</h4>
+                <hr>
+                <h2>SUPPORT DEVELOPMENT</h2>
+                <a class=buyMeACoffee href="https://www.buymeacoffee.com/weedshaker" target=_blank>
+                  <wct-picture class=buyMeACoffeePic defaultSource="${this.importMetaUrl}../../../../src/img/buy-me-a-coffee-qr-code.png" alt="How to use DCN"></wct-picture>
+                  <img class=buyMeACoffeeImg src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=weedshaker&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" alt="buy me a coffee" />
+                </a>
                 <hr>
                 <h2>INFORMATION</h2>
                 <ul>
@@ -212,7 +235,7 @@ export default class Index extends Mutation() {
                   <li><a href="?page=/privacy" route target="_self">privacy</a></li>
                   <li><a href="https://github.com/decentral-ninja/website" target=_blank>developers</a></li>
                 </ul>
-                <hr>
+                <hr class=plain>
                 <p>Use DCN <a href="?page=/chat&${this.providerQuery}" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously, end-to-end encrypted and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
               </div>
             </div>
@@ -256,6 +279,11 @@ export default class Index extends Mutation() {
         // @ts-ignore
         path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/button/Button.js?${Environment?.version || ''}`,
         name: 'wct-button'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/picture/Picture.js?${Environment?.version || ''}`,
+        name: 'wct-picture'
       }
     ])
   }

@@ -52,7 +52,7 @@ export default class Encryption extends Index {
                 <hr>
                 <h3>async key pair</h3>
                 <wct-picture defaultSource="${this.importMetaUrl}../../event-driven-web-components-prototypes/src/controllers/Crypto.drawio.svg" alt="browser architecture"></wct-picture>
-                <hr>
+                <hr class=plain>
                 <h4>encryption flow:</h4>
                 <ul>
                   <li>user foo and user bar make their synchronous key derived from their asynchronous key pairs</li>
