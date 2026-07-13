@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.0.19'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.0.20'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
@@ -39,6 +39,7 @@ self.Environment = {
     name: 'webrtc',
     url: 'wss://webrtc-trystero.ninja'
   }],
+  providerQuery: '', // preset provider query to connect to certain providers when user opens a new room. format analog src/es/components/pages/Index.js:L24
   trackers: [
     'wss://tracker.peerweb.site',
     'wss://tracker.openwebtorrent.com:443/announce',

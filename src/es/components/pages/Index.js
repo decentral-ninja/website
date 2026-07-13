@@ -21,7 +21,7 @@ export default class Index extends Mutation() {
     }, ...args)
 
     // @ts-ignore
-    this.providerQuery = `websocket-url=wss%3A%2F%2Fheroku.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site${location.pathname.includes('ipfs/') ? '%2Cwss%3A%2F%2Fwebrtc-trystero.ninja' : ''}` // TODO: webrtc-trystero.ninja is still kinda experimental (evtl. buggy or outdated) but makes sense to be used within origin ipfs
+    this.providerQuery = self.Environment.providerQuery || `websocket-url=wss%3A%2F%2Fheroku.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D${self.Environment?.keepAlive || 86400000}&webrtc-url=wss%3A%2F%2Fwebrtc.peerweb.site%2Cwss%3A%2F%2Fwebrtc-two.peerweb.site${location.pathname.includes('ipfs/') ? '%2Cwss%3A%2F%2Fwebrtc-trystero.ninja' : ''}` // TODO: webrtc-trystero.ninja is still kinda experimental (evtl. buggy or outdated) but makes sense to be used within origin ipfs
     this.setAttribute('font-family-tokyo', '')
     this.setAttribute('noise', '')
     this.transitionDuration = this.getAttribute('transition-duration') || 400
