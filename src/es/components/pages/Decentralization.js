@@ -106,7 +106,7 @@ to raw TCP or UDP sockets
                 <ul>
                   <li>decentral-ninja/website - <a href="https://github.com/decentral-ninja/website" target="_blank">github</a></li>
                 </ul>
-                <p>customize your own DCN web. Users from your origin (example https://your-website.com) will still be able to connect with users on origin https://decentral.ninja . Note: Every origin creates a separate session and for that is isolated within the browser. Try <a href="https://dcn-web.hostlocal.app/ipfs/QmYt2Aybn9dpSyAku7Dwekrsy1WWt3WTyaUUddTqB2Qy5v" target=_blank>DCN hosted at ipfs</a>!</p>
+                <p>customize your own DCN web. Users from your origin (example https://your-website.com) will still be able to connect with users on origin https://decentral.ninja . Note: Every origin creates a separate session and for that is isolated within the browser. Try <a href="https://dcn-web.hostlocal.app/ipfs/QmURaxFyx779CqXNg5txCn6Vv4MWAjXqXpNBmuDw9diLi3" target=_blank>DCN hosted at ipfs</a>!</p>
                 <hr>
                 <h4 style="text-decoration: underline;">hosting - CRDT connection providers:</h4>
                 <ul>
