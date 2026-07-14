@@ -58,7 +58,7 @@ export default class Decentralization extends Index {
                 <h3>storage</h3>
                 <p>DCN lives to 100% in your browser. All data is on your device at all times. Local- and offline-first storage. Your browser holds shareable data in your local database (CRDT), which syncs without conflict.</p>
                 <wct-picture defaultSource="${this.importMetaUrl}../../../../docs/browser.drawio.svg" alt="browser architecture"></wct-picture>
-                <p>Files are handled through <a href="https://webtorrent.io/" target="_blank">webtorrent.io</a> and <a href="https://about.ipfs.io/" target="_blank">ipfs.io</a>. All other data is exchanged as CRDT through a flexible <a href="https://docs.yjs.dev/ecosystem/connection-provider" target="_blank">provider system</a>.</p>
+                <p>Files are handled through <a href="https://webtorrent.io/" target="_blank">webtorrent.io</a> and <a href="https://about.ipfs.io/" target="_blank">ipfs.io</a>. All other data is exchanged as CRDT through a flexible <a href="https://docs.yjs.dev/ecosystem/connection-provider" target="_blank">provider system</a>. Additionally, the CRDT is snapshotted to IPFS/webtorrent every time you share a room or message.</p>
                 <p>DCN supports multiple connection methods (webrtc, websocket, trystero - BitTorrent, Nostr, MQTT, IPFS), see <a href="?page=/how" route target="_self">how to use? - provider list <wct-icon-mdx title="providers" icon-url="../../../../../../img/icons/network.svg" size="1em"></wct-icon-mdx></a>. Websockets allow a temporary storage, so that data syncs when users are offline (see keepAlive). It can also act as a notification service.</p>
                 <hr>
                 <h3>browser limitations</h3>
