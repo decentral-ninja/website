@@ -59,7 +59,7 @@ export default class Encryption extends Index {
                   <li>user foo sends a new key encrypted with their derived key to user bar</li>
                   <li>user foo and user bar now encrypt and decrypt text and files through that new key</li>
                 </ul>
-                <p>DCN encrypts text and files before they get saved or sent anywhere and decrypts when the browser renders texts or processes files at stream. This could be called edge-to-edge encryption... further infos at <a href="https://github.com/Weedshaker/event-driven-web-components-prototypes/blob/master/src/controllers/Crypto.js" target="_blank">github</a>.</p>
+                <p>DCN encrypts text and files before they get saved or sent anywhere and decrypts when the browser renders texts or processes files at stream. This could be called edge-to-edge encryption... , see <a href="?page=/how" route target="_self">how to use? - select/generate a key for next message <wct-icon-mdx title="providers" icon-url="../../../../../../img/icons/key-square.svg" size="1em"></wct-icon-mdx></a> plus further infos at <a href="https://github.com/Weedshaker/event-driven-web-components-prototypes/blob/master/src/controllers/Crypto.js" target="_blank">github</a>.</p>
               </div>
             </div>
           </main>
