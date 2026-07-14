@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v175'
+    this.version = 'v176'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -29,7 +29,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     // KEEP DOING: When version upgrade also update the precache. This is a manual process by clicking through all the routes and dialogs, then enter the following code snippet into the console and copy/paste the result into this.precache:
     // Code: document.body.prepend(Array.from(new Set(self.performance.getEntriesByType('resource').filter(resource => resource.name.includes(location.origin)).map(resource => {let url = resource.name;try{url = new URL(resource.name);url.searchParams.delete('version');url = url.href}catch(error){}return url.replace(location.origin, '.')}).sort((a, b) => a < b ? -1 : a > b ? 1 : 0))).reduce((textarea, curr) => {textarea.value += `'${curr}',\n`;return textarea}, document.createElement('textarea')))
     this.precache = [
-      './.well-known/assetlinks.json',
+      //'./.well-known/assetlinks.json', // don't add this, since this fails to load into cache when served from pathname not root
       './',
       './docs/browser.drawio.svg',
       './docs/connection-graph.svg',
@@ -212,7 +212,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/img/macaque-noise.webp',
       './src/img/ninjaBob.png'
     ]
-    this.doNotIntercept = [`${location.origin}/webtorrent/`, '/webtorrent-web-seed/'] // webtorrent gets intercepted by the webtorrent sw and web-seed does not need caching but is handled below
+    this.doNotIntercept = [`${self.registration.scope}webtorrent/`, '/webtorrent-web-seed/'] // webtorrent gets intercepted by the webtorrent sw and web-seed does not need caching but is handled below
     this.doIntercept = [location.origin, this.decentralNinjaOrigin]
     // !!! KEEP THIS IN SYNC WITH Environment.js !!!
     // used for hard replace of domain host
@@ -233,7 +233,13 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
   addInstallEventListener () {
     self.addEventListener('install', event => {
       self.skipWaiting()
-      event.waitUntil(caches.open(this.version).then(cache => cache.addAll(this.precache)))
+      event.waitUntil(caches.open(this.version).then(cache => {
+        try {
+          cache.addAll(this.precache)
+        } catch (error) {
+          console.warn('ServiceWorker.js cache not loaded.')
+        }
+      }))
     })
   }
 
