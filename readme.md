@@ -1,7 +1,7 @@
 # Decentral Ninja 
 The easiest way to connect with others without the need for phone numbers or email exchanges!
 
-[<img align="center" src="https://decentral.ninja/src/img/logo.png">](https://decentral.ninja "chat 👉")
+[<img align="center" width="500px" src="https://decentral.ninja/src/img/logo.png">](https://decentral.ninja "chat 👉")
 
 [👆 chat @ decentral.ninja](https://decentral.ninja)
 
