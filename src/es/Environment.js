@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.1.9'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '1.1.10'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
@@ -27,10 +27,10 @@ self.Environment = {
     name: 'websocket',
     url: 'wss://websocket-two.peerweb.site'
   },
-  {
+  /*{
     name: 'webrtc',
     url: 'wss://webrtc.peerweb.site'
-  },
+  },*/
   {
     name: 'webrtc',
     url: 'wss://webrtc-two.peerweb.site'
