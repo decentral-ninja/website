@@ -92,7 +92,7 @@ to raw TCP or UDP sockets
                 │
              Internet
                 </pre>
-                <p>This is the reason, that we need to run handshake providers (servers) to communicate from browser to browser.</p>
+                <p>This is the reason, that we need to use handshake providers (servers) to communicate from browser to browser.</p>
                 <hr>
                 <h3>decentralized network</h3>
                 
