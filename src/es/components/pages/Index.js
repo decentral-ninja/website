@@ -230,6 +230,7 @@ export default class Index extends Mutation() {
                 </a>
                 <hr>
                 <h2>INFORMATION</h2>
+                <p>DCN is a WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent, IPFS and all fully end-to-end encrypted.</p>
                 <ul>
                   <li><a href="?page=/how" route target="_self">how to use?</a></li>
                   <li><a href="?page=/decentralization" route target="_self">decentralization</a></li>
