@@ -1,6 +1,7 @@
 # Decentral Ninja 
 The easiest way to connect with others without the need for phone numbers or email exchanges!
-[![chat 👉](./src/img/logo.png)](https://decentral.ninja)
+![chat 👉](./src/img/logo.png "chat 👉")
+[chat 👉](https://decentral.ninja)
 
 ## Install & Run
 - git submodule update --init --recursive
