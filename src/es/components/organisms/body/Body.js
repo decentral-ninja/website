@@ -290,7 +290,7 @@ export default class Body extends Shadow() {
 
   isScrolledBottom () {
     // 5px tolerance
-    return Math.ceil(this.main.scrollHeight - this.main.scrollTop - 85) <= this.main.clientHeight
+    return Math.ceil(this.main.scrollHeight - this.main.scrollTop - 75) <= this.main.clientHeight
   }
 
   get aScroll () {
