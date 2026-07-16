@@ -201,11 +201,12 @@ https://tabler.io/icons
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Notification:
   - [ ] fine grained notification per provider per room settings
-  - [ ] redo notifications; pull get-notifications at sw instead of push
-  - [ ] Consider alternatives: https://unifiedpush.org/
+  - [/] IOS/Iphone fix not possible, still broken in EU
+  - [/] redo notifications; pull get-notifications at sw instead of push // not possible, push is a browser vendor vapid key behavior
+  - [/] Consider alternatives: https://unifiedpush.org/
   - [ ] When new messages change document.title (emoji) until read
   - [ ] allow notification sound
-  - [ ] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
+  - [/] keep fetching notifications and don't discard the tab (wake lock) or fetch/pull in service worker (https://docs.pwabuilder.com/#/home/native-features?id=periodic-background-sync-overview)
   - [ ] fix Iphone/IOS Notifications/Batches (https://devtails.xyz/@adam/how-to-setup-web-push-notifications-in-ios-safari#server-side-push-notifications) : alternative when app open go through all rooms, get the new messages and release event with the notifications, that at least the user doesn't have to check each room but just open the app or...
   - [ ] Service worker directly pull or push notifications and do batches instead of current sw notification implementation
   - [ ] resolveWhenOnline for calls like get-notifications, analog ipfs.js
