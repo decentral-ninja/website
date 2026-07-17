@@ -151,7 +151,7 @@ https://tabler.io/icons
   - [x] update flux alternative website hosts
 - [/] BugFix, persistence clears document (crdt) before timeout or possible never saved it, research: https://github.com/Weedshaker/y-websocket/blob/master/bin/utils.js#L243
 - [x] refresh notifications key
---- Beta ---
+# --- Beta ---
 - [x] **ipfs and webtorrent integrations (https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler?retiredLocale=de)** with WakeLock for video playing | https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API | https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API + encrypt files with stream https://github.com/SocketDev/wormhole-crypto, https://github.com/xuset/indexeddb-chunk-store/tree/master, https://github.com/webtorrent/webtorrent/blob/master/docs/tutorials.md, consistent webtorrent: https://github.com/webtorrent/webtorrent/issues/1293, webtorrent stream: https://github.com/Chocobozzz/PeerTube/blob/develop/server/core/helpers/webtorrent.ts, https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system
   - [x] ipfs http integration
   - [x] add input copy/paste + drag and drop
@@ -165,7 +165,7 @@ https://tabler.io/icons
   - [x] delete torrent plus files when room/message deleted and torrent is not existing in other room/message ~~/ delete icon~~
   - [x] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click, force
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
---- Version One ---
+# --- Version One ---
   - [ ] file input/upload dialog
     - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
     - [ ] max storage (navigator) and usage minimal UI
@@ -293,7 +293,7 @@ https://tabler.io/icons
   - [ ] ServiceWorker.js fallback fetch of files to Environment.js - alternativeWebsiteHosts
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 - [ ] update yjs dependencies
---- Version Two ---
+# --- Version Two ---
 - [ ] email to room and vice versa
 - [x] Local hosting 2.0 https://github.com/anderspitman/awesome-tunneling?tab=readme-ov-file
 - [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
@@ -324,10 +324,10 @@ Add Chat Options:
 - [ ] Edit Message
 - [x] Forward Message
 
---- UI / UX ---
+# --- UI / UX ---
 - [x] Add Days or/and Date of the message section
 
---- Emoji TODO ---
+# --- Emoji TODO ---
 - [ ] evaluate: https://nolanlawson.github.io/emoji-picker-element/
 - [ ] Output larger if only emoji is sent
 - [x] Make EmojiPicker Responsive
