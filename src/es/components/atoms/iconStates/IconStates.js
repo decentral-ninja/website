@@ -32,7 +32,7 @@ export default class IconStates extends Shadow() {
 
   attributeChangedCallback (name, oldValue, newValue) {
     if (name === 'counter') {
-      this.counterEl.textContent = this.getAttribute('counter')
+      if (this.counterEl) this.counterEl.textContent = this.getAttribute('counter')
     } else {
       this.customStyle.textContent = ''
       this.setCss(/* css */`
