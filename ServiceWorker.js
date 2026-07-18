@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v188'
+    this.version = 'v189'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -62,6 +62,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       './src/es/chat/es/components/molecules/dialogs/prototypes/SetStringDialog.js',
       './src/es/chat/es/components/molecules/dialogs/RoomNameAkaDialog.js',
       './src/es/chat/es/components/molecules/dialogs/ShareDialog.js',
+      './src/es/chat/es/components/molecules/dialogs/UploadDialog.js',
       './src/es/chat/es/components/molecules/Key.js',
       './src/es/chat/es/components/molecules/message/Message.js',
       './src/es/chat/es/components/molecules/Notifications.js',
