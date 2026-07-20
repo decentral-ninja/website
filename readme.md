@@ -168,6 +168,7 @@ https://tabler.io/icons
 # --- Version One ---
 - [x] use new web api parseHTML for policy createHTML
 # --- Version Two ---
+  - [ ] todos at src/es/event-driven-web-components-yjs/src/es/controllers/Keys.js
   - [ ] show ipfs stats at v-webtorrent
   - [ ] add key to share link, must every time be selected -> show warning
   - [ ] file input/upload dialog
