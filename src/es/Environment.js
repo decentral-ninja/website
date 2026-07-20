@@ -8,7 +8,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.0.2'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.0.3'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 5000,
   updateProviderPerformanceAfter: 120000,
@@ -113,7 +113,7 @@ if (typeof self.trustedTypes?.createPolicy === 'function' && !self.trustedTypes.
       ? string => Document.parseHTML(string, { sanitizer }).body.innerHTML
       : string => string.replace(/<[a-zA-Z][a-zA-Z0-9._-]*(?=(?:"[^"]*"|'[^']*'|[^'">])*(?:(\bon[a-z]{2,})\s*=|(?:href|src|action|formaction|poster|data|xlink:href)\s*=\s*["']?([^"'<>]*)(?::|&colon;?|&#(?:x0*3a|0*58);?)))(?:"[^"]*"|'[^']*'|[^'">])*>/gi, (match, captureAttributeName, captureAttributeValue) => {
         if (captureAttributeName) return '' // included an attribute eg. onerror=
-        if (captureAttributeValue && /(javascript|vbscript|data:|&(?:#[0-9]{1,7}|#x[0-9a-f]{1,6}|[a-z][a-z0-9]{1,31}(?=;|[^a-z0-9=-])))/i.test(captureAttributeValue.replace(/[\u0000-\u0020]/g, ''))) return '' // included an attribute value eg. ="javascript:"
+        if (captureAttributeValue && /(javascript|vbscript|data:|&(?:#[0-9]{1,7}|#x[0-9a-f]{1,6}|[a-z][a-z0-9]{1,31}(?=;|[^a-z0-9'">=-])))/i.test(captureAttributeValue.replace(/[\u0000-\u0020]/g, ''))) return '' // included an attribute value eg. ="javascript:"
         return match
       }),
     createScriptURL: string => string, // unsafe but including webworker's, service workers, etc. is okay
