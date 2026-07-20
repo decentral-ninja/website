@@ -10,7 +10,7 @@
     "websocket": "PORT=1234 ALLOW_KEEP_ALIVE_FOREVER=true node ./src/es/event-driven-web-components-yjs/servers/y-websocket/bin/server.js",
     "webrtc": "PORT=4444 node ./src/es/event-driven-web-components-yjs/src/y-webrtc/bin/server.js"
   },
-  "author": "weedshaker@gmail.com",
+  "author": "weedshaker@starsystems.ch",
   "license": "GPLv3",
   "devDependencies": {
     "live-server": "*",

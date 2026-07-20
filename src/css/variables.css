@@ -42,8 +42,10 @@
   --button-primary-color-hover-custom: var(--background-color);
   --button-primary-transform-hover: scale(1.025);
   --button-primary-transition-custom: border-color .5s ease, background-color .3s ease, color .3s ease, transform .2s ease;
+  --button-secondary-border-color: var(--color-secondary);
   --button-secondary-border-radius: var(--border-radius);
   --button-secondary-border-width-custom: 2px;
+  --button-secondary-border-width: 2px;
   --button-secondary-transform-hover: scale(1.025);
   --button-secondary-transition-custom: border-color .3s ease-out, color .3s ease-out, transform .2s ease;
   --card-padding: 0.75em;

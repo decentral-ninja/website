@@ -44,7 +44,20 @@ export default class Privacy extends Index {
                 <h3>DCN is 100% committed to protect your privacy and for that is 100% <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target=_blank>FOSS</a></h3>
                 <hr class=plain>
                 <h4>Here some thoughts regarding privacy...</h4>
-                <iframe title="Think Privacy Is Dead? You're Wrong." width="560" height="315" style="aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: var(--border-radius);" src="https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <wct-iframe>
+                  <template>
+                    {
+                      "title": "Think Privacy Is Dead? You're Wrong.",
+                      "width": "560",
+                      "height": "315",
+                      "style": "aspect-ratio: 560 / 315; width: auto; height: auto; border-radius: 0 0 var(--border-radius) var(--border-radius);",
+                      "src": "https://neat.tube/videos/embed/sSx1yyXESXhvZh1E3VTwtG",
+                      "frameborder": "0",
+                      "allow": "fullscreen",
+                      "sandbox": "allow-same-origin allow-scripts allow-popups allow-forms"
+                    }
+                  </template>
+                </wct-iframe>
               </div>
             </div>
           </main>
@@ -87,6 +100,11 @@ export default class Privacy extends Index {
         // @ts-ignore
         path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/button/Button.js?${Environment?.version || ''}`,
         name: 'wct-button'
+      },
+      {
+        // @ts-ignore
+        path: `${this.importMetaUrl}../../web-components-toolbox/src/es/components/atoms/iframe/Iframe.js?${Environment?.version || ''}`,
+        name: 'wct-iframe'
       }
     ])
   }

@@ -166,9 +166,16 @@ https://tabler.io/icons
   - [x] when once torrent deleted, trash, don't automatically download but hint with download icon to start after click, force
   - [x] encrypted file avoid storage in crypto map #encryptedCache + #decryptedCache
 # --- Version One ---
+- [x] use new web api parseHTML for policy createHTML
+# --- Version Two ---
+  - [ ] show ipfs stats at v-webtorrent
+  - [ ] add key to share link, must every time be selected -> show warning
   - [ ] file input/upload dialog
     - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
     - [ ] max storage (navigator) and usage minimal UI
+    - [ ] option to add text to file
+    - [ ] key fallback before dialog when close/abort and set
+    - [ ] file size > 10MB warn gateway limitation, offer wormhole, nosignup apps and support dcn lightning gateway release with exclusive early access
     - [ ] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
     - [ ] collect and share gateways and trackers
     - [ ] choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
@@ -216,6 +223,7 @@ https://tabler.io/icons
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
 - [ ] ipfs and webtorrent integrations Part 2:
   - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
+  - [ ] webtorrent and ipfs provider setting per file upload and download. lightning setting delivered through bmac members page as link hooking ipfs gateway url as lightning/premium
   - [ ] when no provider in connection strings add torrents paused, no trigger ipfs add or cat
   - [ ] status quo, it now automatically starts seeding all pinned torrents, which may overloads webtorrent, so better to offer here a more sophisticated mechanism
   - [ ] all storage incl. OPFS encrypted backup (to webtorrent) and restore function.
@@ -293,7 +301,7 @@ https://tabler.io/icons
   - [ ] ServiceWorker.js fallback fetch of files to Environment.js - alternativeWebsiteHosts
 - [ ] go through check list (https://github.com/Weedshaker/event-driven-web-components-yjs/blob/master/readme.md)
 - [ ] update yjs dependencies
-# --- Version Two ---
+# --- Version Three ---
 - [ ] email to room and vice versa
 - [x] Local hosting 2.0 https://github.com/anderspitman/awesome-tunneling?tab=readme-ov-file
 - [ ] user give a room a hint name (local storage only) and allow hide un-hide room with or without password
