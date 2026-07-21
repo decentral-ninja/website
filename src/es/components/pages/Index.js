@@ -219,7 +219,7 @@ export default class Index extends Mutation() {
                   </section>
                 </wct-grid>
                 <hr class=plain>
-                <p><a href="http://dcn-web.hostlocal.app/ipfs/QmejFBVPcY177JCNCDS5vkWfDabHLPu2Z7TaMSUY8X1spe" target=_blank>DCN hosted at alternative ipfs origin</a></p>
+                <p><a href="http://dcn-web.hostlocal.app/ipfs/QmSxFi1aLBrGr141KbsswunyYUD9L936ou8kSYEGTw5E26" target=_blank>DCN hosted at alternative ipfs origin</a></p>
                 <h4>Empower your conversations, empower your privacy.</h4>
                 <hr>
                 <h2>SUPPORT DEVELOPMENT</h2>
