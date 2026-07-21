@@ -170,7 +170,6 @@ https://tabler.io/icons
 # --- Version Two ---
   - [ ] todos at src/es/event-driven-web-components-yjs/src/es/controllers/Keys.js
   - [ ] show ipfs stats at v-webtorrent
-  - [ ] add key to share link, must every time be selected -> show warning
   - [ ] file input/upload dialog
     - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
     - [ ] max storage (navigator) and usage minimal UI
