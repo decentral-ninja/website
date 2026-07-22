@@ -168,8 +168,7 @@ https://tabler.io/icons
 # --- Version One ---
 - [x] use new web api parseHTML for policy createHTML
 # --- Version Two ---
-  - [ ] todos at src/es/event-driven-web-components-yjs/src/es/controllers/Keys.js
-  - [ ] show ipfs stats at v-webtorrent
+  - [x] show ipfs stats at v-webtorrent
   - [ ] file input/upload dialog
     - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
     - [ ] max storage (navigator) and usage minimal UI
@@ -189,6 +188,7 @@ https://tabler.io/icons
 - [x] sw fetch new version from decentral.ninja priority one
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
+- [ ] tom kenyon
 - [ ] fix disconnect online / offline listeners eg. at: src/es/chat/es/components/molecules/Provider.js L:196. when disconnected it misses this global event.
 - [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [/] ~~fix double tab browser brave issue~~
@@ -242,6 +242,7 @@ https://tabler.io/icons
     - [ ] research a y-bluetooth provider
 - [ ] - End-to-End encryption Part 2:
   - [ ] key property to automatically answer with key within some time window when requested plus prop which indicates a key once had this automatic option active
+  - [ ] add hash with key-epoch to shared url to automatically request key when visiting room
   - [ ] make checkbox if notification for keyRequest and keyAnswer textObj.sendNotifications (Chat.js)
   - [ ] change/edit encryption of message from unencrypted to encrypted as well as from one key to another
   - [ ] when key received ask by dialog if wanna have it as default at room
