@@ -204,8 +204,8 @@ export default class Index extends Mutation() {
                 <h3>ああ、まいどまいど。</h3>
                 <hr class=plain>
                 <h2>Dear Ninja,</h2>
-                <p>Very pleased that you found the way to my dojo, I am!<br>
-                In these challenging times of censorship, surveillance, and big data. New skills and weaponry required there are.</p>
+                <p>Very pleased you found the way to my dojo, I am!<br>
+                In these challenging times of censorship, surveillance, and big data... new skills and weaponry required there are.</p>
                 <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
                   <section>
                     <div> 
@@ -219,11 +219,11 @@ export default class Index extends Mutation() {
                   </section>
                 </wct-grid>
                 <hr class=plain>
-                <p><a href="http://dcn-web.hostlocal.app/ipfs/QmUcYNResv37Cr3gK2jZ4LKVVrv32dU4mdjRTxbx8z8Rao" target=_blank>DCN hosted at alternative ipfs origin</a></p>
+                <p><a href="http://dcn-web.hostlocal.app/ipfs/QmUcYNResv37Cr3gK2jZ4LKVVrv32dU4mdjRTxbx8z8Rao" target=_blank>DCN hosted @ alternative ipfs origin</a></p>
                 <h4>Empower your conversations, empower your privacy.</h4>
                 <hr>
                 <h2>SUPPORT DEVELOPMENT</h2>
-                <p>Handcrafted, free and open source software. Help the development of future features as well as supporting the hosting of DCN...</p>
+                <p>Handcrafted, free and open source software. Help the development of future features as well as support the hosting of DCN...</p>
                 <a class=buyMeACoffee href="https://www.buymeacoffee.com/weedshaker" target=_blank>
                   <wct-picture class=buyMeACoffeePic defaultSource="${this.importMetaUrl}../../../../src/img/buy-me-a-coffee-qr-code.png" alt="How to use DCN"></wct-picture>
                   <img class=buyMeACoffeeImg src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=weedshaker&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" alt="buy me a coffee" />
@@ -232,7 +232,7 @@ export default class Index extends Mutation() {
                 <p>Support it, then name it!</p>
                 <hr>
                 <h2>INFORMATION</h2>
-                <p>DCN is a censorship proof, end-to-end encrypted WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent and IPFS to accomplish this task.</p>
+                <p>DCN is a censorship resistant, end-to-end encrypted, serverless WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent and IPFS to accomplish this task.</p>
                 <ul>
                   <li><a href="?page=/how" route target="_self">how to use?</a></li>
                   <li><a href="?page=/decentralization" route target="_self">decentralization</a></li>

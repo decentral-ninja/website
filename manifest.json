@@ -5,7 +5,7 @@
   "start_url": "./",
   "display": "standalone",
   "background_color": "#000f33",
-  "description": "The future of WEB3.0 comes with CRDTs. The decentral ninja helps the peasant to navigate around the pitfalls of central services. The hidden aspect of our ninja is to navigate anonymously. The weapons are CRDTs, Websocket, WebRTC, WebTorrent, IPFS and all fully end-to-end encrypted. Always, 100% - FOSS - open source!",
+  "description": "DCN is a censorship resistant, end-to-end encrypted, serverless WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent and IPFS to accomplish this task.",
   "dir": "ltr",
   "categories": [
     "utilities",

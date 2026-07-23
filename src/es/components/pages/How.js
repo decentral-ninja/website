@@ -74,7 +74,7 @@ export default class How extends Index {
                     <li>generate a new room <wct-icon-mdx title="generate" icon-url="../../../../../../img/icons/fold-down.svg" size="1em"></wct-icon-mdx></li>
                     <li>enter an existing room</li>
                     <li>turn notifications on/off <wct-icon-mdx title="notifications" icon-url="../../../../../../img/icons/bell.svg" size="1em"></wct-icon-mdx></li>
-                    <li>share room <wct-icon-mdx title="share" icon-url="../../../../../../img/icons/share-3.svg" size="1em"></wct-icon-mdx></li>
+                    <li>share link to room <wct-icon-mdx title="share" icon-url="../../../../../../img/icons/share-3.svg" size="1em"></wct-icon-mdx></li>
                     <li>give the room your own secrete name <wct-icon-mdx title="edit" icon-url="../../../../../../img/icons/pencil.svg" size="1em"></wct-icon-mdx></li>
                     <li>delete room <wct-icon-mdx title="delete" icon-url="../../../../../../img/icons/trash.svg" size="1em"></wct-icon-mdx></li>
                   </ul>

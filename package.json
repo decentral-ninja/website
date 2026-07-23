@@ -1,7 +1,7 @@
 {
   "name": "decentral-ninja",
   "version": "0.0.1",
-  "description": "The future of WEB3.0 comes with CRDTs. The decentral ninja helps the peasant to navigate around the pitfalls of central services. The hidden aspect of our ninja is to navigate anonymously. The weapons are CRDTs, Websocket, WebRTC, IPFS, etc. Always, 100% open source!",
+  "description": "DCN is a censorship resistant, end-to-end encrypted, serverless WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent and IPFS to accomplish this task.",
   "main": "./index.html",
   "repository": "https://github.com/decentral-ninja/website.git",
   "scripts": {
