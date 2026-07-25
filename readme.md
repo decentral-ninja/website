@@ -170,6 +170,7 @@ https://tabler.io/icons
 # --- Version Two ---
   - [x] show ipfs stats at v-webtorrent
   - [ ] file input/upload dialog
+    - [ ] upload torrent paused, keep files local until unpause, make sure ipfs does not upload until unpause
     - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
     - [ ] max storage (navigator) and usage minimal UI
     - [ ] option to add text to file
