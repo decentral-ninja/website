@@ -170,7 +170,7 @@ https://tabler.io/icons
 # --- Version Two ---
   - [x] show ipfs stats at v-webtorrent
   - [ ] file input/upload dialog
-    - [ ] upload torrent paused, keep files local until unpause, make sure ipfs does not upload until unpause
+    - [ ] upload torrent paused, keep files local until unpause, make sure ipfs does not upload until unpause. default checked when no providers.
     - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
     - [ ] max storage (navigator) and usage minimal UI
     - [ ] option to add text to file
@@ -223,6 +223,7 @@ https://tabler.io/icons
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
 - [ ] ipfs and webtorrent integrations Part 2:
+  - [ ] implement https://github.com/VERT-sh/VERT converter to dialog
   - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
   - [ ] webtorrent and ipfs provider setting per file upload and download. lightning setting delivered through bmac members page as link hooking ipfs gateway url as lightning/premium
   - [ ] when no provider in connection strings add torrents paused, no trigger ipfs add or cat
