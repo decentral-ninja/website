@@ -105,6 +105,24 @@
         setTimeout(() => viewport.setAttribute('content', content), 90)
       }
     }, false)
+    // PWA stuff
+    if (self.matchMedia('(display-mode: standalone)').matches || self.navigator.standalone === true) document.body.setAttribute('installed', '')
+    self.addEventListener('appinstalled', event => document.body.setAttribute('installed', ''), {once: true})
+    self.addEventListener('beforeinstallprompt', event => {
+      const deferredPrompt = event
+      document.body.setAttribute('installable', '')
+      self.addEventListener('get-beforeinstallprompt-deferred-prompt', event => {
+        if (typeof event.detail.resolve === 'function') return event.detail.resolve(deferredPrompt)
+        this.dispatchEvent(new CustomEvent('beforeinstallprompt-deferred-prompt', {
+          detail: {
+            deferredPrompt
+          },
+          bubbles: true,
+          cancelable: true,
+          composed: true
+        }))
+      })
+    }, {once: true})
   </script>
 </body>
 </html>

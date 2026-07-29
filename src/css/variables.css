@@ -34,9 +34,12 @@
   --box-shadow-default: var(--box-shadow-length-one) var(--box-shadow-color), var(--box-shadow-length-two) var(--box-shadow-color);
   --box-shadow-length-one: 0 1px 3px 0;
   --box-shadow-length-two: 0 1px 2px -1px;
+  --button-primary-background-color-disabled-custom: var(--color-disabled);
+  --button-primary-border-color-disabled: var(--color-disabled);
   --button-primary-border-color-hover: transparent;
   --button-primary-border-color: var(--color-secondary);
   --button-primary-border-radius: var(--border-radius);
+  --button-primary-border-width-disabled: var(--button-primary-border-width);
   --button-primary-border-width: 7px;
   --button-primary-color-custom: var(--color);
   --button-primary-color-hover-custom: var(--background-color);

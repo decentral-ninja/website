@@ -25,21 +25,52 @@ export default class Index extends Mutation() {
     this.setAttribute('font-family-tokyo', '')
     this.setAttribute('noise', '')
     this.transitionDuration = this.getAttribute('transition-duration') || 400
+
+    this.installButtonClickEventListener = event => {
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        this.installButton.label.innerHTML = /* html */`Tap
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-label="Share icon">
+            <path d="M12 2l4 4h-3v9h-2V6H8l4-4z" fill="currentColor"/>
+            <path d="M5 9h3v2H6v9h12v-9h-2V9h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1z" fill="currentColor"/>
+          </svg>
+          on your Crapple device, then click "Add to Home Screen"
+        `
+        this.installButton.setAttribute('disabled', '')
+      } else {
+        this.deferredPrompt.prompt()
+        this.installButton.remove()
+      }
+    }
   }
 
   connectedCallback () {
     this.hidden = true
+    const installable = document.body.hasAttribute('installable') && !document.body.hasAttribute('installed')
     document.documentElement.removeAttribute('invert')
     const showPromises = []
     if (this.shouldRenderCSS()) showPromises.push(this.renderCSS())
-    if (this.shouldRenderHTML()) showPromises.push(this.renderHTML())
+    if (this.shouldRenderHTML()) showPromises.push(this.renderHTML(installable))
     Promise.all(showPromises).then(() => {
       this.mutationObserver.observe(this.header, this.mutationObserverInit)
+      if (installable) {
+        new Promise(resolve => this.dispatchEvent(new CustomEvent('get-beforeinstallprompt-deferred-prompt', {
+          detail: {
+            resolve
+          },
+          bubbles: true,
+          cancelable: true,
+          composed: true
+        }))).then(deferredPrompt => {
+          this.deferredPrompt = deferredPrompt
+          if (this.installButton) this.installButton.addEventListener('click', this.installButtonClickEventListener)
+        })
+      }
       this.hidden = false
     })
   }
 
   disconnectedCallback () {
+    if (this.installButton) this.installButton.removeEventListener('click', this.installButtonClickEventListener)
     super.disconnectedCallback()
   }
 
@@ -159,7 +190,7 @@ export default class Index extends Mutation() {
   *
   * @return {Promise<void>}
   */
-  renderHTML () {
+  renderHTML (installable = false) {
     // Header is expected to be initially open, below <o-header open></o-header>
     this.classList.add('header-open')
     this.html = /* html */`
@@ -195,6 +226,9 @@ export default class Index extends Mutation() {
               --img-max-width: min(25dvw, 235px);
               --img-max-width-mobile: 75dvw;
             }
+            :host .center {
+              text-align: center;
+            }
           </style>
           <main>
             <div class=pattern>
@@ -206,24 +240,47 @@ export default class Index extends Mutation() {
                 <h2>Dear Ninja,</h2>
                 <p>Very pleased you found the way to my dojo, I am!<br>
                 In these challenging times of censorship, surveillance, and big data... new skills and weaponry required there are.</p>
-                <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
-                  <section>
-                    <div> 
-                      <a href="?page=/chat&${this.providerQuery}" route target="_self">
-                        <wct-button namespace="button-primary-">Start Chat</wct-button>
-                      </a>
-                    </div>
-                    <div>
-                      <wct-button namespace="button-secondary-" href="/?page=/chat&room=chat-Questions-And-Feedback&${this.providerQuery}&magnet=magnet%253A%253Fxt%253Durn%253Abtih%253A7aa2fb8ddcf8b9c511b2a02da0c57dcfed709b2f%2526dn%253Dchat-Questions-And-Feedback.yjs%2526tr%253Dwss%25253A%25252F%25252Ftracker.peerweb.site%2526tr%253Dwss%25253A%25252F%25252Ftracker.openwebtorrent.com%25253A443%25252Fannounce%2526tr%253Dwss%25253A%25252F%25252Ftracker.webtorrent.dev&cid=QmNPpC58Lib36F6r7AdfQcs1CuB31X3cQxpy79evhVXGDS">Chat With Us</wct-button>
-                    </div>
-                  </section>
-                </wct-grid>
+                ${installable
+                  ? /* html */`
+                    <wct-grid id=buttons auto-fill="calc(33% - 0.6em)" auto-fill-mobile="100%" gap="1em">
+                      <section>
+                        <wct-button id=install-button namespace="button-secondary-">Install</wct-button>
+                        <div class=center> 
+                          <a href="?page=/chat&${this.providerQuery}" route target="_self">
+                            <wct-button namespace="button-primary-">Start Chat</wct-button>
+                          </a>
+                        </div>
+                        <div class=center>
+                          <a href="?page=/chat&room=chat-Questions-And-Feedback&${this.providerQuery}&magnet=magnet%253A%253Fxt%253Durn%253Abtih%253A7aa2fb8ddcf8b9c511b2a02da0c57dcfed709b2f%2526dn%253Dchat-Questions-And-Feedback.yjs%2526tr%253Dwss%25253A%25252F%25252Ftracker.peerweb.site%2526tr%253Dwss%25253A%25252F%25252Ftracker.openwebtorrent.com%25253A443%25252Fannounce%2526tr%253Dwss%25253A%25252F%25252Ftracker.webtorrent.dev&cid=QmNPpC58Lib36F6r7AdfQcs1CuB31X3cQxpy79evhVXGDS" route target="_self">
+                            <wct-button namespace="button-secondary-">Chat With Us</wct-button>
+                          </a>
+                        </div>
+                      </section>
+                    </wct-grid>
+                  `
+                  : /* html */`
+                    <wct-grid namespace="grid-2colums2rows-" first-container-vertical="" first-column-with="50%" style="text-align:center">
+                      <section>
+                        <div class=center> 
+                          <a href="?page=/chat&${this.providerQuery}" route target="_self">
+                            <wct-button namespace="button-primary-">Start Chat</wct-button>
+                          </a>
+                        </div>
+                        <div class=center>
+                          <a href="?page=/chat&room=chat-Questions-And-Feedback&${this.providerQuery}&magnet=magnet%253A%253Fxt%253Durn%253Abtih%253A7aa2fb8ddcf8b9c511b2a02da0c57dcfed709b2f%2526dn%253Dchat-Questions-And-Feedback.yjs%2526tr%253Dwss%25253A%25252F%25252Ftracker.peerweb.site%2526tr%253Dwss%25253A%25252F%25252Ftracker.openwebtorrent.com%25253A443%25252Fannounce%2526tr%253Dwss%25253A%25252F%25252Ftracker.webtorrent.dev&cid=QmNPpC58Lib36F6r7AdfQcs1CuB31X3cQxpy79evhVXGDS" route target="_self">
+                            <wct-button namespace="button-secondary-">Chat With Us</wct-button>
+                          </a>
+                        </div>
+                      </section>
+                    </wct-grid>
+                  `
+                }
                 <hr class=plain>
                 <p><a href="http://dcn-web.hostlocal.app/ipfs/QmUcYNResv37Cr3gK2jZ4LKVVrv32dU4mdjRTxbx8z8Rao" target=_blank>DCN hosted @ alternative ipfs origin</a></p>
                 <h4>Empower your conversations, empower your privacy.</h4>
                 <hr>
                 <h2>SUPPORT DEVELOPMENT</h2>
-                <p>Handcrafted, free and open source software. Help the development of future features as well as support the hosting of DCN...</p>
+                <p>Independent, handcrafted, free and open source software. Help the development of future features as well as support the hosting of DCN...</p>
                 <a class=buyMeACoffee href="https://www.buymeacoffee.com/weedshaker" target=_blank>
                   <wct-picture class=buyMeACoffeePic defaultSource="${this.importMetaUrl}../../../../src/img/buy-me-a-coffee-qr-code.png" alt="How to use DCN"></wct-picture>
                   <img class=buyMeACoffeeImg src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=weedshaker&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" alt="buy me a coffee" />
@@ -235,7 +292,7 @@ export default class Index extends Mutation() {
                 <p>DCN is a censorship resistant, end-to-end encrypted, serverless WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent and IPFS to accomplish this task.</p>
                 <ul>
                   <li><a href="?page=/how" route target="_self">how to use?</a></li>
-                  <li><a href="?page=/decentralization" route target="_self">decentralization</a></li>
+                  <li><a href="?page=/decentralization" route target="_self">decentralization and hosting</a></li>
                   <li><a href="?page=/encryption" route target="_self">end-to-end encryption</a></li>
                   <li><a href="?page=/privacy" route target="_self">privacy</a></li>
                   <li><a href="https://github.com/decentral-ninja/website" target=_blank>developers</a></li>
@@ -299,6 +356,10 @@ export default class Index extends Mutation() {
 
   get header () {
     return this.root.querySelector('o-header')
+  }
+
+  get installButton () {
+    return this.root.querySelector('o-body')?.root.querySelector('#buttons')?.root.querySelector('#install-button')
   }
 
   get style () {

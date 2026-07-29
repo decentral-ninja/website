@@ -169,19 +169,13 @@ https://tabler.io/icons
 - [x] use new web api parseHTML for policy createHTML
 # --- Version Two ---
   - [x] show ipfs stats at v-webtorrent
-  - [ ] file input/upload dialog
-    - [ ] upload torrent paused, keep files local until unpause, make sure ipfs does not upload until unpause. default checked when no providers.
-    - [ ] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
-    - [ ] max storage (navigator) and usage minimal UI
-    - [ ] option to add text to file
-    - [ ] key fallback before dialog when close/abort and set
-    - [ ] file size > 10MB warn gateway limitation, offer wormhole, nosignup apps and support dcn lightning gateway release with exclusive early access
-    - [ ] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
-    - [ ] collect and share gateways and trackers
-    - [ ] choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
-    - [ ] note about subscription/gateway (kubo) along CID similar as magnetURI includes trackers CID is going to include or have param beside for gateway
-    - [ ] webtorrent websocket seed encrypted files through subscription gateway
-    - [ ] remove prompt
+  - [x] file input/upload dialog
+    - [x] choose key (when key deleted fallback and when key added during runtime rerender) [// TODO: fallback view if no key - src/es/event-driven-web-components-webtorrent/src/views/Webtorrent.js L:809+883]
+    - [x] option to add text to file
+    - [x] key fallback before dialog when close/abort and set
+    - [/] file size > 10MB warn gateway limitation, offer wormhole, nosignup apps and support dcn lightning gateway release with exclusive early access
+    - [/] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
+    - [x] remove prompt
   - [x] own https://github.com/webtorrent/bittorrent-tracker include for trystero
   - [ ] player:
     - [ ] keep video and audio progress when reloading
@@ -202,6 +196,7 @@ https://tabler.io/icons
   - [ ] Edit; file, encryption, emoji
   - [ ] move message between own messages order, boundary other users messages
   - [ ] multiple filters
+  - [ ] direct public/private key message shown as a key but user key separate tab
 - [ ] last connected, synced hr at chat.js (analog last red message label) [// TODO: scroll to last read message once feature gets implemented - es/components/molecules/Chat.js:502]
 - [ ] user is typing indicator
 - [ ] disable rooms === hidden except free text search finds it
@@ -223,6 +218,12 @@ https://tabler.io/icons
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
 - [ ] ipfs and webtorrent integrations Part 2:
+  - [ ] upload torrent paused, keep files local until unpause, make sure ipfs does not upload until unpause. default checked when no providers.
+  - [ ] max storage (navigator) and usage minimal UI
+  - [ ] collect and share gateways and trackers
+  - [ ] choice and manual addable BitTorrent tracker and IPFS Gateway. Save both to local storage to be able to pref.
+  - [ ] note about subscription/gateway (kubo) along CID similar as magnetURI includes trackers CID is going to include or have param beside for gateway
+  - [ ] webtorrent websocket seed encrypted files through subscription gateway
   - [ ] implement https://github.com/VERT-sh/VERT converter to dialog
   - [ ] hint message self user to reupload files if missing (use same iv to receive the exact same infoHash and cid)
   - [ ] webtorrent and ipfs provider setting per file upload and download. lightning setting delivered through bmac members page as link hooking ipfs gateway url as lightning/premium

@@ -101,7 +101,8 @@ to raw TCP or UDP sockets
                 <p>At the above example there are four users and three providers. User-one and user-four sync the data with two providers and for that create a bridge, due to which user-two and user-three are in sync with everyone.</p>
                 <hr>
                 <h3>self hosting</h3>
-                <p>All parts of DCN can be hosted by yourself. The instances you can access by default are located in Switzerland and for that reason, they may are slow from your location, depending where you are. <a href="https://github.com/decentral-ninja/website" target=_blank>Open an issue, if you would like to add one of your providers to the default listing.</a></p>
+                <p>All parts of DCN can be hosted by yourself. So far, the instances you access by default, are located in Switzerland and for that reason, they may are slow from your location, depending where you are. <a href="https://github.com/decentral-ninja/website" target=_blank>Open an issue, if you would like to add one of your providers to the default listing.</a></p>
+                <p><a href="https://github.com/weedshaker" target="_blank">Get in touch</a> regarding commercial usage, branding and isolated self hosting of DCN.</p>
                 <hr>
                 <h4 style="text-decoration: underline;">hosting - decentral ninja (DCN web):</h4>
                 <ul>
