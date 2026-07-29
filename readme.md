@@ -218,6 +218,7 @@ https://tabler.io/icons
 - [/] Inform new version available message and/or fetch the newest providers from: fetch('https://raw.githubusercontent.com/decentral-ninja/website/refs/heads/main/src/es/Environment.js').then(res => res.text()).then(text => console.log(text)), support attribute integrity check: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity as well as inform about alternativeWebsiteHosts
 - [ ] https://www.xjavascript.com/blog/pwa-how-to-programmatically-trigger-add-to-homescreen-on-ios-safari/ / https://github.com/philfung/add-to-homescreen
 - [ ] ipfs and webtorrent integrations Part 2:
+  - [ ] emoji for fileupload text
   - [ ] upload torrent paused, keep files local until unpause, make sure ipfs does not upload until unpause. default checked when no providers.
   - [ ] max storage (navigator) and usage minimal UI
   - [ ] collect and share gateways and trackers
