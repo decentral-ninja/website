@@ -24,6 +24,8 @@
   <meta name="msapplication-TileColor" content="#000f33">
   <meta name="msapplication-TileImage" content="./src/img/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#fff8e0ff">
+  <meta name="description" content="DCN is a censorship resistant, end-to-end encrypted, serverless WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent and IPFS to accomplish this task.">
+  <meta name="keywords" content="CRDT, decentralized, end-to-end encryption, IPFS, local-first, pwa, WebRTC, Websocket, WebTorrent, yjs">
   <title>Decentral Ninja</title>
 </head>
 <body>
@@ -105,7 +107,7 @@
         setTimeout(() => viewport.setAttribute('content', content), 90)
       }
     }, false)
-    // PWA stuff
+    // PWA installed stuff
     if (self.matchMedia('(display-mode: standalone)').matches || self.navigator.standalone === true) document.body.setAttribute('installed', '')
     self.addEventListener('appinstalled', event => document.body.setAttribute('installed', ''), {once: true})
     self.addEventListener('beforeinstallprompt', event => {
