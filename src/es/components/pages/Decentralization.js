@@ -95,7 +95,6 @@ to raw TCP or UDP sockets
                 <p>This is the reason, that we need to use handshake providers (servers) to communicate from browser to browser.</p>
                 <hr>
                 <h3>decentralized network</h3>
-                
                 <h3>example:</h3>
                 <wct-picture defaultSource="${this.importMetaUrl}../../../../docs/connection-graph.svg" alt="connection graph"></wct-picture>
                 <p>At the above example there are four users and three providers. User-one and user-four sync the data with two providers and for that create a bridge, due to which user-two and user-three are in sync with everyone.</p>
