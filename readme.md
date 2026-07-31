@@ -176,6 +176,8 @@ https://tabler.io/icons
     - [/] file size > 10MB warn gateway limitation, offer wormhole, nosignup apps and support dcn lightning gateway release with exclusive early access
     - [/] when file input options: name dialog with preview URL.createObjectURL(file) + URL.revokeObjectURL(), upload and webtorrent-seed (every occur eg. eventDrivenYjs.takeSnapshot Input) response progress ipfs as well as error/failure detection
     - [x] remove prompt
+    - [x] updating with states: encrypting, seeding and ipfs adding - done = close
+    - [x] fix firefox
   - [x] own https://github.com/webtorrent/bittorrent-tracker include for trystero
   - [ ] player:
     - [ ] keep video and audio progress when reloading
