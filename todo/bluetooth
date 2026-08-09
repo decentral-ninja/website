@@ -1,0 +1,37 @@
+Yes, but the Web Bluetooth spec's central-only restriction changes the shape of the provider significantly compared to `y-webrtc` or `y-websocket`.
+
+**The constraint that matters most**
+
+Web Bluetooth only implements the **Central (GATT client) role**. There's no peripheral/GATT-server role exposed to a web page — that proposal (`#78`, `#446` in the WebBluetoothCG repo) has been open for years and never shipped. So two browser tabs can't connect to each other directly the way two `RTCPeerConnection`s can. One side of every connection has to be a real BLE peripheral: a microcontroller (ESP32/nRF52), a phone running a native BLE-peripheral app, or a Node process using `bleno`/`@abandonware/bleno` — none of which is "the browser Web API" anymore.
+
+Practical consequence for a Yjs provider: you get a **star topology**, not mesh. Each browser is a Central that connects to one peripheral (which acts as the hub/relay), not to each other.
+
+**Architectures that actually work**
+
+1. **Browser ↔ single hardware peer** (1:1) — treat the peripheral as another Yjs replica (e.g. an ESP32 running its own Yjs-compatible sync state, or just relaying bytes to something else). Simplest, but not multi-browser collab.
+2. **Browser(s) ↔ relay hub device** — an ESP32/nRF firmware exposes one GATT service, accepts multiple simultaneous Central connections (BLE peripherals typically support ~3–8 concurrent links depending on chipset/stack), and relays raw bytes between connected centrals — effectively a `y-websocket` server reimplemented in firmware. This is the only way to get more-than-two-party sync over BLE with browsers involved.
+3. Anything involving a second browser as the peripheral is a dead end today.
+
+**Protocol layer — this part maps cleanly onto y-protocols**
+
+The awareness protocol (and the sync protocol) are already transport-agnostic byte-stream protocols, so reusing `y-protocols/sync.js` and `y-protocols/awareness.js` as-is is fine — same message-type-byte multiplexing scheme `y-websocket` uses:
+
+```js
+// message type byte, same idea as y-websocket
+const messageSync = 0
+const messageAwareness = 1
+
+encoder = encoding.createEncoder()
+encoding.writeVarUint(encoder, messageAwareness)
+encoding.writeVarUint8Array(encoder, awarenessProtocol.encodeAwarenessUpdate(awareness, changedClients))
+```
+
+What you have to add that WebSocket/WebRTC don't need:
+
+- **Chunking.** GATT writes/notifications are capped by the negotiated ATT MTU — the browser negotiates this with the OS/peripheral but doesn't expose the value, so in practice you're looking at ~20 bytes (unnegotiated) up to low-200s of bytes per packet. Any sync step-2 message (which can carry the whole doc) or a batch of awareness states will routinely exceed that. You need your own framing: length-prefix + sequence number + reassembly buffer on both ends, wrapping the y-protocols-encoded payload.
+- **Flow control / ordering.** `writeValueWithoutResponse` is fire-and-forget and can drop/reorder under load; `writeValueWithResponse` is safer but slower. Notifications from peripheral→central are also unordered-if-you're-unlucky on some stacks. Your chunk header should carry enough info to detect gaps and either retransmit or fall back to a fresh sync step 1.
+- **Awareness heartbeat reliability.** The 30s stale-timeout in `y-protocols/awareness` assumes timely delivery. Backgrounded tabs get throttled (same class of problem you solved with `StallWatchdog` for audio) — BLE connection can survive backgrounding on some platforms while JS timers get deprioritized, so your outgoing heartbeat can silently fall behind. Worth explicitly re-broadcasting full awareness state on `visibilitychange`.
+- **No ambient discovery/reconnect.** Every new device requires a user gesture + native chooser dialog. Chrome's `getDevices()`/persistent permissions exist but are still behind `chrome://flags/#enable-experimental-web-platform-features`, so silent auto-reconnect on page reload isn't reliably available cross-platform yet.
+- **Browser support** is Chromium desktop + Android only — no Firefox, no Safari/iOS (WebBLE/Bluefy apps aside). That's a hard ceiling on who can join a session at all.
+
+If it'd help, I can sketch the actual `Provider` class (following the `y-websocket`/`y-webrtc` shape — `awareness`, `doc`, `connect()`/`disconnect()`, `synced` event) with the chunking/reassembly layer built in, assuming architecture #2 (hub-relay firmware) since that's the only one that gives you real multi-peer awareness.
