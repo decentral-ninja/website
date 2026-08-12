@@ -1,4 +1,0 @@
-This is a Brave Creators publisher verification file.
-
-Domain: decentral.ninja
-Token: c84678cee839a851ff5dbcd0ac0b71b06679f7c3469ae5ebe60fc509c309b116
