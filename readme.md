@@ -190,7 +190,7 @@ https://tabler.io/icons
 - [ ] new key uploaded, sort dialog keys
 - [ ] only users with lastTimeVisited within24h as connected
 - [ ] Upload key input - dialog prompt triggered by request-key message separate link
-- [ ] paste into main input field - open dialog
+- [x] paste files into main input field - open dialog
 - [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [ ] tom kenyon
 - [ ] dark mode, use https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mix-blend-mode - difference (src/img/mix-blend-mode-difference.gif)
