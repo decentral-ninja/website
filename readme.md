@@ -186,10 +186,16 @@ https://tabler.io/icons
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
 - [x] delete key request if key owner
+- [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API (scan a qr code key to add)
+- [ ] new key uploaded, sort dialog keys
+- [ ] only users with lastTimeVisited within24h as connected
+- [ ] Upload key input - dialog prompt triggered by request-key message separate link
+- [ ] paste into main input field - open dialog
+- [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [ ] tom kenyon
+- [ ] dark mode, use https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mix-blend-mode - difference (src/img/mix-blend-mode-difference.gif)
 - [x] sitemap
 - [x] fix disconnect online / offline listeners eg. at: src/es/chat/es/components/molecules/Provider.js L:196. when disconnected it misses this global event.
-- [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [/] ~~fix double tab browser brave issue~~
 - [ ] jitsi allow other instances as well as custom room names
 - [ ] multi installer... starts docker or such... selectable: whole solutions, bittorrent tracker, ipfs gateway, yjs websocket, yjs webrtc, jitsi, DCN web, easy settings instruction or automatic solution, do not overwrite particular settings: env merge, variables overwrite, etc. show how to host custom vars and env dcn web
@@ -273,7 +279,6 @@ https://tabler.io/icons
 - [x] rooms wct-load-template-tag for chat-m-rooms > dialog > ul > li > (room entry) to make the rerendering faster (opening the dialog always has a slight delay)
 - [ ] - End-to-End encryption Part 3:
   - [ ] share hashed key as url param with room link. Make a note at each key public.received.throughUrl:boolean, private.(origin, received, shared).throughUrl:boolean + distinguish if key was shared through plain url vs qr code url (rooms should also have that property throughQrCode:boolean). Mark a throughUrl and throughQrCode Key with different icons and title attributes.
-  - [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API (scan a qr code key to add)
   - [ ] text (editor Y.text) room name editor- instead of chat-. reference with editor- room name to origin
    room-message
   - [ ] https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/sign / https://mdn.github.io/dom-examples/web-crypto/sign-verify/ vote with signatures for a key, message (similar to likes), etc.

@@ -8,14 +8,14 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.3'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.4'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
-  updateNotificationsAfter: 5000,
+  updateNotificationsAfter: 7000,
   updateProviderPerformanceAfter: 120000,
   opfsMobileQuota: 1024 ** 3 * 50, // 1GB * 50
   opfsDesktopQuota: 1024 ** 3 * 500, // 1GB * 500
   keepAlive: 432000000, // 1 day = 86400000,
-  notificationPublicKey: 'BHIMJ_jr9km6VYKudv5yZ4CXlWpHSZApTtCR6GmLdvsax31E-tpm4VOJeAD6SAe76oqkDaMZ_h4g1EhIoAKvXYc',
+  notificationPublicKey: 'BDky-QCE7l597P075T4kcg9ctjpR2h2RLmP8gnKWSkWlB_iJCIwK9Pny6W2GEkaFSq--ugcorrDVO_Bf9HuAQes', // vapidkeys.com publicKey
   providers: [{
     name: 'websocket',
     url: 'wss://heroku.peerweb.site'
