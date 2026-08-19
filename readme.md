@@ -186,22 +186,16 @@ https://tabler.io/icons
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
 - [x] delete key request if key owner
-- [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API (scan a qr code key to add)
-- [ ] new key uploaded, sort dialog keys
-- [ ] only users with lastTimeVisited within24h as connected
-- [ ] Upload key input - dialog prompt triggered by request-key message separate link
 - [x] paste files into main input field - open dialog
-- [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
+- [x] new key uploaded, sort dialog keys
 - [ ] tom kenyon
+- [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API (scan a qr code key to add)
+- [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [ ] dark mode, use https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mix-blend-mode - difference (src/img/mix-blend-mode-difference.gif)
 - [x] sitemap
 - [x] fix disconnect online / offline listeners eg. at: src/es/chat/es/components/molecules/Provider.js L:196. when disconnected it misses this global event.
 - [/] ~~fix double tab browser brave issue~~
 - [ ] jitsi allow other instances as well as custom room names
-- [ ] multi installer... starts docker or such... selectable: whole solutions, bittorrent tracker, ipfs gateway, yjs websocket, yjs webrtc, jitsi, DCN web, easy settings instruction or automatic solution, do not overwrite particular settings: env merge, variables overwrite, etc. show how to host custom vars and env dcn web
-  - [ ] allow local hosted instances to be public through pangolin
-  - [ ] web, sw import json to control sw version overwrite for customization
-  - [ ] tab location.origin.1 (expl. localhost:4200 or decentral.ninja) + tab location.origin.2 (expl. localhost:5200 or decentralweb.com) share room list through message channel (room link from foreign location origin will open blank in the original origin but is listed in the other tab + Notifications shown) [The approach: localhost:4200 opens localhost:5200 via window.open(), then they exchange a MessageChannel port so subsequent messages are direct port-to-port (no origin sniffing needed after the handshake).] Actually, when using an other origin but decentral.ninja, it can open decentral.ninja, quickly get the room list and close the tab or pop-under, for this grab it may is good to have a separate landing point not index.html
 - [ ] Message Feature:
   - [ ] Edit; file, encryption, emoji
   - [ ] move message between own messages order, boundary other users messages
@@ -211,6 +205,10 @@ https://tabler.io/icons
 - [ ] user is typing indicator
 - [ ] disable rooms === hidden except free text search finds it
 - [ ] announce room/snapshot publicly inside an announced room linked in the index.js and room overview. Also show active user numbers inside room analog notifications on rooms but the user numbers get sent to provider from last active client by api call.
+- [ ] multi installer... starts docker or such... selectable: whole solutions, bittorrent tracker, ipfs gateway, yjs websocket, yjs webrtc, jitsi, DCN web, easy settings instruction or automatic solution, do not overwrite particular settings: env merge, variables overwrite, etc. show how to host custom vars and env dcn web
+  - [ ] allow local hosted instances to be public through pangolin
+  - [ ] web, sw import json to control sw version overwrite for customization
+  - [ ] tab location.origin.1 (expl. localhost:4200 or decentral.ninja) + tab location.origin.2 (expl. localhost:5200 or decentralweb.com) share room list through message channel (room link from foreign location origin will open blank in the original origin but is listed in the other tab + Notifications shown) [The approach: localhost:4200 opens localhost:5200 via window.open(), then they exchange a MessageChannel port so subsequent messages are direct port-to-port (no origin sniffing needed after the handshake).] Actually, when using an other origin but decentral.ninja, it can open decentral.ninja, quickly get the room list and close the tab or pop-under, for this grab it may is good to have a separate landing point not index.html
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] Notification:
   - [ ] fine grained notification per provider per room settings
@@ -281,7 +279,7 @@ https://tabler.io/icons
   - [ ] share hashed key as url param with room link. Make a note at each key public.received.throughUrl:boolean, private.(origin, received, shared).throughUrl:boolean + distinguish if key was shared through plain url vs qr code url (rooms should also have that property throughQrCode:boolean). Mark a throughUrl and throughQrCode Key with different icons and title attributes.
   - [ ] text (editor Y.text) room name editor- instead of chat-. reference with editor- room name to origin
    room-message
-  - [ ] https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/sign / https://mdn.github.io/dom-examples/web-crypto/sign-verify/ vote with signatures for a key, message (similar to likes), etc.
+  - [ ] https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/sign / https://mdn.github.io/dom-examples/web-crypto/sign-verify/ vote with signatures for a key, message (similar to likes), etc. , see todo/verify-signature-publickey
   - [ ] approve key holding by pub key encryption signature or simply declare by signing key uid in user crdt to be in possession (key can be used to vote/sign content)
   - [ ] stealth message with all (sender, date?, message etc.) encrypted
   - [ ] password share in url link but salted. Salt solution placed in public channel and once consumed salt solution in pub channel and password in url gets resolved permanently deleted, or salt with a question

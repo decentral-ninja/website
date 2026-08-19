@@ -1,0 +1,21 @@
+async function verifyKeyPairMatch(privateKey, publicKey) {
+  const encoder = new TextEncoder();
+  const message = encoder.encode("test-message-" + crypto.randomUUID());
+
+  // Sign with the private key
+  const signature = await crypto.subtle.sign(
+    { name: "ECDSA", hash: "SHA-256" }, // adjust to your curve/algorithm
+    privateKey,
+    message
+  );
+
+  // Verify with the public key
+  const isValid = await crypto.subtle.verify(
+    { name: "ECDSA", hash: "SHA-256" },
+    publicKey,
+    signature,
+    message
+  );
+
+  return isValid; // true = they're a matching pair
+}
