@@ -2,19 +2,20 @@
 /* global location */
 
 const currentScriptUrl = new URL(document.currentScript.src)
+const keepAlive = 432000000 // 1 day = 86400000,
 
 // @ts-ignore
 self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.6'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.7'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 7000,
   updateProviderPerformanceAfter: 120000,
   opfsMobileQuota: 1024 ** 3 * 50, // 1GB * 50
   opfsDesktopQuota: 1024 ** 3 * 500, // 1GB * 500
-  keepAlive: 432000000, // 1 day = 86400000,
+  keepAlive, // 1 day = 86400000,
   notificationPublicKey: 'BDky-QCE7l597P075T4kcg9ctjpR2h2RLmP8gnKWSkWlB_iJCIwK9Pny6W2GEkaFSq--ugcorrDVO_Bf9HuAQes', // vapidkeys.com publicKey
   providers: [{
     name: 'websocket',
@@ -40,7 +41,7 @@ self.Environment = {
     name: 'webrtc',
     url: 'wss://webrtc-trystero.ninja'
   }],
-  providerQuery: '', // preset provider query to connect to certain providers when user opens a new room. format analog src/es/components/pages/Index.js:L24
+  providerQuery: `websocket-url=wss%3A%2F%2Fheroku.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}&webrtc-url=wss%3A%2F%2Fwebrtc-two.peerweb.site${(location.pathname.includes('/ipfs/') || location.pathname.includes('.ipfs.')) ? '%2Cwss%3A%2F%2Fwebrtc-trystero.ninja' : ''}`, // preset provider query to connect to certain providers when user opens a new room. format analog src/es/components/pages/Index.js:L24
   trackers: [
     'wss://tracker.peerweb.site',
     'wss://tracker.openwebtorrent.com:443/announce',
