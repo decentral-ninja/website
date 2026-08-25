@@ -82,7 +82,10 @@ export default class How extends Index {
                   <ul class="sub">
                     <li>provider graph</li>
                     <li>manual provider settings</li>
-                    <li>provider with multiple settings, depending type <wct-icon-mdx title="shield" icon-url="../../../../../../img/icons/shield-check.svg" size="1em"></wct-icon-mdx></li>
+                    <li>provider with multiple settings, depending type <wct-icon-mdx title="shield" icon-url="../../../../../../img/icons/shield-check.svg" size="1em"></wct-icon-mdx>
+                      <ul>
+                        <li>Websocket: "keepAlive" keeps the CRDT for the chosen time range.</li>
+                    </li>
                   </ul>
                   <li>user list <wct-icon-mdx title="user" icon-url="../../../../../../img/icons/user-other.svg" size="1em"></wct-icon-mdx></li>
                   <ul class="sub">
