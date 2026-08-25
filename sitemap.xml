@@ -6,7 +6,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://decentral.ninja/?page=/chat&amp;room=chat-Questions-And-Feedback&amp;websocket-url=wss%3A%2F%2Fheroku.peerweb.site%2F%3Fkeep-alive%3D86400000</loc>
+    <loc>https://decentral.ninja/?page=/chat&amp;room=chat-Questions-And-Feedback&amp;websocket-url=wss%3A%2F%2Fheroku.decentral.ninja%2F%3Fkeep-alive%3D86400000</loc>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>

@@ -18,7 +18,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v212'
+    this.version = 'v213'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -221,9 +221,16 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     this.replaceHosts = [{
       hostname: 'the-decentral-web.herokuapp.com',
       pattern: '/the-decentral-web\.herokuapp\.com/',
-      replacement: 'heroku.peerweb.site',
+      replacement: 'heroku.decentral.ninja',
       idPattern: 'p_the-decentral-web-herokuapp-com', // used at molecules/Provider.js setActive L:617
-      idReplacement: 'p_heroku-peerweb-site'
+      idReplacement: 'p_heroku-decentral-ninja'
+    },
+    {
+      hostname: 'heroku.peerweb.site',
+      pattern: '/heroku\.peerweb\.site/',
+      replacement: 'heroku.decentral.ninja',
+      idPattern: 'p_heroku-peerweb-site', // used at molecules/Provider.js setActive L:617
+      idReplacement: 'p_heroku-decentral-ninja'
     }]
 
     this.addInstallEventListener()

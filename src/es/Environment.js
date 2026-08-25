@@ -9,7 +9,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.7'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.8'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 7000,
   updateProviderPerformanceAfter: 120000,
@@ -19,7 +19,7 @@ self.Environment = {
   notificationPublicKey: 'BDky-QCE7l597P075T4kcg9ctjpR2h2RLmP8gnKWSkWlB_iJCIwK9Pny6W2GEkaFSq--ugcorrDVO_Bf9HuAQes', // vapidkeys.com publicKey
   providers: [{
     name: 'websocket',
-    url: 'wss://heroku.peerweb.site'
+    url: 'wss://heroku.decentral.ninja'
   },
   {
     name: 'websocket',
@@ -29,10 +29,10 @@ self.Environment = {
     name: 'websocket',
     url: 'wss://websocket-two.peerweb.site'
   },
-  /*{
+  {
     name: 'webrtc',
     url: 'wss://webrtc.peerweb.site'
-  },*/
+  },
   {
     name: 'webrtc',
     url: 'wss://webrtc-two.peerweb.site'
@@ -41,7 +41,7 @@ self.Environment = {
     name: 'webrtc',
     url: 'wss://webrtc-trystero.ninja'
   }],
-  providerQuery: `websocket-url=wss%3A%2F%2Fheroku.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}&webrtc-url=wss%3A%2F%2Fwebrtc-two.peerweb.site${(location.pathname.includes('/ipfs/') || location.pathname.includes('.ipfs.')) ? '%2Cwss%3A%2F%2Fwebrtc-trystero.ninja' : ''}`, // preset provider query to connect to certain providers when user opens a new room. format analog src/es/components/pages/Index.js:L24
+  providerQuery: `websocket-url=wss%3A%2F%2Fheroku.decentral.ninja%2F%3Fkeep-alive%3D${keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}%2Cwss%3A%2F%2Fwebsocket-two.peerweb.site%2F%3Fkeep-alive%3D${keepAlive || 86400000}&webrtc-url=wss%3A%2F%2Fwebrtc-two.peerweb.site%2Cwss%3A%2F%2Fwebrtc.peerweb.site${(location.pathname.includes('/ipfs/') || location.pathname.includes('.ipfs.')) ? '%2Cwss%3A%2F%2Fwebrtc-trystero.ninja' : ''}`, // preset provider query to connect to certain providers when user opens a new room. format analog src/es/components/pages/Index.js:L24
   trackers: [
     'wss://tracker.peerweb.site',
     'wss://tracker.openwebtorrent.com:443/announce',
@@ -57,9 +57,16 @@ self.Environment = {
   replaceHosts: [{
     hostname: 'the-decentral-web.herokuapp.com',
     pattern: '/the-decentral-web\.herokuapp\.com/',
-    replacement: 'heroku.peerweb.site',
+    replacement: 'heroku.decentral.ninja',
     idPattern: 'p_the-decentral-web-herokuapp-com', // used at molecules/Provider.js setActive L:617
-    idReplacement: 'p_heroku-peerweb-site'
+    idReplacement: 'p_heroku-decentral-ninja'
+  },
+  {
+    hostname: 'heroku.peerweb.site',
+    pattern: '/heroku\.peerweb\.site/',
+    replacement: 'heroku.decentral.ninja',
+    idPattern: 'p_heroku-peerweb-site', // used at molecules/Provider.js setActive L:617
+    idReplacement: 'p_heroku-decentral-ninja'
   }],
   alternativeWebsiteHosts: ['https://decentralninja.app.runonflux.io/', 'https://decentralninja_8080.app.runonflux.io'],
   timestampNamespace: 't_',

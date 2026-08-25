@@ -108,7 +108,7 @@ to raw TCP or UDP sockets
                   <li>decentral-ninja/website - <a href="https://github.com/decentral-ninja/website" target="_blank">github</a></li>
                 </ul>
                 <p>customize your own DCN web, make sure to adjust <a href="https://github.com/decentral-ninja/website/blob/main/ServiceWorker.js#L22" target="_blank">the ServiceWorker: this.decentralNinjaOrigin</a> to avoid fetching the newest files from DCN and eventually overriding your forked and changed files. Users from your origin (example https://your-website.com) will still be able to connect with users on origin https://decentral.ninja, etc.</p>
-                <p>Note: Every origin creates a separate session and for that is isolated within the browser. Try <a href="https://dcn-web.hostlocal.app/ipfs/QmNQm1h8PebPbywmxFRSo17WXGMSUeVQifkKocP2mEduxP" target=_blank>DCN hosted at ipfs</a>... on any public ipfs gateway: <a href="https://ipfs.oversas.org/ipfs/QmNQm1h8PebPbywmxFRSo17WXGMSUeVQifkKocP2mEduxP" target=_blank>https://ipfs.oversas.org</a>!</p>
+                <p>Note: Every origin creates a separate session and for that is isolated within the browser. Try <a href="https://dcn-web.peerweb.site/ipfs/QmNQm1h8PebPbywmxFRSo17WXGMSUeVQifkKocP2mEduxP" target=_blank>DCN hosted at ipfs</a>... on any public ipfs gateway: <a href="https://ipfs.oversas.org/ipfs/QmNQm1h8PebPbywmxFRSo17WXGMSUeVQifkKocP2mEduxP" target=_blank>https://ipfs.oversas.org</a>!</p>
                 <hr>
                 <h4 style="text-decoration: underline;">hosting - CRDT connection providers:</h4>
                 <ul>

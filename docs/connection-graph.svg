@@ -130,7 +130,7 @@
        font-size="12px"
        dx="0"
        dy="-15"
-       id="text7">wss://heroku.peerweb.site</text>
+       id="text7">wss://heroku.decentral.ninja</text>
   </g>
   <g
      class="node provider websocket"
