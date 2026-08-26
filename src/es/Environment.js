@@ -7,7 +7,7 @@ const keepAlive = 432000000 // 1 day = 86400000,
 // @ts-ignore
 self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
-  language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || 'en',
+  language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || navigator.language || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
   version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.9'}`, // https://semver.org/
   roomNamePrefix: 'chat-',

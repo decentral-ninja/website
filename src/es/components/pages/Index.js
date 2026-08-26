@@ -242,7 +242,7 @@ export default class Index extends Mutation() {
                 In these challenging times of censorship, surveillance, and big data... new skills and weaponry required there are.</p>
                 ${installable
                   ? /* html */`
-                    <wct-grid id=buttons auto-fill="calc(33% - 0.6em)" auto-fill-mobile="100%" gap="1em">
+                    <wct-grid id=buttons auto-fill="calc(33% - 0.6em)" auto-fill-mobile="100%" gap="1em" style="--a-margin-mobile: 0;">
                       <section>
                         <wct-button id=install-button namespace="button-secondary-">Install</wct-button>
                         <div class=center> 
@@ -360,14 +360,5 @@ export default class Index extends Mutation() {
 
   get installButton () {
     return this.root.querySelector('o-body')?.root.querySelector('#buttons')?.root.querySelector('#install-button')
-  }
-
-  get style () {
-    return this._style || (this._style = document.head.querySelector('[page-style]')) || (this._style = (() => {
-      const style = document.createElement('style')
-      style.setAttribute('page-style', 'true')
-      style.setAttribute('protected', 'true')
-      return style
-    })())
   }
 }
