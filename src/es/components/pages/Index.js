@@ -276,7 +276,7 @@ export default class Index extends Mutation() {
                   `
                 }
                 <hr class=plain>
-                <p><a href="https://dcn-web.peerweb.site/ipfs/QmUi4gav4ZGgb6hkoRKZjpm97j71LrKtL9ToQN112U4uZW" target=_blank>DCN hosted @ alternative ipfs origin</a></p>
+                <p><a href="https://dcn-web.peerweb.site/ipfs/QmVuM5Q1xoc2oQB5SHBAnMF2pe25dtZoN6KLSax5CJSMs2" target=_blank>DCN hosted @ alternative ipfs origin</a></p>
                 <h4>Empower your conversations, empower your privacy.</h4>
                 <hr>
                 <h2>SUPPORT DEVELOPMENT</h2>
