@@ -3,6 +3,8 @@
 /* global caches */
 /* global importScripts */
 /* global NotificationServiceWorker */
+/* global IpfsServiceWorker */
+/* global listener */
 
 importScripts('./src/es/event-driven-web-components-yjs/src/es/serviceWorkers/NotificationServiceWorker.js')
 importScripts('./src/es/event-driven-web-components-webtorrent/src/ipfs/IpfsServiceWorker.js')
@@ -18,7 +20,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     super()
 
     this.name = 'ServiceWorker'
-    this.version = 'v218'
+    this.version = 'v219'
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
@@ -220,14 +222,14 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     // used for hard replace of domain host
     this.replaceHosts = [{
       hostname: 'the-decentral-web.herokuapp.com',
-      pattern: '/the-decentral-web\.herokuapp\.com/',
+      pattern: '/the-decentral-web\.herokuapp\.com/', // eslint-disable-line
       replacement: 'heroku.decentral.ninja',
       idPattern: 'p_the-decentral-web-herokuapp-com', // used at molecules/Provider.js setActive L:617
       idReplacement: 'p_heroku-decentral-ninja'
     },
     {
       hostname: 'heroku.peerweb.site',
-      pattern: '/heroku\.peerweb\.site/',
+      pattern: '/heroku\.peerweb\.site/', // eslint-disable-line
       replacement: 'heroku.decentral.ninja',
       idPattern: 'p_heroku-peerweb-site', // used at molecules/Provider.js setActive L:617
       idReplacement: 'p_heroku-decentral-ninja'

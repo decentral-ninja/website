@@ -36,9 +36,9 @@
       "src/es/event-driven-web-components-yjs/src/event-driven-web-components-prototypes/*",
       "src/es/event-driven-web-components-yjs/src/yjs/*",
       "src/es/chat/es/components/atoms/p2pGraph/p2p-graph.js",
-      "src/es/event-driven-web-components-webtorrent/src/webtorrent/dist/*",
-      "src/es/event-driven-web-components-webtorrent/src/webtorrent/lib/*",
+      "src/es/event-driven-web-components-webtorrent/src/webtorrent/*",
       "src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/controllers/wormhole-crypto-esm/keychain.bundle.js",
+      "src/es/event-driven-web-components-prototypes/src/controllers/wormhole-crypto-esm/keychain.bundle.js",
       "y-*",
       "yjs.*",
       "web-components-toolbox"

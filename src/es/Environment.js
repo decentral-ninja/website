@@ -1,5 +1,7 @@
 /* global self */
 /* global location */
+/* global Sanitizer */
+/* global Document */
 
 const currentScriptUrl = new URL(document.currentScript.src)
 const keepAlive = 432000000 // 1 day = 86400000,
@@ -9,7 +11,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || navigator.language || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.13'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.14'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 7000,
   updateProviderPerformanceAfter: 120000,
@@ -56,14 +58,14 @@ self.Environment = {
   // used for hard replace of domain host
   replaceHosts: [{
     hostname: 'the-decentral-web.herokuapp.com',
-    pattern: '/the-decentral-web\.herokuapp\.com/',
+    pattern: '/the-decentral-web\.herokuapp\.com/', // eslint-disable-line
     replacement: 'heroku.decentral.ninja',
     idPattern: 'p_the-decentral-web-herokuapp-com', // used at molecules/Provider.js setActive L:617
     idReplacement: 'p_heroku-decentral-ninja'
   },
   {
     hostname: 'heroku.peerweb.site',
-    pattern: '/heroku\.peerweb\.site/',
+    pattern: '/heroku\.peerweb\.site/', // eslint-disable-line
     replacement: 'heroku.decentral.ninja',
     idPattern: 'p_heroku-peerweb-site', // used at molecules/Provider.js setActive L:617
     idReplacement: 'p_heroku-decentral-ninja'
@@ -126,7 +128,7 @@ if (typeof self.trustedTypes?.createPolicy === 'function' && !self.trustedTypes.
         // remove all 1. on... attribute containing nodes
         if (captureAttributeName) return ''
         if (captureAttributeValue !== undefined) {
-          const cleanedMatch = match.replace(/[\u0000-\u0020]/g, '')
+          const cleanedMatch = match.replace(/[\u0000-\u0020]/g, '') // eslint-disable-line
           // remove all 2. by testing all attribute values for javascript, vbscript, data and any decimal and hexadecimal html entity
           if (/(javascript|vbscript|data|&(?:#[0-9]{1,7}|#x[0-9a-f]{1,6}))([^"'<>]*)(?::|&colon;?|&#(?:x0*3a|0*58);?)/i.test(cleanedMatch)) return ''
           // remove all 2. by testing for strings javascript, vbscript and data obfuscated with named html entities eg.: &tab; <a href="j&Tab;avascript:alert(1)"> , j&notanentity;avascript: , etc.

@@ -3,6 +3,7 @@ import { Mutation } from '../../event-driven-web-components-prototypes/src/Mutat
 
 /* global Environment */
 /* global self */
+/* global location */
 
 /**
 * Decentral Ninja Main/Start Page
