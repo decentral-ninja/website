@@ -47,7 +47,7 @@ export default class IconReload extends Shadow() {
         // @ts-ignore
       }, self.Environment.awarenessEventListenerDelay || 1000)
     }
-    
+
     this.hintReloadEventListener = event => this.setAttribute('has-problems', '')
 
     this.visibilitychangeEventListener = event => {
@@ -149,7 +149,7 @@ export default class IconReload extends Shadow() {
 
   async setAttributeIsConnectedToProviders (eventDetail) {
     const data = await eventDetail.getData()
-    this.setAttribute('is-connected-to-providers', (await Promise.all((await data.getSessionProvidersByStatus()).connected.map(provider => provider.includes('webrtc-trystero') ? {status: 'success'} : data.pingProvider(provider.split(data.separator)[1], true)))).some(ping => ping.status === 'success'))
+    this.setAttribute('is-connected-to-providers', (await Promise.all((await data.getSessionProvidersByStatus()).connected.map(provider => provider.includes('webrtc-trystero') ? { status: 'success' } : data.pingProvider(provider.split(data.separator)[1], true)))).some(ping => ping.status === 'success'))
   }
 
   hasConnectionProblem () {

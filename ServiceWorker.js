@@ -22,14 +22,14 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
     this.decentralNinjaOrigin = 'https://decentral.ninja'
     if (location.hostname === 'localhost' || location.origin === this.decentralNinjaOrigin) {
       this.decentralNinjaRequestsAvailable = false
-    } else  {
+    } else {
       this.decentralNinjaRequestsAvailable = true
       setInterval(() => (this.decentralNinjaRequestsAvailable = true), 86400000) // reset once a day
     }
     // KEEP DOING: When version upgrade also update the precache. This is a manual process by clicking through all the routes and dialogs, then enter the following code snippet into the console and copy/paste the result into this.precache:
     // Code: document.body.prepend(Array.from(new Set(self.performance.getEntriesByType('resource').filter(resource => resource.name.includes(location.origin)).map(resource => {let url = resource.name;try{url = new URL(resource.name);url.searchParams.delete('version');url = url.href}catch(error){}return url.replace(location.origin, '.')}).sort((a, b) => a < b ? -1 : a > b ? 1 : 0))).reduce((textarea, curr) => {textarea.value += `'${curr}',\n`;return textarea}, document.createElement('textarea')))
     this.precache = [
-      //'./.well-known/assetlinks.json', // don't add this, since this fails to load into cache when served from pathname not root
+      // './.well-known/assetlinks.json', // don't add this, since this fails to load into cache when served from pathname not root
       './',
       './docs/browser.drawio.svg',
       './docs/connection-graph.svg',
@@ -268,31 +268,33 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       // overwrite host
       if (this.replaceHosts.some(replaceHost => request.url.match((matchedReplaceHost = replaceHost).pattern))) request = ServiceWorker.replaceHost(request, matchedReplaceHost)
       // intercept for caching logic
-      if (this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))) return event.respondWith(new Promise((resolve, reject) => {
-        let counter = 0
-        let didResolve = false
-        const doResolve = response => {
-          counter++
-          if (!didResolve) {
-            if (response) {
-              didResolve = true
-              resolve(response)
-            } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
-              reject(response)
+      if (this.doNotIntercept.every(url => !request.url.includes(url)) && this.doIntercept.some(url => request.url.includes(url))) {
+        return event.respondWith(new Promise((resolve, reject) => {
+          let counter = 0
+          let didResolve = false
+          const doResolve = response => {
+            counter++
+            if (!didResolve) {
+              if (response) {
+                didResolve = true
+                resolve(response)
+              } else if (counter >= 2) { // two which race, when none resulted in any useful response, reject
+                reject(response)
+              }
             }
+            return response || new Error(`No response for ${request.url}`)
           }
-          return response || new Error(`No response for ${request.url}`)
-        }
-        /** @type {Request} */
-        const cacheKey = ServiceWorker.getCacheKey(request, location.origin)
-        // race fetch vs. cache to resolve
-        this.getFetch(request, cacheKey).then(response => doResolve(response)).catch(error => { // start fetching and caching
-          console.info(`Can't fetch ${request.url}`, error)
-        })
-        this.getCache(cacheKey).then(response => doResolve(response)).catch(error => { // grab cache
-          console.info(`Can't get cache ${cacheKey}`, error)
-        })
-      }))
+          /** @type {Request} */
+          const cacheKey = ServiceWorker.getCacheKey(request, location.origin)
+          // race fetch vs. cache to resolve
+          this.getFetch(request, cacheKey).then(response => doResolve(response)).catch(error => { // start fetching and caching
+            console.info(`Can't fetch ${request.url}`, error)
+          })
+          this.getCache(cacheKey).then(response => doResolve(response)).catch(error => { // grab cache
+            console.info(`Can't get cache ${cacheKey}`, error)
+          })
+        }))
+      }
       // webtorrent addWebSeed request
       if (ServiceWorker.webSeedRespondWith(event, request)) return
       // check webtorrent
@@ -317,7 +319,7 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
       }
     )
     // first fetch from decentral.ninja
-    const newRequestObj = this.decentralNinjaRequestsAvailable ? ServiceWorker.getRequestWithNewOrigin(request, this.decentralNinjaOrigin) : {request}
+    const newRequestObj = this.decentralNinjaRequestsAvailable ? ServiceWorker.getRequestWithNewOrigin(request, this.decentralNinjaOrigin) : { request }
     return fetch(newRequestObj.newRequest || newRequestObj.request, { cache: 'no-store' })
       .then(response => {
         if (!response.ok) throw new TypeError(response.statusText)
@@ -387,12 +389,12 @@ class ServiceWorker extends IpfsServiceWorker(NotificationServiceWorker()) {
    * @returns {{request: Request, newRequest: Request|null}}
    */
   static getRequestWithNewOrigin (request, newOrigin) {
-    if (request.url.includes(newOrigin)) return {request}
+    if (request.url.includes(newOrigin)) return { request }
     try {
       const url = new URL(request.url)
-      return {request, newRequest: new Request(`${newOrigin}${url.pathname}${url.search}${url.hash}`)} // !important: don't use old request as second argument, this would cause issues with mismatches
+      return { request, newRequest: new Request(`${newOrigin}${url.pathname}${url.search}${url.hash}`) } // !important: don't use old request as second argument, this would cause issues with mismatches
     } catch (error) {
-      return {request}
+      return { request }
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "decentral-ninja",
-  "version": "0.0.1",
+  "version": "2.3.13",
   "description": "DCN is a censorship resistant, end-to-end encrypted, serverless WEB3.0 Chat to communicate anonymously through decentralized networks. Using CRDTs (offline-first PWA), Websocket, WebRTC, WebTorrent and IPFS to accomplish this task.",
   "main": "./index.html",
   "repository": "https://github.com/decentral-ninja/website.git",
@@ -36,6 +36,9 @@
       "src/es/event-driven-web-components-yjs/src/event-driven-web-components-prototypes/*",
       "src/es/event-driven-web-components-yjs/src/yjs/*",
       "src/es/chat/es/components/atoms/p2pGraph/p2p-graph.js",
+      "src/es/event-driven-web-components-webtorrent/src/webtorrent/dist/*",
+      "src/es/event-driven-web-components-webtorrent/src/webtorrent/lib/*",
+      "src/es/event-driven-web-components-webtorrent/src/event-driven-web-components-prototypes/src/controllers/wormhole-crypto-esm/keychain.bundle.js",
       "y-*",
       "yjs.*",
       "web-components-toolbox"
