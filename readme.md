@@ -253,6 +253,7 @@ https://tabler.io/icons
   - [ ] add/make new provider https://github.com/Kkartik14/y-web-transport / https://github.com/Kkartik14/y-webtransport-go as websocket alternative
     - [ ] research a y-bluetooth provider (check todo folder)
 - [ ] - End-to-End encryption Part 2:
+  - [ ] encrypt nickname
   - [ ] update displayed or hidden key-request messages according to uploaded keys
   - [ ] improve blocking of deleted key-request from certain users, block stored locally
   - [ ] delete + block key request if key owner
