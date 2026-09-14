@@ -11,7 +11,7 @@ self.Environment = {
   isTestingEnv: location.hostname === 'localhost',
   language: currentScriptUrl.searchParams.get('language') || document.documentElement.getAttribute('lang') || navigator.language || 'en',
   stage: currentScriptUrl.searchParams.get('stage') || document.documentElement.getAttribute('stage') || '',
-  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.18'}`, // https://semver.org/
+  version: `version=${currentScriptUrl.searchParams.get('version') || document.documentElement.getAttribute('version') || '2.3.19'}`, // https://semver.org/
   roomNamePrefix: 'chat-',
   updateNotificationsAfter: 7000,
   updateProviderPerformanceAfter: 120000,

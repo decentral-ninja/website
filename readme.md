@@ -182,6 +182,9 @@ https://tabler.io/icons
   - [ ] player:
     - [ ] keep video and audio progress when reloading
     - [ ] unpack [includes-magnet] messages
+- [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API (scan a qr code key to add)
+- [ ] share key confirm
+- [ ] same file different magneturi between webtorrent desktop and browser
 - [x] sw fetch new version from decentral.ninja priority one
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
@@ -189,7 +192,6 @@ https://tabler.io/icons
 - [x] paste files into main input field - open dialog
 - [x] new key uploaded, sort dialog keys
 - [ ] tom kenyon
-- [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API (scan a qr code key to add)
 - [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [ ] dark mode, use https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mix-blend-mode - difference (src/img/mix-blend-mode-difference.gif)
 - [x] sitemap
@@ -210,6 +212,9 @@ https://tabler.io/icons
   - [ ] web, sw import json to control sw version overwrite for customization
   - [ ] tab location.origin.1 (expl. localhost:4200 or decentral.ninja) + tab location.origin.2 (expl. localhost:5200 or decentralweb.com) share room list through message channel (room link from foreign location origin will open blank in the original origin but is listed in the other tab + Notifications shown) [The approach: localhost:4200 opens localhost:5200 via window.open(), then they exchange a MessageChannel port so subsequent messages are direct port-to-port (no origin sniffing needed after the handshake).] Actually, when using an other origin but decentral.ninja, it can open decentral.ninja, quickly get the room list and close the tab or pop-under, for this grab it may is good to have a separate landing point not index.html
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
+- [ ] nostr: [NOTE: DCN uses nostr for CRDT delivery through trystero, due to that reason, at first we implement nostr ID and forward to https://iris.to/npub... for further nostr functionality] nostr-tools, NIP-07 browser signer, NIP-44, NIP-17, NIP-59
+  - [ ] nostr profile, avatar, etc. (link to 3rd party service with nostr profile, eg. iris.to)
+  - [ ] list all rooms with that user
 - [ ] Notification:
   - [ ] fine grained notification per provider per room settings
   - [/] IOS/Iphone fix not possible, still broken in EU
@@ -337,7 +342,7 @@ https://tabler.io/icons
 - [ ] draw https://github.com/tldraw/tldraw
 - [ ] Add Spaces that act as buckets for rooms and Users
   - [ ] dns (link board) / dns crdt
-- [ ] id, room administrators (nostr)
+- [ ] nostr id; can be used for room administration (roomName === nostr ID && nostr.relay verification) 
 - [ ] organization (DAO?)
 - [ ] Add Contact Book Functionality --> Users "list"
 - [ ] rewrite parts with: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers
