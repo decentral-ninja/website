@@ -215,6 +215,7 @@ https://tabler.io/icons
 - [ ] nostr: [NOTE: DCN uses nostr for CRDT delivery through trystero, due to that reason, at first we implement nostr ID and forward to https://iris.to/npub... for further nostr functionality] nostr-tools, NIP-07 browser signer, NIP-44, NIP-17, NIP-59
   - [ ] nostr profile, avatar, etc. (link to 3rd party service with nostr profile, eg. iris.to)
   - [ ] list all rooms with that user
+  - [ ] Part 2: user controller integrates nostr users per room and friends, chat controller merges message to/from nostr group/room, make new nostr direct messages controller event-driven-web-components-nostr
 - [ ] Notification:
   - [ ] fine grained notification per provider per room settings
   - [/] IOS/Iphone fix not possible, still broken in EU
