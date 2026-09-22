@@ -184,7 +184,7 @@ https://tabler.io/icons
     - [ ] unpack [includes-magnet] messages
 - [ ] QR code scanner: https://github.com/nimiq/qr-scanner | https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API (scan a qr code key to add)
 - [ ] share key confirm
-- [ ] same file different magneturi between webtorrent desktop and browser
+- [x] same file different magneturi between webtorrent desktop and browser
 - [x] sw fetch new version from decentral.ninja priority one
 - [x] add/make new providers https://github.com/WinstonFassett/y-webrtc-trystero
   - [/] further providers https://github.com/yjs/yjs?tab=readme-ov-file#providers best make your own libp2p provider: https://github.com/WinstonFassett/y-webrtc-trystero, https://github.com/Weedshaker/y-p2pt/blob/ec64f3accbd854d9a2d0317ca19a08351821ecf5/readme.md or https://github.com/MarcoPolo/y-libp2p (awareness not done yet: https://cdn.jsdelivr.net/npm/y-libp2p@0.0.2/dist/index.js + needs "tsc" compiler action), https://github.com/YousefED/Matrix-CRDT (awareness in code: https://cdn.jsdelivr.net/npm/matrix-crdt@0.2.1-alpha.1/dist/matrix-crdt.js but needs "lerna" compiler action + matrix user access token: https://matrix.org/docs/older/usage-of-the-matrix-js-sdk/), https://github.com/YousefED/nostr-crdt (awareness unclear since it could not be found in code: https://cdn.jsdelivr.net/npm/nostr-crdt@0.0.5/dist/nostr-crdt.js + needs "lerna" compiler action), https://github.com/dmotz/trystero 👍: https://github.com/kahnpoint/y-trystero (needs "vite" compiler action) or https://github.com/WinstonFassett/y-labs/blob/0f943e77f514298f068bb98cd1703e4601fabc91/src/lib/yjs-trystero/y-trystero.js (needs "astro" compiler action), https://peerbit.org/, search others: https://github.com/search?q=yjs%20provider&type=repositories, new: https://github.com/xmppjs/xmpp.js/,https://github.com/yjs/y-dat
@@ -337,7 +337,7 @@ https://tabler.io/icons
 - [ ] https://xmpp.org
 - [ ] add gifs from gify or similar
 - [ ] controllers/Providers.js when on automatic connect look for the most favorable connections and avoid orphans else allow manual choice at Providers view (User controller if not connected offer to connect to other urls max. 2 per socket / connecting to other servers according user crdt data [provider has mutually connected users with some connected to other providers with mutually connected users and vice versa]) + handle on error ws connection at provider
-- [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/ | https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API / whole earth cartalog
+- [ ] enable sending money https://docs.metamask.io/wallet/how-to/connect/set-up-sdk/javascript/pure-js/ | https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API / whole earth cartalog | https://www.webln.guide/ , https://nwc.dev/#how-it-works , Ethereum/Web3 provider interface (window.ethereum), etc.
 - [ ] check security requirements from https://www.securemessagingapps.com
 - [ ] Mail Notifications or voluntary authentication by mail (https://github.com/nodemailer/nodemailer)
 - [ ] draw https://github.com/tldraw/tldraw
