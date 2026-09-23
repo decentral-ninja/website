@@ -286,7 +286,7 @@ export default class Index extends Mutation() {
                   <wct-picture class=buyMeACoffeePic defaultSource="${this.importMetaUrl}../../../../src/img/buy-me-a-coffee-qr-code.png" alt="How to use DCN"></wct-picture>
                   <img class=buyMeACoffeeImg src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=weedshaker&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" alt="buy me a coffee" />
                 </a>
-                <p>Supporters are going to get exclusive access to regular poles, deciding the <a href="https://github.com/decentral-ninja/website#todo" target=_blank>next features</a>, etc.<br>Do you need translations into other languages, a bluetooth provider, better media handling, further key sharing options or more message features...?</p>
+                <p>Supporters are going to get exclusive access to regular poles, deciding the <a href="https://github.com/decentral-ninja/website#todo" target=_blank>next features</a>, etc.<br>Do you need translations into other languages, better media handling, further key sharing options or more message features...?</p>
                 <p>Support it, then name it!</p>
                 <hr>
                 <h2>INFORMATION</h2>

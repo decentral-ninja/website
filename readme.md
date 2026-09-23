@@ -257,7 +257,7 @@ https://tabler.io/icons
   - [ ] get-info os: uptime (rank by uptime)
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview. (https://github.com/shuding/cobe)
   - [ ] add/make new provider https://github.com/Kkartik14/y-web-transport / https://github.com/Kkartik14/y-webtransport-go as websocket alternative
-    - [ ] research a y-bluetooth provider (check todo folder)
+    - [ ] ~~research a y-bluetooth provider (check todo folder)~~ is not possible through web bluetooth / not in the standard yet: https://github.com/whatwg/bluetooth/issues/78
 - [ ] - End-to-End encryption Part 2:
   - [ ] encrypt nickname
   - [ ] update displayed or hidden key-request messages according to uploaded keys
