@@ -212,6 +212,26 @@ https://tabler.io/icons
   - [ ] web, sw import json to control sw version overwrite for customization
   - [ ] tab location.origin.1 (expl. localhost:4200 or decentral.ninja) + tab location.origin.2 (expl. localhost:5200 or decentralweb.com) share room list through message channel (room link from foreign location origin will open blank in the original origin but is listed in the other tab + Notifications shown) [The approach: localhost:4200 opens localhost:5200 via window.open(), then they exchange a MessageChannel port so subsequent messages are direct port-to-port (no origin sniffing needed after the handshake).] Actually, when using an other origin but decentral.ninja, it can open decentral.ninja, quickly get the room list and close the tab or pop-under, for this grab it may is good to have a separate landing point not index.html
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
+- [ ] - End-to-End encryption Part 2:
+  - [ ] direct message private- public- key pair encryption
+  - [ ] encrypt nickname
+  - [ ] update displayed or hidden key-request messages according to uploaded keys
+  - [ ] improve blocking of deleted key-request from certain users, block stored locally
+  - [ ] delete + block key request if key owner
+  - [ ] encrypted key request and answer
+  - [ ] key property to automatically answer with key within some time window when requested plus prop which indicates a key once had this automatic option active
+  - [ ] add hash with key-epoch to shared url to automatically request key when visiting room
+  - [ ] make checkbox if notification for keyRequest and keyAnswer textObj.sendNotifications (Chat.js)
+  - [ ] change/edit encryption of message from unencrypted to encrypted as well as from one key to another
+  - [ ] when key received ask by dialog if wanna have it as default at room
+  - [ ] key.public.name synced through own crdt map analog controllers/Users.js
+  - [ ] show key shared/received and decrypted at User.js as an indication which keys this user has (used) at Users overview dialog
+  - [ ] disable key
+  - [ ] share key to multiple users dialog, receive without active confirmation but key entry is at state passive. Three states: confirmed[active/favorite] (can not be deleted), unconfirmed[passive], disabled
+  - [ ] share multiple keys to single user dialog
+  - [ ] Free text filters at keys dialog
+  - [ ] filters/tabs to filter messages for different encryption keys + filter for users (users dialog click user to activate tab/filter), free text filters in dialogs
+  - [ ] regarding realtime collaboration encrypt crdt when yjs encodeStateAsUpdate or such for export, see https://encryptedspaces.org/whitepapers/encrypted-spaces.pdf
 - [ ] nostr: [NOTE: DCN uses nostr for CRDT delivery through trystero, due to that reason, at first we implement nostr ID and forward to https://iris.to/npub... for further nostr functionality] nostr-tools https://github.com/jb55/nostr-js, NIP-07 browser signer, NIP-44, NIP-17, NIP-59
   - [ ] nostr profile, avatar, etc. (link to 3rd party service with nostr profile, eg. iris.to)
   - [ ] list all rooms with that user
@@ -258,25 +278,6 @@ https://tabler.io/icons
   - [ ] receives region (expl.: asia, europe or more specific) and propose good performance/low load providers in the user selected region at opening new room from Index.js link and/or Chat.js (ProvidersDialog ether new or make existing molecules Providers - checkbox selectable) as well as hint at providers overview. (https://github.com/shuding/cobe)
   - [ ] add/make new provider https://github.com/Kkartik14/y-web-transport / https://github.com/Kkartik14/y-webtransport-go as websocket alternative
     - [ ] ~~research a y-bluetooth provider (check todo folder)~~ is not possible through web bluetooth / not in the standard yet: https://github.com/whatwg/bluetooth/issues/78 (alternative, wrap DCN through Tauri Mobile or Cordova into an android app and expose those addJavascriptInterface's...)
-- [ ] - End-to-End encryption Part 2:
-  - [ ] encrypt nickname
-  - [ ] update displayed or hidden key-request messages according to uploaded keys
-  - [ ] improve blocking of deleted key-request from certain users, block stored locally
-  - [ ] delete + block key request if key owner
-  - [ ] encrypted key request and answer
-  - [ ] key property to automatically answer with key within some time window when requested plus prop which indicates a key once had this automatic option active
-  - [ ] add hash with key-epoch to shared url to automatically request key when visiting room
-  - [ ] make checkbox if notification for keyRequest and keyAnswer textObj.sendNotifications (Chat.js)
-  - [ ] change/edit encryption of message from unencrypted to encrypted as well as from one key to another
-  - [ ] when key received ask by dialog if wanna have it as default at room
-  - [ ] key.public.name synced through own crdt map analog controllers/Users.js
-  - [ ] show key shared/received and decrypted at User.js as an indication which keys this user has (used) at Users overview dialog
-  - [ ] disable key
-  - [ ] share key to multiple users dialog, receive without active confirmation but key entry is at state passive. Three states: confirmed[active/favorite] (can not be deleted), unconfirmed[passive], disabled
-  - [ ] share multiple keys to single user dialog
-  - [ ] Free text filters at keys dialog
-  - [ ] filters/tabs to filter messages for different encryption keys + filter for users (users dialog click user to activate tab/filter), free text filters in dialogs
-  - [ ] regarding realtime collaboration encrypt crdt when yjs encodeStateAsUpdate or such for export, see https://encryptedspaces.org/whitepapers/encrypted-spaces.pdf
 - [ ] crdt ipfs snapshot
   - [ ] snapshot chat room doc to ipns (analog share and url eventDrivenYjs.takeSnapshot), needs own gateway and key share from gateway into crdt or other place between users to share (Y.Doc->encodeStateAsUpdate()->Uint8Array->IPFS add->CID->IPNS publish)
 - [ ] profile photo as avatar
