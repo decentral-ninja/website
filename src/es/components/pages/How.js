@@ -54,6 +54,9 @@ export default class How extends Index {
               transform: translateY(0.1em);
               flex-shrink: 0;
             }
+            :host video {
+              max-height: 75dvh;
+            }
           </style>
           <main>
             <div class=pattern>
@@ -61,6 +64,9 @@ export default class How extends Index {
                 <h1>How to use DCN</h1>
                 <p><a href="?page=/" route target="_self"><a-logo title="return to home" namespace="logo-default-" favicon no-animation></a-logo></a></p>
                 <h3>ディーシーエヌの使い方</h3>
+                <hr>
+                <h3>short introduction video</h3>
+                <video src="./src/video/how-short.mp4" autoplay controls muted></video>
                 <hr>
                 <h3>anonymous user session vs. identified user session</h3>
                 <p>decentral ninja (DCN) does not use identified user sessions as other messaging apps do. DCN has no central single point of truth and for that can not verify anything but let's users show trust through sharing keys with each other. For each room, DCN let's your browser generate an anonymous user with an unique ID and an unique asynchronous key pair linked to your browser session and stored locally. This means, that you can freely choose a username per room and send, receive end-to-end encrypted synchronous keys. The keys, which can be used through multiple rooms, become your own-trust identification.</p>
@@ -109,10 +115,6 @@ export default class How extends Index {
                   <li>upload files <wct-icon-mdx title="upload files" icon-url="../../../../../../img/icons/file-upload.svg" size="1em"></wct-icon-mdx></li>
                   <li>start jitsi peer-to-peer video call <wct-icon-mdx title="video call" icon-url="../../../../../../img/icons/video.svg" size="1em"></wct-icon-mdx></li>
                 </ul>
-                <hr class=plain>
-                <p>Video under construction...</p>
-                <a href="https://github.com/decentral-ninja/website" target=_blank>open an issue, if you would like to do a tutorial video.</a>
-                <h2>check back later!</h2>
               </div>
             </div>
           </main>

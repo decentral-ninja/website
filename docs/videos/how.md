@@ -2,10 +2,13 @@
 
 ## Intro
 ### <u>Stage: Intro</u>
-decentral.ninja, also referred as DCN is a FOSS browser and offline - first Web API based chat and platform. Built with plain JavaScript, CSS and HTML and integrating a few dependencies for data management. Such as IPFS, webtorrent and yjs.
+decentral.ninja, also referred as DCN is a FOSS, which runs in the browser and here it is presented as an offline - first chat. A communication platform, which runs on the Web API built with plain JavaScript, CSS and HTML, integrating a few dependencies for data management. Such as IPFS, webtorrent and yjs.
+
+### <u>Stage: Double screen</u>
+quick connection
 
 ### <u>Stage: Intro - TODO</u>
-On our github you can see that DCN is still under development. Todays video is going to show the state of October 2026.
+On our github you can see that DCN is still under development. Todays video is going to show the state of October 2026 version 2.3.26
 
 ### <u>Stage: Double screen</u>
 ## How can I meet up with friends in DCN?
