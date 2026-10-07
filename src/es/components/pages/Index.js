@@ -297,6 +297,7 @@ export default class Index extends Mutation() {
                   <li><a href="?page=/encryption" route target="_self">end-to-end encryption</a></li>
                   <li><a href="?page=/privacy" route target="_self">privacy</a></li>
                   <li><a href="https://github.com/decentral-ninja/website" target=_blank>developers</a></li>
+                  <li><a href="https://weedshaker.github.io/MatterDom/src/index.html?room=MatterDOMie&websocket-url=wss%3A%2F%2Fheroku.decentral.ninja%2F%3Fkeep-alive%3D0" target=_blank>DCN as a platform to sync a MatterJS physics engine</a></li>
                 </ul>
                 <hr class=plain>
                 <p>Use DCN <a href="?page=/chat&${this.providerQuery}" route target="_self"><a-icon-chat></a-icon-chat> to chat</a> anonymously, end-to-end encrypted and without any tracking nor data collection. Open source to ensure your safety during your journey thorough the internet, <a href="https://github.com/decentral-ninja" target="_blank">all code is</a>.</p>
