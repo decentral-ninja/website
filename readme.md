@@ -191,6 +191,7 @@ https://tabler.io/icons
 - [x] delete key request if key owner
 - [x] paste files into main input field - open dialog
 - [x] new key uploaded, sort dialog keys
+- [ ] upload dialog share not checked if no webrtc, websocket connection string
 - [ ] tom kenyon
 - [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [ ] dark mode, use https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mix-blend-mode - difference (src/img/mix-blend-mode-difference.gif)
@@ -213,6 +214,7 @@ https://tabler.io/icons
   - [ ] tab location.origin.1 (expl. localhost:4200 or decentral.ninja) + tab location.origin.2 (expl. localhost:5200 or decentralweb.com) share room list through message channel (room link from foreign location origin will open blank in the original origin but is listed in the other tab + Notifications shown) [The approach: localhost:4200 opens localhost:5200 via window.open(), then they exchange a MessageChannel port so subsequent messages are direct port-to-port (no origin sniffing needed after the handshake).] Actually, when using an other origin but decentral.ninja, it can open decentral.ninja, quickly get the room list and close the tab or pop-under, for this grab it may is good to have a separate landing point not index.html
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] - End-to-End encryption Part 2:
+  - [ ] Key setting if it can be requested under certain conditions
   - [ ] direct message private- public- key pair encryption
   - [ ] encrypt nickname
   - [ ] update displayed or hidden key-request messages according to uploaded keys

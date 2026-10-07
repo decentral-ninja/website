@@ -66,7 +66,7 @@ export default class How extends Index {
                 <h3>ディーシーエヌの使い方</h3>
                 <hr>
                 <h3>short introduction video</h3>
-                <video src="./src/video/how-short.mp4" autoplay controls muted></video>
+                <video src="${this.importMetaUrl}../../../video/how-short.mp4" autoplay controls muted loop></video>
                 <hr>
                 <h3>anonymous user session vs. identified user session</h3>
                 <p>decentral ninja (DCN) does not use identified user sessions as other messaging apps do. DCN has no central single point of truth and for that can not verify anything but let's users show trust through sharing keys with each other. For each room, DCN let's your browser generate an anonymous user with an unique ID and an unique asynchronous key pair linked to your browser session and stored locally. This means, that you can freely choose a username per room and send, receive end-to-end encrypted synchronous keys. The keys, which can be used through multiple rooms, become your own-trust identification.</p>
