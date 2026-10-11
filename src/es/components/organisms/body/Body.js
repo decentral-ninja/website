@@ -45,12 +45,16 @@ export default class Body extends Shadow() {
       }, 400)
     }
     const scrollTimer = 200
+    let animationId = null
+    let timeoutIdOne = null
+    let timeoutIdTwo = null
     this.mainScrollEventListener = (event, counter = 0) => {
       // onLoad got replaced with better overflow-anchor at molecules/Chat.js
       // keep scroll position until 'load' event + next animation frame
       if (event?.detail?.onLoad) {
+        self.cancelAnimationFrame(animationId)
         const scrollFromBottom = this.main.scrollHeight - this.main.scrollTop
-        self.requestAnimationFrame(timeStamp => (this.main.scrollTop = this.main.scrollHeight - scrollFromBottom))
+        animationId = self.requestAnimationFrame(timeStamp => (this.main.scrollTop = this.main.scrollHeight - scrollFromBottom))
       } else {
         counter++
         const options = {}
@@ -58,13 +62,15 @@ export default class Body extends Shadow() {
         if (!isNaN(event.detail?.y) || event.detail?.y === undefined) options.top = event.detail?.y || this.main.scrollHeight
         options.behavior = event.detail?.behavior || 'smooth'
         this.main.scroll(options)
-        setTimeout(() => {
+        clearTimeout(timeoutIdOne)
+        timeoutIdOne = setTimeout(() => {
           if (((options.left !== undefined && Math.ceil(options.left - this.main.clientWidth) !== this.main.scrollLeft) || (options.top !== undefined && Math.ceil(options.top - this.main.clientHeight) !== this.main.scrollTop)) && counter < 15) {
             this.mainScrollEventListener(event, counter)
           } else {
             this.main.scroll({ ...options, behavior: 'instant' })
             // trying to have scroll down button work more reliable
-            setTimeout(() => this.main.scroll({ ...options, behavior: 'smooth' }), 50)
+            clearTimeout(timeoutIdTwo)
+            timeoutIdTwo = setTimeout(() => this.main.scroll({ ...options, behavior: 'smooth' }), 50)
           }
         }, scrollTimer)
       }
