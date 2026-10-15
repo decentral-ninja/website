@@ -191,7 +191,7 @@ https://tabler.io/icons
 - [x] delete key request if key owner
 - [x] paste files into main input field - open dialog
 - [x] new key uploaded, sort dialog keys
-- [ ] upload dialog share not checked if no webrtc, websocket connection string
+- [x] upload dialog share not checked if no webrtc, websocket connection string
 - [ ] tom kenyon
 - [ ] download/upload room crdt (clean EventDrivenYjs.js/takeSnapshot+takeSnapshotEventListener(Y.encodeStateAsUpdate)+init(Y.applyUpdate) function and make/use a higher order storage controller)
 - [ ] dark mode, use https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mix-blend-mode - difference (src/img/mix-blend-mode-difference.gif)
