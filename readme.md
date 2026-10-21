@@ -271,7 +271,7 @@ https://tabler.io/icons
   - [ ] user can manually change opfs storage limit (opfsMobileQuota + opfsDesktopQuota)
   - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
 - [ ] Provider Part 2:
-  - [ ] fix trystero not showing the connected users reliably
+  - [ ] fix trystero not showing the connected users reliably or replace with: https://github.com/andre-dietrich/y-generic/
   - [ ] overload provider backup triangle warning hint click connect trystero
   - [ ] ipns key as provider
   - [ ] user p2p graph webrtc url string split "," multiple urls and show separate (seen at history users dialog)
