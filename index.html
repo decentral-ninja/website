@@ -86,14 +86,14 @@
   </c-fetch-html>
   <script rel=preload type=module>
     Promise.all([
-      import('./src/es/event-driven-web-components-prototypes/src/FetchHtml.js').then(module => ['c-fetch-html', module.default]),
-      import('./src/es/event-driven-web-components-prototypes/src/FetchCss.js').then(module => ['c-fetch-css', module.default]),
-      import('./src/es/event-driven-web-components-prototypes/src/FetchModules.js').then(module => ['c-fetch-modules', module.default]),
-      import('./src/es/event-driven-web-components-prototypes/src/controllers/Crypto.js').then(module => ['c-crypto', module.default]),
-      import('./src/es/event-driven-web-components-prototypes/src/controllers/Storage.js').then(module => ['c-storage', module.default]),
-      import('./src/es/event-driven-web-components-webtorrent/src/controllers/Ipfs.js').then(module => ['c-ipfs', module.default]),
-      import('./src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js').then(module => ['c-webtorrent', module.default]),
-      import('./src/es/event-driven-web-components-router/src/Router.js').then(module => ['c-router', module.default])
+      import(`./src/es/event-driven-web-components-prototypes/src/FetchHtml.js?${Environment?.version || ''}`).then(module => ['c-fetch-html', module.default]),
+      import(`./src/es/event-driven-web-components-prototypes/src/FetchCss.js?${Environment?.version || ''}`).then(module => ['c-fetch-css', module.default]),
+      import(`./src/es/event-driven-web-components-prototypes/src/FetchModules.js?${Environment?.version || ''}`).then(module => ['c-fetch-modules', module.default]),
+      import(`./src/es/event-driven-web-components-prototypes/src/controllers/Crypto.js?${Environment?.version || ''}`).then(module => ['c-crypto', module.default]),
+      import(`./src/es/event-driven-web-components-prototypes/src/controllers/Storage.js?${Environment?.version || ''}`).then(module => ['c-storage', module.default]),
+      import(`./src/es/event-driven-web-components-webtorrent/src/controllers/Ipfs.js?${Environment?.version || ''}`).then(module => ['c-ipfs', module.default]),
+      import(`./src/es/event-driven-web-components-webtorrent/src/controllers/Webtorrent.js?${Environment?.version || ''}`).then(module => ['c-webtorrent', module.default]),
+      import(`./src/es/event-driven-web-components-router/src/Router.js?${Environment?.version || ''}`).then(module => ['c-router', module.default])
     ]).then(elements => elements.forEach(element => {
       // don't define already existing customElements
       if (element && !customElements.get(element[0])) customElements.define(...element)
