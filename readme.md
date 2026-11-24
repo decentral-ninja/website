@@ -214,6 +214,8 @@ https://tabler.io/icons
   - [ ] tab location.origin.1 (expl. localhost:4200 or decentral.ninja) + tab location.origin.2 (expl. localhost:5200 or decentralweb.com) share room list through message channel (room link from foreign location origin will open blank in the original origin but is listed in the other tab + Notifications shown) [The approach: localhost:4200 opens localhost:5200 via window.open(), then they exchange a MessageChannel port so subsequent messages are direct port-to-port (no origin sniffing needed after the handshake).] Actually, when using an other origin but decentral.ninja, it can open decentral.ninja, quickly get the room list and close the tab or pop-under, for this grab it may is good to have a separate landing point not index.html
 - [x] BugFix, click send button on Iphone contracts the inputField but does not send the message
 - [ ] - End-to-End encryption Part 2:
+  - [ ] Update Key changes even when chat disconnected, see todo at: src/es/chat/es/components/molecules/message/Message.js:L188
+  - [ ] Keys.js support localStorage encrypted keys. deriveKey from user password + salt, encrypt chat-keys localStorage entry with passwordKey and prompt for password accordingly. also, always keep all keys on private vars and don't pass further to UI/UX except for download or special case, may use prompt.
   - [ ] Key setting if it can be requested under certain conditions
   - [ ] direct message private- public- key pair encryption
   - [ ] encrypt nickname
@@ -271,6 +273,7 @@ https://tabler.io/icons
   - [ ] user can manually change opfs storage limit (opfsMobileQuota + opfsDesktopQuota)
   - [ ] OPFS delete Option per room, etc. general Storage management: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API navigator.storage.estimate() or at least info on available storage
 - [ ] Provider Part 2:
+  - [ ] Upload dialog have share checkbox being checked when active (not connected) provider, see todo at: src/es/chat/es/components/molecules/dialogs/UploadDialog.js:L26
   - [ ] fix trystero not showing the connected users reliably or replace with: https://github.com/andre-dietrich/y-generic/
   - [ ] overload provider backup triangle warning hint click connect trystero
   - [ ] ipns key as provider

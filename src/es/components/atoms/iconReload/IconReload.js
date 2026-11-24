@@ -22,7 +22,7 @@ export default class IconReload extends Shadow() {
     let usersTimeoutId = null
     const usersSkipTimeoutClear = 5
     let usersTimeoutCounter = 1
-    this.usersEventListener = async event => {
+    this.usersEventListener = event => {
       lastUsersEventDetail = event.detail
       if (usersTimeoutCounter % usersSkipTimeoutClear) clearTimeout(usersTimeoutId)
       usersTimeoutCounter++
